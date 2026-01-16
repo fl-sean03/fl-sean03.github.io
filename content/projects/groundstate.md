@@ -18,4 +18,4 @@ My PhD thesis integrates directly with this work: building predictive models for
 - Use that understanding to design better materials and qualify them faster
 - Ship products, not papers
 
-This is the bet described in my [thesis](/thesis/): the highest-leverage position is at the intersection of atomic-level understanding and deployment judgment.
+This is the bet described in my [thesis](/writings/thesis/): bridging frontier science and real deployment.

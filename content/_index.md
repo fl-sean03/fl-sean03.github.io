@@ -17,4 +17,4 @@ My work spans national labs, defense programs, and the full arc from early-stage
 
 **Interests:** Autonomous science systems, scientific computing infrastructure, materials qualification, industrial capacity.
 
-[Read my personal thesis →](/thesis/)
+[Read my personal thesis →](/writings/thesis/)
