@@ -1,7 +1,7 @@
 ---
 title: "Groundstate"
 description: "Materials-first venture bridging research and deployed technology"
-date: 2025-01-01
+date: 2025-12-01
 ---
 
 Most materials research never leaves the lab. Not because the science is wrong, but because the path from "this works" to "this works at scale, reliably, for years" is where things die.
