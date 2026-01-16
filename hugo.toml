@@ -7,6 +7,7 @@ title = "Sean Florez"
   author = "Sean P. Florez"
   email = "sean.florez@colorado.edu"
   linkedin = "https://linkedin.com/in/sean-florez"
+  github = "https://github.com/fl-sean03"
 
 [menu]
   [[menu.main]]
@@ -18,8 +19,8 @@ title = "Sean Florez"
     url = "/thesis/"
     weight = 2
   [[menu.main]]
-    name = "Essays"
-    url = "/essays/"
+    name = "Writings"
+    url = "/writings/"
     weight = 3
   [[menu.main]]
     name = "Projects"

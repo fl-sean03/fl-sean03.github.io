@@ -2,4 +2,4 @@
 title: "Projects"
 ---
 
-Things I'm building and have built.
+Selected work that reflects the thesis: bridging atomic-level understanding with real-world deployment.

@@ -211,6 +211,10 @@ body {
   color: var(--accent);
 }
 
+.footer .resume-links {
+  margin-top: 0.5rem;
+}
+
 /* Responsive */
 @media (max-width: 600px) {
   html {
