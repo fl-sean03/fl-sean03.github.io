@@ -16,9 +16,9 @@ Most promising materials never make that transition. Not because they weren't go
 
 The next decade will produce massive opportunities in materials. Not from new discoveries, but from finally closing the gap between what we can invent and what we can deploy. The value isn't in the lab notebooks. It's in getting things out of them.
 
-The people who capture that value won't be the best scientists. They'll be the ones who build the translation layer: the systems, processes, and feedback loops that connect frontier science to engineered systems to real deployment. That layer is where things die, because almost no one builds there.
+The people who capture that value won't be the best scientists. They'll be the ones who build the translation layer: the systems, processes, and feedback loops that connect frontier science to engineered systems to real deployment. That's where things die, because almost no one builds there.
 
-Here's what's underappreciated: the gap between research and deployment isn't a knowledge problem. It's a work problem. Researchers stay in labs - they're incentivized to publish, not deploy. Operators stay in deployment - they don't speak the science. Consultants advise without building - no skin in the game. The translation layer doesn't exist because no one does the unglamorous work of building it: qualification pathways, feedback loops between lab and field, systems that maintain context across both worlds.
+Here's what's underappreciated: the gap between research and deployment isn't a knowledge problem. It's a work problem. Researchers stay in labs - they're incentivized to publish, not deploy. Operators stay in deployment - they don't speak the science. Consultants advise without building - no skin in the game. The bridge doesn't exist because no one does the unglamorous work of building it: qualification pathways, feedback loops between lab and field, systems that maintain context across both worlds.
 
 I believe this is one of the highest-value positions to occupy over the next decade. Not because materials are interesting (though they are), but because this is where constraints bind across every sector that matters.
 
@@ -34,15 +34,15 @@ I'm not a pure academic and I'm not a pure operator. I'm building the position t
 
 Three things make this moment different:
 
-AI is compressing development cycles. Coordination overhead that used to stretch timelines is becoming automatable. But AI doesn't build the translation layer - it makes the absence of one more obvious. You can generate results faster than ever, but they still die in the same gap.
+AI is compressing development cycles. Coordination overhead that used to stretch timelines is becoming automatable. But AI doesn't bridge this gap - it makes the absence of a bridge more obvious. You can generate results faster than ever, but they still die in the same place.
 
 The tools are becoming accessible. Simulation capabilities that required years of specialization are now reachable. This lowers the barrier to doing translation work - if someone actually does it.
 
-Every major sector is converging on materials constraints simultaneously. Energy transition, semiconductor scaling, aerospace advancement, quantum development, defense modernization. Different applications, same underlying bottleneck. The translation layer, once built, has domain-agnostic leverage.
+Every major sector is converging on materials constraints simultaneously. Energy transition, semiconductor scaling, aerospace advancement, quantum development, defense modernization. Different applications, same underlying bottleneck. Domain-agnostic leverage.
 
 ## The bet.
 
-This is where I'm placing my career. Not on a single company or technology, but on building the translation layer between frontier science and real deployment.
+This is where I'm placing my career. Not on a single company or technology, but on bridging frontier science and real deployment.
 
 I'm building this in layers. The PhD gives me the scientific foundation - what happens at interfaces, why systems drift, what the research actually shows. The work with national labs and defense programs gives me the deployment reality - where things fail, what the constraints are, what "working" actually means at scale. Groundstate is where I build the connective tissue - the actual systems that turn research into deployed technology.
 
