@@ -153,8 +153,9 @@ body {
 
 .post-list {
   list-style: none;
-  padding-top: 1.5rem;
-  margin-top: 1.5rem;
+  margin-top: 5rem;
+  border-top: 3px solid red;
+  padding-top: 2rem;
 }
 
 .post-list li {
