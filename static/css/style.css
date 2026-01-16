@@ -1,0 +1,228 @@
+/* Minimal theme inspired by clean personal sites */
+
+:root {
+  --text: #1a1a1a;
+  --text-muted: #666;
+  --accent: #1a3a5f;
+  --bg: #fafafa;
+  --border: #e0e0e0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 18px;
+}
+
+body {
+  font-family: 'EB Garamond', Georgia, serif;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+}
+
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+/* Navigation */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 4rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--accent);
+}
+
+/* Content */
+.content {
+  min-height: 60vh;
+}
+
+/* Home page */
+.home h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--accent);
+}
+
+.home p {
+  margin-bottom: 1.2rem;
+}
+
+.home a {
+  color: var(--accent);
+}
+
+/* Articles */
+.article-header {
+  margin-bottom: 2rem;
+}
+
+.article-header h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.article-header .subtitle {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.article-header .date {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+.article-content {
+  text-align: justify;
+}
+
+.article-content p {
+  margin-bottom: 1.2rem;
+}
+
+.article-content h2,
+.article-content h3 {
+  color: var(--accent);
+  margin: 2rem 0 1rem;
+  font-weight: 600;
+}
+
+.article-content h2 {
+  font-size: 1.3rem;
+}
+
+.article-content h3 {
+  font-size: 1.1rem;
+}
+
+.article-content a {
+  color: var(--accent);
+}
+
+.article-content blockquote {
+  border-left: 2px solid var(--accent);
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* Lists */
+.list h1 {
+  font-size: 1.5rem;
+  color: var(--accent);
+  margin-bottom: 2rem;
+}
+
+.post-list {
+  list-style: none;
+}
+
+.post-list li {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.post-list li:last-child {
+  border-bottom: none;
+}
+
+.post-list a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.post-list a:hover {
+  color: var(--accent);
+}
+
+.post-list time {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+.post-list .description {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.empty {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* Footer */
+.footer {
+  margin-top: 4rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.footer a {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: var(--accent);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  html {
+    font-size: 16px;
+  }
+
+  .nav {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .nav-links {
+    gap: 1rem;
+  }
+}

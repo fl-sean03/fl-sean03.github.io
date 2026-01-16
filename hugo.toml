@@ -1,0 +1,32 @@
+baseURL = "https://fl-sean03.github.io/"
+languageCode = "en-us"
+title = "Sean Florez"
+
+[params]
+  description = "Materials scientist building the bridge between atomic-level understanding and real-world deployment."
+  author = "Sean P. Florez"
+  email = "sean.florez@colorado.edu"
+  linkedin = "https://linkedin.com/in/sean-florez"
+
+[menu]
+  [[menu.main]]
+    name = "About"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "Thesis"
+    url = "/thesis/"
+    weight = 2
+  [[menu.main]]
+    name = "Essays"
+    url = "/essays/"
+    weight = 3
+  [[menu.main]]
+    name = "Projects"
+    url = "/projects/"
+    weight = 4
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
