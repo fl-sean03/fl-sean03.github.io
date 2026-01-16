@@ -46,7 +46,7 @@ This is where I'm placing my career. Not on a single company or technology, but 
 
 I'm building this deliberately. The PhD gives me the scientific foundation: what happens at interfaces, why systems drift, what the research actually shows. The work with national labs and defense programs gives me the deployment reality: where things fail, what the constraints are, what "working" actually means at scale. The next step is the industrial middle, where I can see firsthand how production capability gets built and where scale-up breaks down.
 
-The specifics will evolve. The underlying thesis is that materials translation is the binding constraint, and most discoveries die not because they couldn't work, but because no one does the work of making them work. I'm doing that work.
+The specifics will evolve. The underlying thesis is that materials translation is the binding constraint. Most discoveries die not because they couldn't work, but because no one builds the bridge to make them work. That's where I'm focused.
 
 ---
 
