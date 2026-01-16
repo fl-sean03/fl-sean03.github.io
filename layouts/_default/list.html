@@ -7,8 +7,10 @@
   <ul class="post-list">
     {{ range .Pages.ByDate.Reverse }}
     <li>
-      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-      {{ if .Date }}<time>{{ .Date.Format "Jan 2006" }}</time>{{ end }}
+      <div class="entry-header">
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        {{ if .Date }}<time>{{ .Date.Format "Jan 2006" }}</time>{{ end }}
+      </div>
       {{ with .Description }}<p class="description">{{ . }}</p>{{ end }}
     </li>
     {{ end }}

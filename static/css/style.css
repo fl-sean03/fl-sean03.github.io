@@ -148,29 +148,41 @@ body {
 .list h1 {
   font-size: 1.5rem;
   color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.list > p {
+  color: var(--text-muted);
   margin-bottom: 2rem;
 }
 
 .post-list {
   list-style: none;
-  margin-top: 5rem;
-  padding-top: 2rem;
 }
 
 .post-list li {
-  margin-bottom: 1.5rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid var(--border);
+  margin-bottom: 1.25rem;
+  padding: 1rem 0 1.25rem 1rem;
+  border-left: 2px solid transparent;
+  transition: border-color 0.2s ease;
 }
 
-.post-list li:last-child {
-  border-bottom: none;
+.post-list li:hover {
+  border-left-color: var(--accent);
+}
+
+.post-list .entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
 }
 
 .post-list a {
   color: var(--text);
   text-decoration: none;
   font-weight: 500;
+  font-size: 1.05rem;
 }
 
 .post-list a:hover {
@@ -178,16 +190,16 @@ body {
 }
 
 .post-list time {
-  display: block;
   color: var(--text-muted);
-  font-size: 0.85rem;
-  margin-top: 0.25rem;
+  font-size: 0.8rem;
+  white-space: nowrap;
 }
 
 .post-list .description {
   color: var(--text-muted);
   font-size: 0.9rem;
-  margin-top: 0.5rem;
+  margin-top: 0.4rem;
+  line-height: 1.5;
 }
 
 .empty {
