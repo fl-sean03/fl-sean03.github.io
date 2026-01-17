@@ -70,14 +70,13 @@ body {
 }
 
 /* Home page */
-.home .headshot {
+.home .profile-photo {
   display: block;
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin: 0 auto 1.5rem;
-  border: 3px solid var(--border);
+  max-width: 280px;
+  width: 100%;
+  border-radius: 6px;
+  margin: 0 auto 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .home h1 {

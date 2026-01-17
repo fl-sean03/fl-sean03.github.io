@@ -2,7 +2,7 @@
 title: "Sean P. Florez"
 ---
 
-<img src="/images/headshot.jpg" alt="Sean P. Florez" class="headshot">
+<img src="/images/profile.jpg" alt="Sean P. Florez at Golden Gate Bridge" class="profile-photo">
 
 # Sean P. Florez
 
