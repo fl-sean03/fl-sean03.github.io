@@ -70,11 +70,27 @@ body {
 }
 
 /* Home page */
+.home .headshot {
+  display: block;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 1.5rem;
+  border: 3px solid var(--border);
+}
+
 .home h1 {
   font-size: 1.8rem;
   font-weight: 600;
   margin-bottom: 1.5rem;
   color: var(--accent);
+  text-align: center;
+}
+
+.home h1 + p {
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 .home p {

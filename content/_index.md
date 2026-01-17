@@ -2,6 +2,8 @@
 title: "Sean P. Florez"
 ---
 
+<img src="/images/headshot.jpg" alt="Sean P. Florez" class="headshot">
+
 # Sean P. Florez
 
 Ph.D. Candidate, Materials Science & Engineering
