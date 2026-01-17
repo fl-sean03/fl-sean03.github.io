@@ -6,7 +6,7 @@ title: "Sean P. Florez"
 
 # Sean P. Florez
 
-Ph.D. Candidate, Materials Science & Engineering
+Materials Science & Engineering
 University of Colorado Boulder
 
 I study where materials fail. Specifically at interfaces, the boundaries where different materials meet. This is where most advanced systems break down. It's also where academic expertise and manufacturing reality diverge most sharply.
