@@ -28,13 +28,13 @@ Not AI that does science. AI that handles the mechanics so scientists can focus 
 
 This isn't about replacing scientists. It's about removing the friction that prevents them from doing what they're actually good at. The strategic thinking, the intuition for what matters, the ability to see patterns across domains—that's human. The parameter file formatting and job queue monitoring and output parsing—that's infrastructure.
 
-## What this looks like.
+## What this looks like in practice.
 
-I've been building toward this with a project called [Agentic Science Worker](/projects/agentic-science-worker/). It's an autonomous system that handles the full execution layer of computational materials research: molecular dynamics, density functional theory, literature search, materials database queries, HPC job orchestration.
+An autonomous system that can take a research question and handle the full loop: search the literature for relevant methods, extract simulation parameters, configure and run the computation, validate results against published benchmarks, and surface what matters for the next iteration.
 
 The system doesn't guess. It validates against published results. It documents its reasoning. It maintains scientific standards while removing the friction that makes those standards expensive to uphold.
 
-But the specific implementation matters less than the thesis: that autonomous execution infrastructure will reshape how computational science gets done. Not by replacing the scientist, but by changing the rate at which they can iterate.
+The researcher stays in the loop on direction. The system handles execution. Rigor is preserved. Cycle time collapses.
 
 ## The connection to materials.
 
@@ -60,9 +60,11 @@ The infrastructure that closes this gap will be foundational. Whoever builds it 
 
 ## The bet.
 
-I'm building autonomous science infrastructure because I think it's one of the highest-leverage positions in technical work right now. Not because it's novel, but because it's necessary. The execution layer is where work dies. Building there is how you make everything else move faster.
+I think autonomous science infrastructure is one of the highest-leverage positions in technical work right now. Not because it's novel, but because it's necessary. The execution layer is where work dies. Building there is how you make everything else move faster.
 
 The specific systems will evolve. The underlying thesis is that the gap between what we can compute and what we actually learn from computing is an infrastructure problem. And infrastructure problems have infrastructure solutions.
+
+This is where I'm focused. I'm actively building systems that embody this thesis—you can see what that looks like in practice [on GitHub](https://github.com/fl-sean03/agentic-science-worker).
 
 ---
 
