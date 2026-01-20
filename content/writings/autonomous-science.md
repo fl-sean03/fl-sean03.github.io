@@ -64,6 +64,8 @@ The infrastructure that closes this gap will be foundational. Whoever builds it 
 
 ---
 
+&nbsp;
+
 I think autonomous science infrastructure is one of the highest-leverage positions in technical work right now. Not because it's novel, but because it's necessary. The execution layer is where work dies. Building there is how you make everything else move faster.
 
 This is where I'm focused. I'm actively building systems that embody this thesis. You can see what that looks like in practice [on GitHub](https://github.com/fl-sean03/agentic-science-worker).
