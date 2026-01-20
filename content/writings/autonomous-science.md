@@ -14,6 +14,8 @@ This is the hidden throttle on discovery. Not funding. Not compute. Not talent. 
 
 ---
 
+## Cycle time
+
 In research, the person who tests ten hypotheses while someone else tests one doesn't just move faster. They learn faster. They find things others miss. They develop intuition that can't be taught.
 
 Most of what separates productive researchers from unproductive ones isn't brilliance. It's cycle time. How quickly they can go from question to answer to next question.
@@ -27,6 +29,8 @@ Not AI that does science. AI that handles the mechanics so scientists can focus 
 This isn't about replacing scientists. It's about removing the friction that prevents them from doing what they're actually good at. The strategic thinking, the intuition for what matters, the ability to see patterns across domains. That's human. The tedious, repetitive overhead that stretches timelines. That's infrastructure.
 
 ---
+
+## What I see
 
 I work in materials science. What I see: brilliant people generating results that should compound but don't. One researcher discovers something. Somewhere, another has found something related. Neither knows about the other. Or they do, but the overhead of connecting the work is too high, so it doesn't happen.
 
