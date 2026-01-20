@@ -19,6 +19,8 @@ Agentic Science Worker is my attempt to remove that overhead. Built on Claude Co
 
 &nbsp;
 
+&nbsp;
+
 The system doesn't guess. It validates against published results. It documents its reasoning. It maintains scientific standards while removing the friction that makes those standards expensive to uphold.
 
 I built an 11-tier benchmark framework to evaluate it, from single-tool tasks through frontier HPC+ML hybrid workflows. Full logging, full reproducibility. If it can't be verified, it doesn't count.
