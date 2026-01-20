@@ -20,7 +20,7 @@ In research, the person who tests ten hypotheses while someone else tests one do
 
 Most of what separates productive researchers from unproductive ones isn't brilliance. It's cycle time. How quickly they can go from question to answer to next question.
 
-The tools have gotten better. Simulations run faster. Databases are more accessible. Literature is searchable. But the integration layer, the work of connecting these pieces into a coherent loop, remains manual. Every researcher reinvents it. Most do it badly.
+The tools have gotten better. Simulations run faster. Databases are more accessible. Literature is searchable. But the work of connecting these pieces into a coherent loop remains manual. Every researcher reinvents it. Most do it badly.
 
 ## The opportunity.
 
@@ -44,19 +44,17 @@ I work in materials science. What I see: brilliant people generating results tha
 
 The field isn't short on data. It's short on integration. Papers cite each other without building on each other. Results get validated once and then drift from what others are finding.
 
-My broader [thesis](/writings/thesis/) is about bridging the gap between frontier science and real deployment. Most materials discoveries die not because they couldn't work, but because no one builds the translation layer.
+My broader [thesis](/writings/thesis/) is about bridging the gap between frontier science and real deployment. Most materials discoveries die not because they couldn't work, but because no one does the work of making them work at scale.
 
 This is the same pattern, applied earlier in the pipeline. Before you can translate a discovery, you have to make it. And the rate of discovery is throttled by execution overhead.
 
 Both are places where work dies from friction, not from being wrong. Both are infrastructure problems masquerading as talent problems. Both are under-built because they're unglamorous.
 
-I'm building for both.
-
 ## The window.
 
 Three things make this moment different:
 
-**Language models can reason about scientific workflows.** Not perfectly. But well enough to handle the integration layer, connecting tools, processing outputs, pulling information from papers. This was impossible two years ago.
+**Language models can reason about scientific workflows.** Not perfectly. But well enough to connect tools, process outputs, and pull information from papers. This was impossible two years ago.
 
 **Scientific tools are becoming programmable.** Databases have APIs. Computing resources are accessible on demand. The pieces exist. They just need to be orchestrated.
 
