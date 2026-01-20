@@ -8,9 +8,13 @@ date: 2026-01-20
 
 Science doesn't move at the speed of insight. It moves at the speed of execution.
 
-A researcher has a hypothesis. To test it, they need to find relevant papers, extract parameters, configure a simulation, submit it to a cluster, wait, parse the output, validate against known results, decide what to run next. Each step is tractable. Strung together across weeks and months, they determine how many questions actually get asked.
+On the computational side, a researcher has a hypothesis. To test it, they need to find relevant papers, extract parameters, configure a simulation, submit it to a cluster, wait, parse the output, validate against known results, decide what to run next. Each step is tractable. Strung together across weeks and months, they determine how many questions actually get asked.
 
-This is the hidden throttle on discovery. Not funding. Not compute. Not talent. The human overhead of running the loop.
+On the experimental side, the overhead is different but the pattern is the same. Sample prep, instrument scheduling, characterization queues, data processing, comparison to literature. Experimentalists spend more time on logistics than on the science itself.
+
+And then there's the gap between the two. Computational predictions that never get validated. Experimental observations that never get explained. Two communities generating results that should inform each other, but don't, because the translation overhead is too high.
+
+This is the hidden throttle on discovery. Not funding. Not compute. Not talent. The human overhead of running the loop—and the loops not talking to each other.
 
 ## Iteration rate is everything.
 
@@ -38,9 +42,15 @@ The researcher stays in the loop on direction. The system handles execution. Rig
 
 ## The connection to materials.
 
+I work in materials science. Computational by training, but I've spent enough time with experimentalists to see the full picture.
+
+What I see: brilliant people on both sides, generating results that should compound but don't. A simulation predicts a phase transition. Somewhere, an experimentalist has measured it. Neither knows about the other. Or they do, but the overhead of cross-validating is too high, so it doesn't happen.
+
+The field isn't short on data. It's short on integration. Papers cite each other without building on each other. Computational models get validated once and then drift from what's being measured. Experimental observations get reported without connection to the physics that could explain them.
+
 My broader [thesis](/writings/thesis/) is about bridging the gap between frontier science and real deployment. Most materials discoveries die not because they couldn't work, but because no one builds the translation layer.
 
-This is the same pattern, applied earlier in the pipeline. Before you can translate a discovery, you have to make it. And the rate of discovery is throttled by execution overhead.
+This is the same pattern, applied earlier in the pipeline. Before you can translate a discovery, you have to make it. And the rate of discovery is throttled by execution overhead—within each community and between them.
 
 Both are places where work dies from friction, not from being wrong. Both are infrastructure problems masquerading as talent problems. Both are under-built because they're unglamorous.
 
