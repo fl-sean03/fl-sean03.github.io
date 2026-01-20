@@ -48,7 +48,7 @@ My broader [thesis](/writings/thesis/) is about bridging the gap between frontie
 
 This is the same pattern, applied earlier in the pipeline. Before you can translate a discovery, you have to make it. And the rate of discovery is throttled by execution overhead.
 
-Both are places where work dies from friction, not from being wrong. Both are infrastructure problems masquerading as talent problems. Both are under-built because they're unglamorous.
+Both are places where work dies from friction, not from being wrong. Both are infrastructure problems masquerading as talent problems. Both are under-built because they don't produce papers. They just make other work possible.
 
 ## Why now.
 
