@@ -42,6 +42,8 @@ Both are infrastructure problems masquerading as talent problems. Both are under
 
 ---
 
+&nbsp;
+
 This moment is different because language models can now reason about scientific workflows well enough to connect tools, process outputs, and pull information from papers. The pieces exist. They just need to be orchestrated.
 
 AI is accelerating the generation of results faster than humans can process them. The bottleneck is shifting from "can we compute this" to "can we even run the loop fast enough to learn from what we compute."
