@@ -22,7 +22,7 @@ Most of what separates productive researchers from unproductive ones isn't brill
 
 The tools have gotten better. Simulations run faster. Databases are more accessible. Literature is searchable. But the work of connecting these pieces into a coherent loop remains manual. Every researcher reinvents it. Most do it badly.
 
-## The opportunity.
+## What if that changed?
 
 What if the execution layer of science was infrastructure, not labor?
 
@@ -30,7 +30,7 @@ Not AI that does science. AI that handles the mechanics so scientists can focus 
 
 This isn't about replacing scientists. It's about removing the friction that prevents them from doing what they're actually good at. The strategic thinking, the intuition for what matters, the ability to see patterns across domains. That's human. The tedious, repetitive overhead that stretches timelines. That's infrastructure.
 
-## What this looks like in practice.
+## In practice.
 
 An autonomous system that can take a research question and handle the full loop: find what's been done before, set up the analysis, run it, check the results against what's known, and surface what matters for the next step.
 
@@ -38,7 +38,7 @@ The system doesn't guess. It validates against published results. It documents i
 
 The researcher stays in the loop on direction. The system handles execution. Rigor is preserved. Cycle time collapses.
 
-## The connection to materials.
+## Where I see this.
 
 I work in materials science. What I see: brilliant people generating results that should compound but don't. One researcher discovers something. Somewhere, another has found something related. Neither knows about the other. Or they do, but the overhead of connecting the work is too high, so it doesn't happen.
 
@@ -50,7 +50,7 @@ This is the same pattern, applied earlier in the pipeline. Before you can transl
 
 Both are places where work dies from friction, not from being wrong. Both are infrastructure problems masquerading as talent problems. Both are under-built because they're unglamorous.
 
-## The window.
+## Why now.
 
 Three things make this moment different:
 
@@ -62,14 +62,10 @@ Three things make this moment different:
 
 The infrastructure that closes this gap will be foundational. Whoever builds it captures the iteration advantage across every field that depends on science.
 
-## The bet.
+---
 
 I think autonomous science infrastructure is one of the highest-leverage positions in technical work right now. Not because it's novel, but because it's necessary. The execution layer is where work dies. Building there is how you make everything else move faster.
 
-The specific systems will evolve. The underlying thesis is that the gap between what we can compute and what we actually learn from computing is an infrastructure problem. And infrastructure problems have infrastructure solutions.
-
 This is where I'm focused. I'm actively building systems that embody this thesis. You can see what that looks like in practice [on GitHub](https://github.com/fl-sean03/agentic-science-worker).
-
----
 
 *If you're working on related problems, I'd like to hear from you.*
