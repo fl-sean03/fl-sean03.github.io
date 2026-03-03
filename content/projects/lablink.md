@@ -19,4 +19,6 @@ We submitted a proposal under DOE's Clean Energy Careers for All initiative, des
 
 This project applies the same thesis I hold for materials: the value is in translation and connection, not just in generating more supply. There are enough students and enough opportunities. The gap is in matching them.
 
+LabLink now runs agent-powered operations through a dedicated autonomous agent with Slack integration. It extends what the team can do without scaling headcount.
+
 [lablinkinitiative.org](https://lablinkinitiative.org)
