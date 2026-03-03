@@ -21,13 +21,3 @@ My work spans national labs, defense programs, and the full arc from early-stage
 
 [Read my personal thesis →](/writings/thesis/)
 
----
-
-<div class="twitter-feed">
-<a class="twitter-timeline"
-   data-height="500"
-   data-theme="light"
-   data-chrome="noheader nofooter noborders transparent"
-   href="https://twitter.com/seanf1orez">Posts by @seanf1orez</a>
-<script async src="https://platform.twitter.com/widgets.js"></script>
-</div>

@@ -244,13 +244,6 @@ body {
   margin-top: 0.5rem;
 }
 
-/* Twitter Feed */
-.home .twitter-feed {
-  margin-top: 1rem;
-  border-radius: 6px;
-  overflow: hidden;
-}
-
 /* Responsive */
 @media (max-width: 600px) {
   html {
