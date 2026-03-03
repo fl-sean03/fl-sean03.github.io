@@ -28,6 +28,6 @@ My work spans national labs, defense programs, and the full arc from early-stage
    data-height="500"
    data-theme="light"
    data-chrome="noheader nofooter noborders transparent"
-   href="https://x.com/seanf1orez">Posts by @seanf1orez</a>
+   href="https://twitter.com/seanf1orez">Posts by @seanf1orez</a>
 <script async src="https://platform.twitter.com/widgets.js"></script>
 </div>
