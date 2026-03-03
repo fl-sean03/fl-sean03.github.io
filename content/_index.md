@@ -20,3 +20,14 @@ My work spans national labs, defense programs, and the full arc from early-stage
 **Interests:** Autonomous science systems, scientific computing infrastructure, materials qualification, industrial capacity.
 
 [Read my personal thesis →](/writings/thesis/)
+
+---
+
+<div class="twitter-feed">
+<a class="twitter-timeline"
+   data-height="500"
+   data-theme="light"
+   data-chrome="noheader nofooter noborders transparent"
+   href="https://x.com/seanf1orez">Posts by @seanf1orez</a>
+<script async src="https://platform.twitter.com/widgets.js"></script>
+</div>

@@ -1,22 +1,33 @@
 ---
 title: "Groundstate"
-description: "Materials-first venture bridging research and deployed technology"
+description: "Full-stack generational materials company"
 date: 2025-12-01
 draft: true
 ---
 
-Most materials research never leaves the lab. Not because the science is wrong, but because the path from "this works" to "this works at scale, reliably, for years" is where things die.
+Most materials value leaks at handoffs. Researchers publish and move on. Manufacturers buy commodity inputs. Integrators troubleshoot failures they don't understand. No one owns the full pipeline from discovery to deployment.
 
-Groundstate is my attempt to close that gap. It's a Design-Make-Measure-Learn-Scale enterprise focused on shipping materials-based technology, not just publishing about it.
+Groundstate is a full-stack generational materials company. The vision: vertically integrate the entire materials lifecycle - research, design, scale-up, integration, manufacturing, and end-use application. Capture the value that leaks at every handoff by owning the science AND the deployment.
 
-The first focus area is thermal interface materials (TIMs). These are the layers between heat sources and heat sinks in electronics, power systems, and industrial equipment. They're critical for reliability, and they drift over time in ways that are poorly understood.
+**The Thesis:**
+The constraint on hard tech isn't discovery - it's translation. The path from "this works in the lab" to "this works at scale, reliably, for years" is where promising technology dies. Most materials companies focus on one slice of this stack. Groundstate aims to own the full pipeline.
 
-My PhD thesis integrates directly with this work: building predictive models for interface stability under thermal cycling, connecting molecular-scale physics to macro-scale drift mechanisms.
+**The Beachhead:**
+Thermal interface materials (TIMs) - the layers between heat sources and heat sinks in electronics, power systems, and industrial equipment. They're critical for reliability, drift over time in poorly understood ways, and represent a tractable problem space to prove the full-stack model works.
 
-**The approach:**
+My PhD thesis integrates directly: building predictive models for interface stability under thermal cycling, connecting molecular-scale physics to macro-scale drift mechanisms.
+
+**The Approach:**
 - Start with a real deployment problem (TIM reliability under cycling)
 - Build the scientific understanding needed to predict behavior
 - Use that understanding to design better materials and qualify them faster
-- Ship products, not papers
+- Own the full loop: research → design → scale-up → integration → manufacturing → end-use
+- Once validated in TIMs, expand the methodology to other materials domains
 
-This is the bet described in my [thesis](/writings/thesis/): bridging frontier science and real deployment.
+**Why Full-Stack:**
+- Capture value at every stage instead of watching it leak at handoffs
+- Feedback loops between deployment and research accelerate learning
+- Control quality and reliability end-to-end
+- Build institutional knowledge that compounds across materials domains
+
+This is the bet described in my [thesis](/writings/thesis/): not just bridging frontier science and real deployment, but owning the entire translation layer.
