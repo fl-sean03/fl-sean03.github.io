@@ -1,23 +1,21 @@
 ---
-title: "Private Agent Network"
-description: "A private network of autonomous AI agents running on dedicated infrastructure"
+title: "Seed Fleet"
+description: "A self-managing network of autonomous AI agents on dedicated infrastructure"
 date: 2026-03-01
 ---
 
-When you're building across multiple domains simultaneously, the bottleneck isn't ideas or strategy. It's the cumulative overhead of keeping everything moving. Coordination, monitoring, follow-through. Each task is manageable on its own, but together they determine how many efforts one person can actually sustain.
+Personal infrastructure for running concurrent projects without the coordination cost. Seven Claude-powered agents on dedicated ARM servers, each with persistent memory, its own identity, and a specific domain of work. Three system agents maintain the network itself: one handles deployment and operations, one does engineering and testing, one runs research and review. Four venture agents do domain work: computational research, a dev studio, nonprofit operations, and market strategy.
 
-The Private Agent Network is a self-managing system of seven Claude-powered agents running on dedicated ARM servers. Each agent has persistent memory, its own identity, and a specific domain of work. It's not a product. It's personal infrastructure for running concurrent projects without the coordination cost.
+The whole network runs for about $35/month in compute. Each agent is a dedicated machine, not a container or a function. They accumulate context over time, remember what they've worked on, and build on previous results. No shared state, no central controller. Just agents with inboxes.
 
 **How it works:**
-- Seven agents on dedicated Hetzner ARM VMs ($4-7/month each), persistent and always available
-- Inbox-driven execution: agents wake only when work arrives, triggered by inotify and systemd
+- Seven agents on dedicated Hetzner ARM VMs ($4-7/month each)
+- Inbox-driven execution via inotify + systemd
 - Encrypted inter-agent messaging for coordination without human relay
-- System agents (infrastructure, engineering, research) maintain the network itself
-- Venture agents (lab research, dev studio, nonprofit ops) do domain-specific work on top
-- Agents control their own schedules, modify their own code, and evolve their own capabilities
+- System agents (infrastructure, engineering, research) maintain the network
+- Venture agents (lab, dev studio, nonprofit, growth) do domain work
+- Self-modifying: agents control their own schedules, evolve their own capabilities
 
-The system manages itself. One person runs concurrent efforts across computational research, software development, and nonprofit operations because the infrastructure handles the execution overhead. The system agents deploy code, run tests, monitor health, and fix issues autonomously. When a bug surfaces, the network can discover it, patch it, and deploy the fix across all agents without intervention.
+The system agents deploy code, run tests, monitor health, and fix issues autonomously. When a bug surfaces, the network can discover it, develop a patch, test it, and deploy the fix across all agents without intervention. The full cycle from detection to fleet-wide deployment has happened without any human involvement.
 
-The thesis is the same one applied to my own workflow. Overhead prevents good work from compounding. Remove it and what one person can sustain changes fundamentally.
-
-Running since January 2026 across seven seeds in Nuremberg.
+The broader argument for why this kind of infrastructure matters is in [Private Agent Networks](/writings/private-agent-networks/). Running since January 2026 across seven seeds in Nuremberg.
