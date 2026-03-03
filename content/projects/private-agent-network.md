@@ -23,4 +23,4 @@ The fleet manages its own code. Platform Seed develops changes in a shared infra
 
 New agents can be provisioned autonomously. Fleet Ops holds a Hetzner API token and a provisioning script. It can create a new VM, install the base seed template, configure networking, register the agent with the fleet, and bring it online. The process takes about fifteen minutes.
 
-The broader argument for why this kind of infrastructure matters is in [Private Agent Networks](/writings/private-agent-networks/). Running since January 2026 across seven seeds in Nuremberg.
+The broader argument for why this kind of infrastructure matters is in [Private Agent Networks](/writings/private-agent-networks/). See the fleet running live at [fleet.seanflorez.com](https://fleet.seanflorez.com). Running since January 2026 across seven seeds in Nuremberg.
