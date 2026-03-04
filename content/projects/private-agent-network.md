@@ -17,19 +17,31 @@ Compute runs about $35/month across seven Hetzner ARM VMs. The LLM runtime is se
 - Self-scheduling: agents manage their own crontabs, dropping trigger files into their own inboxes
 - Self-modifying: agents can rewrite their own prompts, adjust their own capabilities, evolve their own workflows
 
-**Fleet Ops** //Deployment authority. Holds the Hetzner API token, provisions new agents from scratch in fifteen minutes, and deploys infrastructure updates across every server. Pulls from the shared code repo every two hours, runs a three-level test suite, and rolls out changes fleet-wide. First responder when something breaks.
+**Fleet Ops** is the deployment authority. It holds the Hetzner API token, provisions new agents from scratch in fifteen minutes, and deploys infrastructure updates across every server. Pulls from the shared code repo every two hours, runs a three-level test suite, and rolls out changes fleet-wide. First responder when something breaks.
 
-**Platform Seed** //Engineering. Owns the fleet-infra repo and develops everything the other agents run on: the agent wrapper, the inbox execution model, the messaging API, the test framework, the deployment tooling. Designs new capabilities, builds them, hands them to Fleet Ops for deployment.
+&nbsp;
 
-**Research Lab** //Review and experimentation. Reviews every infrastructure change before it ships. Runs controlled experiments on agent architecture, validates fleet health, tracks external developments in models and tooling. The network's quality gate.
+**Platform Seed** develops everything the other agents run on. It owns the fleet-infra repo: the agent wrapper, the inbox execution model, the messaging API, the test framework, the deployment tooling. Designs new capabilities, builds them, hands them to Fleet Ops for deployment.
 
-**Lab Agent** //Computational materials research. Literature extraction, simulation configuration, result validation against published benchmarks. Delegates complex work to dedicated project agents. Completed a seven-phase, publication-ready research workflow autonomously. [More on the Heinz Lab Agent →](/projects/heinz-lab-agent/)
+&nbsp;
 
-**OpSpawn** //Software development studio. Builds products end-to-end with its own sub-agent loops for parallel development. About 48 build cycles per day. Handles its own project management, testing, and deployment. [More on OpSpawn →](/projects/opspawn/)
+**Research Lab** is the quality gate. It reviews every infrastructure change before it ships, runs controlled experiments on agent architecture, validates fleet health, and tracks external developments in models and tooling. Nothing gets deployed fleet-wide without its sign-off.
 
-**LabLink** //Nonprofit operations. Manages web properties, content, outreach, and organizational coordination for a nonprofit connecting labs with shared infrastructure. Multiple live sites and a Slack presence for community engagement. [More on LabLink →](/projects/lablink/)
+&nbsp;
 
-**Growth Agent** //Strategy and market research. Content production, affiliate programs, and public web properties. Maintains a live site with original analysis. Handles the outward-facing work that system agents don't touch.
+**Lab Agent** handles computational materials research. Literature extraction, simulation configuration, result validation against published benchmarks. Delegates complex work to dedicated project agents. Completed a seven-phase, publication-ready research workflow autonomously. [More on the Heinz Lab Agent](/projects/heinz-lab-agent/)
+
+&nbsp;
+
+**OpSpawn** is a software development studio. Builds products end-to-end with its own sub-agent loops for parallel development. About 48 build cycles per day. Handles its own project management, testing, and deployment. [More on OpSpawn](/projects/opspawn/)
+
+&nbsp;
+
+**LabLink** runs nonprofit operations. Manages web properties, content, outreach, and organizational coordination for a nonprofit connecting labs with shared infrastructure. Multiple live sites and a Slack presence for community engagement. [More on LabLink](/projects/lablink/)
+
+&nbsp;
+
+**Growth Agent** manages strategy and market research. Content production, affiliate programs, and public web properties. Maintains a live site with original analysis. Handles the outward-facing work that system agents don't touch.
 
 The fleet manages its own code. Platform Seed develops changes. Fleet Ops pulls, tests, and deploys. When a bug surfaces anywhere in the network, the system agents can discover it, develop a patch, test it, and roll it out fleet-wide. This full cycle, from detection through deployment, has completed without any human involvement. The agents found the bug, wrote the fix, verified it, and shipped it to every server in under four hours.
 
