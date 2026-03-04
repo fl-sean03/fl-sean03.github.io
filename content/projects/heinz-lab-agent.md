@@ -14,13 +14,15 @@ Autonomous research agent for the Heinz Interfaces Laboratory, a computational m
 - Structure utilities: CIF/POSCAR I/O, supercell generation, analysis (ASE-based)
 - Persistent memory: 37 knowledge files covering people, projects, infrastructure, research themes, lessons learned
 
+&nbsp;
+
 **Multi-agent delegation.** The lab agent spawns dedicated project agents for long-running complex work. The axiom-agent built a production molecular visualization tool across 72 hours of continuous autonomous development (React/TypeScript frontend, direct WebGL renderer, CIF/XYZ/PDB parsing, PNG/PDB/CIF export). Other project agents are scoped for MLIP validation, trajectory analysis automation, and experimental data pipelines connecting DFT predictions to XRD, DSC, and other characterization measurements.
 
 **What it's shipped:**
-- [axiom-gui](https://github.com/Heinz-Laboratory/axiom-gui): High-performance web-based molecular structure visualization. Production-grade WebGL renderer with multi-format support. Public.
-- perovskite-iff-autoparameterization: Automated IFF parameterization pipeline for hybrid organic-inorganic perovskites. CIF input to validated force field output. Private.
-- lab-agent-infrastructure: Full system state backup and disaster recovery for the agent. Memory, scripts, config, conversation history. Private.
-- heinz-lab-website: Lab website built in Astro. Private.
+- [axiom-gui](https://github.com/Heinz-Laboratory/axiom-gui): High-performance web-based molecular structure visualization. Production-grade WebGL renderer with multi-format support.
+- perovskite-iff-autoparameterization: Automated IFF parameterization pipeline for hybrid organic-inorganic perovskites. CIF input to validated force field output.
+- lab-agent-infrastructure: Full system state backup and disaster recovery for the agent. Memory, scripts, config, conversation history.
+- heinz-lab-website: Lab website built in Astro.
 
 **Completed a seven-phase publication-ready research workflow autonomously.** Hypothesis formulation through literature review, simulation configuration, execution, result validation against published benchmarks, analysis, and formatted manuscript. Full logging and reproducibility at every step.
 
