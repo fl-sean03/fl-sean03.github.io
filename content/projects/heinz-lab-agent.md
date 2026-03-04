@@ -1,25 +1,21 @@
 ---
 title: "Heinz Lab Agent"
-description: "Autonomous AI infrastructure for a computational materials science research lab"
+description: "Turning a computational materials science group into an agent-native research lab"
 date: 2026-02-20
 ---
 
-Every research lab runs the same loop. Read the literature. Set up the experiment. Run it. Analyze the results. Decide what to run next. The science is in the decisions. Everything else is overhead, and it consumes most of the day. In a computational materials science lab, that overhead is configuration files, job submission, convergence checks, parameter extraction from papers, data reformatting between tools. Each step is trivial. Together, they determine how many questions the lab actually asks.
+A research agent in my PI's computational materials science group completed a seven-phase workflow autonomously. It formulated a hypothesis, pulled parameters from the literature, configured and ran simulations, validated results against published benchmarks, analyzed the data, and produced a formatted manuscript. Full logging at every step. No human in the loop until the final review.
 
-The Heinz Lab Agent is a persistent autonomous agent running on the [Seed Fleet](/projects/private-agent-network/) that handles research execution for my PI's computational materials science group. It inherits its scientific capabilities from the [Agentic Science Worker](/projects/agentic-science-worker/) toolkit and runs them as always-on infrastructure rather than tools you invoke. It wakes when work arrives, executes, and goes quiet. The lab doesn't interact with it like a chatbot. It operates like a system.
+That was the proof of concept. What's being built now is the infrastructure around it.
 
-**What it does:**
-- Molecular dynamics via LAMMPS and density functional theory via Quantum ESPRESSO
-- Literature extraction: pulls parameters, methods, and benchmarks from papers
-- Simulation setup: writes input files, configures jobs, submits to HPC clusters
-- Result validation against published data, with full documentation of reasoning
-- Slack integration for the research group: status updates, result summaries, question handling
-- Custom tooling: building an atomic structure viewer and other lab-specific utilities
+The agent runs on the [Seed Fleet](/projects/private-agent-network/) and inherits its scientific capabilities from the [Agentic Science Worker](/projects/agentic-science-worker/) toolkit. It sits in the lab's Slack, answers questions, summarizes results, monitors HPC jobs, and scans the literature weekly for papers relevant to the group's research. But the interesting part isn't what the agent does alone. It's what happens when it starts delegating.
 
-The agent completed a seven-phase, publication-ready research workflow autonomously. Hypothesis formulation through simulation execution through analysis to a formatted manuscript. Full logging, full reproducibility. It validates against known results at every step because in computational science, a wrong answer that looks right is worse than no answer at all.
+The agent spawns dedicated project agents for complex, long-running work. One built a production molecular visualization tool over 72 hours of continuous autonomous development. Others are scoped for MLIP validation (automated "can I trust this potential?" testing against DFT and experiment), trajectory analysis (turning days of manual post-processing into minutes), and experimental data pipelines that connect computational predictions back to XRD, DSC, and other lab measurements. The agent coordinates all of them: assigning work, tracking progress, recovering when something fails.
 
-What makes this different from a one-off script or a ChatGPT session is persistence. The agent accumulates context over weeks and months. It remembers which parameters work for which systems, which simulation approaches failed and why, which papers matter for which questions. When a new student joins the lab, that knowledge is structured, searchable, and connected to the tools where the work happens. It doesn't leave when a senior student graduates.
+The roadmap goes further. Autonomous materials screening campaigns that evaluate hundreds of candidate structures against target properties. Active learning loops that propose new configurations, run DFT, retrain interatomic potentials, and iterate. A lab data warehouse where every simulation the group has ever run is indexed and searchable, so no one reruns what's already been done.
 
-Another research group saw the Slack integration and wanted their own version. Spun one up for them. The pattern is replicable because the underlying infrastructure is general: a persistent agent with domain knowledge, connected to the tools a specific lab actually uses. The scientific capabilities come from the Agentic Science Worker repo. The runtime comes from the Seed Fleet. The domain knowledge is what makes it useful for a specific group.
+What compounds isn't the automation. It's the knowledge. The agent remembers which parameters work for which systems, which approaches failed and why, which papers matter for which questions. That context doesn't leave when a senior student graduates. A new student inherits it on day one, structured, searchable, connected to the tools where the work happens.
 
-The lab doesn't need to change how it works. The agent fits into the existing workflow and removes the overhead that prevents results from compounding. The researchers set direction. The infrastructure handles the rest.
+Another lab saw the Slack integration and asked for their own. The pattern is general: a persistent agent with domain knowledge, plugged into the tools a specific group actually uses. The scientific engine comes from the Agentic Science Worker repo. The runtime comes from the Seed Fleet. What makes each deployment useful is the domain context it accumulates over time.
+
+The trajectory is from a traditional computational group to an agent-native one. Not a lab that uses AI tools, but a lab where the infrastructure itself reasons about the research, and gets better the longer it runs.
