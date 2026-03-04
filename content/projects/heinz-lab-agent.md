@@ -22,7 +22,7 @@ Autonomous research agent for the Heinz Interfaces Laboratory, a computational m
 - [axiom-gui](https://github.com/Heinz-Laboratory/axiom-gui): High-performance web-based molecular structure visualization. Production-grade WebGL renderer with multi-format support.
 - perovskite-iff-autoparameterization: Automated IFF parameterization pipeline for hybrid organic-inorganic perovskites. CIF input to validated force field output.
 - lab-agent-infrastructure: Full system state backup and disaster recovery for the agent. Memory, scripts, config, conversation history.
-- heinz-lab-website: Lab website built in Astro.
+- [heinz-lab-website](https://heinzlab.org): Lab website built in Astro.
 
 **Completed a seven-phase publication-ready research workflow autonomously.** Hypothesis formulation through literature review, simulation configuration, execution, result validation against published benchmarks, analysis, and formatted manuscript. Full logging and reproducibility at every step.
 
