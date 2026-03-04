@@ -24,6 +24,8 @@ Autonomous research agent for the Heinz Interfaces Laboratory, a computational m
 - lab-agent-infrastructure: Full system state backup and disaster recovery for the agent. Memory, scripts, config, conversation history.
 - [heinz-lab-website](https://heinzlab.org): Lab website built in Astro.
 
+&nbsp;
+
 **Completed a seven-phase publication-ready research workflow autonomously.** Hypothesis formulation through literature review, simulation configuration, execution, result validation against published benchmarks, analysis, and formatted manuscript. Full logging and reproducibility at every step.
 
 The roadmap includes autonomous materials screening (hundreds of candidates evaluated against target properties), active learning loops for training lab-specific interatomic potentials, and a searchable data warehouse for every simulation the group has run. Another research group has already adopted the pattern for their own lab.
