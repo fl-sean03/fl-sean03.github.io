@@ -17,6 +17,8 @@ Compute runs about $35/month across seven Hetzner ARM VMs. The LLM runtime is se
 - Self-scheduling: agents manage their own crontabs, dropping trigger files into their own inboxes
 - Self-modifying: agents can rewrite their own prompts, adjust their own capabilities, evolve their own workflows
 
+&nbsp;
+
 **Fleet Ops** is the deployment authority. It holds the Hetzner API token, provisions new agents from scratch in fifteen minutes, and deploys infrastructure updates across every server. Pulls from the shared code repo every two hours, runs a three-level test suite, and rolls out changes fleet-wide. First responder when something breaks.
 
 &nbsp;
