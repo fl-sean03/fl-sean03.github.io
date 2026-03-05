@@ -2,6 +2,8 @@
 title: "Seed Fleet"
 description: "A self-managing network of autonomous AI agents on dedicated infrastructure"
 date: 2026-03-01
+aliases:
+  - /projects/private-agent-network/
 ---
 
 Personal infrastructure for running concurrent projects without the coordination cost. Seven Claude-powered agents on dedicated ARM servers in Nuremberg, each with persistent memory, its own identity, and a specific domain of work. No containers, no orchestrator, no central controller. Each agent is a dedicated machine with its own filesystem, its own context, and an inbox.

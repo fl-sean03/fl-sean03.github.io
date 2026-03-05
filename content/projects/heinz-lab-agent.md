@@ -4,7 +4,7 @@ description: "Autonomous research infrastructure for the Heinz Interfaces Labora
 date: 2026-02-20
 ---
 
-Autonomous research agent for the Heinz Interfaces Laboratory, a computational materials science group at CU Boulder focused on interfacial force fields, hybrid organic-inorganic perovskites, and MXenes. Runs on the [Seed Fleet](/projects/private-agent-network/) with scientific capabilities inherited from the [Agentic Science Worker](/projects/agentic-science-worker/) toolkit. Persistent, always-on, integrated into the lab's Slack.
+Autonomous research agent for the Heinz Interfaces Laboratory, a computational materials science group at CU Boulder focused on interfacial force fields, hybrid organic-inorganic perovskites, and MXenes. Runs on the [Seed Fleet](/projects/seed-fleet/) with scientific capabilities inherited from the [Agentic Science Worker](/projects/agentic-science-worker/) toolkit. Persistent, always-on, integrated into the lab's Slack.
 
 **Day-to-day capabilities:**
 - Automated IFF parameterization: CIF structure in, classified atom types and force field parameters out (JSON + PDF reports). Validated on NaCl, applied to 2D perovskite systems like (2-BrPEA)2PbI4

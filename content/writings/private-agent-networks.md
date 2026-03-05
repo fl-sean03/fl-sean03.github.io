@@ -52,4 +52,4 @@ My broader [thesis](/writings/thesis/) is about the gap between frontier science
 
 &nbsp;
 
-If you're interested in what a working implementation looks like, the details are on the [project page](/projects/private-agent-network/). You can also see the fleet running live at [fleet.seanflorez.com](https://fleet.seanflorez.com).
+If you're interested in what a working implementation looks like, the details are on the [project page](/projects/seed-fleet/). You can also see the fleet running live at [fleet.seanflorez.com](https://fleet.seanflorez.com).
