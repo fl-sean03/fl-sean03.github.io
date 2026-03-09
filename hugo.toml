@@ -23,6 +23,10 @@ title = "Sean Florez"
     name = "Projects"
     url = "/projects/"
     weight = 3
+  [[menu.main]]
+    name = "Research"
+    url = "/research/"
+    weight = 4
 
 [markup]
   [markup.goldmark]
