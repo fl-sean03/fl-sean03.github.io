@@ -159,6 +159,37 @@ body {
   font-style: italic;
 }
 
+/* Tables */
+.article-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.article-content thead th {
+  text-align: left;
+  font-weight: 600;
+  color: var(--accent);
+  padding: 0.6rem 0.75rem;
+  border-bottom: 2px solid var(--border);
+}
+
+.article-content tbody td {
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.article-content tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.article-content table code {
+  font-size: 0.85em;
+}
+
 /* Lists */
 .list h1 {
   font-size: 1.5rem;
