@@ -57,7 +57,7 @@ Non-profit or B-corp research institute. Think: Allen Institute, Santa Fe Instit
 - Corporate sponsorships from companies using the research
 
 ### Why This Matters
-- Establishes scientific credibility (critical for a PhD-student-led effort)
+- Establishes scientific credibility
 - Attracts talent who want to publish and do fundamental research
 - Creates IP that can be licensed to ecosystem ventures
 - Builds community and network effects
@@ -194,8 +194,8 @@ These companies apply the platform technology to specific industries, generating
 | First materials consulting project | Q4 2026 | Revenue |
 | Write position paper / manifesto | Q3 2026 | Time only |
 
-**Capital needed**: $0-10K (bootstrap from PhD stipend + small grants)
-**Team**: Founding researcher + 1-2 collaborators
+**Capital needed**: $0-10K (bootstrapped from small grants)
+**Team**: 1-3 researchers
 
 ### Phase 1: First Ventures (2027)
 **Focus**: Launch precision fabrication services and materials intelligence tools
@@ -282,7 +282,7 @@ These companies apply the platform technology to specific industries, generating
 ```
 ┌─────────────────────────────────────────────────┐
 │              MATTER COMPILER HOLDING              │
-│                  (Founder)                  │
+│              (Strategic Direction)            │
 │                                                   │
 │  Mission: Develop matter compilation technology   │
 │  Role: Strategic direction, IP management,        │
@@ -308,12 +308,12 @@ Based on deep research into AI lab corporate structures, the holding company sho
 - **Stay private**: Remain private as long as possible. Public markets create short-term pressure that conflicts with multi-decade R&D.
 - **Cautionary tales**: DeepMind (acquired by Google, lost independence) and Boston Dynamics (multiple owners, strategic confusion) show what happens to pure research labs without revenue engines.
 
-### Founder's Role
-The founder sits at the holding level, with operational leaders (co-founders, hired CEOs) running individual ventures. This allows:
+### Holding-Level Coordination
+The holding entity provides strategic direction, with operational leaders running individual ventures. This allows:
 - Strategic coherence across the ecosystem
 - IP and knowledge sharing between ventures
 - Capital allocation toward highest-impact opportunities
-- Personal focus on the science and vision
+- Sustained focus on the science and vision
 
 ### Shared Resources
 - AI/ML infrastructure (models, compute, data)

@@ -131,7 +131,7 @@ The Leigh group result is the most relevant because it demonstrates a synthetic 
 
 **Verdict**: Proof that synthetic molecular machines CAN build specific molecular products. This is a genuine scientific achievement. But at six orders of magnitude slower than biology, there is no manufacturing application. These are research demonstrations, not manufacturing tools. Closing a factor-of-a-million performance gap is not incremental engineering; it requires fundamentally different approaches.
 
-**Source**: Leigh group polymer assembler: [DOI: 10.1038/s41467-020-18223-5](https://doi.org/10.1038/s41467-020-18223-5)
+**Source**: Leigh group polymer assembler: [DOI: 10.1016/j.chempr.2020.09.021](https://doi.org/10.1016/j.chempr.2020.09.021)
 
 ---
 
@@ -219,4 +219,4 @@ Until at least two of these five milestones are achieved, the gap between "narro
 - GATTAquant DNA nanorulers: [https://www.gattaquant.com/](https://www.gattaquant.com/)
 - tilibit nanosystems: [https://www.tilibit.com/](https://www.tilibit.com/)
 - CBN Nano Technologies: [https://www.cbnano.com/](https://www.cbnano.com/)
-- Leigh group polymer assembler: [DOI: 10.1038/s41467-020-18223-5](https://doi.org/10.1038/s41467-020-18223-5)
+- Leigh group polymer assembler: [DOI: 10.1016/j.chempr.2020.09.021](https://doi.org/10.1016/j.chempr.2020.09.021)

@@ -8,7 +8,7 @@ date: 2026-03-09
 
 Build physical structures with atomic precision.
 
-The engineering challenge is straightforward to state: make physical fabrication as precise and programmable as digital computation. A modern chip fab places billions of transistors with sub-nanometer registration. We want that level of control for arbitrary physical structures, not just silicon, not just planar, not just in a cleanroom.
+The engineering challenge is straightforward to state: make physical fabrication as precise and programmable as digital computation. A modern chip fab places billions of transistors with sub-nanometer registration. The goal is that level of control for arbitrary physical structures, not just silicon, not just planar, not just in a cleanroom.
 
 ## Why This Is Possible
 
@@ -34,7 +34,7 @@ The throughput problem.
 
 The gap between demonstrated serial atomic manipulation (~50 atoms/sec, Zyvex HDL) and the rate needed to build macroscopic objects (~3 x 10^18 atoms/sec for 1 cm^3 in one hour) spans roughly 17 orders of magnitude. Even a hypothetical million-atom-per-second manipulator, which no one has built, still leaves a 13 order-of-magnitude gap.
 
-This is the largest throughput gap in any engineering discipline I am aware of. The semiconductor industry faced a gap of roughly 8 to 10 orders of magnitude between the first transistor and modern chips. The matter compilation throughput barrier is roughly twice that.
+This is the largest throughput gap in any known engineering discipline. The semiconductor industry faced a gap of roughly 8 to 10 orders of magnitude between the first transistor and modern chips. The matter compilation throughput barrier is roughly twice that.
 
 The full arithmetic, the survey of serial and parallel approaches, and the analysis of plausible scaling paths are in [The Throughput Barrier]({{< ref "throughput-barrier" >}}).
 
@@ -64,7 +64,7 @@ The design-make-measure-learn loop is how we advance building capability:
 
 Every revolution of the loop produces a physical result, generates knowledge, and makes the next revolution faster. Today this loop takes 10-20 years for a new material. Self-driving labs are compressing it to months for narrow material systems.
 
-The loop is a powerful methodology for systematic progress, but it is a tool, not the mission. The mission is building. The loop is how we get better at building. Compressing the loop is valuable precisely because it accelerates our ability to construct physical structures with greater precision and broader material scope.
+The loop is a powerful methodology for systematic progress, but it is a tool, not the mission. The mission is building. The loop is how building capability improves. Compressing the loop is valuable precisely because it accelerates the ability to construct physical structures with greater precision and broader material scope.
 
 ## Near-Term Focus
 
@@ -81,7 +81,7 @@ The near-term work is to:
 
 ## Non-Goals
 
-We are not:
+This effort is not:
 
 - A generic AI lab.
 - An AI materials discovery company. (AI-driven discovery is a tool, not the mission. See [AI in Materials Science]({{< ref "ai-materials-honest" >}}) for why discovery alone does not produce buildable structures.)
@@ -92,7 +92,7 @@ We are not:
 
 ## Decision Filter
 
-Every project gets judged by one question: **Does this advance our ability to build physical structures with greater precision, at larger scale, or from more diverse materials?**
+Every project gets judged by one question: **Does this advance the ability to build physical structures with greater precision, at larger scale, or from more diverse materials?**
 
 - Advances precision: do it.
 - Advances scale: do it.
@@ -104,7 +104,7 @@ Every project gets judged by one question: **Does this advance our ability to bu
 ## How This Relates to Other Documents
 
 - **[Vision]({{< ref "vision" >}})**: The north star narrative (why, what changes, the end state).
-- **This document**: The mission (what we build, how we decide, what we are not).
+- **This document**: The mission (what to build, how to decide, what this is not).
 - **[Ontology]({{< ref "ontology" >}})**: Hard definitions to prevent semantic drift.
 - **[The Throughput Barrier]({{< ref "throughput-barrier" >}})**: Full treatment of the central engineering problem.
 - **[Technology Roadmap]({{< ref "technology-roadmap" >}})**: Technical milestones across the five layers.

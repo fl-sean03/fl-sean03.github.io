@@ -142,7 +142,7 @@ The matter compilation revolution will follow the same pattern. No single entity
 
 ### The Venture Ecosystem Model
 
-We build an **ecosystem of purpose-aligned ventures**, not a single monolithic company:
+The model is an **ecosystem of purpose-aligned ventures**, not a single monolithic company:
 
 1. **The Research Foundation**: Open research, grants, publications, talent pipeline
 2. **The Tools Company**: Molecular design software, simulation platforms (akin to MSEP.one but commercial-grade)
@@ -159,7 +159,7 @@ Each venture:
 
 ### Revenue Bridges
 
-Following the AI lab model, we need revenue bridges while pursuing the long-term vision:
+Following the AI lab model, revenue bridges sustain the long-term vision:
 
 **Near-term revenue (2026-2028)**:
 - Precision fabrication services (quantum computing components, semiconductor prototyping, specialty devices)
@@ -225,13 +225,13 @@ Nobody is building across the full stack from atomic precision to macro-scale as
 
 ### The Atoms-Bits Convergence
 
-Nicholas Negroponte coined the atoms-vs-bits distinction. We are entering the era where this distinction dissolves:
+Nicholas Negroponte coined the atoms-vs-bits distinction. The era where this distinction dissolves is beginning:
 
 - **First digital revolution**: Communication (bits replacing atoms for information transfer)
 - **Second digital revolution**: Computation (bits replacing atoms for calculation)
 - **Third digital revolution**: Fabrication (bits controlling atoms for manufacturing)
 
-Neil Gershenfeld at MIT's Center for Bits and Atoms is already working on this with fab labs and assembler research. We take this further, not just digital fabrication, but digital *compilation* of matter.
+Neil Gershenfeld at MIT's Center for Bits and Atoms is already working on this with fab labs and assembler research. Matter compilation takes this further: not just digital fabrication, but digital *compilation* of matter.
 
 ### The Feynman Insight
 
@@ -246,7 +246,7 @@ Just as in computing, where simple tools build more complex tools, which build e
 3. Each generation enables the next
 4. The capability grows exponentially
 
-This is exactly what happened with semiconductor manufacturing: each generation of lithography enabled the next, from microns to nanometers. We extend this principle to its logical conclusion: atomic precision.
+This is exactly what happened with semiconductor manufacturing: each generation of lithography enabled the next, from microns to nanometers. Matter compilation extends this principle to its logical conclusion: atomic precision.
 
 ---
 

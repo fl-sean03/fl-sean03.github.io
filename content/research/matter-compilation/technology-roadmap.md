@@ -55,13 +55,13 @@ Build the knowledge base, tools, team, and initial revenue streams.
 - [ ] Develop partnerships with university research groups
 
 ### Key Technologies to Leverage
-| Technology | Current Capability | Our Use |
+| Technology | Current Capability | Application |
 |-----------|-------------------|---------|
 | MSEP.one | Molecular design & simulation | Design exploration, component library building |
 | DNA origami | Sub-nm 3D self-assembly | Scaffolding for functional nanostructures |
 | ALD/DALP | Atomic-layer thin films | Precision coatings and interfaces |
 | ML/AI for materials | Property prediction, inverse design | Autonomous materials discovery pipeline |
-| Self-driving labs | Closed-loop experimentation | Our first product/service |
+| Self-driving labs | Closed-loop experimentation | Near-term revenue opportunity |
 
 ### Revenue Activities
 - Apply for DOE SBIR/STTR grants ($50K-$1.5M)
@@ -80,7 +80,7 @@ Build the AI engine that accelerates materials discovery and molecular design by
 - [ ] Operational autonomous materials discovery lab (even small-scale)
 - [ ] Trained ML models for materials property prediction (competing with GNoME)
 - [ ] Molecular simulation pipeline: design, simulate, validate loop
-- [ ] First novel material discovered and characterized by our system
+- [ ] First novel material discovered and characterized by the system
 - [ ] Published papers establishing scientific credibility
 - [ ] Demonstrated 10x speedup over traditional materials R&D
 

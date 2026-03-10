@@ -179,7 +179,7 @@ Digital twin technology is advancing rapidly in semiconductor manufacturing:
 
 ### First-Principles Materials Simulation
 
-The accuracy of our physics simulations is critical to the matter compiler question:
+The accuracy of first-principles simulations is critical to the matter compiler question:
 
 - **Density Functional Theory (DFT)** is the workhorse of first-principles materials science, computing electronic structure from quantum mechanics. It is accurate for many material properties but computationally expensive, limited to systems of hundreds to thousands of atoms.
 
@@ -197,7 +197,7 @@ Can we simulate matter compiler outputs from first principles before building th
 - For **complex interfaces** (grain boundaries, heterogeneous junctions): accuracy degrades. These are precisely the regions that matter in chip design.
 - For **novel materials** (diamond-based logic, carbon nanotube interconnects): simulation is feasible but requires validation against experiment.
 
-The gap is closing fast. AI-accelerated simulation (e.g., Google DeepMind's GNoME for materials discovery) is expanding the space of simulatable materials exponentially. A matter compiler would need a robust simulation stack to design outputs, and we are building that stack now.
+The gap is closing fast. AI-accelerated simulation (e.g., Google DeepMind's GNoME for materials discovery) is expanding the space of simulatable materials exponentially. A matter compiler would need a robust simulation stack to design outputs, and that stack is being built now.
 
 ---
 
@@ -385,7 +385,7 @@ The bits-to-atoms convergence is not a metaphor. It is a structural transformati
 
 Chip design and compute infrastructure sit at the nexus of this transformation because they are simultaneously the most demanding manufacturing challenge (atomic-scale precision, trillion-transistor complexity) and the tool that would accelerate the transformation itself (better chips enable better simulations enable better matter compilers enable better chips).
 
-The TSMC/ASML monopoly, the billion-dollar chip design costs, the multi-year data center construction timelines, these are all symptoms of the same underlying constraint: we are building atoms with top-down, subtractive, lithographic processes when the physics permits bottom-up, additive, atomically precise construction. The gap between what physics allows and what our manufacturing achieves is the opportunity space for matter compilation.
+The TSMC/ASML monopoly, the billion-dollar chip design costs, the multi-year data center construction timelines, these are all symptoms of the same underlying constraint: we are building atoms with top-down, subtractive, lithographic processes when the physics permits bottom-up, additive, atomically precise construction. The gap between what physics allows and what current manufacturing achieves is the opportunity space for matter compilation.
 
 ---
 

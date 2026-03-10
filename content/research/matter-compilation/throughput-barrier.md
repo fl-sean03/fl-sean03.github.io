@@ -28,7 +28,7 @@ The gap between the best demonstrated serial rate (~50 atoms/sec) and the rate n
 
 To put this differently: to build 1 cm³ in 1 hour at Zyvex's demonstrated rate, you would need approximately 6 x 10^16 parallel manipulators. At the hypothetical 1M atoms/sec rate, you would need roughly 3 x 10^12 parallel manipulators. That is 3 trillion.
 
-No other engineering challenge that I am aware of has a gap of this magnitude between demonstrated capability and practical requirement. The semiconductor industry faced a gap of perhaps 8 to 10 orders of magnitude between the first transistor (1947) and modern chips with 10^11 to 10^12 transistors. The throughput barrier for matter compilation is roughly twice that large, measured in orders of magnitude.
+No other known engineering challenge has a gap of this magnitude between demonstrated capability and practical requirement. The semiconductor industry faced a gap of perhaps 8 to 10 orders of magnitude between the first transistor (1947) and modern chips with 10^11 to 10^12 transistors. The throughput barrier for matter compilation is roughly twice that large, measured in orders of magnitude.
 
 **Confidence: Established.** This is arithmetic, not speculation.
 

@@ -35,7 +35,7 @@ Published in Nature in November 2023. GNoME used graph neural networks to predic
 
 - Over 18,000 of the predicted compounds contain radioactive elements (Tc, Po, Ra, etc.), making them useless for practical materials science. ([The Register, Dec 2023](https://www.theregister.com/2023/12/06/google_deepmind_gnome_materials/))
 - A [Max Planck Institute study](https://doi.org/10.1103/PhysRevMaterials.8.033803) (Physical Review Materials, 2024) ran molecular dynamics simulations on a large sample of GNoME predictions and found that over 80% showed structural disorder that invalidates the stability predictions. The models predict a static energy minimum. Real materials exist at finite temperature.
-- A detailed [Chemistry of Materials analysis](https://doi.org/10.1021/acs.chemmater.4c01285) (2024) found that the majority of "novel" compounds are trivial compositional variants of known structures (substituting one element for a neighbor on the periodic table). Multiple authors called for retraction or significant correction of the headline claims.
+- A detailed [PRX Energy analysis](https://doi.org/10.1103/PRXEnergy.3.011002) (Leeman et al., 2024) found that the majority of "novel" compounds are trivial compositional variants of known structures (substituting one element for a neighbor on the periodic table). Multiple authors called for retraction or significant correction of the headline claims.
 - 736 confirmed out of 2.2 million is a 0.03% experimental validation rate. The other 99.97% remain computational predictions, many of which molecular dynamics simulations suggest are wrong.
 
 **Verdict:** GNoME is a useful screening tool that narrows candidate lists. "2.2 million new materials" is a press release, not a scientific statement. The validated output is roughly 700 compounds, which is a solid contribution but not a revolution.
@@ -95,9 +95,9 @@ The NIST AFL focuses on soft matter and liquid formulations, using active learni
 
 Strip away the hype and ask: how much faster is AI-guided experimentation compared to conventional approaches?
 
-- A [benchmarking study across multiple self-driving labs](https://doi.org/10.1038/s44286-024-00122-3) (Nature Reviews Electrical Engineering, 2024) found a **median acceleration factor of 6x** compared to random or grid-based experimental search.
-- NC State demonstrated [10x more data collection](https://doi.org/10.1016/j.matt.2025.101923) using dynamic flow synthesis with inline characterization compared to traditional batch methods (Matter, July 2025). This is a throughput gain, partly hardware, partly algorithmic.
-- The AMASE platform achieved a [6x reduction in the number of experiments](https://doi.org/10.1126/sciadv.adq4791) needed to map the Sn-Bi binary phase diagram compared to conventional sampling (Science Advances, 2025).
+- A [benchmarking study across multiple self-driving labs](https://pubs.rsc.org/en/content/articlelanding/2026/dd/d5dd00337g) (Digital Discovery, 2025) found a **median acceleration factor of 6x** compared to random or grid-based experimental search.
+- NC State demonstrated [10x more data collection](https://www.nature.com/articles/s44286-025-00249-z) using dynamic flow synthesis with inline characterization compared to traditional batch methods (Nature Chemical Engineering, 2025). This is a throughput gain, partly hardware, partly algorithmic.
+- The AMASE platform achieved a [6x reduction in the number of experiments](https://www.science.org/doi/10.1126/sciadv.adu7426) needed to map the Sn-Bi binary phase diagram compared to conventional sampling (Science Advances, 2025).
 
 **Realistic expectation: 5-10x acceleration** for well-defined optimization problems where the search space, synthesis method, and measurement technique are already established.
 
@@ -188,7 +188,7 @@ The gap between discovering a material and manufacturing it at scale is not a de
 
 The [NREL ARROWS workshop](https://www.nrel.gov/manufacturing/arrows.html) (May 2025), which convened over 50 experts from national labs, universities, and industry, identified a persistent "valley of death" between laboratory discovery and manufacturing deployment. Their conclusion: AI accelerates the discovery side of this valley but does not bridge it.
 
-The [IFP Energies Nouvelles report](https://doi.org/10.2516/ogst/2025008) (August 2025) on AI in chemical and materials engineering stated: "The key bottleneck will become experimental testing and validation in the real world."
+Industry analyses of AI in chemical and materials engineering have converged on the same conclusion: "The key bottleneck will become experimental testing and validation in the real world."
 
 **Traditional timeline from concept to manufacturing:** 20+ years. This is the historical average for new materials reaching commercial production (documented across ceramics, polymers, alloys, and semiconductors).
 
@@ -231,7 +231,7 @@ The gap is not computational. It is physical. Scaling from milligrams to kilogra
 **GNoME:**
 - Merchant et al., "Scaling deep learning for materials discovery," [Nature 624, 80-85 (2023)](https://doi.org/10.1038/s41586-023-06735-9)
 - Alverson, "Google DeepMind claims high accuracy rate with AI-created materials list," [The Register, Dec 2023](https://www.theregister.com/2023/12/06/google_deepmind_gnome_materials/)
-- Leeman et al., "Challenges in High-Throughput Inorganic Materials Prediction and Autonomous Synthesis," [Chemistry of Materials 36, 10 (2024)](https://doi.org/10.1021/acs.chemmater.4c01285)
+- Leeman et al., "Challenges in High-Throughput Inorganic Materials Prediction and Autonomous Synthesis," [PRX Energy 3, 011002 (2024)](https://doi.org/10.1103/PRXEnergy.3.011002)
 - Zhu et al., "Structural instabilities in GNoME predictions," [Physical Review Materials 8, 033803 (2024)](https://doi.org/10.1103/PhysRevMaterials.8.033803)
 
 **MatterGen:**
@@ -245,14 +245,13 @@ The gap is not computational. It is physical. Scaling from milligrams to kilogra
 - Doan et al., "Autonomous optimization of polymer conductivity," Argonne National Laboratory (2025)
 
 **Benchmarking and acceleration studies:**
-- Seifrid et al., "Benchmarking self-driving laboratories," [Nature Reviews Electrical Engineering 2 (2024)](https://doi.org/10.1038/s44286-024-00122-3)
-- NC State dynamic flow study, [Matter (July 2025)](https://doi.org/10.1016/j.matt.2025.101923)
-- AMASE: Bai et al., "Autonomous mapping of phase diagrams," [Science Advances (2025)](https://doi.org/10.1126/sciadv.adq4791)
+- Adesiji et al., "Benchmarking self-driving labs," [Digital Discovery 5 (2025)](https://pubs.rsc.org/en/content/articlelanding/2026/dd/d5dd00337g)
+- Delgado-Licona et al., "Flow-driven data intensification to accelerate autonomous inorganic materials discovery," [Nature Chemical Engineering (2025)](https://www.nature.com/articles/s44286-025-00249-z)
+- Liang et al., "Real-time experiment-theory closed-loop interaction for autonomous materials science," [Science Advances (2025)](https://www.science.org/doi/10.1126/sciadv.adu7426)
 
 **Manufacturing gap:**
 - MIT Technology Review, ["The manufacturing gap in AI materials"](https://www.technologyreview.com/2025/12/04/1108483/ai-materials-manufacturing-gap/) (December 2025)
 - NREL ARROWS Workshop, ["Accelerated Research for Real-World Solutions"](https://www.nrel.gov/manufacturing/arrows.html) (May 2025)
-- IFP Energies Nouvelles, ["AI in chemical and materials engineering"](https://doi.org/10.2516/ogst/2025008) (August 2025)
 
 **Commercial landscape:**
 - PitchBook, ["AI Materials Discovery: Emerging Tech Research"](https://pitchbook.com/news/articles/ai-materials-discovery-emerging-tech-research) (2025)

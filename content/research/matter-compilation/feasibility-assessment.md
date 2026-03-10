@@ -298,7 +298,7 @@ This is not Drexler's vision of diamond mechanosynthesis, but it may be more ach
 AI is genuinely transforming materials science, not just hype:
 
 - **AlphaFold** (DeepMind): Solved protein structure prediction. 43,000+ citations, 3M+ users across 190+ countries. Nobel Prize-worthy impact on structural biology.
-- **GNoME** (DeepMind): Predicted 2.2 million new crystal structures. However, a [Max Planck Institute study](https://doi.org/10.1103/PhysRevMaterials.8.033803) found over 80% showed structural disorder, and a [Chemistry of Materials analysis](https://doi.org/10.1021/acs.chemmater.4c01285) found most "novel" predictions are trivial compositional variants. 736 were independently synthesized, a 0.03% validation rate. Useful as a screening tool, not the revolution the press release claimed. See [AI in Materials Science]({{< ref "ai-materials-honest" >}}) for the full analysis.
+- **GNoME** (DeepMind): Predicted 2.2 million new crystal structures. However, a [Max Planck Institute study](https://doi.org/10.1103/PhysRevMaterials.8.033803) found over 80% showed structural disorder, and a [PRX Energy analysis](https://doi.org/10.1103/PRXEnergy.3.011002) found most "novel" predictions are trivial compositional variants. 736 were independently synthesized, a 0.03% validation rate. Useful as a screening tool, not the revolution the press release claimed. See [AI in Materials Science]({{< ref "ai-materials-honest" >}}) for the full analysis.
 - **Autonomous Labs**: Berkeley Lab's A-Lab is a genuinely impressive robotic synthesis platform. However, its novelty claims for synthesized materials are [disputed](https://doi.org/10.1021/acs.chemmater.4c01294), the platform works, the discovery claims are in question.
 - **ML Force Fields**: MACE, ANI, and related models enable molecular simulation at 100-1000x the speed of quantum methods with comparable accuracy.
 - **Inverse Design**: ML models can now predict which compositions and structures will have desired properties, inverting the traditional trial-and-error approach.
@@ -351,7 +351,7 @@ The expert range is enormous, reflecting genuine uncertainty:
 - **Drexler / Phoenix (bull case)**: With substantial investment, transformative APM within a decade of serious effort. (Note: Drexler has been saying versions of this since the 1990s.)
 - **80,000 Hours / Ben Snodin**: 4-5% probability of advanced nanotechnology by 2040 (self-described as "unstable" estimate).
 - **Jones / Moriarty (bear case)**: Advanced APM posing substantial risks or significantly changing society is "further in the future", implying post-2050 at earliest, if ever.
-- **Wildcard**: If transformative AI arrives first and can automate scientific research, it could dramatically compress the timeline, but at that point, APM may be the least of our concerns.
+- **Wildcard**: If transformative AI arrives first and can automate scientific research, it could dramatically compress the timeline, but at that point, APM may be the least of humanity's concerns.
 
 ### The Most Likely Path
 
@@ -402,4 +402,3 @@ The honest bottom line: **The physics allows it. The engineering is staggeringly
 - [Nanotechnology: Grey Goo is a Small Issue - CRN](http://crnano.org/BD-Goo.htm)
 - [Design of a Primitive Nanofactory - Chris Phoenix](https://www.jetpress.org/volume13/Nanofactory.pdf)
 - [Molecular Assembler - Wikipedia](https://en.wikipedia.org/wiki/Molecular_assembler)
-- [Drexler Theory - Anilocus Encyclopedia](https://anilocus.org/encyclopedia/drexler-theory/)
