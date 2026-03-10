@@ -69,9 +69,9 @@ Non-profit or B-corp research institute. Think: Allen Institute, Santa Fe Instit
 
 These companies build the enabling technology stack that all verticals depend on.
 
-### The Materials Intelligence Platform: Materials Intelligence Platform
+### Materials Intelligence Platform
 
-**What**: AI-driven materials discovery and design platform.
+**What**: AI-driven materials property prediction and design tools.
 
 **Product**:
 - Materials property prediction API
@@ -85,9 +85,9 @@ These companies build the enabling technology stack that all verticals depend on
 - Data licensing
 - API usage fees
 
-**Market**: $5-20B materials informatics market. Competitors: Citrine Informatics, Materials Design Inc., Schrödinger.
+**Market**: $5-20B materials informatics market. Competitors: Citrine Informatics (~$10-50M ARR, the only profitable player), Materials Design Inc., Schrödinger. Note: $1.3B+ has been invested across the industry with minimal commercial traction. See [AI in Materials Science](/research/matter-compilation/ai-materials-honest/) for an honest assessment.
 
-**Why First**: Lowest capital requirement. Can start with software + public datasets. Immediate revenue potential. Builds the AI capability that all subsequent ventures need.
+**Role in Ecosystem**: A supporting capability that feeds into fabrication. Identifies WHAT to build. Does not solve the building problem itself. Lowest capital requirement but entering a crowded field.
 
 **Target**: $1-5M ARR by year 2.
 
@@ -117,9 +117,9 @@ These companies build the enabling technology stack that all verticals depend on
 
 ---
 
-### The Precision Fabrication Company: Precision Fabrication Systems
+### Precision Fabrication Systems (The Central Venture)
 
-**What**: Hardware and services for precision manufacturing, bridging current capabilities toward molecular assembly.
+**What**: Hardware and services for precision manufacturing, bridging current capabilities toward molecular assembly. This is the venture that directly advances building capability.
 
 **Product**:
 - Hybrid manufacturing systems (additive + ALD + self-assembly integration)
@@ -133,9 +133,9 @@ These companies build the enabling technology stack that all verticals depend on
 - Process licensing
 - Maintenance and consumables
 
-**Market**: $50B+ advanced manufacturing equipment market. Positioned between current 3D printing companies and the semiconductor equipment giants.
+**Market**: $50B+ advanced manufacturing equipment market. Positioned between current 3D printing companies and the semiconductor equipment giants. SQC proves there is commercial revenue in atom-precision fabrication. See [Building Reality Check](/research/matter-compilation/building-reality-check/) for what has actually been built.
 
-**Why Important**: This is where the physical capability gets built. Software and AI aren't enough ,  you need to actually make things.
+**Why This Is Central**: This is where the building capability gets built. Materials intelligence tells you WHAT to build. Molecular design tells you HOW to design it. Precision fabrication actually BUILDS it. The [throughput barrier](/research/matter-compilation/throughput-barrier/) is the central unsolved problem, and this venture is the one that works on solving it.
 
 **Capital Intensive**: This company needs $5-50M+ investment. Launch later (2028+).
 
@@ -197,18 +197,19 @@ These companies apply the platform technology to specific industries, generating
 **Capital needed**: $0-10K (bootstrap from PhD stipend + small grants)
 **Team**: Founding researcher + 1-2 collaborators
 
-### Phase 1: First Venture (2027)
-**Focus**: Launch Materials Intelligence Platform
+### Phase 1: First Ventures (2027)
+**Focus**: Launch precision fabrication services and materials intelligence tools
 
 | Action | Timeline | Investment |
 |--------|----------|------------|
-| Incorporate The Materials Intelligence Platform | Q1 2027 | $1-5K |
-| Build MVP of materials AI platform | Q1-Q2 2027 | Sweat equity |
-| First paying customers | Q2-Q3 2027 | ,  |
-| Apply for SBIR Phase I ($50-250K) | Q1 2027 | ,  |
+| Incorporate first venture | Q1 2027 | $1-5K |
+| Build materials AI prototype (supporting tool) | Q1-Q2 2027 | Sweat equity |
+| Precision fabrication services: first customer | Q2-Q3 2027 | Revenue |
+| Apply for SBIR Phase I ($50-250K) | Q1 2027 | - |
+| DOE/DARPA grants for APM research | Q2 2027 | - |
 | Seed funding round ($250K-$1M) | Q3-Q4 2027 | Dilution |
 | Hire first employees (2-3) | Q4 2027 | From revenue/funding |
-| Establish research foundation (informal) | Q4 2027 | ,  |
+| Establish research foundation (informal) | Q4 2027 | - |
 
 ### Phase 2: Platform Expansion (2028-2029)
 **Focus**: Launch Companies B and C, establish research foundation

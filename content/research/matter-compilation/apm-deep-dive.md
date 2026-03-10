@@ -30,7 +30,8 @@ Atomically Precise Manufacturing (APM), the assembly of materials, structures, d
 
 The field is advancing along several parallel tracks:
 
-- **Scanning probe-based manufacturing** (STM/AFM) has matured significantly, with Zyvex Labs achieving sub-nanometer lithography (7.7 nm pitch) surpassing ASML's best EUV tools, and Silicon Quantum Computing demonstrating an 11-qubit processor with 99.99% gate fidelity built atom-by-atom.
+- **Scanning probe-based manufacturing** (STM/AFM) has matured significantly, with Zyvex Labs achieving sub-nanometer lithography (7.7 nm pitch) surpassing ASML's best EUV tools, and Silicon Quantum Computing demonstrating an 11-qubit processor with 99.99% gate fidelity built atom-by-atom. SQC is now selling commercial products (Quantum Twins, Watermelon) to real customers including Telstra and the Australian Department of Defence. In November 2025, SQC patterned 250,000 qubit registers in 8 hours, demonstrating industrial-scale throughput for atom-precision fabrication.
+- **Covalent mechanosynthesis demonstrated for the first time** (December 2025): An inverted-mode STM achieved a 96.4% success rate for hydrogen abstraction from silicon, the first experimental demonstration of deterministic covalent mechanosynthesis. The work involved a team of 54 researchers including Ralph Merkle (arXiv:2512.24431). While this is a landmark result, it is limited to hydrogen removal from silicon, not carbon placement on diamond.
 - **DNA origami** has become a reliable platform for atomically precise nanoscale construction, with demonstrated applications in drug delivery, biosensing, and templating for metal oxide nanofabrication.
 - **Atomically precise metal nanoclusters** are finding commercial traction in catalysis, with precisely defined compositions enabling tunable selectivity.
 - **Synthetic molecular machines** (motors, rotors, switches) continue to advance, with light-activated artificial muscles demonstrated in 2025.
@@ -227,6 +228,18 @@ Diamond mechanosynthesis is the formation of covalent carbon bonds using precise
 - The closest experimental work involves STM-based manipulation of individual atoms on various surfaces, but not the specific tooltip chemistry proposed for DMS.
 - Diamondoids (small diamond-like hydrocarbon cages) have been isolated, synthesized, and studied, confirming some properties assumed in DMS theory.
 
+**First experimental covalent mechanosynthesis (December 2025, arXiv:2512.24431):**
+
+In December 2025, a team of 54 researchers (including Ralph Merkle) demonstrated the first experimental covalent mechanosynthesis using an inverted-mode STM. Key results:
+
+- **96.4% success rate** for single hydrogen atom removal from H-passivated silicon surfaces
+- **100% yield** for sequential hydrogen abstractions to form dangling bond pairs
+- **Sub-angstrom positioning precision** with zero-bias operation
+- **Critical innovation**: functionalizing both sides of the tunnel junction (both the tip and the surface), rather than just the tip
+- This constitutes the first experimental demonstration of deterministic, positionally controlled covalent bond breaking with near-unity yield
+
+**Important caveats**: This result demonstrates hydrogen abstraction from silicon only, not the carbon-carbon bond formation on diamond surfaces that is central to the Drexler/Freitas/Merkle diamondoid mechanosynthesis vision. Extension to other elements and bond types "is expected" by the authors but remains undemonstrated. The gap between removing hydrogen from silicon and placing carbon on diamond is substantial.
+
 ### 5.2 Patents
 
 CBN Nano Technologies holds 24 patents related to mechanosynthesis, including:
@@ -301,6 +314,9 @@ Most researchers treat self-replicating assemblers as a long-term theoretical po
 | 2025 | Freitas: Molecular Workstation Roadmap I & Nanofactory Roadmap update | Updated engineering pathway from current tools to mechanosynthesis |
 | 2025 | 3D nanofabrication via ALD on DNA origami crystals | Bridging DNA precision with functional material deposition |
 | 2025 | SQC selected for DARPA QBI Stage B | Government validation of atomic-precision quantum computing pathway |
+| 2025 (Nov) | SQC: 250,000 qubit registers patterned in 8 hours | Demonstrating scalability of atom-precision fabrication |
+| 2025 (Nov) | SQC selling Quantum Twins and Watermelon to Telstra and Australian Defence | First commercial revenue from atom-precision manufactured products |
+| 2025 (Dec) | Inverted-mode STM: 96.4% covalent mechanosynthesis success (arXiv:2512.24431) | First experimental demonstration of deterministic covalent mechanosynthesis |
 | 2025 | Diamond NV-center fabrication via HDL proposed (OSTI) | Extending atomic-precision techniques from silicon to diamond quantum devices |
 | 2025 | Nobel Prize: Metal-Organic Frameworks (Kitagawa, Robson, Yaghi) | Molecular architecture with atomically precise porous materials |
 
@@ -404,8 +420,8 @@ Based on current trajectories:
 | Company | Location | Focus | Status |
 |---------|---------|-------|--------|
 | **Zyvex Labs** | Richardson, TX | STM lithography, quantum device patterning, ZyvexLitho1 system | Active. Demonstrated 7.7 nm pitch (2024). ~$28M government funding. |
-| **Silicon Quantum Computing (SQC)** | Sydney, Australia | Atom-by-atom silicon quantum processors | Active. 11-qubit processor (2025). DARPA QBI Stage B. Only company manufacturing atomic-precision chips. |
-| **CBN Nano Technologies** | Ottawa, Canada | Mechanosynthesis systems, molecular machines | Active. 24 patents. $70M+ total investment. Goal: first commercial-scale APM for anti-counterfeiting. |
+| **Silicon Quantum Computing (SQC)** | Sydney, Australia | Atom-by-atom silicon quantum processors | Active. 11-qubit processor (2025). 250K qubit registers (Nov 2025). DARPA QBI Stage B. Selling Quantum Twins and Watermelon to Telstra and Australian Defence. Only company with commercial APM revenue. |
+| **CBN Nano Technologies** | Ottawa, Canada | Mechanosynthesis systems, molecular machines | Active. 24 patents. $70M+ total investment. Goal: first commercial-scale APM for anti-counterfeiting. No experimental mechanosynthesis demonstrations despite 15+ years of theoretical work and 24 patents. |
 | **Tiptek LLC** | USA | Ultra-hard/ultra-sharp nanoprobes for APM | Active. DOE SBIR Phase III. Sole US manufacturer of nanoprobes. Self-sharpening tip technology. |
 
 ### 10.2 Adjacent / Enabling Companies

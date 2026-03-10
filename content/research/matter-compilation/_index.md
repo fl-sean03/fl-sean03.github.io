@@ -1,65 +1,65 @@
 ---
 title: "Matter Compilation"
-description: "A research corpus on the engineering path from current manufacturing to general-purpose atomic-scale fabrication."
+description: "A research corpus on building arbitrary physical structures with atomic precision. The engineering challenge, the biological proof of concept, and the path forward."
 date: 2026-03-09
 ---
 
-Software became infinitely reproducible when we learned to manipulate bits. The same revolution is coming for physical matter. Matter compilation is the technology that bridges this gap: the ability to construct arbitrary physical structures with increasing precision and autonomy across scales, closing the loop between design and physical reality.
+Every cell in your body is a matter compiler. Ribosomes place amino acids with sub-nanometer precision at thousands of operations per second. DNA origami folds into target geometries. Proteins self-assemble into functional machines. Biology builds with atomic precision, at scale, at room temperature. The existence proof is settled. The engineering question is open: how do we build arbitrary structures, not just proteins, with the same control?
 
-This corpus is 13 documents covering the full landscape, from the state of atomically precise manufacturing today to the multi-decade engineering roadmap for general-purpose matter compilers. It spans vision, technical research, feasibility analysis, and ecosystem strategy. The central framework: matter compilation is not one technology but a stack of capabilities across scales, and it will not arrive as a single breakthrough but as a convergence of advances in AI-driven materials discovery, scanning probe manufacturing, DNA nanotechnology, self-assembly, and autonomous experimentation.
+That is matter compilation. Not a metaphor, not a design philosophy. The literal engineering challenge of constructing physical structures by specifying and placing atoms and molecules where they need to go. Today we can do this for a handful of atoms on a surface using scanning tunneling microscopes, or for DNA-based nanostructures in solution. The gap between that and compiling a macroscopic object is roughly 20 orders of magnitude in throughput. That gap is the central problem this corpus addresses.
 
-The core concept throughout is the loop: design, simulate, make, measure, learn, repeat. Today this loop takes 10 to 20 years for a new material. The goal is to compress it to hours, then expand what fits inside it, from materials to devices to systems to infrastructure.
+This is 14 documents covering the landscape from what has actually been built with atomic precision today, to the multi-decade engineering roadmap for closing the throughput gap. It spans vision, technical research, feasibility analysis, and ecosystem strategy.
 
 ---
 
 ## Vision and Framework
 
-The "what" and "why" of matter compilation.
+The what and why.
 
-- [**Vision**](/research/matter-compilation/vision/). The north star: why matter compilation is the most transformative engineering challenge possible, the convergence window that makes it achievable within a generation, and what changes when you can compile matter.
+- [**Vision**](/research/matter-compilation/vision/). The north star: why matter compilation is the most consequential engineering challenge of this century, what changes when you can build anything by specifying its structure, and why the convergence of AI, scanning probe methods, and biological machinery makes this tractable within a generation.
 
-- [**Mission Charter**](/research/matter-compilation/mission-charter/). The constitution. Defines the loop, the five capability layers (from atomic control to infrastructure assembly), the near-term wedge, and the decision filter: does this compress the loop or expand its scope?
+- [**Mission Charter**](/research/matter-compilation/mission-charter/). The constitution. Defines the capability layers from atomic control to systems integration, the near-term technical wedge, and the decision filter for what to work on.
 
 - [**Ontology**](/research/matter-compilation/ontology/). Hard definitions to prevent semantic drift. The scale ladder from sub-nanometer to kilometer. Confidence labels for claims. Anti-patterns for how terms get misused.
-
-- [**Strategic Framing**](/research/matter-compilation/strategic-framing/). Where this sits on the ambition ladder, from single product to paradigm shift. The three horizons (revenue, capability, transformation) and why the intermediate products are valuable enough to sustain the research toward the ultimate goal.
 
 ---
 
 ## Technical Research
 
-The "how" and "what exists."
+What exists, what works, and what doesn't.
 
-- [**Research Synthesis**](/research/matter-compilation/research-synthesis/). Master landscape overview synthesizing 100+ sources across six research streams. Covers the current state of atomically precise manufacturing, the Drexler framework, AI-driven materials discovery, the throughput problem, government programs, and market sizing.
+- [**APM Deep Dive**](/research/matter-compilation/apm-deep-dive/). Comprehensive state of the art in atomically precise manufacturing: scanning probe techniques, DNA nanotechnology, synthetic molecular machines, protein design, mechanosynthesis theory, key researchers and companies, and expert timeline assessments.
 
-- [**APM Deep Dive**](/research/matter-compilation/apm-deep-dive/). Comprehensive report on the state of atomically precise manufacturing: scanning probe techniques, DNA nanotechnology, synthetic molecular machines, protein design, mechanosynthesis theory and patents, key researchers and companies, funding landscape, and expert timeline assessments.
+- [**Building Reality Check**](/research/matter-compilation/building-reality-check/). What has actually been built with atomic precision as of today. Concrete demonstrations, not theoretical proposals. The honest inventory of what works at what scale, what fidelity, and what throughput.
 
-- [**Manufacturing Technology Roadmap**](/research/matter-compilation/manufacturing-technology-roadmap/). The stepping stones from current manufacturing to matter compilation. Twelve distinct technology streams (metal additive manufacturing, ALD/MBE, two-photon polymerization, DNA origami, scanning probe manufacturing, self-assembly, bio-inspired molecular machines, semiconductor fabrication, metamaterials, AI materials discovery) and how they converge.
+- [**Throughput Barrier**](/research/matter-compilation/throughput-barrier/). The central unsolved problem. A single scanning probe places ~1 atom per second. A macroscopic object contains ~10²⁵ atoms. That is a 20-order-of-magnitude gap. This document maps the known approaches to closing it: massive parallelism, hierarchical assembly, self-assembly, biological machinery, and combinations thereof.
 
-- [**Chip Design Parallels**](/research/matter-compilation/chip-design-parallels/). The deep structural parallel between software compilation and matter compilation, told through the lens of semiconductor manufacturing. How custom AI silicon, the TSMC/ASML monopoly, chiplets, Von Neumann's universal constructor, and programmable matter research all point toward the same convergence.
+- [**AI Materials : Honest**](/research/matter-compilation/ai-materials-honest/). What AI actually delivers in materials science today versus what gets claimed. Inverse design, generative models, autonomous labs, simulation acceleration. What works, what is overhyped, and what matters for matter compilation specifically.
 
-- [**Government Programs Landscape**](/research/matter-compilation/government-programs-landscape/). The institutional and funding landscape: the DOE Genesis Mission, Manufacturing USA institutes, national lab user facilities, CHIPS Act R&D, NSF Convergence Accelerator, ARPA-E, critical materials programs, international efforts, and practical funding mechanisms for startups and research groups.
+- [**Chip Design Parallels**](/research/matter-compilation/chip-design-parallels/). Semiconductor manufacturing as a structural parallel for matter compilation. How the chip industry solved its own version of the precision-at-scale problem, what lessons transfer, and where the analogy breaks down.
+
+- [**Government Programs Landscape**](/research/matter-compilation/government-programs-landscape/). The institutional and funding landscape: DOE, Manufacturing USA, national lab user facilities, CHIPS Act R&D, NSF programs, ARPA-E, international efforts, and practical funding mechanisms.
 
 ---
 
-## Assessment and Roadmap
+## Assessment and Strategy
 
 Honest evaluation and path forward.
 
-- [**Technology Roadmap**](/research/matter-compilation/technology-roadmap/). The bootstrapping ladder: seven rungs from current capabilities to general matter compilation, where each generation of tools enables the next. Includes the five capability layers, cross-cutting dependencies (AI, simulation, metrology, robotics), and critical unknowns.
+- [**Technology Roadmap**](/research/matter-compilation/technology-roadmap/). The bootstrapping ladder: each generation of tools enables building the next generation. From current scanning probe capabilities through parallel probe arrays, hybrid bio-mechanical systems, and hierarchical assemblers toward general-purpose compilation. Includes critical unknowns and dependencies.
 
-- [**Feasibility Assessment**](/research/matter-compilation/feasibility-assessment/). The bulls and bears of atomically precise manufacturing. Thermodynamic arguments, the Smalley-Drexler debate, grey goo, what Feynman actually said, current blocking challenges, alternative paths through biology and self-assembly, computational requirements, and scale-up arithmetic.
+- [**Feasibility Assessment**](/research/matter-compilation/feasibility-assessment/). Physics and engineering assessment. Thermodynamic constraints, the Smalley-Drexler debate, what Feynman actually said, current blocking challenges, biological existence proofs, computational requirements, and scale-up arithmetic.
 
-- [**Honest Assessment**](/research/matter-compilation/honest-assessment/). What is established science (high confidence), what is plausible engineering (medium confidence), what is speculative (lower confidence). Realistic timeline estimates, competition analysis, and what could kill the vision.
+- [**Honest Assessment**](/research/matter-compilation/honest-assessment/). What is established science, what is plausible engineering, and what is speculative. Realistic timelines, competition, and what could kill the vision.
 
-- [**Ecosystem Plan**](/research/matter-compilation/ecosystem-plan/). The multi-venture architecture: a research foundation, platform companies (materials intelligence, molecular design, precision fabrication), and vertical ventures (advanced materials, semiconductors, energy, biomedical, defense). Phasing, funding strategy, organizational structure, and success metrics.
+- [**Ecosystem Plan**](/research/matter-compilation/ecosystem-plan/). Multi-venture architecture: research foundation, platform companies (materials intelligence, molecular design, precision fabrication), and vertical applications. Phasing, funding, and how intermediate products sustain the longer research arc.
 
 ---
 
 ## Reading Order
 
-**General readers**: Start with [Vision](/research/matter-compilation/vision/), then [Honest Assessment](/research/matter-compilation/honest-assessment/), then [Technology Roadmap](/research/matter-compilation/technology-roadmap/). This gives you the north star, the reality check, and the engineering path.
+**General readers**: [Vision](/research/matter-compilation/vision/) then [Honest Assessment](/research/matter-compilation/honest-assessment/) then [Technology Roadmap](/research/matter-compilation/technology-roadmap/). The north star, the reality check, the engineering path.
 
-**Technical readers**: Start with [APM Deep Dive](/research/matter-compilation/apm-deep-dive/), then [Manufacturing Technology Roadmap](/research/matter-compilation/manufacturing-technology-roadmap/), then [Feasibility Assessment](/research/matter-compilation/feasibility-assessment/). This gives you the state of the art, the convergence map, and the honest physics.
+**Technical readers**: [APM Deep Dive](/research/matter-compilation/apm-deep-dive/) then [Building Reality Check](/research/matter-compilation/building-reality-check/) then [Throughput Barrier](/research/matter-compilation/throughput-barrier/) then [Feasibility Assessment](/research/matter-compilation/feasibility-assessment/). State of the art, what's been demonstrated, the central problem, the physics.
 
-**Investors and strategists**: Start with [Vision](/research/matter-compilation/vision/), then [Ecosystem Plan](/research/matter-compilation/ecosystem-plan/), then [Chip Design Parallels](/research/matter-compilation/chip-design-parallels/), then [Strategic Framing](/research/matter-compilation/strategic-framing/). This gives you the opportunity, the business architecture, the semiconductor precedent, and the positioning.
+**Investors**: [Vision](/research/matter-compilation/vision/) then [Throughput Barrier](/research/matter-compilation/throughput-barrier/) then [Ecosystem Plan](/research/matter-compilation/ecosystem-plan/) then [Chip Design Parallels](/research/matter-compilation/chip-design-parallels/). The opportunity, the core technical challenge, the business architecture, the semiconductor precedent.
