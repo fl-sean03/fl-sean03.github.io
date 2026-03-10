@@ -186,7 +186,7 @@ Machine learning is creating a paradigm shift:
 - **Neural Network Potentials**: Models like ANI-2x, MACE, and FALCON achieve near-DFT accuracy at classical MD cost, a speedup of 3-5 orders of magnitude over quantum mechanical calculation.
 - **Coarse-Graining via ML**: AI can learn effective coarse-grained representations, enabling simulation of mesoscale structures (millions of atoms) while retaining atomic-level accuracy where it matters.
 - **Inverse Design**: Instead of simulating every candidate, ML models can predict which structures will be stable and functional, dramatically reducing the search space.
-- **AlphaFold-style Breakthroughs**: AlphaFold (cited ~43,000 times as of late 2025, used by 3M+ researchers) solved protein structure prediction. GNoME predicted 2.2 million new crystal structures (380,000 highly stable). These demonstrate that AI can leapfrog traditional computational bottlenecks.
+- **AlphaFold**: Solved protein structure prediction (cited ~43,000 times, used by 3M+ researchers). A genuine breakthrough in structural biology, though protein structure prediction is a different problem from materials fabrication.
 
 ### Honest Caveats on AI for Materials
 
@@ -298,8 +298,8 @@ This is not Drexler's vision of diamond mechanosynthesis, but it may be more ach
 AI is genuinely transforming materials science, not just hype:
 
 - **AlphaFold** (DeepMind): Solved protein structure prediction. 43,000+ citations, 3M+ users across 190+ countries. Nobel Prize-worthy impact on structural biology.
-- **GNoME** (DeepMind): Predicted 2.2 million new crystal structures, 380,000 highly stable. 736 independently synthesized by external labs. 80% success rate at predicting stability (vs 50% for prior methods).
-- **Autonomous Labs**: Berkeley Lab's A-Lab synthesizes AI-predicted materials with minimal human input. The "AI-to-lab" pipeline is real and accelerating.
+- **GNoME** (DeepMind): Predicted 2.2 million new crystal structures. However, a [Max Planck Institute study](https://doi.org/10.1103/PhysRevMaterials.8.033803) found over 80% showed structural disorder, and a [Chemistry of Materials analysis](https://doi.org/10.1021/acs.chemmater.4c01285) found most "novel" predictions are trivial compositional variants. 736 were independently synthesized, a 0.03% validation rate. Useful as a screening tool, not the revolution the press release claimed. See [AI in Materials Science]({{< ref "ai-materials-honest" >}}) for the full analysis.
+- **Autonomous Labs**: Berkeley Lab's A-Lab is a genuinely impressive robotic synthesis platform. However, its novelty claims for synthesized materials are [disputed](https://doi.org/10.1021/acs.chemmater.4c01294), the platform works, the discovery claims are in question.
 - **ML Force Fields**: MACE, ANI, and related models enable molecular simulation at 100-1000x the speed of quantum methods with comparable accuracy.
 - **Inverse Design**: ML models can now predict which compositions and structures will have desired properties, inverting the traditional trial-and-error approach.
 

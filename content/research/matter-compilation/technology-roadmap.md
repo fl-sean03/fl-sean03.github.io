@@ -8,13 +8,13 @@ date: 2026-03-09
 
 This roadmap has two complementary views:
 
-1. **The Capability Layers** (structural): The five components that make the loop possible at different scales. From atomic control to infrastructure assembly.
+1. **The Capability Layers** (structural): The five building capabilities that matter compilation requires, from atomic control to infrastructure assembly.
 
-2. **The Bootstrapping Ladder** (temporal): How we get there over time. Seven rungs where each generation of tools enables the next.
+2. **The Bootstrapping Ladder** (temporal): How we get there over time. Seven rungs where each generation of tools enables building the next.
 
-The layers describe *what makes the loop work*. The rungs describe *when we close the loop at each scale*.
+The layers describe *what building capabilities are needed*. The rungs describe *when we achieve each level of building capability*.
 
-**Key insight**: The loop (design, simulate, make, measure, learn) is broken at every seam today. The critical gap is Layer 3 (Manufacturing Knowledge), the accumulated understanding of how to go from a design to a repeatable outcome. MGI, NIST, and 141 ANSI/America Makes standardization gaps all document this. We start by closing the loop for materials, then expand.
+**Key insight**: The central barrier is throughput. A single scanning probe places ~1 atom per second. A macroscopic object contains ~10^22 atoms. That is a 20-order-of-magnitude gap. Every rung on this ladder must credibly advance throughput, precision, or material scope. The critical near-term gap is Layer 3 (Manufacturing Knowledge), the accumulated understanding of how to go from a design to a repeatable fabrication outcome. MGI, NIST, and 141 ANSI/America Makes standardization gaps all document this.
 
 ---
 
