@@ -159,7 +159,7 @@ body {
 
 .btn-read {
   background: var(--accent);
-  color: #fff;
+  color: #fff !important;
 }
 
 .btn-read:hover {
