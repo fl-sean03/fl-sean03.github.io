@@ -9,7 +9,7 @@ date: 2026-03-09
 
 ## The Central Question: Is This Real?
 
-Let's be brutally honest about what's established science, what's plausible engineering, and what's speculative.
+An honest accounting of what's established science, what's plausible engineering, and what's speculative.
 
 ---
 
@@ -168,17 +168,17 @@ Nobody is building the **full-stack ecosystem**: AI for materials, molecular des
 
 ## Realistic Timeline Assessment
 
-Updated with deep research agent findings (6 independent research streams, 100+ sources) and the December 2025 mechanosynthesis demonstration.
+Updated March 2026, incorporating the December 2025 mechanosynthesis demonstration.
 
-### Ecosystem Venture Milestones (Projected)
+### Potential Commercial Milestones
 
 | Milestone | Optimistic | Realistic | Conservative |
 |-----------|-----------|-----------|-------------|
-| AI materials discovery revenue | 2027 | 2028 | 2029 |
-| Novel AI-discovered material validated | 2027 | 2028 | 2030 |
-| Molecular design tool revenue | 2028 | 2029 | 2031 |
-| Hybrid precision manufacturing revenue | 2029 | 2031 | 2033 |
-| $10M+ aggregate ecosystem revenue | 2030 | 2032 | 2035 |
+| AI materials discovery generates commercial revenue | 2027 | 2028 | 2029 |
+| Novel AI-discovered material independently validated | 2027 | 2028 | 2030 |
+| Molecular design tools reach commercial viability | 2028 | 2029 | 2031 |
+| Hybrid precision manufacturing reaches commercial viability | 2029 | 2031 | 2033 |
+| $10M+ aggregate market activity in APM ecosystem | 2030 | 2032 | 2035 |
 
 ### Field-Wide Milestones
 
@@ -193,7 +193,7 @@ Updated with deep research agent findings (6 independent research streams, 100+ 
 | Macroscale matter compilation | 2045 | 2055 | 2070+ | |
 
 ### Expert Probability Estimates (from research)
-- **Rethink Priorities**: 4-5% probability of advanced APM by 2040
+- **80,000 Hours / Ben Snodin**: 4-5% probability of advanced APM by 2040
 - **Drexler (bull case)**: "A decade with investment" for significant APM capability
 - **Jones, Moriarty (bear case)**: Post-2050 or potentially never for full mechanosynthesis
 - **Assessment**: The bio/self-assembly path is more likely than diamond mechanosynthesis. The Dec 2025 silicon result is encouraging but the jump to diamond (or other hard materials) remains large. AI compression of timelines could save 5-15 years for the discovery phase, but the building phase has no demonstrated AI shortcut.
@@ -251,7 +251,7 @@ The risk isn't being too small. The risk is:
 
 3. **Energy costs are prohibitive at scale.** Could limit matter compilation to high-value applications only (medical, semiconductor, defense). Still a massive market.
 
-4. **Someone else gets there first.** Atomic Machines, a national lab, a big tech company. Mitigated by the ecosystem approach (progress anywhere advances the field).
+4. **Someone else gets there first.** Atomic Machines, a national lab, a big tech company. The ecosystem approach means progress by any player advances the field as a whole — a breakthrough at one node benefits all participants.
 
 5. **Regulatory shutdown.** Government bans certain types of molecular manufacturing due to weapons/proliferation concerns. Real risk for the long-term vision.
 
@@ -267,15 +267,15 @@ Sources: [MGI Workshop](https://www.mgi.gov/sites/mgi/files/MGI_Autonomous_Mater
 
 ---
 
-## Recommendation: Build, Fund the Journey, Stay Honest
+## Conclusion: Build Incrementally, Fund the Journey, Stay Honest
 
-The vision is sound. The physics works. The enabling technologies are advancing, with real commercial products (SQC, Zyvex) and a genuine experimental milestone in mechanosynthesis (Dec 2025). The competition validates the market. Government programs are actively funding exactly these gaps.
+The vision is sound. The physics works. The enabling technologies are advancing, with real commercial products (SQC, Zyvex) and a genuine experimental milestone in mechanosynthesis (Dec 2025). The competitive landscape validates the market. Government programs are actively funding exactly these gaps.
 
 **Full matter compilation is 15-40 years away.** That is a feature, not a bug. It means:
 - The journey is long enough to build a serious ecosystem
 - Each intermediate step generates real value and revenue
 - The vision is defensible because few have the patience to pursue it
 
-The strategy is to **build capability now**. Start with ventures that generate revenue today (materials AI, design tools, precision manufacturing for high-value domains like quantum computing and sensors). Use that revenue and credibility to fund progressively more ambitious work. Each venture is independently valuable, and each one moves the needle toward the long-term vision.
+The most viable path forward is **building capability incrementally**. Ventures that generate revenue today — materials AI, design tools, precision manufacturing for high-value domains like quantum computing and sensors — can fund progressively more ambitious work. Each such venture is independently valuable, and each one moves the needle toward the long-term vision.
 
 The throughput barrier is real. The mechanosynthesis gap beyond hydrogen abstraction is real. The manufacturing knowledge gap is real. None of these are reasons to stop. They are reasons to be honest about what "15-40 years" means and to build the intermediate steps that make the long-term work possible.

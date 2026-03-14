@@ -121,7 +121,7 @@ What has been demonstrated:
 
 - **Molecular motors**: rotational speeds of 10 million revolutions per second (Ben Feringa's group, University of Groningen). These are light-driven or chemically driven molecular rotors.
 - **Light-activated artificial muscles**: macroscopic actuation from molecular-level photochemical switching (Nature Communications, 2025).
-- **Polymer assemblers**: the group of David Leigh at the University of Manchester demonstrated a synthetic molecular machine that assembles specific polymer sequences by threading monomers onto a track in a defined order (Nature Communications, 2020).
+- **Polymer assemblers**: the group of David Leigh at the University of Manchester demonstrated a synthetic molecular machine that assembles specific polymer sequences by threading monomers onto a track in a defined order (Chem, 2020).
 
 The Leigh group result is the most relevant because it demonstrates a synthetic machine that actually builds a specific molecular product. But the performance numbers are sobering:
 

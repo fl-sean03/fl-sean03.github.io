@@ -367,7 +367,7 @@ The honest assessment from the research:
 - **Optimistic estimates** (Drexler, Phoenix): Risky APM could emerge within a decade given substantial coordinated investment.
 - **Mainstream view**: Advanced capabilities remain decades away.
 - **Current state**: Functional single-molecule devices (switches, rectifiers, FETs) have been demonstrated. Hydrogen lithography enables atom-defined patterns in silicon. But throughput and scalability remain unsolved.
-- **Key gap**: No focused R&D effort explicitly targets APM, despite $1.5 billion in annual U.S. National Nanotechnology Initiative funding going to adjacent fields.
+- **Key gap**: No focused R&D effort explicitly targets APM, despite over $2 billion in annual U.S. National Nanotechnology Initiative funding (FY2025: $2.2B) going to adjacent fields.
 
 The parallel to early computing is instructive. In 1945, there were perhaps 5 people who understood what a stored-program computer could do. The technology existed in principle (Turing's 1936 paper) but not in practice. It took massive government investment (ENIAC, etc.) to bridge the gap. APM may be at a similar inflection point, the theoretical foundations exist, the enabling technologies are advancing, but the focused engineering effort has not yet been marshaled.
 

@@ -6,9 +6,9 @@ date: 2026-03-09
 
 Every cell in your body is a matter compiler. Ribosomes place amino acids with sub-nanometer precision at thousands of operations per second. DNA origami folds into target geometries. Proteins self-assemble into functional machines. Biology builds with atomic precision, at scale, at room temperature. The existence proof is settled. The engineering question is open: how do we build arbitrary structures, not just proteins, with the same control?
 
-That is matter compilation. Not a metaphor, not a design philosophy. The literal engineering challenge of constructing physical structures by specifying and placing atoms and molecules where they need to go. Today we can do this for a handful of atoms on a surface using scanning tunneling microscopes, or for DNA-based nanostructures in solution. The gap between that and compiling a macroscopic object is roughly 20 orders of magnitude in throughput. That gap is the central problem this corpus addresses.
+That is matter compilation. Not a metaphor, not a design philosophy. The literal engineering challenge of constructing physical structures by specifying and placing atoms and molecules where they need to go. Today we can do this for a handful of atoms on a surface using scanning tunneling microscopes, or for DNA-based nanostructures in solution. The gap between that and compiling a macroscopic object is roughly 20 orders of magnitude in throughput. That gap is the central problem addressed here.
 
-This is 14 documents covering the landscape from what has actually been built with atomic precision today, to the multi-decade engineering roadmap for closing the throughput gap. It spans vision, technical research, feasibility analysis, and ecosystem strategy.
+The pages below cover the landscape from what has actually been built with atomic precision today, to the multi-decade engineering roadmap for closing the throughput gap. It spans vision, technical research, feasibility analysis, and ecosystem strategy.
 
 ---
 
@@ -62,4 +62,4 @@ Honest evaluation and path forward.
 
 **Technical readers**: [APM Deep Dive](/research/matter-compilation/apm-deep-dive/) then [Building Reality Check](/research/matter-compilation/building-reality-check/) then [Throughput Barrier](/research/matter-compilation/throughput-barrier/) then [Feasibility Assessment](/research/matter-compilation/feasibility-assessment/). State of the art, what's been demonstrated, the central problem, the physics.
 
-**Investors**: [Vision](/research/matter-compilation/vision/) then [Throughput Barrier](/research/matter-compilation/throughput-barrier/) then [Ecosystem Plan](/research/matter-compilation/ecosystem-plan/) then [Chip Design Parallels](/research/matter-compilation/chip-design-parallels/). The opportunity, the core technical challenge, the business architecture, the semiconductor precedent.
+**Strategists and funders**: [Vision](/research/matter-compilation/vision/) then [Throughput Barrier](/research/matter-compilation/throughput-barrier/) then [Ecosystem Plan](/research/matter-compilation/ecosystem-plan/) then [Chip Design Parallels](/research/matter-compilation/chip-design-parallels/). The opportunity, the core technical challenge, the ecosystem architecture, the semiconductor precedent.

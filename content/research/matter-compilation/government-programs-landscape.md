@@ -4,8 +4,6 @@ description: "The institutional and funding landscape: DOE Genesis Mission, Manu
 date: 2026-03-09
 ---
 
-**Prepared: March 7, 2026**
-
 ---
 
 ## Table of Contents
@@ -504,14 +502,6 @@ For nanoscience and nanotechnology:
 - **NC State**: Center for Advanced Self-Powered Systems
 - **Boston University**: Engineering Research Center in Cellular Metamaterials
 
-### University of Colorado Boulder Context
-
-CU Boulder has notable programs in:
-- JILA (atomic, molecular, and optical physics)
-- RASEI (Renewable and Sustainable Energy Institute)
-- Materials science and engineering department
-- Proximity to NIST Boulder campus and NOAA
-
 ---
 
 ## 12. Funding Mechanisms for Startups and Research Groups
@@ -584,7 +574,7 @@ CU Boulder has notable programs in:
 
 6. **Target AMMTO FOAs**: The Advanced Materials & Manufacturing Technologies Office regularly releases funding opportunities. Sign up for notifications at energy.gov.
 
-7. **Leverage EPSCoR**: If based in an EPSCoR-eligible state (Colorado is NOT EPSCoR-eligible), this provides additional funding pathways.
+7. **Leverage EPSCoR**: If based in an EPSCoR-eligible state, this provides additional funding pathways. Check eligibility at nsf.gov.
 
 8. **Connect through the Genesis Mission**: The 24 collaboration agreements and 26 challenges represent a new, large-scale funding vector. Monitor DOE announcements for opportunities to participate.
 
@@ -614,7 +604,7 @@ Identified at a 2015 DOE Advanced Manufacturing Office workshop in Berkeley:
 | **Atom-scale Devices** | NIST | Atom-by-atom fabrication using scanning tunneling microscopy |
 | **SBIR/STTR Topics** | DOE | Periodic APM-related topics in solicitations (2018 notable) |
 
-### DARPA Atoms to Product (A2P), Details
+### DARPA Atoms to Product (A2P) — Details
 
 The A2P program addresses the "assembly gap" between atomic-scale manufacturing and practical products. Notable performers:
 
@@ -689,4 +679,4 @@ APM is transitioning from pure research to early-stage engineering. The key bott
 
 ---
 
-*Report compiled from 20+ web sources, March 2026. Government programs and funding levels are subject to change based on congressional appropriations and executive priorities.*
+*Updated March 2026. Government programs and funding levels are subject to change based on congressional appropriations and executive priorities.*

@@ -5,7 +5,7 @@ date: 2026-03-09
 ---
 
 
-*Research compiled March 2026. This document attempts to present the genuine state of the science, what is real, what is plausible, what is speculative, and what is likely wrong.*
+*Updated March 2026. This document attempts to present the genuine state of the science: what is real, what is plausible, what is speculative, and what is likely wrong.*
 
 ---
 
@@ -297,7 +297,7 @@ This is not Drexler's vision of diamond mechanosynthesis, but it may be more ach
 
 AI is genuinely transforming materials science, not just hype:
 
-- **AlphaFold** (DeepMind): Solved protein structure prediction. 43,000+ citations, 3M+ users across 190+ countries. Nobel Prize-worthy impact on structural biology.
+- **AlphaFold** (DeepMind): Solved protein structure prediction. 43,000+ citations, 3M+ users across 190+ countries. Won the 2024 Nobel Prize in Chemistry (Hassabis and Jumper). Transformative impact on structural biology.
 - **GNoME** (DeepMind): Predicted 2.2 million new crystal structures. However, a [Max Planck Institute study](https://doi.org/10.1103/PhysRevMaterials.8.033803) found over 80% showed structural disorder, and a [PRX Energy analysis](https://doi.org/10.1103/PRXEnergy.3.011002) found most "novel" predictions are trivial compositional variants. 736 were independently synthesized, a 0.03% validation rate. Useful as a screening tool, not the revolution the press release claimed. See [AI in Materials Science]({{< ref "ai-materials-honest" >}}) for the full analysis.
 - **Autonomous Labs**: Berkeley Lab's A-Lab is a genuinely impressive robotic synthesis platform. However, its novelty claims for synthesized materials are [disputed](https://doi.org/10.1021/acs.chemmater.4c01294), the platform works, the discovery claims are in question.
 - **ML Force Fields**: MACE, ANI, and related models enable molecular simulation at 100-1000x the speed of quantum methods with comparable accuracy.

@@ -10,9 +10,9 @@ This roadmap has two complementary views:
 
 1. **The Capability Layers** (structural): The five building capabilities that matter compilation requires, from atomic control to infrastructure assembly.
 
-2. **The Bootstrapping Ladder** (temporal): How we get there over time. Seven rungs where each generation of tools enables building the next.
+2. **The Bootstrapping Ladder** (temporal): The temporal sequence for getting there. Seven rungs where each generation of tools enables building the next.
 
-The layers describe *what building capabilities are needed*. The rungs describe *when we achieve each level of building capability*.
+The layers describe *what building capabilities are needed*. The rungs describe *when each level of building capability is achieved*.
 
 **Key insight**: The central barrier is throughput. A single scanning probe places ~1 atom per second. A macroscopic object contains ~10^22 atoms. That is a 20-order-of-magnitude gap. Every rung on this ladder must credibly advance throughput, precision, or material scope. The critical near-term gap is Layer 3 (Manufacturing Knowledge), the accumulated understanding of how to go from a design to a repeatable fabrication outcome. MGI, NIST, and 141 ANSI/America Makes standardization gaps all document this.
 
@@ -63,11 +63,8 @@ Build the knowledge base, tools, team, and initial revenue streams.
 | ML/AI for materials | Property prediction, inverse design | Autonomous materials discovery pipeline |
 | Self-driving labs | Closed-loop experimentation | Near-term revenue opportunity |
 
-### Revenue Activities
-- Apply for DOE SBIR/STTR grants ($50K-$1.5M)
-- Apply for NSF Convergence Accelerator funding
-- Begin materials discovery consulting for local industry
-- Open-source molecular design tools (builds community, attracts talent)
+### Revenue Opportunities
+Potential revenue sources at this stage include DOE SBIR/STTR grants ($50K-$1.5M), NSF Convergence Accelerator funding, materials discovery consulting for industry, and open-source molecular design tools (which build community and attract talent).
 
 ---
 
@@ -117,7 +114,7 @@ Build the AI engine that accelerates materials discovery and molecular design by
 - Materials discovery contracts with pharma, electronics, energy companies
 - Subscription access to materials AI platform
 - Government grants and contracts
-- Target: $500K-$2M annual revenue
+- Addressable revenue range: $500K-$2M annually
 
 ---
 
@@ -165,7 +162,7 @@ Design (AI) ──→ Simulation (verify) ──→ Fabrication Plan (decompose)
 - Custom manufacturing services for high-value applications
 - Licensed manufacturing processes
 - Equipment and consumables
-- Target: $5-20M annual revenue
+- Addressable revenue range: $5-20M annually
 
 ---
 
@@ -196,7 +193,7 @@ Build functional molecular machines, the components that will eventually compris
 - Molecular machine components for research labs
 - Characterization services
 - IP licensing for molecular machine designs
-- Target: $20-50M annual revenue (across ecosystem)
+- Addressable revenue range: $20-50M annually (across ecosystem)
 
 ---
 
@@ -324,14 +321,14 @@ Matter:    Design File  → Matter Compiler → Assembly Instructions → Fabric
 
 ---
 
-## Recommended First Steps
+## Key Entry Points for New Efforts in This Space
 
-1. **Start with MSEP.one**: Install, explore, contribute. This is Drexler's current vehicle and the most active open-source molecular design project.
+1. **MSEP.one**: The most accessible starting point for molecular design exploration. As Drexler's current vehicle, it is the most active open-source molecular design project.
 
-2. **Build a materials AI prototype**: Use existing datasets (Materials Project, AFLOW, OQMD) to train property prediction models. Demonstrate capability.
+2. **Materials AI prototyping**: Existing datasets (Materials Project, AFLOW, OQMD) enable training property prediction models and demonstrating capability without large upfront investment.
 
-3. **Apply for facility access**: Submit proposals to Molecular Foundry (LBNL) and/or NIST Boulder. Get hands-on time with nanoscale characterization and fabrication tools.
+3. **DOE/NIST user facilities**: The Molecular Foundry (LBNL) and NIST CNST accept proposals for nanoscale characterization and fabrication access, providing hands-on time with state-of-the-art tools.
 
-4. **Engage Foresight Institute**: They're the hub of the APM community. Their conferences, prizes, and network are invaluable.
+4. **Foresight Institute**: The hub of the APM community. Their conferences, prizes, and network connect researchers across the field.
 
-5. **Write a position paper**: Articulate the matter compiler vision in a format that can attract collaborators, advisors, and eventually investors.
+5. **Position papers and vision documents**: Articulating the matter compiler vision in a publishable format attracts collaborators, advisors, and funding.

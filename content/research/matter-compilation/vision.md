@@ -26,7 +26,7 @@ Several independent technology curves are converging to make this vision achieva
 
 1. **Atomically Precise Manufacturing Is Producing Real Products**: SQC (Silicon Quantum Computing) is selling atom-precision quantum processors to Telstra and Australian Defence, real products generating real revenue. In December 2025, inverted-mode STM achieved 96.4% success rate for covalent mechanosynthesis (arXiv:2512.24431), a major step toward reliable automated atomic assembly. Zyvex patterned 250,000 qubit registers in 8 hours (November 2025), demonstrating throughput that was unthinkable five years ago. DNA origami achieves sub-nanometer precision in 3D self-assembly with near-100% yield. Drexler's MSEP.one (launched October 2024) provides open-source molecular design tools. This is not laboratory curiosity. APM is shipping.
 
-2. **AI-Accelerated Research Tools**: AI is providing real acceleration to materials research, but the gains are more modest than headlines suggest. ML interatomic potentials genuinely speed up molecular dynamics simulations. Property screening across candidate spaces is faster. Autonomous experimentation (Argonne's Polybot, NIST AFL) reduces human bottlenecks in characterization. However, the hype far outpaces reality. Google DeepMind's GNoME claim of "2.2 million new crystal structures" is deeply contested: independent analysis shows 80%+ of predicted structures exhibit disorder, and retractions have been called for. The real speedup for materials R&D is 5-10x, not the "compressing decades to months" narrative. See [AI in Materials Science: An Honest Assessment](ai-materials-honest.md) for detailed analysis of what AI actually contributes and where the hype diverges from reality.
+2. **AI-Accelerated Research Tools**: AI is providing real acceleration to materials research, but the gains are more modest than headlines suggest. ML interatomic potentials genuinely speed up molecular dynamics simulations. Property screening across candidate spaces is faster. Autonomous experimentation (Argonne's Polybot, NIST AFL) reduces human bottlenecks in characterization. However, the hype far outpaces reality. Google DeepMind's GNoME claim of "2.2 million new crystal structures" is deeply contested: independent analysis shows 80%+ of predicted structures exhibit disorder, and retractions have been called for. The real speedup for materials R&D is 5-10x, not the "compressing decades to months" narrative. See [AI in Materials Science: An Honest Assessment](/research/matter-compilation/ai-materials-honest/) for detailed analysis of what AI actually contributes and where the hype diverges from reality.
 
 3. **The Bootstrapping Path Is Clearer Than Ever**: Convergent assembly mathematics show how nanometer-scale components can be hierarchically assembled to meter-scale products. Each stage doubles the size in 2^N scaling. The theoretical framework from Drexler's "Nanosystems" remains unrefuted.
 
@@ -34,7 +34,7 @@ Several independent technology curves are converging to make this vision achieva
 
 5. **Compute Is Sufficient**: First-principles molecular simulation is now tractable at useful scales. AI-driven inverse design can explore vast chemical and structural spaces. The computational tools to design matter-compiler components exist.
 
-6. **The Business Model Is Proven**: AI labs demonstrated that investing billions in long-term research while building intermediate revenue streams works. OpenAI, Anthropic, DeepMind all went years pre-revenue. SpaceX funds Mars with Starlink. Flagship Pioneering's venture studio model creates ecosystem companies (25% unicorn rate vs 1.3% baseline).
+6. **The Business Model Has Precedent**: The AI industry established a precedent for investing billions in long-term research while sustaining operations through intermediate revenue streams. OpenAI, Anthropic, and DeepMind all operated for years pre-revenue. SpaceX funds Mars development with Starlink revenue. Flagship Pioneering's venture studio model has produced ecosystem companies at a 25% unicorn rate vs 1.3% baseline. These examples suggest that patient capital applied to deep-tech research can work when paired with nearer-term commercial activity.
 
 ---
 
@@ -45,7 +45,7 @@ Matter compilation is not one technology, it's a stack. Each layer has different
 | Layer | What It Covers | Status |
 |-------|---------------|--------|
 | **1. Atomic/Molecular Control** | APM, atomic-scale devices, nanoscale assembly | Real but narrow (STM, DNA origami, ALD). SQC shipping commercial products. |
-| **2. Materials Intelligence** | Foundation models, inverse design, autonomous experimentation | Active but overhyped. Real speedup is 5-10x. See [AI in Materials Science](ai-materials-honest.md) for honest assessment. |
+| **2. Materials Intelligence** | Foundation models, inverse design, autonomous experimentation | Active but overhyped. Real speedup is 5-10x. See [AI in Materials Science](/research/matter-compilation/ai-materials-honest/) for honest assessment. |
 | **3. Manufacturing Knowledge** | Process development, recipes, metrology, failure modes | The critical gap, connects design to repeatable production |
 | **4. Production Systems** | Digital thread, digital twins, robotics workcells, QC | Emerging (Genesis Mission, NIST, SMART USA) |
 | **5. Infrastructure Assembly** | Modular manufacturing, robotic assembly, digital construction | Far horizon (NASA metamaterial work, modular construction) |
@@ -142,43 +142,30 @@ The matter compilation revolution will follow the same pattern. No single entity
 
 ### The Venture Ecosystem Model
 
-The model is an **ecosystem of purpose-aligned ventures**, not a single monolithic company:
+The model is an **ecosystem of purpose-aligned ventures**, not a single monolithic company. The roles that would need to be filled include:
 
-1. **The Research Foundation**: Open research, grants, publications, talent pipeline
-2. **The Tools Company**: Molecular design software, simulation platforms (akin to MSEP.one but commercial-grade)
-3. **The Precision Manufacturing Company**: Advancing the state of the art from current additive manufacturing toward atomic precision. This is the central venture, the one that directly builds the core capability.
-4. **The Materials Discovery Company**: AI-accelerated labs for novel materials discovery, a supporting capability that feeds into fabrication
-5. **The Compute/Simulation Company**: Specialized compute for molecular simulation and materials design
-6. **Vertical Application Companies**: Specific industry applications that generate revenue today while advancing the core capability
+1. A **research foundation** for open research, grants, publications, and talent pipeline development
+2. A **tools company** building molecular design software and simulation platforms (akin to MSEP.one but commercial-grade)
+3. A **precision manufacturing company** advancing the state of the art from current additive manufacturing toward atomic precision — the central venture that directly builds the core capability
+4. A **materials discovery company** running AI-accelerated labs for novel materials discovery, a supporting capability that feeds into fabrication
+5. A **compute/simulation company** providing specialized compute for molecular simulation and materials design
+6. **Vertical application companies** targeting specific industry applications that generate revenue today while advancing the core capability
 
-Each venture:
-- Generates its own revenue to sustain operations
-- Advances the core matter compilation capability
-- Attracts talent and partnerships in its specific domain
-- Contributes IP and knowledge to the broader ecosystem
+Each venture in this model would:
+- Generate its own revenue to sustain operations
+- Advance the core matter compilation capability
+- Attract talent and partnerships in its specific domain
+- Contribute IP and knowledge to the broader ecosystem
 
 ### Revenue Bridges
 
-Following the AI lab model, revenue bridges sustain the long-term vision:
+Following the AI lab model, intermediate revenue can sustain long-term APM research. The potential revenue bridges fall into three time horizons:
 
-**Near-term revenue (2026-2028)**:
-- Precision fabrication services (quantum computing components, semiconductor prototyping, specialty devices)
-- Government contracts (DOE, DARPA, ARPA-E). Note: SBIR/STTR authorization lapsed Oct 2025; alternative programs (ARPA-E OPEN, DOE BES, NSF Convergence Accelerator) remain active
-- Simulation and design software licensing
-- Consulting for advanced manufacturing optimization
-- Materials discovery as a service (pharma, electronics, energy companies pay for novel materials)
-- Data curation and annotation for materials AI
+**In the near term**, revenue bridges could include precision fabrication services for quantum computing and semiconductor customers, government contracts (DOE, DARPA, ARPA-E — though SBIR/STTR authorization lapsed Oct 2025, alternatives like ARPA-E OPEN, DOE BES, and NSF Convergence Accelerator remain active), simulation and design software licensing, consulting for advanced manufacturing optimization, materials discovery as a service, and data curation and annotation for materials AI.
 
-**Medium-term revenue (2028-2032)**:
-- Custom materials manufacturing
-- Precision component fabrication
-- Autonomous lab installations
-- IP licensing
+**In the medium term**, as capabilities mature, revenue shifts toward custom materials manufacturing, precision component fabrication, autonomous lab installations, and IP licensing.
 
-**Long-term revenue (2032+)**:
-- Matter compilation as a service
-- Manufacturing platform licensing
-- Infrastructure deployment
+**In the long term**, fully realized matter compilation enables new business models: matter compilation as a service, manufacturing platform licensing, and infrastructure deployment.
 
 ---
 
@@ -252,7 +239,7 @@ This is exactly what happened with semiconductor manufacturing: each generation 
 
 ## Open Questions
 
-1. **Throughput**: Even if we can place atoms precisely, how do we achieve macroscale throughput? Parallelization strategies (convergent assembly, massively parallel assembler arrays) are the theoretical answer, but engineering them is the challenge. See [The Throughput Barrier](throughput-barrier.md) for detailed analysis.
+1. **Throughput**: Even if we can place atoms precisely, how do we achieve macroscale throughput? Parallelization strategies (convergent assembly, massively parallel assembler arrays) are the theoretical answer, but engineering them is the challenge. See [The Throughput Barrier](/research/matter-compilation/throughput-barrier/) for detailed analysis.
 
 2. **Feedstock**: What molecular feedstocks do matter compilers use? How do you break down arbitrary input materials into useful atomic/molecular building blocks?
 

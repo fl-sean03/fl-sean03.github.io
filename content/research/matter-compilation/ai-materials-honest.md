@@ -5,7 +5,7 @@ date: 2026-03-09
 ---
 
 
-*Research compiled March 2026. This document examines what AI-driven materials discovery has actually delivered, not what press releases claim. Every claim is sourced.*
+*Updated March 2026. What AI-driven materials discovery has actually delivered, not what press releases claim. Every claim is sourced.*
 
 ---
 
@@ -166,7 +166,7 @@ Not everything is hype. AI has delivered genuine, reproducible value in several 
 
 ## 7. Discovery Is Not Compilation
 
-This is the critical distinction for this corpus.
+This is the critical distinction for matter compilation.
 
 Matter compilation is about **building**: constructing physical structures with atomic precision, controlling where every atom goes, scaling from nanometers to meters.
 
@@ -176,7 +176,7 @@ Finding what to build is useful. It does not solve the building problem.
 
 A generative model that proposes a novel superhard material does not tell you how to position carbon atoms into a diamond lattice with atomic precision. A self-driving lab that optimizes a polymer formulation does not solve the problem of fabricating arbitrary 3D structures from that polymer at the nanoscale. A stability prediction that screens out 99% of bad candidates still leaves you with the entire manufacturing challenge for the 1% that survive.
 
-The materials discovery loop (design, simulate, make, measure, learn) is a methodology. It is one useful tool in the broader project of matter compilation. But it is not the thesis of this corpus. The thesis is building physical structures with atomic precision, and AI materials discovery, for all its genuine contributions, does not address the building problem.
+The materials discovery loop (design, simulate, make, measure, learn) is a methodology. It is one useful tool in the broader project of matter compilation. But it is not the thesis of matter compilation. The thesis is building physical structures with atomic precision, and AI materials discovery, for all its genuine contributions, does not address the building problem.
 
 ---
 

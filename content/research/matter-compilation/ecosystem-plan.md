@@ -1,6 +1,6 @@
 ---
-title: "Ecosystem Plan: Building the Matter Compilation Platform"
-description: "The multi-venture architecture: a research foundation, platform companies, and vertical ventures. Phasing, funding strategy, organizational structure, and success metrics."
+title: "Ecosystem Plan: Building a Matter Compilation Platform"
+description: "A reference architecture for a multi-venture ecosystem: research foundation, platform companies, and vertical ventures. Phasing, funding strategy, organizational structure, and indicators of progress."
 date: 2026-03-09
 ---
 
@@ -9,9 +9,9 @@ date: 2026-03-09
 
 ## The Ecosystem Architecture
 
-This is not a single company. It's a constellation of purpose-aligned ventures, each generating value independently while collectively advancing the matter compilation capability.
+Matter compilation is not a single-company problem. It calls for a constellation of purpose-aligned ventures, each generating value independently while collectively advancing the core capability.
 
-A single-company approach is too narrow for the scope of matter compilation. This ecosystem approach uses separate ventures with their own brands, sharing infrastructure and knowledge under a common holding structure.
+A single-company approach is too narrow for the scope of matter compilation. An ecosystem approach — separate ventures with their own brands, sharing infrastructure and knowledge under a common holding structure — maps more naturally to the problem's breadth.
 
 ```
                     ┌─────────────────────────────┐
@@ -89,11 +89,11 @@ These companies build the enabling technology stack that all verticals depend on
 
 **Role in Ecosystem**: A supporting capability that feeds into fabrication. Identifies WHAT to build. Does not solve the building problem itself. Lowest capital requirement but entering a crowded field.
 
-**Target**: $1-5M ARR by year 2.
+**Revenue potential**: $1-5M ARR range once established, given the addressable market.
 
 ---
 
-### The Molecular Design Studio: Molecular Design Studio
+### Molecular Design Studio
 
 **What**: Professional-grade software for designing and simulating molecular machines and atomically precise structures.
 
@@ -113,7 +113,7 @@ These companies build the enabling technology stack that all verticals depend on
 
 **Why Important**: The matter compiler needs a design environment. Just as software needs IDEs, molecular manufacturing needs molecular CAD. MSEP.one is a start but far from production-grade.
 
-**Target**: $2-10M ARR by year 3.
+**Revenue potential**: $2-10M ARR range at maturity, given enterprise pricing and market size.
 
 ---
 
@@ -137,9 +137,9 @@ These companies build the enabling technology stack that all verticals depend on
 
 **Why This Is Central**: This is where the building capability gets built. Materials intelligence tells you WHAT to build. Molecular design tells you HOW to design it. Precision fabrication actually BUILDS it. The [throughput barrier](/research/matter-compilation/throughput-barrier/) is the central unsolved problem, and this venture is the one that works on solving it.
 
-**Capital Intensive**: This company needs $5-50M+ investment. Launch later (2028+).
+**Capital Intensive**: A venture of this kind would need $5-50M+ investment and would launch later in the ecosystem's development.
 
-**Target**: $10-50M revenue by year 5.
+**Revenue potential**: $10-50M revenue range once operational, driven by equipment sales and fabrication services.
 
 ---
 
@@ -180,65 +180,34 @@ These companies apply the platform technology to specific industries, generating
 
 ## Phasing
 
-### Phase 0: Seed (Now - Q4 2026)
-**Focus**: Research, planning, first revenue
+### Phase 0: Seed
+**Focus**: Research foundation, community engagement, first revenue
 
-| Action | Timeline | Cost |
-|--------|----------|------|
-| Complete technical literature review | Q2 2026 | Time only |
-| Set up molecular simulation capability | Q2 2026 | $0 (open source) |
-| Apply for DOE/NSF grants | Q2-Q3 2026 | Time only |
-| Begin materials AI prototype | Q3 2026 | $0-5K (compute) |
-| Engage Foresight Institute community | Q2 2026 | Time only |
-| Apply to DOE user facilities | Q3 2026 | Time only |
-| First materials consulting project | Q4 2026 | Revenue |
-| Write position paper / manifesto | Q3 2026 | Time only |
+Phase 0 is bootstrappable with minimal capital. The work is primarily intellectual: completing a technical literature review, setting up molecular simulation capability using open-source tools, engaging the existing APM community (e.g., Foresight Institute), applying for government grants and DOE user facility access, building a materials AI prototype, and landing the first materials consulting project. A position paper or manifesto establishes the ecosystem vision publicly.
 
-**Capital needed**: $0-10K (bootstrapped from small grants)
-**Team**: 1-3 researchers
+This phase can be funded almost entirely through grants and consulting revenue. The team is small — a handful of researchers working with open-source tools.
 
-### Phase 1: First Ventures (2027)
+### Phase 1: First Ventures
 **Focus**: Launch precision fabrication services and materials intelligence tools
 
-| Action | Timeline | Investment |
-|--------|----------|------------|
-| Incorporate first venture | Q1 2027 | $1-5K |
-| Build materials AI prototype (supporting tool) | Q1-Q2 2027 | Sweat equity |
-| Precision fabrication services: first customer | Q2-Q3 2027 | Revenue |
-| Apply for SBIR Phase I ($50-250K) | Q1 2027 | - |
-| DOE/DARPA grants for APM research | Q2 2027 | - |
-| Seed funding round ($250K-$1M) | Q3-Q4 2027 | Dilution |
-| Hire first employees (2-3) | Q4 2027 | From revenue/funding |
-| Establish research foundation (informal) | Q4 2027 | - |
+Phase 1 involves incorporating the first venture, building a materials AI prototype as a supporting tool, landing the first precision fabrication customer, and pursuing SBIR and DOE/DARPA grants. An initial seed funding round enables the first hires. An informal research foundation begins to take shape.
 
-### Phase 2: Platform Expansion (2028-2029)
-**Focus**: Launch Companies B and C, establish research foundation
+The key milestone is first revenue from fabrication services — proving that the ecosystem can generate commercial value while advancing the core technology.
 
-| Action | Timeline |
-|--------|----------|
-| Launch Molecular Design Studio (The Molecular Design Studio) | Q1 2028 |
-| Formalize research foundation (501c3 or equivalent) | Q2 2028 |
-| Begin hardware R&D for precision fabrication | Q2 2028 |
-| Series A for The Materials Intelligence Platform ($3-10M) | Q1-Q2 2028 |
-| Launch first vertical venture | Q3 2028 |
-| DOE user facility projects producing results | Ongoing |
-| Seed round for The Precision Fabrication Company ($1-5M) | Q4 2028 |
+### Phase 2: Platform Expansion
+**Focus**: Launch additional platform companies, formalize research foundation
 
-### Phase 3: Ecosystem Maturity (2030-2035)
+Phase 2 launches the Molecular Design Studio and formalizes the research foundation as a 501(c)(3) or equivalent. Hardware R&D for precision fabrication begins in earnest. The materials intelligence platform raises a larger round to scale. The first vertical venture launches, targeting a specific industry. DOE user facility projects begin producing publishable results, and the precision fabrication venture raises its own dedicated round.
+
+### Phase 3: Ecosystem Maturity
 **Focus**: Multiple ventures generating revenue, advancing core technology
 
-| Action | Timeline |
-|--------|----------|
-| 3-5 active ventures in ecosystem | 2030 |
-| First molecular machine demonstration | 2030-2032 |
-| $50M+ aggregate annual revenue across ecosystem | 2032 |
-| Series B+ rounds for platform companies | 2030-2033 |
-| Parallel assembler prototype | 2034-2035 |
-| Major government contracts (DARPA, DOE) | 2030+ |
+By Phase 3, the ecosystem has 3-5 active ventures generating aggregate revenue in the tens of millions. The scientific milestones become dramatic: first molecular machine demonstration, parallel assembler prototype, and major government contracts. Platform companies raise growth rounds to scale.
 
-### Phase 4: Matter Compilation (2035+)
+### Phase 4: Matter Compilation
 **Focus**: Convergent assembly systems, general-purpose manufacturing
 
+Phase 4 is the long-term horizon:
 - Practical matter compilation for specialized applications
 - Massive scaling of manufacturing capability
 - Global impact on manufacturing industries
@@ -257,16 +226,21 @@ These companies apply the platform technology to specific industries, generating
 | DARPA | $500K-5M | Varies |
 | NSF Convergence Accelerator | $750K-5M | 2-4 years |
 | DOE Basic Energy Sciences | $200K-1M/year | 3 years |
-| State of Colorado innovation grants | $25-250K | Varies |
+| State and regional innovation grants | $25-250K | Varies |
 
-### Venture Capital
-| Round | Amount | Timeline | Triggers |
-|-------|--------|----------|----------|
-| Pre-seed / Friends & Family | $50-250K | 2026-2027 | Vision + prototype |
-| Seed | $500K-2M | 2027 | First revenue + AI platform MVP |
-| Series A | $5-15M | 2028-2029 | Product-market fit + $1M+ ARR |
-| Series B | $20-50M | 2030-2031 | Multi-venture momentum + $10M+ ARR |
-| Growth | $100M+ | 2032+ | Breakthrough demonstrations |
+### Venture Capital (Typical Deep-Tech Stages)
+
+Deep-tech ventures in this space follow a well-established funding progression:
+
+| Stage | Typical Range | What Unlocks It |
+|-------|---------------|-----------------|
+| Pre-seed | $50-250K | Compelling vision + early prototype |
+| Seed | $500K-2M | First revenue + working platform MVP |
+| Series A | $5-15M | Product-market fit + $1M+ ARR |
+| Series B | $20-50M | Multi-venture momentum + $10M+ ARR |
+| Growth | $100M+ | Breakthrough technical demonstrations |
+
+Each stage is gated by demonstrable progress rather than timelines. Deep-tech fundraising typically runs 6-18 months behind software-only companies at equivalent stages, reflecting the longer development cycles and higher capital requirements.
 
 ### Strategic Partners
 - National labs (DOE CRADAs: shared R&D, facility access)
@@ -301,7 +275,7 @@ These companies apply the platform technology to specific industries, generating
 
 ### Corporate Structure: Public Benefit Corporation (PBC)
 
-Based on deep research into AI lab corporate structures, the holding company should be a **Public Benefit Corporation** from day one:
+The holding company should be a **Public Benefit Corporation** from day one:
 
 - **Why PBC**: Avoids OpenAI's messy nonprofit→capped-profit→for-profit transition. PBC legally enshrines the mission alongside profit motive.
 - **Voting caps**: Implement voting caps on all investors (Anthropic's governance innovation). Prevents mission drift under investor pressure.
@@ -342,37 +316,39 @@ The holding entity provides strategic direction, with operational leaders runnin
 
 ---
 
-## Success Metrics
+## Indicators of Progress
 
-### Year 1 (2026-2027)
-- [ ] Materials AI prototype demonstrated
-- [ ] First grant funded ($50K+)
-- [ ] First revenue ($10K+)
-- [ ] 3+ research collaborations established
-- [ ] Position paper published
-- [ ] 5+ person advisory network
+The following milestones describe what progress looks like at each stage of ecosystem development. These are not targets tied to specific dates but rather indicators that each phase is maturing.
 
-### Year 3 (2028-2029)
-- [ ] 2+ ventures operational
-- [ ] $1M+ aggregate annual revenue
-- [ ] $5M+ total funding raised
-- [ ] 10+ full-time team members across ecosystem
-- [ ] 3+ published papers
-- [ ] DOE/DARPA contract secured
-- [ ] Novel material demonstrated (AI-discovered, precision-fabricated)
+### Early Stage (Phase 0-1)
+- A working materials AI prototype that produces useful predictions
+- Initial grant funding secured (SBIR, DOE, or NSF)
+- Initial revenue from consulting or fabrication services
+- Research collaborations with university groups or national labs
+- A published position paper establishing the ecosystem's intellectual foundation
+- An advisory network of domain experts across materials science, manufacturing, and AI
 
-### Year 5 (2030-2031)
-- [ ] 4+ ventures operational
-- [ ] $10M+ aggregate annual revenue
-- [ ] Molecular machine prototype demonstrated
-- [ ] 30+ full-time team members
-- [ ] Recognized as a leading APM research group
-- [ ] Strategic partnerships with major materials/semiconductor companies
+### Growth Stage (Phase 2)
+- Two or more ventures operational with distinct revenue streams
+- Aggregate annual revenue crossing the $1M threshold
+- Meaningful external funding raised across the portfolio
+- A growing full-time team distributed across ventures
+- Peer-reviewed publications demonstrating novel capabilities
+- A DOE or DARPA contract secured, validating government interest
+- A novel material demonstrated end-to-end: AI-discovered and precision-fabricated
 
-### Year 10 (2035-2036)
-- [ ] $100M+ aggregate annual revenue
-- [ ] Parallel assembler array demonstrated
-- [ ] First product manufactured via molecular assembly
-- [ ] 100+ team members
-- [ ] Global recognition
-- [ ] Multiple patent families
+### Expansion Stage (Phase 3)
+- Four or more ventures operational across platform and vertical layers
+- Aggregate annual revenue in the $10M+ range
+- A molecular machine prototype demonstrated
+- A team of 30+ across the ecosystem
+- Recognition as a leading APM research group
+- Strategic partnerships with major materials or semiconductor companies
+
+### Maturity Stage (Phase 4)
+- Aggregate annual revenue exceeding $100M
+- A parallel assembler array demonstrated
+- A first product manufactured via molecular assembly
+- A team of 100+ across the ecosystem
+- Global recognition and influence on manufacturing policy
+- A broad, interlocking patent portfolio

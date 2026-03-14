@@ -5,7 +5,7 @@ date: 2026-03-09
 ---
 
 
-*Research compiled March 2026. This document works through the arithmetic of atomic-scale manufacturing throughput, what has been demonstrated, what has been proposed, and where the gaps are. Confidence labels: Established, Plausible, Speculative.*
+*Updated March 2026. The arithmetic of atomic-scale manufacturing throughput, what has been demonstrated, what has been proposed, and where the gaps are. Confidence labels: Established, Plausible, Speculative.*
 
 ---
 
@@ -189,7 +189,7 @@ Biology is the existence proof that molecular-scale manufacturing at practical t
 
 The gap between biological molecular machines and synthetic ones is enormous. The most instructive comparison is the ribosome versus synthetic molecular assemblers:
 
-| Property | Ribosome | Leigh Assembler (2013) |
+| Property | Ribosome | Leigh Assembler (2013, 2020) |
 |----------|----------|----------------------|
 | Rate | 15-20 amino acids/sec | ~1 amino acid per 12 hours |
 | Speed ratio | 1x | 1/648,000 to 1/864,000 |
@@ -259,7 +259,7 @@ About one watt. This is negligibly small. Even at 1000 kT per operation, you nee
 
 **Computing overcame a similar scale gap.** The semiconductor industry went from 1 transistor (1947) to 10^12 transistors on a single chip (2020s) in roughly 70 years. That is 12 orders of magnitude. Matter compilation needs 15 to 20 orders of magnitude of improvement. The scale is larger, but the computing precedent shows that sustained exponential improvement over decades is possible when there are strong economic incentives and no fundamental physical barriers.
 
-### Arguments for Not in Our Lifetime
+### Arguments Against Near-Term Feasibility
 
 **Biology had 4 billion years.** Evolution explored an astronomically large design space over billions of generations to arrive at ribosomes, polymerases, and the rest of the molecular machinery that makes cellular life work. We are attempting to engineer equivalent systems from scratch, in decades. The gap between "physics allows it" and "engineers can build it" can be very large.
 
@@ -317,6 +317,6 @@ This does not mean matter compilation is impossible. It means matter compilation
 
 7. **JCVI-syn3.0.** Hutchison, C.A. et al. (2016). "Design and synthesis of a minimal bacterial genome." Science 351(6280). [https://www.science.org/doi/10.1126/science.aad6253](https://www.science.org/doi/10.1126/science.aad6253)
 
-8. **Leigh assembler.** Lewandowski, B. et al. (2013). "Sequence-specific peptide synthesis by an artificial small-molecule machine." Science 339(6116). [https://www.science.org/doi/10.1126/science.1229753](https://www.science.org/doi/10.1126/science.1229753)
+8. **Leigh assembler.** Lewandowski, B. et al. (2013). "Sequence-specific peptide synthesis by an artificial small-molecule machine." Science 339(6116). [https://www.science.org/doi/10.1126/science.1229753](https://www.science.org/doi/10.1126/science.1229753). See also De Bo, G. et al. (2020). Chem. [https://doi.org/10.1016/j.chempr.2020.09.021](https://doi.org/10.1016/j.chempr.2020.09.021)
 
 9. **Silicon Quantum Computing (SQC).** STM-based atomically precise fabrication of silicon quantum devices. [https://sqc.com.au/](https://sqc.com.au/)

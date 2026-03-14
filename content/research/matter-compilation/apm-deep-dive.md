@@ -4,8 +4,6 @@ description: "State of the art in APM: scanning probe techniques, DNA nanotechno
 date: 2026-03-09
 ---
 
----
-
 ## Table of Contents
 
 1. [Executive Summary](#1-executive-summary)
@@ -133,8 +131,8 @@ The 2024 Nobel Prize in Chemistry (David Baker for computational protein design;
 | **Michelle Simmons** | UNSW / Silicon Quantum Computing | 2025: 11-qubit atom processor in silicon (Nature). Founded SQC, the only company manufacturing atomic-precision silicon quantum chips commercially. Australian of the Year 2018. |
 | **David Baker** | University of Washington / HHMI | 2024 Nobel Laureate. Computational protein design, atomically precise molecular machines from amino acids. |
 | **Ben Feringa** | University of Groningen | 2016 Nobel Laureate. Molecular motors, photoactuating artificial muscles (2025). |
-| **David Leigh** | University of Manchester | 2016 Nobel co-laureate nominee. Autonomous molecular motors, molecular assemblers producing polymer sequences. |
-| **Fraser Stoddart** | Northwestern / Hong Kong | 2016 Nobel Laureate. Mechanically interlocked molecules, molecular switches. |
+| **David Leigh** | University of Manchester | Pioneer in synthetic molecular machines. Autonomous molecular motors, molecular assemblers producing polymer sequences. |
+| **Fraser Stoddart** (1942-2025) | Northwestern / Hong Kong | 2016 Nobel Laureate. Mechanically interlocked molecules, molecular switches. |
 | **Christian Schafmeister** | Temple University | Spiroligomer-based atomically precise membranes with tunable pore sizes. Feynman Prize winner. |
 | **Paul Rothemund** | Caltech | Pioneer of DNA origami (2006). |
 
@@ -189,7 +187,7 @@ Eric Drexler's vision, laid out rigorously in his MIT doctoral thesis and subseq
 
 ### 4.4 The Drexler-Smalley Debate
 
-Nobel laureate Richard Smalley (discoverer of C60 buckminsterfullerene) challenged Drexler's vision on two grounds:
+Nobel laureate Richard Smalley (co-discoverer of C60 buckminsterfullerene) challenged Drexler's vision on two grounds:
 - **"Fat fingers" problem**: Nanoscale manipulators would be too large to precisely control reactions in the confined space around an assembly site
 - **"Sticky fingers" problem**: Atoms and molecules would adhere to the manipulator rather than being placed where desired
 
@@ -274,7 +272,7 @@ Drexler himself later argued that self-replication is neither necessary nor desi
 **DNA-based self-replication (demonstrated):**
 
 - Researchers at the University of Science and Technology of China (2024) achieved precise control over replication and catalytic assembly of DNA-functionalized colloids at room temperature, facilitating large-scale ordered nanomaterials.
-- A 2024 study demonstrated rapid sigmoidal self-replication of DNA wireframe nanoassemblies via isothermal ligase chain reaction (LIDA).
+- A 2024 study demonstrated rapid sigmoidal self-replication of DNA wireframe nanoassemblies via isothermal ligase chain reaction.
 - DNA molecular controllers for autonomous assembly/disassembly of molecular robots were demonstrated (Tohoku/Kyoto, 2024).
 
 **General-purpose self-replicating assemblers:**
@@ -582,6 +580,8 @@ The fundamental challenge remains **throughput**. An STM can manipulate perhaps 
 - [Atomically Precise Cu Nanoclusters: Synthesis and Catalytic Applications (Nano-Micro Letters, 2024)](https://link.springer.com/article/10.1007/s40820-024-01555-6)
 - [Electronic Control of Silicon Surface Atomic Structures with Two-Probe STM (ACS Nano, 2025)](https://pubs.acs.org/doi/10.1021/acsnano.4c18016)
 - [Ultra-high vacuum STM-assisted atomic-scale manufacture of quantum devices (Chinese Science Bulletin, 2025)](https://www.sciengine.com/CSB/doi/10.1360/CSB-2025-5148)
+- [Inverted-mode STM covalent mechanosynthesis (arXiv:2512.24431, Dec 2025)](https://arxiv.org/abs/2512.24431)
+- [Freitas, R.A. Jr., "Molecular Workstation Roadmap I" (May 2025)](http://www.rfreitas.com/NanoPubls.htm)
 
 ### Institutions and Organizations
 - [Zyvex Labs](https://www.zyvexlabs.com/)
@@ -627,7 +627,7 @@ The fundamental challenge remains **throughput**. An STM can manipulate perhaps 
 
 ### Wikipedia and Reference
 - [Mechanosynthesis](https://en.wikipedia.org/wiki/Mechanosynthesis)
-- [Molecular Nanotechnology](https://en.wikipedia.org/wiki/Replicating_nanorobots)
+- [Molecular Nanotechnology](https://en.wikipedia.org/wiki/Molecular_nanotechnology)
 - [Drexler-Smalley Debate](https://en.wikipedia.org/wiki/Drexler%E2%80%93Smalley_debate_on_molecular_nanotechnology)
 - [K. Eric Drexler](https://en.wikipedia.org/wiki/K._Eric_Drexler)
 - [Robert Freitas](https://en.wikipedia.org/wiki/Robert_Freitas)

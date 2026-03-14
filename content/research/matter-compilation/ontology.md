@@ -48,7 +48,7 @@ The design-make-measure-learn loop is an important methodology for advancing bui
 |------|-----------|
 | **Matter Compilation** | The engineering challenge of constructing arbitrary physical structures with atomic precision. Biology proves it is physically possible. The question is how to engineer it. |
 | **The Loop** | The design-simulate-make-measure-learn cycle. One important methodology for advancing building capability. Not the thesis itself. |
-| **Throughput Barrier** | The 20-25 order of magnitude gap between current serial atomic manipulation (~50 atoms/sec) and the rate needed for macroscale manufacturing (~10^19 atoms/sec). The central unsolved problem. See [The Throughput Barrier](/research/matter-compilation/throughput-barrier/). |
+| **Throughput Barrier** | The ~17 order of magnitude gap between current serial atomic manipulation (~50 atoms/sec) and the rate needed for macroscale manufacturing (~10^18-10^19 atoms/sec). The central unsolved problem. See [The Throughput Barrier](/research/matter-compilation/throughput-barrier/). |
 | **Building Capability** | The ability to construct physical structures with greater precision, at larger scale, or from more diverse materials. The measure of progress toward matter compilation. |
 | **Manufacturing Knowledge** | The accumulated understanding of how to go from a design to a repeatable, qualified manufacturing outcome, the gap that breaks most loops today |
 | **Module** | A validated, reusable building block (physical or informational) that can be composed into larger systems |
