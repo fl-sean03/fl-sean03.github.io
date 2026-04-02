@@ -1,6 +1,6 @@
 ---
-title: "How to Build a Superintelligent Science Lab"
-subtitle: "A step-by-step blueprint for computational materials science"
+title: "Building the Autonomous Computational Materials Lab"
+subtitle: "A step-by-step blueprint from someone who's doing it"
 date: 2026-04-02
 image: "/images/writings/superintelligent-lab.jpeg"
 ---

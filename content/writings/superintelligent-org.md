@@ -77,7 +77,7 @@ The pattern is the same everywhere. The implementation is domain-specific. That'
 
 The opportunity is to build the infrastructure pattern once and make it deployable to any domain. The same underlying architecture — persistent agents, structured memory, domain-aware orchestration, tool integration — tailored to each organization's context and needs. Starting where the domain expertise is deepest and expanding outward because the architecture transfers even when the domain knowledge doesn't.
 
-I started in my lab because that's where I work. I wrote a [detailed blueprint](/writings/superintelligent-science-lab/) for how to build this in a research setting, step by step, based on what actually worked and what didn't. The specifics are materials science. The pattern generalizes.
+I started in my lab because that's where I work. I wrote a [detailed blueprint](/writings/superintelligent-science-lab/) for how to build this in a computational materials science lab, step by step, based on what actually worked and what didn't. The specifics are materials science. The pattern generalizes.
 
 I think this is one of the highest-leverage things to build right now. Not because AI is exciting, but because the overhead it removes is real, the knowledge it preserves is valuable, and the people doing the work in every field deserve tools that match what's actually possible.
 
