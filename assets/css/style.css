@@ -200,6 +200,16 @@ body {
   margin-top: 0.5rem;
 }
 
+.featured-image {
+  margin: 0 -2rem 2rem;
+}
+
+.featured-image img {
+  width: 100%;
+  display: block;
+  border-radius: 4px;
+}
+
 .article-content {
   text-align: justify;
 }

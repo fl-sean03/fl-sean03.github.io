@@ -5,6 +5,11 @@
     {{ with .Params.subtitle }}<p class="subtitle">{{ . }}</p>{{ end }}
     {{ if .Date }}<time class="date">{{ .Date.Format "January 2006" }}</time>{{ end }}
   </header>
+  {{ with .Params.image }}
+  <figure class="featured-image">
+    <img src="{{ . }}" alt="{{ $.Title }}">
+  </figure>
+  {{ end }}
   <div class="article-content">
     {{ .Content }}
   </div>

@@ -2,6 +2,7 @@
 title: "The Superintelligent Organization"
 subtitle: "What happens when your infrastructure thinks for itself"
 date: 2026-04-02
+image: "/images/writings/superintelligent-org.jpeg"
 ---
 
 A team of specialists with tools built for their domain. Knowledge scattered across documents, old emails, and the people who've been around longest. The same loop every day: gather context, make the decision that matters, execute, check, repeat. On a good day, maybe a quarter of their time goes to the decisions. The rest is connective tissue.
