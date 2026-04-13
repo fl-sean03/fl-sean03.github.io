@@ -13,6 +13,6 @@ The original concept was built a while back as a general security play. It was p
 
 **What changed:** Datacenters and power facilities are now actively being targeted. Copper theft at substations, drone incursions at chip fabs, physical attacks on grid infrastructure. The set of sites that need autonomous, verified perimeter security is expanding faster than the incumbent industry can respond. The timing window that felt early in the original sketch is now open.
 
-**What was built:** Landing page, positioning, sensor fusion architecture sketch, deployment scenarios across environments and threat profiles.
+**What was built:** Landing page at [v0-tessure.vercel.app](https://v0-tessure.vercel.app), positioning, sensor fusion architecture sketch, deployment scenarios across environments and threat profiles. Source on GitHub at [fl-sean03/tessure](https://github.com/fl-sean03/tessure).
 
 **Why it's still here:** I haven't picked it back up. If you're building in physical security or sovereign defense for critical infrastructure, the thesis is free to take.
