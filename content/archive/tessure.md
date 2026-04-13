@@ -1,16 +1,17 @@
 ---
 title: "Tessure"
-description: "Trusted autonomous security — sensor-fused verified response at the edge"
+description: "Sovereign defense perimeter for fixed critical infrastructure"
 date: 2026-03-01
 ---
 
-Security monitoring is drowning in false alarms. Video-only systems misfire on shadows, wildlife, and glare. Response teams chase nothing, trust erodes, real events get missed.
+Fixed infrastructure sites (datacenters, power substations, pipelines, fuel depots) are soft. Physical security is a mix of fences, cameras, and a guard who may or may not be watching the monitor. Detection is a 2010-era problem solved with 2010-era tools: video-only systems that misfire on shadows, wildlife, and glare, leaving response teams chasing false alarms until the real event gets missed.
 
-**The thesis:** Verification, not detection, is the bottleneck. Fusing video, thermal, and radar at the edge — with the fusion logic local instead of cloud-dependent — converts a noisy classifier into a trustworthy one. Privacy is preserved because raw feeds never leave the device; only verified events do.
+**The thesis:** Build a baby Anduril, scoped to fixed sites instead of borders. Fuse video, thermal, and radar at the edge. Keep the fusion local so raw feeds never leave the device. Ship verified events to response, not raw alarms. The operator stops being a classifier and starts being an actuator.
 
-**What was built:**
-- Landing page + positioning ([tessure.vercel.app](https://tessure.vercel.app))
-- Sensor fusion architecture sketch
-- Deployment scenarios across environments and threat profiles
+The original concept was built a while back as a general security play. It was parked because the thesis was right but the timing felt early.
 
-**Why it's parked:** Hardware-heavy. Requires a team that can ship edge compute with real sensors, not a web app. Compelling thesis, wrong founder fit for now.
+**What changed:** Datacenters and power facilities are now actively being targeted. Copper theft at substations, drone incursions at chip fabs, physical attacks on grid infrastructure. The set of sites that need autonomous, verified perimeter security is expanding faster than the incumbent industry can respond. The timing window that felt early in the original sketch is now open.
+
+**What was built:** Landing page, positioning, sensor fusion architecture sketch, deployment scenarios across environments and threat profiles.
+
+**Why it's still here:** I haven't picked it back up. If you're building in physical security or sovereign defense for critical infrastructure, the thesis is free to take.
