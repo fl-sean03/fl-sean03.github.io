@@ -9,6 +9,6 @@ Full-time mobile living is growing, but the stack is a mess of retrofits. Someon
 
 **The thesis:** Once driving becomes increasingly automated and mobile connectivity is reliable (Starlink in-motion), the vehicle transforms from transportation into a moving apartment. The wedge is making full-time road living feel premium, simple, and native. That requires designing the vehicle, energy, connectivity, software, and service network *together* from day one.
 
-**What was built:** Market research across segments, competitors, and TAM. Business model, unit economics, and GTM plan. Manufacturing strategy (build vs partner). Connectivity architecture (Starlink + cellular + Wi-Fi with QoS). Brand naming analysis, pitch deck outline, risk register.
+**What was built:** Live site at [wayhaven-platform.vercel.app](https://wayhaven-platform.vercel.app). Full data room on GitHub at [fl-sean03/wayhaven](https://github.com/fl-sean03/wayhaven): market research across segments, competitors, and TAM. Business model, unit economics, and GTM plan. Manufacturing strategy (build vs partner). Connectivity architecture (Starlink + cellular + Wi-Fi with QoS). Brand naming analysis, pitch deck outline, risk register.
 
 **Why it's parked:** The right moment is after autonomy matures enough that the "moving apartment" framing stops sounding speculative. Until then, the docs are ready for whoever gets there first.
