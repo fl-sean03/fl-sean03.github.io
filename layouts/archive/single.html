@@ -1,0 +1,28 @@
+{{ define "main" }}
+<article class="archive-single">
+  {{ $slug := .File.BaseFileName }}
+  {{ $img := printf "/archive/%s.png" $slug }}
+  {{ $imgPath := printf "static/archive/%s.png" $slug }}
+  {{ $hasImg := fileExists $imgPath }}
+
+  <header class="archive-single-header">
+    <p class="archive-breadcrumb"><a href="/archive/">← Archive</a></p>
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p class="archive-single-description">{{ . }}</p>{{ end }}
+    <div class="archive-single-meta">
+      {{ if .Date }}<time>{{ .Date.Format "January 2006" }}</time>{{ end }}
+      {{ with .Params.link }}<span>·</span><a href="{{ . }}" target="_blank" rel="noopener">{{ replace . "https://" "" | replaceRE "/$" "" }} ↗</a>{{ end }}
+    </div>
+  </header>
+
+  {{ if $hasImg }}
+  <figure class="archive-single-image">
+    <img src="{{ $img }}" alt="{{ .Title }}">
+  </figure>
+  {{ end }}
+
+  <div class="archive-single-body">
+    {{ .Content }}
+  </div>
+</article>
+{{ end }}

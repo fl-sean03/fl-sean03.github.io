@@ -1,0 +1,40 @@
+{{ define "main" }}
+<section class="list archive-list">
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+
+  {{ if .Pages }}
+  <ul class="archive-cards">
+    {{ range .Pages.ByDate.Reverse }}
+    {{ $slug := .File.BaseFileName }}
+    {{ $img := printf "/archive/%s.png" $slug }}
+    {{ $imgPath := printf "static/archive/%s.png" $slug }}
+    {{ $hasImg := fileExists $imgPath }}
+    <li class="archive-card">
+      <a href="{{ .RelPermalink }}" class="archive-card-link">
+        {{ if $hasImg }}
+        <div class="archive-card-image">
+          <img src="{{ $img }}" alt="{{ .Title }}" loading="lazy">
+        </div>
+        {{ end }}
+        <div class="archive-card-body">
+          <div class="archive-card-header">
+            <h2>{{ .Title }}</h2>
+            {{ if .Date }}<time>{{ .Date.Format "Jan 2006" }}</time>{{ end }}
+          </div>
+          {{ with .Description }}<p class="description">{{ . }}</p>{{ end }}
+        </div>
+      </a>
+      {{ with .Params.link }}
+      <a href="{{ . }}" class="archive-card-external" target="_blank" rel="noopener">
+        {{ replace . "https://" "" | replaceRE "/$" "" }} ↗
+      </a>
+      {{ end }}
+    </li>
+    {{ end }}
+  </ul>
+  {{ else }}
+  <p class="empty">Nothing here yet.</p>
+  {{ end }}
+</section>
+{{ end }}

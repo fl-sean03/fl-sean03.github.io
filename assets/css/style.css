@@ -339,6 +339,184 @@ body {
   font-style: italic;
 }
 
+/* Archive — card layout */
+.archive-list > p {
+  margin-bottom: 3rem;
+}
+
+.archive-cards {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.archive-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+  position: relative;
+}
+
+.archive-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.archive-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.archive-card-image {
+  background: #f5f5f5;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+
+.archive-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+.archive-card-body {
+  padding: 1.25rem 1.5rem 1.5rem;
+}
+
+.archive-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.archive-card-header h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0;
+}
+
+.archive-card-header time {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.archive-card .description {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.archive-card-external {
+  display: inline-block;
+  margin: 0 1.5rem 1.25rem;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  text-decoration: none;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-style: italic;
+}
+
+.archive-card-external:hover {
+  color: var(--accent);
+}
+
+/* Archive — single entry */
+.archive-single-header {
+  margin-bottom: 2rem;
+}
+
+.archive-breadcrumb {
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.archive-breadcrumb a {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.archive-breadcrumb a:hover {
+  color: var(--accent);
+}
+
+.archive-single h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--accent);
+}
+
+.archive-single-description {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+}
+
+.archive-single-meta {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.archive-single-meta a {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.archive-single-meta a:hover {
+  color: var(--accent);
+}
+
+.archive-single-image {
+  margin: 2rem 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.archive-single-image img {
+  width: 100%;
+  display: block;
+}
+
+.archive-single-body {
+  margin-top: 2rem;
+}
+
+.archive-single-body p {
+  margin-bottom: 1.2rem;
+}
+
+.archive-single-body strong {
+  color: var(--text);
+}
+
+.archive-single-body a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+/* Wider container for archive */
+.archive-list,
+.archive-single {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
 /* Footer */
 .footer {
   margin-top: 4rem;
