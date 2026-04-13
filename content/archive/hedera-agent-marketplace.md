@@ -11,4 +11,4 @@ Autonomous agents need three things to transact with each other: identity, capab
 
 **What was built:** Prototype marketplace contract and a thin web frontend.
 
-**Why it's parked:** The agent-to-agent economy isn't liquid enough yet. Most agents don't have wallets, budgets, or mandates to pay other agents. The marketplace is a solution waiting for the problem to mature. Revisit when fleets like my own start paying each other for sub-tasks.
+**Why it's parked:** The agent-to-agent economy is still too illiquid. Most agents don't have wallets, budgets, or mandates to pay other agents. The marketplace is a solution waiting for the problem to mature. Revisit when fleets like my own start paying each other for sub-tasks.

@@ -5,7 +5,7 @@ date: 2025-12-11
 link: "https://fentage.com"
 ---
 
-Most apparel brands live or die on volume. The ones that don't, Loro Piana and Brunello Cucinelli, win by making the product itself feel like an institution. Narrow lane, high craft, memberships and ateliers instead of drops and discounts.
+Most apparel brands live or die on volume. The holdouts, Loro Piana and Brunello Cucinelli, win by making the product itself feel like an institution. Narrow lane, high craft, memberships and ateliers.
 
 **The thesis:** There's a gap between streetwear (loud, cheap, seasonal) and heritage luxury (expensive, stuffy, old). A brand with structured silhouettes, atelier-style customization, and a membership layer could sit in that gap for buyers who want quiet craft without the heritage price tag.
 

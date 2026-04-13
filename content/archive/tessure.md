@@ -6,7 +6,7 @@ date: 2026-03-01
 
 Fixed infrastructure sites (datacenters, power substations, pipelines, fuel depots) are soft. Physical security is a mix of fences, cameras, and a guard who may or may not be watching the monitor. Detection is a 2010-era problem solved with 2010-era tools: video-only systems that misfire on shadows, wildlife, and glare, leaving response teams chasing false alarms until the real event gets missed.
 
-**The thesis:** Build a baby Anduril, scoped to fixed sites instead of borders. Fuse video, thermal, and radar at the edge. Keep the fusion local so raw feeds never leave the device. Ship verified events to response, not raw alarms. The operator stops being a classifier and starts being an actuator.
+**The thesis:** Build a baby Anduril, scoped to fixed sites. Fuse video, thermal, and radar at the edge. Keep the fusion local so raw feeds never leave the device. Ship only verified events to response. The operator stops being a classifier and starts being an actuator.
 
 The original concept was built a while back as a general security play. It was parked because the thesis was right but the timing felt early.
 

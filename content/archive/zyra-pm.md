@@ -11,4 +11,4 @@ Everyone builds a project management tool at some point. The pitch writes itself
 
 **What was built:** Working app at [zyrapm.com](https://zyrapm.com) with login, project setup, and team collaboration flows.
 
-**Why it's parked:** I didn't need the product myself. I manage work across CLI, memory files, and an agent fleet, not in a web app. Building a category-entry SaaS without being the target user is a known failure mode. Parked without regret.
+**Why it's parked:** I didn't need the product myself. I manage work across CLI, memory files, and an agent fleet. Building a category-entry SaaS without being the target user is a known failure mode. Parked without regret.
