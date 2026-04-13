@@ -2,6 +2,7 @@
 title: "Tessure"
 description: "Sovereign defense perimeter for fixed critical infrastructure"
 date: 2026-03-01
+link: "https://v0-tessure.vercel.app"
 ---
 
 Fixed infrastructure sites (datacenters, power substations, pipelines, fuel depots) are soft. Physical security is a mix of fences, cameras, and a guard who may or may not be watching the monitor. Detection is a 2010-era problem solved with 2010-era tools: video-only systems that misfire on shadows, wildlife, and glare, leaving response teams chasing false alarms until the real event gets missed.
