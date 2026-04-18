@@ -2,6 +2,7 @@
 title: "Private Agent Networks"
 subtitle: "Why owned infrastructure changes what small teams can sustain"
 date: 2026-03-01
+image: "/images/writings/fleet-dashboard.png"
 ---
 
 Every organization has a gap between what it knows how to do and what it actually does. The constraint is rarely knowledge or talent. It's coordination overhead. Monitoring, follow-up, context-switching, routine decisions. The cumulative weight of keeping everything moving.

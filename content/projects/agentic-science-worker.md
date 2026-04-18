@@ -2,6 +2,7 @@
 title: "Agentic Science Worker"
 description: "Autonomous AI infrastructure for computational materials research"
 date: 2026-01-15
+image: "/images/projects/agentic-science-worker.png"
 ---
 
 Most discoveries die between the lab and the real world. But there's an earlier bottleneck: before you can translate a discovery, you have to make it. And the rate of discovery in computational materials science is throttled not by compute, not by theory, but by the human overhead of running the loop.

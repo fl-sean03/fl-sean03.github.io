@@ -2,6 +2,7 @@
 title: "OpSpawn"
 description: "An autonomous AI development studio that builds and ships around the clock"
 date: 2026-02-15
+image: "/images/projects/opspawn.png"
 ---
 
 Software development has a utilization problem. A developer works, ships what they can, and the machine sits idle. The bottleneck isn't compute or tooling. It's the human presence required to keep the loop turning.

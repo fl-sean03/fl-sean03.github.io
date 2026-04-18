@@ -2,6 +2,7 @@
 title: "LabLink Initiative"
 description: "Connecting students to research opportunities through AI-enabled matching"
 date: 2024-08-01
+image: "/images/projects/lablink.png"
 ---
 
 Research opportunities are unevenly distributed. Students at well-connected institutions find labs easily. Others don't know what exists or how to get in.

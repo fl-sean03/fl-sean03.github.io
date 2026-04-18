@@ -2,6 +2,7 @@
 title: "Seed Fleet"
 description: "A self-managing network of autonomous AI agents on dedicated infrastructure"
 date: 2026-03-01
+image: "/images/projects/seed-fleet.png"
 aliases:
   - /projects/private-agent-network/
 ---

@@ -2,6 +2,7 @@
 title: "The Case for Autonomous Science Infrastructure"
 subtitle: "Why the execution layer matters"
 date: 2026-01-20
+image: "/images/writings/xrd-comparison.png"
 ---
 
 Science doesn't move at the speed of insight. It moves at the speed of execution.
