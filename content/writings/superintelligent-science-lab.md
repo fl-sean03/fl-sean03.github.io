@@ -65,7 +65,7 @@ Build this layer first. Everything downstream depends on it.
 
 Once your tools have machine-readable interfaces, you can close the loop: literature extraction, parameter selection, simulation setup, job submission, result parsing, validation, and the decision about what to run next.
 
-I built this as the [Agentic Science Worker](https://github.com/fl-sean03/agentic-science-worker). It runs on Claude Code and handles the full computational materials science loop autonomously. Given a scientific question, it researches the methodology, finds parameters, runs simulations, verifies results against literature, and iterates until achieving physically reasonable results.
+I built this as the [Agentic Science Worker](https://github.com/fl-sean03/agentic-science-worker). It's a set of skills that any agent harness — Claude Code, Codex, OpenCode — can run to handle the full computational materials science loop autonomously. Given a scientific question, it researches the methodology, finds parameters, runs simulations, verifies results against literature, and iterates until achieving physically reasonable results.
 
 ### The validation layer
 
