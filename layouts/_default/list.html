@@ -6,12 +6,21 @@
   {{ if .Pages }}
   <ul class="post-list">
     {{ range .Pages.ByDate.Reverse }}
-    <li>
-      <div class="entry-header">
-        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-        {{ if .Date }}<time>{{ .Date.Format "Jan 2006" }}</time>{{ end }}
-      </div>
-      {{ with .Description }}<p class="description">{{ . }}</p>{{ end }}
+    <li class="post-card{{ if .Params.image }} has-image{{ end }}">
+      <a class="post-card-link" href="{{ .RelPermalink }}">
+        {{ with .Params.image }}
+        <div class="post-card-image">
+          <img src="{{ . }}" alt="{{ $.Title }}" loading="lazy">
+        </div>
+        {{ end }}
+        <div class="post-card-body">
+          <div class="entry-header">
+            <span class="post-card-title">{{ .Title }}</span>
+            {{ if .Date }}<time>{{ .Date.Format "Jan 2006" }}</time>{{ end }}
+          </div>
+          {{ with .Description }}<p class="description">{{ . }}</p>{{ end }}
+        </div>
+      </a>
     </li>
     {{ end }}
   </ul>
