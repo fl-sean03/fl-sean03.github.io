@@ -2,11 +2,8 @@
 title: "Territorial Engineering"
 description: "A research corpus on building new coastline. How new land is actually produced, what determines whether it can be done well at scale, and why the United States has stopped doing it."
 date: 2026-04-21
-heroes:
-  - image: /images/research/territorial-engineering/florida-current-night.png
-    caption: "Florida today"
-  - image: /images/research/territorial-engineering/florida-extended-coastline.png
-    caption: "Florida, extended"
+image: /images/research/territorial-engineering/florida-pair.png
+hideAutoList: true
 ---
 
 The Netherlands lives behind 3,500 kilometers of levees and dikes on land a quarter of which sits below sea level. Singapore has added roughly a quarter of its total area since independence and continues to reclaim. Japan landed its second-largest city's replacement airport on a purpose-built island in Osaka Bay. Denmark is building a new district on reclaimed fill at the mouth of Copenhagen harbor. China built seven new islands in the Spratlys in under three years.
@@ -25,9 +22,13 @@ The central engineering question throughout is: how is new coastline actually pr
 
 Why this is a design variable and how to talk about it without drift.
 
-- [**The Map Is Not Sacred**](/research/territorial-engineering/the-map-is-not-sacred/). The thesis. Coastline is an accident of geology and late-Holocene sea level, fixed by institutional choice rather than physical necessity. The existence proofs, the layered-barrier topology that makes reclamation durable, and what this corpus covers.
+{{< essay slug="the-map-is-not-sacred" title="The Map Is Not Sacred" >}}
+The thesis. Coastline is an accident of geology and late-Holocene sea level, fixed by institutional choice rather than physical necessity. The existence proofs, the layered-barrier topology that makes reclamation durable, and what this corpus covers.
+{{< /essay >}}
 
-- [**Ontology and Glossary**](/research/territorial-engineering/ontology/). Hard definitions. Production methods (reclamation, accretion, elevation, nourishment, armoring). The scale ladder from lot to strategic. Core technical and institutional terms. Confidence labels. Anti-patterns that are out of scope.
+{{< essay slug="ontology" title="Ontology and Glossary" >}}
+Hard definitions. Production methods, the scale ladder from lot to strategic, core technical and institutional terms, confidence labels, and anti-patterns that are out of scope.
+{{< /essay >}}
 
 ---
 
@@ -35,11 +36,17 @@ Why this is a design variable and how to talk about it without drift.
 
 The boundary conditions any coastal project inherits.
 
-- [**Coastal Morphodynamics**](/research/territorial-engineering/coastal-morphodynamics/). Sediment budgets, littoral drift, equilibrium profiles, the Bruun rule and its critics, storm-impact regimes, headland-bay geometry, barrier island modes, and tidal inlet stability. The governing physics that sets what a coastal design can and cannot do.
+{{< essay slug="coastal-morphodynamics" title="Coastal Morphodynamics" >}}
+Sediment budgets, littoral drift, equilibrium profiles, the Bruun rule and its critics, storm-impact regimes, barrier island modes, and tidal inlet stability. The governing physics that sets what a coastal design can and cannot do.
+{{< /essay >}}
 
-- [**Sediment as Infrastructure**](/research/territorial-engineering/sediment-as-infrastructure/). Sand is a finite strategic resource. National offshore inventories, Singapore's sourcing crisis, beneficial reuse of dredged material, borrow-pit ecology, manufactured sand, and the sediment-management-district concept for treating sand as shared infrastructure.
+{{< essay slug="sediment-as-infrastructure" title="Sediment as Infrastructure" >}}
+Sand is a finite strategic resource. National offshore inventories, Singapore's sourcing crisis, beneficial reuse of dredged material, borrow-pit ecology, manufactured sand, and sediment management districts as shared infrastructure.
+{{< /essay >}}
 
-- [**Storm Surge and Sea Level**](/research/territorial-engineering/storm-surge-and-sea-level/). Design storm selection, surge hydrodynamics, freeboard arithmetic, surge barriers from Maeslantkering to MOSE to the Ike Dike, sea-level scenarios and their planning horizons, subsidence coupling, and rapid intensification of tropical cyclones.
+{{< essay slug="storm-surge-and-sea-level" title="Storm Surge and Sea Level" >}}
+Design storm selection, surge hydrodynamics, freeboard arithmetic, surge barriers from Maeslantkering to MOSE to the Ike Dike, sea-level scenarios, subsidence coupling, and rapid intensification.
+{{< /essay >}}
 
 ---
 
@@ -47,11 +54,17 @@ The boundary conditions any coastal project inherits.
 
 The operations that convert water into territory.
 
-- [**Reclamation Methods**](/research/territorial-engineering/reclamation-methods/). Hydraulic fill, polder-and-dike, caisson and quay wall, DCM and PVD ground improvement, sand compaction piles, geotextile tubes, rainbowing, sand motor mega-nourishment, and how site conditions select the method.
+{{< essay slug="reclamation-methods" title="Reclamation Methods" >}}
+Hydraulic fill, polder-and-dike, caisson and quay wall, DCM and PVD ground improvement, sand compaction piles, geotextile tubes, rainbowing, sand motor mega-nourishment, and how site conditions select the method.
+{{< /essay >}}
 
-- [**Engineering with Nature**](/research/territorial-engineering/engineering-with-nature/). Living shorelines, reef-based wave attenuation, thin-layer placement, barrier island restoration, the Dutch Building with Nature program, and the honest regime of when hard, soft, and hybrid approaches are each the correct answer.
+{{< essay slug="engineering-with-nature" title="Engineering with Nature" >}}
+Living shorelines, reef-based wave attenuation, thin-layer placement, barrier island restoration, the Dutch Building with Nature program, and the honest regime of when hard, soft, and hybrid approaches are each the correct answer.
+{{< /essay >}}
 
-- [**Industrial Base**](/research/territorial-engineering/industrial-base/). The four-to-one European-US dredge-fleet capacity gap, cost and duration penalties, crane and pump dependencies, workforce pipelines, autonomous dredging status, cyber-physical exposure, and the policy sequencing that would rebuild US capacity.
+{{< essay slug="industrial-base" title="Industrial Base" >}}
+The four-to-one European-US dredge-fleet capacity gap, cost and duration penalties, crane and pump dependencies, workforce pipelines, autonomous dredging status, cyber-physical exposure, and policy sequencing.
+{{< /essay >}}
 
 ---
 
@@ -59,9 +72,13 @@ The operations that convert water into territory.
 
 Built projects at strategic scale.
 
-- [**Global Precedents**](/research/territorial-engineering/global-precedents/). Maasvlakte 2, Jurong Island and Tuas, Kansai and Haneda and Centrair, Chek Lap Kok and the 3RS, Lynetteholm, and the Spratly campaign. Each case covered for sediment source, method, cost, schedule, settlement, ownership, and what the project taught.
+{{< essay slug="global-precedents" title="Global Precedents" >}}
+Maasvlakte 2, Jurong Island and Tuas, Kansai and Haneda and Centrair, Chek Lap Kok and the 3RS, Lynetteholm, and the Spratly campaign. Each case covered for sediment source, method, cost, schedule, settlement, ownership, and what the project taught.
+{{< /essay >}}
 
-- [**US Precedents**](/research/territorial-engineering/us-precedents/). Battery Park City, Galveston grade-raising, Back Bay Boston, Chicago lakefront, Treasure Island, Louisiana Coastal Master Plan, and Miami Beach renourishment. Three institutional ownership models. The pattern of unpriced long-term liabilities.
+{{< essay slug="us-precedents" title="US Precedents" >}}
+Battery Park City, Galveston grade-raising, Back Bay Boston, Chicago lakefront, Treasure Island, Louisiana Coastal Master Plan, and Miami Beach renourishment. Three institutional ownership models. The pattern of unpriced long-term liabilities.
+{{< /essay >}}
 
 ---
 
@@ -69,11 +86,17 @@ Built projects at strategic scale.
 
 The architecture that turns fill into a going concern.
 
-- [**Economics and Value Capture**](/research/territorial-engineering/economics-and-value-capture/). Unit costs, waterfront premium, the Battery Park City ground-lease and PILOT model, Rotterdam and Jurong port economics, Palm Jumeirah as a cautionary case, bond structures from port revenue to authority full-faith-and-credit to CDD assessments, and the taxonomy of projects that closed economically versus those that did not.
+{{< essay slug="economics-and-value-capture" title="Economics and Value Capture" >}}
+Unit costs, waterfront premium, the Battery Park City ground-lease and PILOT model, Rotterdam and Jurong port economics, Palm Jumeirah as a cautionary case, and the bond structures that finance new land.
+{{< /essay >}}
 
-- [**Risk and Insurance**](/research/territorial-engineering/risk-and-insurance/). Catastrophe modeling, the Florida insolvency wave, Citizens and FHCF, SB 2-A and HB 837, reinsurance cycles, ILS and parametric triggers, NFIP Risk Rating 2.0, and the public-private contrast with Netherlands and Singapore.
+{{< essay slug="risk-and-insurance" title="Risk and Insurance" >}}
+Catastrophe modeling, the Florida insolvency wave, Citizens and FHCF, SB 2-A and HB 837, reinsurance cycles, ILS and parametric triggers, NFIP Risk Rating 2.0, and the public-private contrast with the Netherlands and Singapore.
+{{< /essay >}}
 
-- [**Institutions and Permitting**](/research/territorial-engineering/institutions-and-permitting/). NEPA timelines and FRA limits, CWA §404 and §401, ESA §7 and SARBO, CZMA, Florida sovereign submerged lands, US and international port authority governance, CDDs and Stewardship Districts, and BPCA as the upstream land-creation template.
+{{< essay slug="institutions-and-permitting" title="Institutions and Permitting" >}}
+NEPA timelines and FRA limits, CWA §404 and §401, ESA §7 and SARBO, CZMA, Florida sovereign submerged lands, port authority governance, CDDs and Stewardship Districts, and BPCA as the upstream land-creation template.
+{{< /essay >}}
 
 ---
 
@@ -81,7 +104,9 @@ The architecture that turns fill into a going concern.
 
 Florida operationalized.
 
-- [**Florida Case Study**](/research/territorial-engineering/florida-case-study/). The regional differentiation by coast. Sediment sourcing per region. Design storm per region. Phasing of a hypothetical demonstration district. Who builds, who pays, who insures, and how the project slots into existing Florida coastal resilience programs.
+{{< essay slug="florida-case-study" title="Florida Case Study" >}}
+Regional differentiation by coast. Sediment sourcing per region. Design storm per region. Phasing of a hypothetical demonstration district. Who builds, who pays, who insures, and how the project slots into existing Florida resilience programs.
+{{< /essay >}}
 
 ---
 
@@ -89,9 +114,13 @@ Florida operationalized.
 
 The path forward.
 
-- [**Roadmap and Ecosystem**](/research/territorial-engineering/roadmap-and-ecosystem/). The three-phase bootstrapping ladder. Enabling reforms at 0 to 2 years, capability build at 3 to 5 years, scale at 6 to 10. Platform companies, vertical plays, research foundation. What breaks the plan and what accelerates it.
+{{< essay slug="roadmap-and-ecosystem" title="Roadmap and Ecosystem" >}}
+The three-phase bootstrapping ladder. Enabling reforms at 0 to 2 years, capability build at 3 to 5 years, scale at 6 to 10. Platform companies, vertical plays, research foundation. What breaks the plan and what accelerates it.
+{{< /essay >}}
 
-- [**Beyond Coastline**](/research/territorial-engineering/beyond-coastline/). Territorial engineering as the first wedge in a broader thesis that Earth's physical substrate is a design variable. Weather modification precedents, urban cooling, aquifer recharge, and the boundary between operational civil engineering and global climate intervention.
+{{< essay slug="beyond-coastline" title="Beyond Coastline" >}}
+Territorial engineering as the first wedge in a broader thesis that Earth's physical substrate is a design variable. Weather modification precedents, urban cooling, aquifer recharge, and the boundary between operational civil engineering and global climate intervention.
+{{< /essay >}}
 
 ---
 

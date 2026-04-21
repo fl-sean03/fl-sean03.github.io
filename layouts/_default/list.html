@@ -19,7 +19,7 @@
   {{ end }}
   {{ .Content }}
 
-  {{ if .Pages }}
+  {{ if and .Pages (not .Params.hideAutoList) }}
   <ul class="post-list">
     {{ range .Pages.ByDate.Reverse }}
     <li class="post-row">
@@ -40,8 +40,6 @@
     </li>
     {{ end }}
   </ul>
-  {{ else }}
-  <p class="empty">Nothing here yet.</p>
   {{ end }}
 </section>
 {{ end }}

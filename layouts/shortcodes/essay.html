@@ -1,0 +1,13 @@
+{{ $slug := .Get "slug" }}
+{{ $title := .Get "title" }}
+{{ $img := printf "/images/research/territorial-engineering/%s.png" $slug }}
+{{ $href := printf "/research/territorial-engineering/%s/" $slug }}
+<a class="essay-row" href="{{ $href }}">
+  <div class="essay-thumb">
+    <img src="{{ $img }}" alt="{{ $title }}" loading="lazy">
+  </div>
+  <div class="essay-body">
+    <div class="essay-title">{{ $title }}</div>
+    <div class="essay-desc">{{ .Inner | .Page.RenderString }}</div>
+  </div>
+</a>
