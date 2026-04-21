@@ -2,7 +2,11 @@
 title: "Territorial Engineering"
 description: "A research corpus on building new coastline. How new land is actually produced, what determines whether it can be done well at scale, and why the United States has stopped doing it."
 date: 2026-04-21
-image: /images/research/territorial-engineering/florida-extended-coastline.png
+heroes:
+  - image: /images/research/territorial-engineering/florida-current-night.png
+    caption: "Florida today"
+  - image: /images/research/territorial-engineering/florida-extended-coastline.png
+    caption: "Florida, extended"
 ---
 
 The Netherlands lives behind 3,500 kilometers of levees and dikes on land a quarter of which sits below sea level. Singapore has added roughly a quarter of its total area since independence and continues to reclaim. Japan landed its second-largest city's replacement airport on a purpose-built island in Osaka Bay. Denmark is building a new district on reclaimed fill at the mouth of Copenhagen harbor. China built seven new islands in the Spratlys in under three years.
