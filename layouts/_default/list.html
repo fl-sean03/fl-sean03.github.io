@@ -1,6 +1,11 @@
 {{ define "main" }}
 <section class="list">
   <h1>{{ .Title }}</h1>
+  {{ with .Params.image }}
+  <figure class="featured-image list-hero">
+    <img src="{{ . }}" alt="{{ $.Title }}">
+  </figure>
+  {{ end }}
   {{ .Content }}
 
   {{ if .Pages }}
