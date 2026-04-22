@@ -139,3 +139,9 @@ Territorial engineering as the first wedge in a broader thesis that Earth's phys
 **Policy readers.** [Industrial Base](/research/territorial-engineering/industrial-base/) then [Institutions and Permitting](/research/territorial-engineering/institutions-and-permitting/) then [US Precedents](/research/territorial-engineering/us-precedents/) then [Roadmap and Ecosystem](/research/territorial-engineering/roadmap-and-ecosystem/). The capacity gap, the permitting stack, what the US has done before, the policy sequence to restore capacity.
 
 **Florida readers.** [The Map Is Not Sacred](/research/territorial-engineering/the-map-is-not-sacred/) then [Sediment as Infrastructure](/research/territorial-engineering/sediment-as-infrastructure/) then [Risk and Insurance](/research/territorial-engineering/risk-and-insurance/) then [Florida Case Study](/research/territorial-engineering/florida-case-study/). The thesis, the sand problem, the insurance crisis, the operationalized regional plan.
+
+---
+
+## Prior paper
+
+The industrial-base numbers, policy tiering, and capacity-gap analysis in this corpus draw on a paper I wrote in October 2025: *Building America's Coastal Engineering Base: Competitiveness, Resilience, and Security through World-Class Dredging and Sediment Management* ([PDF](/research/territorial-engineering/florez-2025-coastal-engineering-base.pdf), 18 pp). It's the reference behind every "Florez (2025)" citation in the essays.
