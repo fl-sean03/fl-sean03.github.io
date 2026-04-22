@@ -2,7 +2,7 @@
 title: "The Map Is Not Sacred"
 description: "Coastline as a design variable. Why extending territory is the highest-leverage edit, what makes layered-barrier topology work, and what this corpus covers."
 date: 2026-04-21
-image: /images/research/territorial-engineering/florida-current-night.png
+image: /images/research/territorial-engineering/florida-current-landscape.png
 ---
 
 Look at Florida at night.
