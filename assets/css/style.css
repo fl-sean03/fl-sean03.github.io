@@ -206,6 +206,7 @@ body {
   border-radius: 6px;
   aspect-ratio: 3 / 2;
   background: #0a0a0a;
+  cursor: zoom-in;
 }
 
 .featured-image img {
@@ -213,10 +214,56 @@ body {
   height: 100%;
   object-fit: cover;
   display: block;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 .featured-image.list-hero {
   margin-bottom: 2.5rem;
+}
+
+/* Hero pair — two figures side by side */
+.hero-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin: 0 0 2.5rem;
+}
+
+.hero-pair figure {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: 6px;
+  background: #0a0a0a;
+  cursor: zoom-in;
+}
+
+.hero-pair img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.hero-pair figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.5rem 0.75rem;
+  color: #fff;
+  font-size: 0.8rem;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.65));
+  font-family: 'EB Garamond', Georgia, serif;
+  font-style: italic;
 }
 
 .article-content {
@@ -229,6 +276,11 @@ body {
   display: block;
   margin: 1.75rem auto;
   border-radius: 4px;
+  cursor: zoom-in;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 .article-content img + em,
@@ -396,6 +448,7 @@ body {
   border-bottom: 1px solid var(--border);
   text-decoration: none;
   color: inherit;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .essay-row:first-of-type {
@@ -419,6 +472,11 @@ h2 + .essay-row {
   height: 100%;
   object-fit: cover;
   display: block;
+  pointer-events: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 .essay-body {
@@ -734,6 +792,16 @@ h2 + .essay-row {
     line-height: 1.45;
   }
 
+  .hero-pair {
+    gap: 0.35rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .hero-pair figcaption {
+    font-size: 0.72rem;
+    padding: 0.4rem 0.55rem;
+  }
+
   .essay-row {
     gap: 0.9rem;
     padding: 0.8rem 0;
@@ -763,4 +831,61 @@ h2 + .essay-row {
   .archive-card-external {
     margin: 0 1.25rem 1rem;
   }
+}
+
+/* Lightbox overlay */
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 5, 5, 0.94);
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.18s ease;
+}
+
+.lightbox-overlay.open {
+  display: flex;
+  opacity: 1;
+}
+
+.lightbox-stage {
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-stage img {
+  max-width: 100%;
+  max-height: 92vh;
+  object-fit: contain;
+  display: block;
+  border-radius: 2px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 1rem;
+  background: transparent;
+  color: #fff;
+  border: none;
+  font-size: 2.5rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.25rem 0.6rem;
+  font-family: inherit;
+  opacity: 0.8;
+  transition: opacity 0.15s ease;
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus {
+  opacity: 1;
 }

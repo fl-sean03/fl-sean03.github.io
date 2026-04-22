@@ -2,7 +2,11 @@
 title: "Territorial Engineering"
 description: "A research corpus on building new coastline. How new land is actually produced, what determines whether it can be done well at scale, and why the United States has stopped doing it."
 date: 2026-04-21
-image: /images/research/territorial-engineering/florida-pair.png
+heroes:
+  - image: /images/research/territorial-engineering/florida-current-night.png
+    caption: "Florida today"
+  - image: /images/research/territorial-engineering/florida-extended-coastline.png
+    caption: "Florida, extended"
 hideAutoList: true
 ---
 

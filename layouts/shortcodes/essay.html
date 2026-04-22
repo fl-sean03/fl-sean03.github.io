@@ -1,7 +1,14 @@
 {{ $slug := .Get "slug" }}
 {{ $title := .Get "title" }}
-{{ $img := printf "/images/research/territorial-engineering/%s.png" $slug }}
 {{ $href := printf "/research/territorial-engineering/%s/" $slug }}
+{{ $page := .Site.GetPage (printf "/research/territorial-engineering/%s" $slug) }}
+{{ $img := "" }}
+{{ with $page }}
+  {{ $img = .Params.image }}
+{{ end }}
+{{ if not $img }}
+  {{ $img = printf "/images/research/territorial-engineering/%s.png" $slug }}
+{{ end }}
 <a class="essay-row" href="{{ $href }}">
   <div class="essay-thumb">
     <img src="{{ $img }}" alt="{{ $title }}" loading="lazy">
