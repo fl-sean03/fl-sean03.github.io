@@ -212,7 +212,7 @@ body {
 .featured-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -860,13 +860,60 @@ h2 + .essay-row {
   justify-content: center;
 }
 
-.lightbox-stage img {
+.lightbox-stage > img {
   max-width: 100%;
   max-height: 92vh;
   object-fit: contain;
   display: block;
   border-radius: 2px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+}
+
+.lightbox-stage.pair {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-height: 92vh;
+}
+
+.lightbox-stage.pair figure {
+  position: relative;
+  margin: 0;
+  max-height: 92vh;
+  flex: 0 1 auto;
+}
+
+.lightbox-stage.pair figure img {
+  max-height: 92vh;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  border-radius: 2px;
+}
+
+.lightbox-stage.pair figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.5rem 0.75rem;
+  color: #fff;
+  font-size: 0.85rem;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  font-family: 'EB Garamond', Georgia, serif;
+  font-style: italic;
+}
+
+@media (max-width: 600px) {
+  .lightbox-stage.pair {
+    gap: 0.35rem;
+  }
+  .lightbox-stage.pair figcaption {
+    font-size: 0.7rem;
+    padding: 0.35rem 0.5rem;
+  }
 }
 
 .lightbox-close {
