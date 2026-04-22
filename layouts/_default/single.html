@@ -6,7 +6,7 @@
     {{ if .Date }}<time class="date">{{ .Date.Format "January 2006" }}</time>{{ end }}
   </header>
   {{ with .Params.image }}
-  <figure class="featured-image">
+  <figure class="featured-image"{{ with $.Params.heroAspect }} style="aspect-ratio: {{ . }};"{{ end }}>
     <img src="{{ . }}" alt="{{ $.Title }}">
   </figure>
   {{ end }}
