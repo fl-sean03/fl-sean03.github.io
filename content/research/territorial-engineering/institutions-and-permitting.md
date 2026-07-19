@@ -1,209 +1,136 @@
 ---
-title: "Institutions and Permitting"
-description: "The governance layer: NEPA, CWA, ESA, CZMA, port authority structures, special districts, and the 8.2-year federal project median. Where compression is possible."
+title: "The Permit Is Part of the Design"
+description: "A coastal project is shaped by alternatives, jurisdiction, navigation, species protection, public trust, mitigation, and the separate work of securing construction funds."
 date: 2026-04-21
 image: /images/research/territorial-engineering/institutions-and-permitting.png
 ---
 
-The average federal civil works project takes 8.2 years from feasibility study to groundbreaking (Florez white paper). That number covers the full pre-construction arc: scoping, baseline surveys, environmental review, permit issuance, and federal appropriations sequencing. For coastal projects with multiple listed species, multistate CZMA consistency reviews, and harbor deepening that requires new congressional authorization, 8.2 years is the median. Complex projects run longer.
+Coastal proposals often harden around a drawing before their controlling questions have been answered. Once an offshore line carries a fill quantity, it begins to look settled, and permitting gets pushed into a later phase.
 
-This document maps the governance layer that produces those timelines. It covers the federal environmental review stack, the permit instruments that sit alongside it, the institutional structures that have managed coastal infrastructure in the United States and internationally, and the special district mechanisms available in Florida for governing newly produced territory. The final section identifies where compression is structurally possible.
+In practice, the drawing is one candidate among several. A permit-ready design must establish what will be built, why it must occupy water, which waters and lands it will affect, who controls them, how navigation will continue, what material will move, which species and habitats are present, and what follows if performance departs from the model. Each answer can move an opening, change a material source, alter staging, shrink the footprint, or displace the project entirely.
 
-The document is descriptive. The regulatory friction described here is a feature of how the United States has chosen to govern coastal development, not an error in the system. Where it creates delays, those delays exist for reasons this document records without resolving.
-
----
-
-## NEPA: The Statutory Frame
-
-The National Environmental Policy Act, 42 U.S.C. §§ 4321-4370h, requires federal agencies to assess environmental consequences before taking major actions. Three review tiers apply in ascending order:
-
-| Tier | Trigger | Document |
-|---|---|---|
-| Categorical Exclusion (CE) | No significant effect expected | None required |
-| Environmental Assessment (EA) | Uncertain significance | Finding of No Significant Impact or proceed to EIS |
-| Environmental Impact Statement (EIS) | Significant effects expected | Record of Decision |
-
-Any large coastal reclamation project that involves a federal permit -- which all of them do -- triggers at least an EA and typically a full EIS. USACE has CEs for routine maintenance dredging of harbors authorized to depths up to 35 feet. New island construction, engineered causeways across tidal waters, or major new harbor development does not qualify for categorical exclusion under any current USACE policy.
-
-**Regulatory history.** CEQ's implementing regulations at 40 CFR 1500-1508 have gone through four versions since the original 1978 rule: the 2020 Trump-era narrowing (limiting cumulative effects analysis and cooperating agency roles), the 2023 Biden Phase 1 restoration (reinstating cumulative and indirect effects), the July 1, 2024 Phase 2 rule implementing the Fiscal Responsibility Act requirements, and the April 11, 2025 CEQ rescission via Interim Final Rule that eliminated the codified regulations entirely. As of April 2025, agencies must establish their own NEPA procedures.
-
-The rescission does not eliminate NEPA. The FRA statutory limits -- two years for an EIS, one year for an EA, measured from the earlier of the agency determination date or the published notice of intent -- remain in force as statute. An agency that misses the FRA clock must report annually to Congress under 42 U.S.C. § 4336e.
-
-**Actual timelines.** CEQ's 2025 EIS Timeline Report analyzed 1,903 EISs published January 1, 2010 through December 31, 2024. The mean time for the 2010-2018 period was 4.5 years. The median for 2021-2024 was 2.5 years, and the mean for the same period was 3.8 years. The improvement in the more recent period reflects some process reforms and some shift in project mix -- simpler projects moving through faster while complex ones remain long. Coastal and waterway EISs routinely span five to eight years when they involve multiple threatened-species consultations and multistate CZMA consistency reviews.
-
-The Jacksonville Harbor Deepening Project illustrates the full arc. Congress authorized it through WRDA 2014. The Record of Decision issued in 2019. Construction completed in May 2022. Total elapsed time from authorization to completion: approximately eight years. The EIS phase was a subset of that total, but the surrounding permit stack -- species consultations, CZMA consistency, state water quality certification -- is not subject to the FRA clock and proceeds in parallel rather than compressing into it.
-
-**FAST-41.** Title 41 of the Fixing America's Surface Transportation Act (2015) created the Federal Permitting Improvement Steering Council, which coordinates multi-agency reviews for covered projects over $200M subject to NEPA. The 2021 Infrastructure Investment and Jobs Act made FAST-41 permanent and codified One Federal Decision: a single EIS and single ROD issued concurrently across all required authorizations. FAST-41-enrolled projects achieved ROD approximately 18 months faster than non-enrolled projects in studied cases. The program has meaningful limitations for coastal reclamation: most projects under $200M are not covered, and the mechanism imposes coordination and transparency requirements rather than substantively narrowing the analysis.
+Permitting helps make the design. It tests the candidate against alternatives, jurisdiction, navigation, ownership, species, habitat, performance, and long-term responsibility while the geometry can still change.
 
 ---
 
-## CWA §404 and §401: The Dredge-and-Fill Gate
+## Define the action
 
-The Clean Water Act §404 permit from USACE for discharge of dredged or fill material into waters of the United States is the central operational permit for coastal construction. No material can be placed in tidal waters, wetlands, or navigable waters without it.
+The first useful document is a precise description of the proposed action. It identifies the applicant, project purpose, construction and operating activities, material sources, receiving area, sequence of work, expected maintenance, and the public and private decisions required to proceed. It also separates necessary functions from preferred features. A navigation facility presents a different alternatives problem from housing or commercial development, even when both use the same fill footprint.
 
-**Permit types.** USACE issues three categories:
+The same discipline applies to jurisdiction. A coastal map does not answer whether every feature is within federal Clean Water Act jurisdiction, whether it lies in navigable waters regulated under the Rivers and Harbors Act, or whether the seabed is owned by Florida, the federal government, or another party. Those questions require current surveys, jurisdictional analysis, title work, and agency coordination. They should be resolved before the project depends on a particular boundary.
 
-| Type | Trigger | Timeline |
-|---|---|---|
-| Nationwide Permit (NWP) | Categorical minimal-impact activities | Pre-authorized; PCN submission only |
-| Regional General Permit | District-specific activities | Pre-authorized with conditions |
-| Individual Permit (IP) | Significant or complex projects | Public notice, alternatives analysis; 120-day standard, routinely exceeded |
+A federal permit creates a federal connection, but it does not automatically convert every component of a private development into a federal project. The responsible agency defines the action it is reviewing under the statute and its own procedures. The practical consequence is that applicants need a clear project description and a defensible account of which consequences follow from the federal decision. Ambiguity here expands disputes later.
 
-Nationwide permits issue in five-year bundles; the 2021 NWPs expired in March 2026 with a proposed 2026 reissuance pending as of mid-2025. New coastline creation at any meaningful scale requires an Individual Permit. The USACE standard under the §404(b)(1) Guidelines (40 CFR Part 230) is the least environmentally damaging practicable alternative (LEDPA). For coastal fill, LEDPA analysis requires documented evaluation of upland alternatives and alternative fill designs. It is frequently the longest-pole element of an IP review because it requires the agency to consider and reject alternatives rather than simply characterize the proposed action.
-
-EPA holds a separate veto under §404(c): it may prohibit or restrict use of a site as a disposal area if it determines unacceptable adverse effects on municipal water supplies, shellfish beds, fishery areas, wildlife, or recreational areas. EPA §404(c) vetoes are rare but have been applied to large coastal fill projects.
-
-**State certification.** Before USACE may issue a §404 IP, the applicant must obtain, or the state must waive, a water quality certification from the state in which the discharge occurs under §401. If the state does not act within one year, certification is deemed waived. The certifying authority may add conditions. The 2023 EPA Improvement Rule (effective November 27, 2023, 88 FR 66558) restored broader state authority, allowing conditions based on "applicable requirements of State law" beyond narrow water quality grounds. Florida administers §401 certification through FDEP's Office of Resilience and Coastal Protection. In Florida, the §401 certification typically runs concurrently with the CCCL permit review and the CZMA consistency determination, but a denial at any of those state-level gates halts the federal permit.
+Land control is separate. A dredge-and-fill permit does not convey title, a lease, an easement, or permission from the owner of the submerged land. A project can satisfy an environmental standard and still lack the property authority needed to build.
 
 ---
 
-## ESA §7: Species Consultation
+## Alternatives change the footprint
 
-Section 7(a)(2) of the Endangered Species Act requires every federal agency to ensure its actions are not likely to jeopardize the continued existence of any listed species or destroy designated critical habitat. Any federal permit for coastal construction triggers consultation whenever the action "may affect" a listed species or its habitat.
+Section 404 of the Clean Water Act governs discharges of dredged or fill material into waters of the United States. The U.S. Army Corps of Engineers administers the permit program for most projects, using the Environmental Protection Agency's [Section 404(b)(1) Guidelines](https://www.ecfr.gov/current/title-40/chapter-I/subchapter-H/part-230/section-230.10). The Guidelines put practicable avoidance before compensation: a discharge may not be permitted if a practicable alternative would have less adverse effect on the aquatic ecosystem without creating other significant environmental consequences.
 
-**Process.** Informal consultation resolves most straightforward cases. Formal consultation begins when the action agency submits a Biological Assessment (BA) to NOAA Fisheries (NMFS) or U.S. Fish and Wildlife Service (USFWS); NMFS then has 135 days from formal initiation to issue a Biological Opinion with an Incidental Take Statement. The total statutory clock from formal initiation through BO issuance is 225 days. In practice, clock pauses and informal consultation periods extend the actual timeline.
+For an activity that does not require access or proximity to water, the guidelines presume that practicable upland alternatives are available and that those alternatives are less damaging, unless the applicant clearly demonstrates otherwise. That presumption matters for land creation intended to support uses that could occur inland. The applicant cannot avoid it by defining the project purpose so narrowly that only the preferred offshore site appears to work.
 
-**Listed coastal species.** Twelve species with listed status are directly relevant to coastal fill and dredging operations along the US Atlantic and Gulf coasts:
+An honest alternatives analysis can test:
 
-| Species | Status | Agency |
-|---|---|---|
-| North Atlantic right whale | Endangered | NMFS |
-| Green sea turtle (FL nesting population) | Endangered | NMFS + USFWS |
-| Loggerhead sea turtle (NW Atlantic DPS) | Threatened | NMFS + USFWS |
-| Leatherback sea turtle | Endangered | NMFS + USFWS |
-| Kemp's ridley sea turtle | Endangered | NMFS + USFWS |
-| Hawksbill sea turtle | Endangered | NMFS + USFWS |
-| West Indian manatee | Threatened | USFWS |
-| Piping plover | Threatened | USFWS |
-| Smalltooth sawfish | Endangered | NMFS |
-| Atlantic sturgeon (4 DPSs) | Endangered | NMFS |
-| Gulf sturgeon | Threatened | NMFS + USFWS |
-| Elkhorn coral (Acropora palmata) | Threatened | NMFS |
+- whether the need can be met on existing land;
+- whether a smaller footprint performs the necessary function;
+- whether detached features work better than a continuous fill body;
+- whether an existing disturbed area can be used instead of intact habitat;
+- whether dredged material can be placed in a different form or location;
+- whether construction can be phased so later segments depend on measured performance;
+- and whether the no-action condition is preferable once maintenance and induced effects are counted.
 
-Any coastal fill project in Florida is likely to trigger formal §7 consultation with NMFS for multiple species simultaneously. Reinitiation of consultation is required if the incidental take limit is exceeded, new species are listed during construction, or the action is materially modified.
+The Corps' [public-interest review](https://www.ecfr.gov/current/title-33/chapter-II/part-320/section-320.4) adds a broader balance. It considers conservation, economics, flood hazards, navigation, shoreline erosion, water quality, property ownership, the needs and welfare of the public, and other relevant factors. A design that survives the aquatic alternatives test can still change when weighed against navigation, flood behavior, public access, or long-term maintenance.
 
-**The 2020 SARBO.** The South Atlantic Regional Biological Opinion, finalized July 31, 2020, is the programmatic biological opinion covering USACE Civil Works and Regulatory Programs plus BOEM Marine Minerals operations from the NC/VA border through Key West and Puerto Rico/USVI (NOAA Repository). Coverage includes maintenance dredging, borrow-site dredging, beach nourishment, nearshore placement, and muck dredging. Individual projects that meet the SARBO's Project Design Criteria (PDCs) -- specific operational windows, turbidity limits, diver inspection protocols, seasonal restrictions for turtle nesting -- can rely on SARBO coverage without triggering project-specific formal consultation. The SARBO demonstrates programmatic biological opinion as a template: one multiyear consultation resolving species conflicts across hundreds of individual dredging events.
+This is why purpose is a design input. A real public need may justify a water-dependent solution. A preference for newly created waterfront does not establish one.
 
 ---
 
-## CZMA Consistency: The State Veto
+## Navigation is a physical constraint
 
-The Coastal Zone Management Act, 16 U.S.C. §§ 1451-1466, requires that federal actions affecting the coastal zone be consistent with the enforceable policies of the relevant state's approved Coastal Management Program (CMP). Thirty-four states and territories have federally approved CMPs.
+Section 10 of the Rivers and Harbors Act prohibits unauthorized obstructions and alterations in navigable waters of the United States. Its operative language covers structures, excavation, fill, and other work that can affect navigable capacity. The current statute is codified at [33 U.S.C. §403](https://uscode.house.gov/view.xhtml?edition=prelim&num=0&req=granuleid%3AUSC-prelim-title33-section403).
 
-Two consistency mechanisms apply:
+Navigation review reaches beyond the marked federal channel. A project can alter approach paths, turning areas, anchorages, tidal currents, shoaling patterns, recreational routes, emergency access, and the room available for future channel maintenance. Construction adds temporary conflicts from pipelines, barges, turbidity controls, exclusion areas, and nighttime operations.
 
-| Review Type | Trigger | State Window | Standard |
-|---|---|---|---|
-| Consistency Determination (CD) | Federal agency activity | 75 days | "Consistent to the maximum extent practicable" |
-| Consistency Certification (CC) | Federally licensed or permitted activity (§404 IP) | 6 months | "Fully consistent" |
+These are geometric questions. A continuous causeway may become a bridged opening. A narrow opening may become a wider span after current and vessel analysis. A fill edge may move away from a channel or inlet. Staging may shift to a different season or route. A project near a maintained inlet may need to preserve the tidal prism and sediment pathways that keep the inlet stable. The relevant analysis belongs in the design model, not in a navigation appendix written after the footprint has been fixed.
 
-Florida administers federal consistency through FDEP's Office of Resilience and Coastal Protection. CZMA review runs concurrently with NEPA but is not satisfied by the NEPA document (15 CFR § 930.39). A state that objects to a CC may effectively halt the project at the state level; the applicant may appeal to the Secretary of Commerce. A state objection to a CD is not appealable through the same mechanism.
-
-Florida's sovereign submerged lands add a layer beyond CZMA. Article X, §11 of the Florida Constitution vests title to all navigable submerged tidal lands in the state at statehood in 1845 under the equal-footing doctrine. The Board of Trustees of the Internal Improvement Trust Fund (the Governor and Cabinet) holds legal title. Any reclamation in Florida tidal waters requires Board of Trustees approval independent of the USACE permit. New land created in Florida's coastal waters is presumptively state property unless the fill permit is accompanied by a separate transaction conveying submerged land lease or title from the Board of Trustees.
-
-The public trust doctrine, established in US case law through *Illinois Central Railroad v. Illinois*, 146 U.S. 387 (1892), holds that tidal and navigable waters are held by the sovereign for public use. The Supreme Court's ruling that Illinois could not alienate the bulk of Chicago's lakefront to a private railroad without violating the public trust sets the outer limit on what legislatures may convey. Florida Art. X §11 codifies this principle as a constitutional constraint. Any governance structure for newly produced Florida coastal territory must accommodate the public trust obligations that attach to the submerged lands below it.
+The result may also include operating obligations. Marking, inspection, maintenance dredging, storm debris removal, and access for federal or local navigation work can persist for the life of the project. A design is incomplete if no institution is responsible for those duties.
 
 ---
 
-## Port Authority Structures: US Models
+## NEPA still governs the federal decision
 
-Port authorities are the dominant institutional template for governing large-scale coastal infrastructure in the United States. They operate with bonding authority, long-term land control, and self-sustaining revenue streams that insulate capital programs from annual legislative appropriations.
+Effective January 8, 2026, the Council on Environmental Quality removed its government-wide NEPA implementing regulations. The [final rule](https://www.federalregister.gov/documents/2026/01/08/2026-00178/removal-of-national-environmental-policy-act-implementing-regulations) removed that common regulatory layer; the National Environmental Policy Act itself remains in force.
 
-### United States
+Federal agencies now apply the statute through their own procedures. For the Corps, current procedures include [33 CFR part 333](https://www.ecfr.gov/current/title-33/chapter-II/part-333). The level of review follows the proposed federal action and its expected effects. An agency may use an applicable categorical exclusion, prepare an environmental assessment, or prepare an environmental impact statement when statutory and agency standards call for one.
 
-| Authority | Legal Form | Governance | Bond Type | Land Tenure | Distinguishing Feature |
-|---|---|---|---|---|---|
-| PANYNJ | Bi-state compact (Art. I §10) | 12 commissioners, 6 per state | Consolidated revenue bonds (pooled facility revenues) | State-owned; PANYNJ leases to operators | Cross-subsidy: GWB/tunnel surplus offsets PATH deficit; full-faith-and-credit bonds |
-| Port of Houston | Navigation district (TX special district law, Ch. 5007) | 7-member appointed commission | TX AG-reviewed bonds | District owns terminals; leases berths | Hybrid: appointed commission from multiple municipalities |
-| Georgia Ports Authority | State authority | 13-member governor-appointed board | Revenue bonds | State-owned | 10-year $4.5B capital plan self-financed; Savannah handles 10% of US containerized cargo volume |
-| JAXPORT | Independent state-chartered authority (FL Legislature 1963) | 7-member board; mayor appoints 4, governor appoints 3 | JAXPORT revenue bonds + federal/state grants | JAXPORT owns terminals | First US East Coast port deepening with private business funding (SSA Atlantic, alongside federal/state/local); $420M deepening completed May 2022, 7 months ahead of schedule |
-| Port Everglades | Broward County department | County government | County-backed | County-owned | Not independent; port embedded in county government structure |
-| PortMiami | Miami-Dade County department | County government | County-backed | County-owned | Completed 50-ft deepening 2015 at approximately $205M ($112M state share); 5M cy removed |
+Whatever the level, the analysis must support the federal decision by describing reasonable alternatives, affected resources, environmental consequences, and measures that avoid or reduce harm. Its information must fit the maturity of the decision. A conceptual rendering cannot support detailed impact conclusions, while a fully committed design can empty alternatives review of practical meaning.
 
-PANYNJ's Consolidated Bonds model, adopted in 1935, pools all facility revenues behind a single pledge. A 1994-1995 New York State Comptroller audit found that bridge and tunnel operations generated a surplus of $225.2M on revenues of $483.1M, which was used to offset deficits at PATH and selected airport facilities. This cross-subsidy capability is unique to the bi-state compact structure: it allows profitable operations to fund public-service infrastructure without requiring a state guarantee on individual bond issues.
+Starting while alternatives remain open allows hydrodynamic models to compare footprints, habitat surveys to redirect placement, and construction methods to account for noise, turbidity, vessel traffic, and seasonal constraints. The resulting environmental review records a decision already improved by engineering.
 
-### International
-
-| Authority | Legal Form | Ownership | Capex Governance | Distinguishing Feature |
-|---|---|---|---|---|
-| Rotterdam HbR | Unlisted N.V. (Dutch corporate) | 70.83% City of Rotterdam, 29.17% Dutch State | Executive Board | Issues corporate bonds; Maasvlakte 2 financed with EUR 900M EIB 30-year loan against lease revenues; EBITDA EUR 548.6M (2023), EUR 563.5M (2024) |
-| Port of Antwerp-Bruges | Public-law LLC | City of Antwerp 80.2%, City of Bruges 19.8% | Board + shareholder approval | Formed April 22, 2022 merger; Europe's second largest export port; largest integrated chemical cluster |
-| Hamburg HPA | AöR (public institution) | 100% Free and Hanseatic City of Hamburg | Hamburg Senate approval | Landlord only; no terminal operations; commercial operators (HHLA, Eurogate) hold concessions |
-| Singapore MPA/PSA/JTC | Statutory boards + state-owned corporation | MPA: statutory board; PSA: 100% Temasek Holdings; JTC: statutory board | PSA: corporate; JTC: statutory budget | Tripartite separation: MPA regulates, PSA operates, JTC owns industrial land; 2024 PSA throughput 100.2M TEU globally |
-
-Rotterdam's ownership structure (70.83% city, 29.17% state) reflects a 2004 spinout from direct municipal control. The Dutch government's 2013 policy on state participations designated HbR as a permanent state participation alongside Schiphol Airport, classifying the port as a national mainport of strategic importance. The N.V. form allows HbR to issue investment-grade corporate bonds without per-project state appropriations or Senate approval.
-
-Singapore's tripartite structure -- public regulator (MPA), state-owned commercial operator (PSA), industrial land landlord (JTC) -- cleanly separates sovereign functions from commercial functions from land management. JTC Corporation owns Jurong Island and grants industrial leases of 20 to 60 years; it evaluates proposed lease transfers for economic value-add and job creation. Tenant cumulative investment in Jurong exceeded S$30 billion by 2009 on 3,200 ha of reclaimed land.
+The NEPA document's statutory schedule leaves two other sets of dependencies intact. Section 404, Section 10, endangered species consultation, state certification, coastal consistency, and submerged-land authorization each require their own legal findings; design, contracting, and appropriations follow separate delivery decisions. Coordination can reuse evidence and reduce duplicate work while preserving every required finding and funding decision.
 
 ---
 
-## Special Districts: Florida's Governance Infrastructure
+## Species consultation changes means and timing
 
-Florida's development finance system rests on two overlapping statutes: Chapter 189 (Uniform Special District Accountability Act) and Chapter 190 (Community Development Districts). As of August 2025, Florida had 1,088 development-style special districts -- 1,067 CDDs and 21 stewardship districts -- up more than 50% from 2020. The Special District Accountability Program in the Florida Department of Commerce maintains the official registry and coordinates compliance across state financial regulators.
+Section 7 of the Endangered Species Act requires each federal agency, in consultation with the U.S. Fish and Wildlife Service or NOAA Fisheries, to ensure that its action is not likely to jeopardize a listed species or destroy or adversely modify designated critical habitat. Consultation is attached to the federal action, not added at the end by the applicant.
 
-**CDD structure.** A CDD is an independent special district created through developer petition to the Florida Land and Water Adjudicatory Commission (FLWAC) for districts of 1,000 acres or more, or to the applicable local government for smaller districts. CDDs are governmental units with authority to plan, finance, construct, operate, and maintain community infrastructure; levy non-ad valorem special assessments; issue tax-exempt assessment bonds; and adopt rules and regulations. Governance begins with a landowner-elected board (one acre, one vote) that transitions to resident-elected governance after six years or when 250 qualified electors reside in the district.
+Many projects conclude through informal consultation when the action agency and the relevant wildlife agency determine that the action is not likely to adversely affect listed species or critical habitat. Formal consultation begins when adverse effects are likely and the required information is sufficient to initiate it.
 
-Most CDD bonds are tax-exempt assessment bonds, typically 30-year fixed-rate obligations. Bond interest is excluded from federal income tax under I.R.C. § 103 because CDDs qualify as political subdivisions of the state with sovereign taxing, eminent domain, and police powers. Capital assessments repay the bonds as non-ad valorem levies on each parcel proportionate to benefit received.
+The timing is often misstated. Under [50 CFR §402.14](https://www.ecfr.gov/current/title-50/chapter-IV/subchapter-A/part-402/section-402.14), formal consultation is ordinarily concluded within 90 days, followed by 45 days for delivery of the biological opinion. The agencies may agree to extend consultation. When an applicant is involved, an extension longer than 60 days requires the applicant's consent. Those periods begin with formal initiation, not with the first project meeting, and they do not include the time required to collect missing surveys, revise an incomplete biological assessment, or redesign an action that cannot satisfy the statute.
 
-**The 2008 default wave.** When the housing market collapsed, 168 CDDs defaulted on municipal bonds with face value approximately $5.1 billion. Developer-controlled boards had issued bonds against optimistic absorption projections; when absorption collapsed, assessment revenue fell short of debt service. This is the direct cautionary precedent for any coastal reclamation district: bonds issued against speculative future occupancy before market depth is established create the same failure mode.
+Consultation can alter fill location and the means and timing of construction: dredging equipment, vessel speeds, lighting, noise controls, observer requirements, exclusion zones, work windows, and monitoring. A jeopardy or adverse-modification conclusion may require broader change through reasonable and prudent alternatives. An incidental take statement authorizes take associated with an otherwise compliant federal action only under its terms.
 
-**Notable Florida special districts.** The Central Florida Tourism Oversight District (CFTOD, formerly Reedy Creek Improvement District) illustrates the political vulnerability of districts created to serve a single dominant user. Reedy Creek was created by the Florida Legislature in 1967 to govern the 39-square-mile Walt Disney World area; it exercised near-county authority over building codes, utilities, and environmental regulation. In 2023, the Legislature renamed it CFTOD and Governor DeSantis replaced the Disney-selected board with five gubernatorial appointees. Disney settled state lawsuits in March 2024. The episode demonstrates that a special district dependent on legislative favor is subject to revocation when that favor is withdrawn.
-
-**Colorado CDDs for comparison.** Colorado metropolitan districts operate under Title 32, Article 1, C.R.S. As of 2025, Colorado had 1,819 metro districts. The 2023 reform law required service plans to specify maximum property tax levies and debt limits and restricted interest rates on bonds purchased by district developers. The 2024 disclosure requirements mandated tax obligation disclosure during real estate transactions. These reforms were driven by the same "taxation without representation" concern as Florida's CDD accountability program: major debt obligations set by developer-controlled boards before residents have any vote.
+The 2020 South Atlantic Regional Biological Opinion, [SARBO](https://repository.library.noaa.gov/view/noaa/27057), provides a regional biological opinion for specified Corps and Bureau of Ocean Energy Management activities within its scope. It can make covered, recurring work more consistent; it supplies neither a programmatic environmental impact statement nor a blanket authorization for novel reclamation.
 
 ---
 
-## BPCA: The Upstream Template
+## State review remains independent
 
-Battery Park City Authority, a Class A New York State public-benefit corporation created by the state Legislature in 1968, is the institutional model for producing new coastal territory rather than governing territory that already exists.
+A federal permit involving a discharge can require state water-quality certification under Section 401 of the Clean Water Act. The state evaluates whether the discharge will comply with applicable water-quality requirements and may certify, condition, deny, or waive within the federal framework. EPA's [Section 401 overview](https://www.epa.gov/cwa-401) explains the current process. Conditions that survive certification become conditions of the federal license or permit.
 
-BPCA's mandate: financing, developing, constructing, maintaining, and operating a planned community on the Battery Park City site. The 92 acres it governs came from World Trade Center excavation spoil, Water Tunnel No. 3 excavation, and harbor dredge, placed in the Hudson River beginning in the late 1960s. The land is state-owned; BPCA manages it under long-term control and leases ground to private developers on 99-year leases. Developers construct and own their buildings; BPCA collects ground rent and PILOT payments. In 2023, BPCA received approximately $298M in PILOT and $57.3M in ground rent, for total annual revenues of approximately $382M. Since inception, BPCA has transferred more than $1.4B net to New York City. Its senior bonds carry AAA ratings from Fitch and Moody's.
+In Florida, applicants should not assume that the state is presently issuing Section 404 permits in place of the Corps. The Florida Department of Environmental Protection states that its [State 404 Program is inoperative](https://floridadep.gov/water/submerged-lands-environmental-resources-coordination/content/state-404-program) and that it lacks authority to issue State 404 permits following the program's vacatur. The U.S. Court of Appeals for the District of Columbia Circuit [affirmed that vacatur on March 27, 2026](https://media.cadc.uscourts.gov/opinions/docs/2026/03/24-5101-2165874.pdf). As of July 19, 2026, a Florida coastal proposal should plan for the applicable federal Section 404 route while separately completing state reviews.
 
-The 1979 Cooper-Eckstut master plan extended the Manhattan street grid onto the new land, designated one-third as public open space, and mixed commercial, residential, and retail. BPCA maintains 36 acres of parks and esplanade without direct taxpayer subsidy from ground rent proceeds. The parks are the public-trust justification for the public-benefit corporation structure.
+Those state reviews may include an [Environmental Resource Permit](https://floridadep.gov/water/submerged-lands-environmental-resources-coordination/content/environmental-resource-permitting), requirements in FDEP's [beaches and coastal systems rules and statutes](https://floridadep.gov/rcp/beaches/content/beaches-and-coastal-systems-rules-statutes), including the Joint Coastal Permit for qualifying coastal activities, and review under the [Coastal Construction Control Line](https://floridadep.gov/rcp/coastal-construction-control-line) program. The exact combination depends on the location and activity. The design must also account for local comprehensive planning, utilities, stormwater, access, and building approvals. No single coastal permit replaces the rest.
 
-BPCA is legally distinct from a CDD. It has no bond-assessment mechanism and does not levy special assessments on parcels. Financing comes from ground lease revenues and state-backed bond issuances. As a state public-benefit corporation, it has broader legal powers than a CDD and is not subject to the FLWAC petition process. The distinction matters for new coastline: CDDs are the right tool for governing subdivisions within existing platted land. A BPCA-type structure is the right tool for the upstream problem of creating the land and holding it while private development fills in around state-owned open space.
-
----
-
-## The Full Permit Stack
-
-A large-scale coastal fill project -- engineered island, causeway across tidal waters, major harbor extension -- faces the following concurrent and sequential requirements:
-
-| Phase | Process | Typical Duration |
-|---|---|---|
-| Pre-application | Scoping, baseline and species surveys, BA preparation | 1-3 years |
-| NEPA EIS | Scoping, Draft EIS, public comment, Final EIS, ROD | 2-5 years (FRA statutory target: 2 years) |
-| USACE §404 Individual Permit | Public notice, LEDPA analysis, coordination | Concurrent; IP follows ROD |
-| ESA §7 Formal Consultation | BA, 90-day initiation, 135-day BO clock | Concurrent; 225 days statutory |
-| CZMA Consistency Certification | State review | 6 months; concurrent |
-| CWA §401 WQC | State review | Up to 1 year; concurrent |
-| MMPA Incidental Take Authorization | NOAA Fisheries review | 4-6 months; concurrent |
-| NHPA §106 | SHPO consultation | 30-90 days; concurrent |
-| Sovereign Submerged Lands Lease (FL) | Board of Trustees, FDEP | Variable; concurrent or sequential |
-| Construction authorization | All permits in hand | Total: commonly 5-10 years |
-
-Post-FRA, the EIS phase carries a two-year statutory clock. The surrounding permit instruments are not subject to that clock. CZMA consistency, §401 certification, and ESA biological opinion proceed concurrently but on their own independent timelines. A complex project that must reinitiate ESA consultation, faces a §401 denial, or requires CZMA dispute resolution through Commerce mediation can extend well beyond the FRA EIS target even if the EIS itself completes on schedule.
-
-FAST-41 covers projects over $200M subject to NEPA. Most coastal reclamation projects at the site scale (10 to 100 ha) fall under $200M in construction cost and are not FAST-41 eligible. Only megaprojects at the upper end of the scale ladder qualify for FAST-41 coordination benefits.
+The Coastal Zone Management Act adds another distinction. A federal agency activity follows the federal-agency consistency process. An applicant seeking a listed federal license or permit follows the federal-license-or-permit consistency process. NOAA's [federal consistency overview](https://coast.noaa.gov/czm/consistency/) and [15 CFR part 930](https://www.ecfr.gov/current/title-15/subtitle-B/chapter-IX/subchapter-B/part-930) set out those separate routes. Florida implements them through the [Florida Coastal Management Program](https://floridadep.gov/rcp/fcmp). Calling both routes "CZMA review" hides who must submit what and which standard applies.
 
 ---
 
-## Where Compression Is Possible
+## Submerged land carries public-trust obligations
 
-Three institutional levers reduce the time and cost of the permit stack. None eliminates the regulatory framework; each reduces the work that must be done project-by-project.
+Florida's Constitution makes submerged-land authority a threshold issue. Article X, section 11 provides that lands under navigable waters, including beaches below the mean high-water line, are held by the state in trust for all the people. Sales or private uses may be authorized only when they are not contrary to the public interest. The controlling text is in the [Florida Constitution](https://www.flsenate.gov/Laws/Constitution).
 
-**Programmatic EIS.** An agency preparing a programmatic EIS (pEIS) covering a class of future actions allows individual projects to "tier" to the pEIS, restricting analysis to site-specific incremental effects not resolved at the program level. The SARBO demonstrates this structure for species consultation across hundreds of individual dredging events. A coastal extension program in Florida could pursue an analogous pEIS covering the full geographic and activity scope, with individual site permits tiering to the programmatic review. USACE has authority to prepare programmatic EISs for Civil Works programs. The investment required to prepare a pEIS is large; the payoff is that each subsequent project does not repeat the analysis of program-level environmental effects.
+The Board of Trustees of the Internal Improvement Trust Fund administers Florida's sovereignty submerged lands through leases, easements, consents of use, and other instruments. FDEP describes the current [submerged-lands management](https://floridadep.gov/lands/bureau-public-land-administration/content/submerged-lands-management) process.
 
-**Community Development Districts.** CDDs are the right institutional vehicle for infrastructure financing within new land once it exists and is platted. A coastal district formed after land is produced and baseline absorption is demonstrated avoids the 2008 failure mode (bonds issued against speculative projections). CDDs offer tax-exempt assessment bonds, developer-controlled governance at inception with transition to resident governance, and a statutory framework designed for exactly the infrastructure build-out problem -- roads, utilities, water management, recreational facilities -- that newly created coastal land requires. The 1,088 districts already active in Florida represent an established underwriting market and a documented administrative pathway. The upstream territory creation problem requires a different structure (BPCA-type public-benefit corporation); the downstream governance problem is well-suited to CDDs.
+This authority cannot be treated as a clerical title transfer. The public-trust inquiry reaches navigation, fishing, bathing, access, habitat, and other public uses. A proposal that converts open water into exclusive development has to confront that change directly. A special district may eventually finance infrastructure or operate services, but ordinary legislation cannot erase the constitutional trust or substitute local approval for action by the state trustees. Governance follows lawful land authority. It does not create it.
 
-**BPCA model for territory creation.** The Battery Park City Authority structure resolves the three hardest institutional problems in coastal reclamation simultaneously. State land ownership resolves who owns newly created submerged land -- the Board of Trustees conveys to the state authority rather than to private parties. A public-benefit corporation with bonding authority resolves how the capital program is financed without annual legislative appropriations -- ground lease revenues service bonds without requiring property sales. A public amenity mandate resolves the public trust obligation -- parks and open space maintained from the same revenue stream that services the debt, rather than requiring direct public subsidy. The AAA bond rating on BPCA senior debt demonstrates that this structure can access capital markets at the lowest available cost of funds.
-
-The PANYNJ bi-state compact model is the relevant precedent for coastal reclamation that crosses jurisdictional lines -- a barrier belt development touching both state waters and federal OCS, or a project requiring coordination between two coastal states. PANYNJ's consolidated bond pledge pools facility revenues across all assets, producing investment-grade ratings independent of any single facility's financial performance. The political friction of the bi-state structure (dual veto power, dual appointment authority) is the cost of the broad revenue pooling that makes the bond rating possible.
-
-None of these compression levers alters the substantive environmental review obligations. A programmatic EIS still analyzes the full range of effects; it front-loads the analysis rather than eliminating it. CDDs still require that bonds be issued against demonstrated rather than speculative revenues to avoid the 2008 default pattern. A BPCA-type structure still requires Board of Trustees action on sovereign submerged lands and CZMA consistency determination from the state.
-
-The 8.2-year federal project timeline is an average across all civil works, not a floor. Projects that enter the process with completed baseline surveys, programmatic clearance in hand, and a defined institutional structure for land ownership compress the timeline. Projects that require project-specific EISs, multiple reinitiated ESA consultations, and state veto disputes at §401 and CZMA reach the upper end of the range and beyond. The institutional design choices made before a project is filed determine which end of the distribution it lands on.
+The same point applies offshore. Federal mineral leasing, state submerged-land consent, a Corps permit, and local land-use approval answer different questions. Holding one does not imply the others.
 
 ---
 
-For the physical engineering that produces the territory this governance layer manages, see [reclamation-methods](/research/territorial-engineering/reclamation-methods/). For the economics of how newly produced land captures value, see [economics-and-value-capture](/research/territorial-engineering/economics-and-value-capture/). For Florida-specific application of this regulatory stack, see [florida-case-study](/research/territorial-engineering/florida-case-study/). For the industrial capacity that executes the construction, see [industrial-base](/research/territorial-engineering/industrial-base/).
+## Mitigation is an operating commitment
+
+Federal mitigation follows a sequence: avoid impacts where practicable, minimize those that remain, then compensate for unavoidable losses. The Corps' [2008 Mitigation Rule](https://www.ecfr.gov/current/title-33/chapter-II/part-332) requires more than a promise to restore habitat somewhere later. A compensatory mitigation plan can include objectives, site protection, baseline information, a work plan, maintenance, ecological performance standards, monitoring, long-term management, adaptive measures, and financial assurances.
+
+Those terms should influence design before permit issuance. If a habitat feature cannot be monitored, its claimed benefit is weak. If a public entity will inherit maintenance, that entity must understand the obligation and have a funding source. If compensation depends on a separate site, control of that site and the schedule for its work matter. If a feature needs perpetual nourishment or invasive-species control, the lifecycle cost belongs in the project economics.
+
+Mitigation also has limits. Compensation does not make an avoidable discharge permissible. A permit condition cannot turn an unstable inlet, an unsafe navigation opening, or an unfinanceable maintenance plan into a sound project. It can only define and enforce the performance expected from an otherwise lawful design.
+
+---
+
+## Permission and delivery follow separate paths
+
+There are two broad federal pathways, and they should not be conflated.
+
+A private or nonfederal sponsor can design a project, secure property interests, apply for federal and state permits, obtain local approvals, and finance construction. The Corps acts as regulator for the relevant permits. Approval allows specified work under specified conditions. It does not promise federal construction money, assume the applicant's maintenance duties, or guarantee that another agency will fund connected infrastructure.
+
+A Corps Civil Works project follows a public planning and authorization process. Depending on the authority used, it can require a feasibility study, environmental compliance, a nonfederal sponsor, cost-sharing commitments, congressional authorization, design, and appropriations. Authorization establishes legal authority for the project or program. Appropriation provides budget authority to spend. An authorized project can remain unbuilt if Congress does not appropriate construction funds or if required sponsor commitments are absent.
+
+That distinction changes early strategy. A proposal should not depend on a future federal adoption that no agency or Congress has agreed to. Nor should an authorization be presented as if construction were funded. The delivery plan must identify, decision by decision, who has authority, who pays, who owns the result, and who operates it after the ribbon cutting.
+
+By the time the permit record is complete, the preferred project may have a smaller footprint, different openings, another material source, seasonal work restrictions, habitat features, monitoring thresholds, financial assurances, and an owner or operator unlike the one assumed in the first sketch. Those changes mark the transition from an image to a design capable of lawful performance.
+
+The resulting footprint remains conditional on continuing duties: preserve navigation, comply with permit and consultation terms, maintain mitigation, monitor performance, fund repair, and respond when the project falls outside its expected range. Delivery therefore depends on durable land authority, an accountable owner, and revenue that lasts beyond construction. Without all three, the project cannot be built and kept in compliance.
