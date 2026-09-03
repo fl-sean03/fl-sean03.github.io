@@ -5,12 +5,18 @@ date: 2026-09-03
 image: "/images/writings/where-are-we-title.png"
 ---
 
-I gave this talk in a foundation models and alignment course at CU Boulder. The assignment was to present the state of practice in your own field, name the methods people actually use, and say where they break.
+Talk given in a foundation models and alignment course at CU Boulder, September 2026. The brief was to present the state of practice in your own field, name the methods people actually use, and say where they break.
 
-My field trains machine-learned interatomic potentials. MACE, GNoME, MatterSim, UMA. They are foundation models by any working definition: train once on one broad corpus, then run zero-shot on systems the model never saw. They work, and the scaling curves hold. One of them covers platinum surfaces, which is my own system, and I did not train it.
+**[Read the slides in your browser](/decks/where-are-we-materials-ai.html)** (18 slides, arrow keys to move) · [PDF](/decks/where-are-we-materials-ai.pdf) · [PowerPoint](/decks/where-are-we-materials-ai.pptx)
 
-Every label they learn from is a calculation. Density functional theory approximates quantum mechanics, and a model that reproduces it perfectly inherits its disagreements with measurement too. Here is the number that stuck with me: a titanium potential accurate to 6 meV per atom against DFT is 24 percent wrong on shear modulus when you check it against experiment. The model is not bad. It is faithful to the wrong reference.
+**What is in it.** Machine-learned interatomic potentials as foundation models: MACE, GNoME, MatterSim, UMA. How density functional theory, hand-written force fields and learned potentials each answer the same question, which is what a given arrangement of atoms costs in energy. What scaling the training data bought. How that data gets manufactured in the first place.
 
-The rest of the deck is about three places that shows up. Where the labels come from and what a measurement would change. Why nothing connects a prediction about atoms to a property anyone would buy. And what happens when you optimize hard against a number that a model computed, which is the closest thing this field has to an alignment problem, and it behaves differently from the version people argue about in language models.
+Then three limitations.
 
-[Download the slides](/decks/where-are-we-materials-ai.pptx) (PowerPoint, 18 slides)
+**Where the labels come from.** Every one is a calculation. A titanium potential accurate to 6 meV per atom against DFT is 24 percent wrong on shear modulus when checked against experiment. The model is not bad. It is faithful to the wrong reference.
+
+**Atoms to parts.** Ten orders of magnitude in length, fifteen in time, and every handoff between levels is fitted by hand. Foundation models occupy the first level only.
+
+**What we optimize.** Energy above hull is a computed stand-in for a question nobody can write down, and pushing hard on it drives the model into the region where its own scorer was never valid.
+
+The deck closes on the companies funding autonomous labs to fix this, and on what they have published so far.
