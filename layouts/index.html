@@ -9,7 +9,7 @@
     </div>
     {{- with .Params.photo }}
     <div class="intro-photo">
-      {{- partial "img.html" (dict "src" . "alt" $.Params.photo_alt "widths" (slice 320 640 960) "sizes" "(min-width: 52rem) 18rem, 12rem" "loading" "eager" "full" false) }}
+      {{- partial "img.html" (dict "src" . "alt" $.Params.photo_alt "widths" (slice 500 800 1200) "sizes" "(min-width: 77rem) 31rem, (min-width: 52rem) 40rem, 100vw" "loading" "eager" "full" false) }}
     </div>
     {{- end }}
     <div class="intro-bio">

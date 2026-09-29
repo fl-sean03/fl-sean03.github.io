@@ -1112,14 +1112,21 @@ td:last-child {
 
 .intro-photo {
   grid-area: photo;
-  width: 11rem;
 }
 
+/* Stacked, the photo runs full width: whole on a phone, and cropped to a square on wider screens, trimming sky rather than feet. */
 .intro-photo img {
   width: 100%;
   aspect-ratio: 3 / 4;
   object-fit: cover;
+  object-position: 52% 100%;
   border: 1px solid var(--rule);
+}
+
+@media (min-width: 36rem) {
+  .intro-photo img {
+    aspect-ratio: 1;
+  }
 }
 
 .intro-bio {
@@ -1151,13 +1158,23 @@ td:last-child {
 
 @media (min-width: 52rem) {
   .home > .intro {
-    grid-template-columns: minmax(0, 1fr) 18rem;
+    grid-template-columns: minmax(0, 1fr) clamp(17rem, 42%, 31rem);
     grid-template-areas: "name photo" "bio photo";
     align-items: start;
   }
 
+  /* The photo fills its column from the top of the name to the end of the bio. */
   .intro-photo {
-    width: 100%;
+    position: relative;
+    align-self: stretch;
+    min-height: 24rem;
+  }
+
+  .intro-photo img {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    aspect-ratio: auto;
   }
 }
 
