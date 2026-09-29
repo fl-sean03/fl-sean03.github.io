@@ -24,7 +24,7 @@ I think this is one of the highest-value positions to occupy over the next decad
 
 ## The position.
 
-I've spent my PhD building intuition for where materials fail. Specifically at interfaces, the boundaries where different materials meet. This is where most advanced systems break down. It's also where academic expertise and manufacturing reality diverge most sharply.
+I've spent my PhD building intuition for where materials fail, and for where the models that predict them stop holding. This is where most advanced systems break down. It's also where academic expertise and manufacturing reality diverge most sharply.
 
 My work with national labs and defense programs exposed me to the full arc, from early-stage research through to deployment constraints. I've seen what gets funded, what gets built, what fails, and why. I've worked on problems where materials limitations aren't just technical challenges but national security constraints.
 
@@ -44,7 +44,7 @@ Every major sector is converging on materials constraints simultaneously. Energy
 
 This is where I'm placing my career. Not on a single company or technology, but on bridging frontier science and real deployment.
 
-I'm building this deliberately. The PhD gives me the scientific foundation: what happens at interfaces, why systems drift, what the research actually shows. The work with national labs and defense programs gives me the deployment reality: where things fail, what the constraints are, what "working" actually means at scale. The next step is the industrial middle, where I can see firsthand how production capability gets built and where scale-up breaks down.
+I'm building this deliberately. The PhD gives me the scientific foundation: why materials behave as they do, why systems drift, what the research actually shows. The work with national labs and defense programs gives me the deployment reality: where things fail, what the constraints are, what "working" actually means at scale. The next step is the industrial middle, where I can see firsthand how production capability gets built and where scale-up breaks down.
 
 The specifics will evolve. The underlying thesis is that materials translation is the binding constraint. Most discoveries die not because they couldn't work, but because no one builds the bridge to make them work. That's where I'm focused.
 
