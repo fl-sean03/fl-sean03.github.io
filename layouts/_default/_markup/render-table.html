@@ -1,0 +1,23 @@
+{{- /* Tables scroll sideways inside their own box instead of widening the page. The box is a landmark, so each on a page needs its own name. */ -}}
+<div class="table-wrap" tabindex="0" role="region" aria-label="Table {{ add .Ordinal 1 }}">
+  <table{{ with .Attributes.class }} class="{{ . }}"{{ end }}>
+    <thead>
+      {{- range .THead }}
+      <tr>
+        {{- range . }}
+        <th{{ with .Alignment }} style="text-align: {{ . }}"{{ end }}>{{ .Text }}</th>
+        {{- end }}
+      </tr>
+      {{- end }}
+    </thead>
+    <tbody>
+      {{- range .TBody }}
+      <tr>
+        {{- range . }}
+        <td{{ with .Alignment }} style="text-align: {{ . }}"{{ end }}>{{ .Text }}</td>
+        {{- end }}
+      </tr>
+      {{- end }}
+    </tbody>
+  </table>
+</div>

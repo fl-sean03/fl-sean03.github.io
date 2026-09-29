@@ -3,6 +3,7 @@ title: "Beyond the Shoreline"
 description: "Elevation and inland water management are adjacent fields, but they remain bounded by existing settlements, utilities, groundwater, receiving waters, and the same demand for evidence before commitment."
 date: 2026-04-21
 image: /images/research/territorial-engineering/beyond-coastline.png
+image_alt: "Aerial view at dusk of a coastal town between a lagoon and a barrier beach, with a river valley, a lake and snow-capped mountains behind it."
 ---
 
 Coastal interventions meet their inland limits at the first occupied street. Water that crosses the shore encounters buildings, roads, utilities, drainage, groundwater, property boundaries, and public obligations.

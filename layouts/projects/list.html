@@ -1,0 +1,36 @@
+{{ define "main" }}
+<div class="wrap-wide list-page">
+  <header class="list-head">
+    {{- partial "breadcrumb.html" . }}
+    <h1>{{ partial "nav-label.html" . }}</h1>
+    {{- with .Description }}
+    <p class="lede">{{ . }}</p>
+    {{- end }}
+  </header>
+  {{- with partial "hero.html" . }}
+  <div class="hero">{{ . }}</div>
+  {{- end }}
+  {{- with .Content }}
+  <div class="prose flow">
+    {{- . }}
+  </div>
+  {{- end }}
+  {{- if and .Pages (not .Params.hideAutoList) }}
+  {{- /* By status (Active, In preparation, Complete, Past), then newest first, then weight. The key is fixed width, so it sorts as text. */ -}}
+  {{- $ranks := dict "Active" 0 "In preparation" 1 "Complete" 2 "Past" 3 }}
+  {{- $keyed := slice }}
+  {{- range .Pages }}
+    {{- $rank := len $ranks }}
+    {{- with .Params.status }}{{ if isset $ranks . }}{{ $rank = index $ranks . }}{{ end }}{{ end }}
+    {{- $newest := sub 99999999 (int (.Date.Format "20060102")) }}
+    {{- $key := printf "%d%08d%05d" $rank $newest (or .Weight 99999) }}
+    {{- $keyed = $keyed | append (dict "key" $key "page" .) }}
+  {{- end }}
+  <ul class="rows">
+    {{- range sort $keyed "key" }}
+    {{- partial "row.html" (dict "page" .page "level" 2) }}
+    {{- end }}
+  </ul>
+  {{- end }}
+</div>
+{{ end }}

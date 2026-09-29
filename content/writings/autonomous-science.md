@@ -3,6 +3,7 @@ title: "The Case for Autonomous Science Infrastructure"
 subtitle: "Why the execution layer matters"
 date: 2026-01-20
 image: "/images/writings/xrd-comparison.png"
+image_alt: "Bar plot of an experimental X-ray diffraction pattern for LiNiO2 (black, above the axis) against the calculated R-3m pattern (blue, below), from 10 to 70 degrees 2θ, with the main reflections labeled."
 ---
 
 Science doesn't move at the speed of insight. It moves at the speed of execution.

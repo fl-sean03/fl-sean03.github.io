@@ -25,13 +25,13 @@ An honest accounting of what's established science, what's plausible engineering
    - This is reproducible, published science.
 
 3. **Covalent mechanosynthesis has been experimentally demonstrated (for one reaction)**
-   - December 2025: A team of 54 researchers including Ralph Merkle demonstrated inverted-mode STM with 96.4% success rate for covalent mechanosynthesis (hydrogen abstraction from silicon). arXiv:2512.24431.
-   - This is the first experimental demonstration of covalent bond breaking under precise positional control with high reliability.
-   - Important caveats: only hydrogen abstraction from silicon was shown. Not bond formation. Not diamond. Not 3D construction. The speed remains single-digit atoms per second.
+   - December 2025: A team of 60 authors at CBN Nano Technologies, including Ralph Merkle, reported an inverted-mode STM that removed a single hydrogen atom from a silicon probe in 27 of 28 trials (96.4%). The authors call this mechanosynthesis. It is a preprint, arXiv:2512.24431.
+   - The authors say the reagents were positioned with sub-angstrom precision and the reaction ran at zero bias.
+   - Important caveats: only hydrogen abstraction from silicon was shown. Not bond formation. Not diamond. Not 3D construction. The preprint reports no throughput figure.
 
 4. **Atom-precision fabrication is commercially viable for specific domains**
-   - SQC (Silicon Quantum Computing) in Sydney is selling atom-by-atom fabricated quantum processors to real customers including Telstra and the Australian Department of Defence. 11-qubit processor with 99.99% fidelity (2025). SQC patterned 250,000 qubit registers in 8 hours (November 2025). This is not a lab demo. This is a commercial product with paying customers.
-   - Zyvex's ZyvexLitho1 is a commercial STM lithography tool: 7.7nm pitch, 0.7nm line width. It is being sold as a product.
+   - SQC (Silicon Quantum Computing) in Sydney builds quantum processors atom by atom and offers commercial products (Quantum Twins and Watermelon). Telstra ran a 12-month collaboration with SQC, and Australian Defence awarded it a contract in August 2025. Its 11-qubit atom processor has gate fidelities from 99.10% to 99.99% (Nature, December 2025), and SQC reports patterning 250,000 qubit registers in 8 hours (November 2025). This is more than a lab demo. It is a company with products and a government contract.
+   - Zyvex's ZyvexLitho1 is a commercial STM lithography tool with a resolution of 0.768 nm, and it is sold as a product. In September 2024 Zyvex wrote a 7.7 nm-pitch test pattern by STM lithography.
 
 5. **Convergent assembly mathematics is sound**
    - The 2^N scaling from nano to macro is pure mathematics
@@ -50,7 +50,7 @@ An honest accounting of what's established science, what's plausible engineering
    - Freitas/Merkle's minimal toolset is a credible paper based on known chemistry
    - No experimental demonstration yet. The December 2025 result was hydrogen abstraction from silicon, not diamond.
    - Drexler's assessment: "designs are not very close to being buildable with available tools, and there isn't even a clear path to building the appropriate tools"
-   - Philip Moriarty at Nottingham received 1.53M GBP for diamond mechanosynthesis experiments and pivoted to silicon because diamond proved too difficult. This is telling.
+   - Philip Moriarty at Nottingham received 1.53M GBP for diamond mechanosynthesis experiments. He later said diamond is "a very difficult material to work with" and that his group ran a parallel effort on silicon. This is telling.
    - **This is the biggest gap**. If mechanosynthesis works across multiple material systems, the Drexler vision follows. If it remains limited to silicon surface chemistry, alternative paths exist but the timeline extends significantly.
 
 2. **AI meaningfully accelerates materials discovery**
@@ -109,10 +109,10 @@ Richard Smalley's (Nobel laureate, deceased 2005) main arguments against Drexler
 |-----------------|----------------|
 | "Fat fingers": manipulators too large | **Refuted**: Molecular tools don't need "fingers." Biology proves molecular-scale manipulation works. |
 | "Sticky fingers": atoms stick to tools | **Addressed**: Freitas tooltip designs use specific bond energies. DNA origami doesn't have this problem. |
-| "Chemistry is too complex for mechanical control" | **Partially valid**: We can't do arbitrary chemistry mechanically yet. But the Dec 2025 STM demo showed 96.4% success for H abstraction, suggesting at least some mechanical chemistry is reliable. |
+| "Chemistry is too complex for mechanical control" | **Partially valid**: We can't do arbitrary chemistry mechanically yet. But the Dec 2025 STM preprint reports 27 successful H abstractions in 28 trials (96.4%), suggesting at least some mechanical chemistry is reliable. |
 | "Self-replication is dangerous" | **Separate concern**: Not about feasibility but policy. Most APM proposals don't require self-replication. |
 
-**Updated assessment**: Smalley's specific "fat fingers" objection was a strawman. BUT his deeper intuition, that controlling chemistry at the atomic scale is far harder than mechanical analogies suggest, has been partially validated. The December 2025 result is encouraging: 96.4% reliability for one specific reaction is a genuine milestone. But extrapolating from hydrogen abstraction on silicon to general-purpose covalent mechanosynthesis remains a large leap. The real challenge is not "can we break one type of bond" but "can we reliably execute a diverse repertoire of bond-making and bond-breaking reactions at the single-molecule level at useful throughput rates while managing thermal noise."
+**Updated assessment**: Smalley's specific "fat fingers" objection was a strawman. BUT his deeper intuition, that controlling chemistry at the atomic scale is far harder than mechanical analogies suggest, has been partially validated. The December 2025 result is encouraging: 27 successes in 28 trials (96.4%) for one specific reaction is a genuine milestone. But extrapolating from hydrogen abstraction on silicon to general-purpose covalent mechanosynthesis remains a large leap. The real challenge is not "can we break one type of bond" but "can we reliably execute a diverse repertoire of bond-making and bond-breaking reactions at the single-molecule level at useful throughput rates while managing thermal noise."
 
 **The most likely path runs through biology and self-assembly, NOT diamond mechanosynthesis.** DNA origami, synthetic molecular motors, and guided self-assembly are more mature and closer to practical manufacturing than the Drexler/Freitas mechanosynthesis approach. Self-replicating DNA nanoassemblies were demonstrated in 2024.
 
@@ -126,23 +126,23 @@ Richard Smalley's (Nobel laureate, deceased 2005) main arguments against Drexler
 - $156M facility investment, 305 new jobs
 - **Their scope**: Micromachines/MEMS specifically, not general-purpose matter compilation
 
-### CBN Nano Technologies ($70M+ invested, Canada)
-- **24 mechanosynthesis patents**, the most direct APM hardware effort
-- Backed by Canada's $40M investment in nanotechnology
-- **Critical caveat**: Despite 24 patents and 15+ years of work, CBN has zero published experimental demonstrations of diamond mechanosynthesis. Their work is computational and theoretical. Patents are designs, not demonstrations.
-- Philip Moriarty, who received 1.53M GBP specifically for diamond mechanosynthesis experiments, found diamond too difficult and pivoted to silicon. This suggests the problem may be harder than CBN's patent portfolio implies.
+### CBN Nano Technologies (Canada, $40M government investment)
+- **25 patents filed** (CB Insights), across mechanosynthesis, mechanical computing and other areas. The most direct APM hardware effort.
+- Backed by a $40M investment from the Government of Canada (2019) toward a $220M project
+- **Critical caveat**: Despite its patents, CBN has not reported an experimental demonstration of diamond mechanosynthesis. Its December 2025 preprint reports hydrogen abstraction from silicon, not diamond. Patents are designs, not demonstrations.
+- Philip Moriarty, who received 1.53M GBP specifically for diamond mechanosynthesis experiments, said diamond is "a very difficult material to work with" and ran a parallel effort on silicon. This suggests the problem may be harder than CBN's patent portfolio implies.
 - **Worth watching, but the gap between their patent claims and experimental reality is large.**
 
 ### Silicon Quantum Computing (SQC, Australia)
-- **Already selling atom-by-atom fabricated quantum processors to real customers** (Telstra, Australian Department of Defence)
-- 11-qubit processor with 99.99% fidelity (2025)
-- Patterned 250,000 qubit registers in 8 hours (November 2025)
-- This is the most commercially advanced atom-precision manufacturing company in the world. Not a demo. Not a prototype. Revenue from products built with atomic precision.
+- **Offers commercial quantum products built with atom-by-atom fabrication** (Quantum Twins, Watermelon), with a Telstra collaboration and an Australian Defence contract behind them
+- 11-qubit atom processor with gate fidelities from 99.10% to 99.99% (Nature, December 2025)
+- Reports patterning 250,000 qubit registers in 8 hours (November 2025)
+- SQC says it is the only company worldwide that can manufacture quantum processors at atomic scale. It offers products and holds a government contract, so this is more than a demo.
 - Focused on quantum computing, not general manufacturing
 
 ### Zyvex Labs (DOE-funded, Dallas)
-- STM lithography at 7.7nm pitch, 0.7nm line width
-- ZyvexLitho1 is a commercial product, the most advanced commercial APM tool
+- STM lithography: a 7.7 nm-pitch test pattern (September 2024), and a ZyvexLitho1 resolution of 0.768 nm
+- ZyvexLitho1 is a commercial product
 - Focused on semiconductor applications
 
 ### National Labs + DOE Genesis Mission
@@ -156,7 +156,7 @@ Richard Smalley's (Nobel laureate, deceased 2005) main arguments against Drexler
 - Community-building stage
 
 ### The Gap Nobody Owns
-Nobody is building the **full-stack ecosystem**: AI for materials, molecular design tools, precision fabrication, vertical applications, all coordinated toward matter compilation. Each player owns one piece. CBN has mechanosynthesis patents (but no demos). Atomic Machines has MEMS fabrication. Zyvex has STM lithography. MSEP has design tools. National labs have facilities. The integration opportunity remains open.
+Nobody is building the **full-stack ecosystem**: AI for materials, molecular design tools, precision fabrication, vertical applications, all coordinated toward matter compilation. Each player owns one piece. CBN has mechanosynthesis patents and a December 2025 preprint on hydrogen abstraction. Atomic Machines has MEMS fabrication. Zyvex has STM lithography. MSEP has design tools. National labs have facilities. The integration opportunity remains open.
 
 ### International Competition Context
 - **China holds 43% of global nanotech patents (464,000+)**, a major strategic concern
@@ -184,7 +184,7 @@ Updated March 2026, incorporating the December 2025 mechanosynthesis demonstrati
 
 | Milestone | Optimistic | Realistic | Conservative | Context |
 |-----------|-----------|-----------|-------------|---------|
-| First mechanosynthesis demo (anyone) | **Partially achieved** | -- | -- | Dec 2025: H abstraction from Si at 96.4% success. Not yet demonstrated for bond formation, diamond, or 3D construction. |
+| First mechanosynthesis demo (anyone) | **Partially achieved** | -- | -- | Dec 2025 preprint: H abstraction from Si in 27 of 28 trials (96.4%). Bond formation, diamond and 3D construction are not shown in it. |
 | Multi-reaction mechanosynthesis | 2028 | 2033 | 2040+ | Extending beyond H abstraction to bond formation and multiple material systems |
 | 50-100 qubit atom-precision processors | 2028 | 2030 | 2035 | SQC is on a credible trajectory |
 | Molecular machine prototype | 2032 | 2036 | 2042 | |
@@ -247,11 +247,11 @@ The risk isn't being too small. The risk is:
 
 1. **Mechanosynthesis turns out to be impractical beyond simple reactions.** The Dec 2025 result showed one reaction type on one surface. If extending to diverse bond-making/breaking reactions across multiple materials proves intractable, the direct mechanosynthesis path dies. Mitigated by alternative paths (DNA nanotech, directed self-assembly), but timeline extends 10-20 years.
 
-2. **The throughput barrier proves intractable.** General-purpose matter compilation requires on the order of 10^17 or more parallel atomic operations per second. The gap between demonstrated capability (~50 atoms/sec serial) and this target is 15+ orders of magnitude. If we cannot achieve the necessary parallelism, general-purpose matter compilation may never be practical. Domain-specific APM (quantum computing, sensors, catalysts) would still work because those applications require far fewer atoms. See [The Throughput Barrier]({{< ref "throughput-barrier" >}}) for the full analysis.
+2. **The throughput barrier proves intractable.** General-purpose matter compilation requires on the order of 10¹⁷ or more parallel atomic operations per second. The gap between demonstrated capability (~50 atoms/sec serial, a 2010 Zyvex report) and this target is 15+ orders of magnitude. If we cannot achieve the necessary parallelism, general-purpose matter compilation may never be practical. Domain-specific APM (quantum computing, sensors, catalysts) would still work because those applications require far fewer atoms. See [The Throughput Barrier]({{< ref "throughput-barrier" >}}) for the full analysis.
 
 3. **Energy costs are prohibitive at scale.** Could limit matter compilation to high-value applications only (medical, semiconductor, defense). Still a massive market.
 
-4. **Someone else gets there first.** Atomic Machines, a national lab, a big tech company. The ecosystem approach means progress by any player advances the field as a whole — a breakthrough at one node benefits all participants.
+4. **Someone else gets there first.** Atomic Machines, a national lab, a big tech company. The ecosystem approach means progress by any player advances the field as a whole. A breakthrough at one node benefits all participants.
 
 5. **Regulatory shutdown.** Government bans certain types of molecular manufacturing due to weapons/proliferation concerns. Real risk for the long-term vision.
 
@@ -261,9 +261,9 @@ The risk isn't being too small. The risk is:
 
 ## The Manufacturing Knowledge Gap
 
-The gap between discovering a material and manufacturing it exists everywhere, and major agencies are actively trying to close it. The MGI Autonomous Experimentation Workshop (2024), NIST Digital Thread program, and ANSI/America Makes (which identified 141 additive-manufacturing standardization gaps) all document broken connections between design, fabrication, testing, and deployment. This convergence point is where new ventures can create the most value.
+The gap between discovering a material and manufacturing it exists everywhere, and major agencies are actively trying to close it. The 2024 Materials Genome Initiative workshop report lists the integration of digital manufacturing, digital twins and scale-up among the common gaps in autonomous materials infrastructure. NIST's Digital Thread for Manufacturing project develops the product-definition standards that connect design to manufacturing. The ANSI and America Makes roadmap identifies 141 standardization gaps across the additive manufacturing lifecycle. This convergence point is where new ventures can create the most value.
 
-Sources: [MGI Workshop](https://www.mgi.gov/sites/mgi/files/MGI_Autonomous_Materials_Innovation_Infrastructure_Workshop_Report.pdf), [NIST Digital Thread](https://www.nist.gov/programs-projects/digital-thread-manufacturing), [DOE Genesis](https://www.energy.gov/genesis-mission)
+Sources: [Accelerated Materials Experimentation Enabled by the Autonomous Materials Innovation Infrastructure (AMII): A Workshop Report](https://www.mgi.gov/sites/mgi/files/MGI_Autonomous_Materials_Innovation_Infrastructure_Workshop_Report.pdf), [Digital Thread for Manufacturing](https://www.nist.gov/programs-projects/digital-thread-manufacturing) (NIST), [America Makes and ANSI Publish Standardization Roadmap for Additive Manufacturing Version 3.0](https://www.prnewswire.com/news-releases/america-makes-and-ansi-publish-standardization-roadmap-for-additive-manufacturing-version-3-0--301878560.html) (press release), [The Genesis Mission](https://www.energy.gov/genesis-mission) (DOE)
 
 ---
 
@@ -276,6 +276,6 @@ The vision is sound. The physics works. The enabling technologies are advancing,
 - Each intermediate step generates real value and revenue
 - The vision is defensible because few have the patience to pursue it
 
-The most viable path forward is **building capability incrementally**. Ventures that generate revenue today — materials AI, design tools, precision manufacturing for high-value domains like quantum computing and sensors — can fund progressively more ambitious work. Each such venture is independently valuable, and each one moves the needle toward the long-term vision.
+The most viable path forward is **building capability incrementally**. Ventures that generate revenue today (materials AI, design tools, precision manufacturing for high-value domains like quantum computing and sensors) can fund progressively more ambitious work. Each such venture is independently valuable, and each one moves the needle toward the long-term vision.
 
 The throughput barrier is real. The mechanosynthesis gap beyond hydrogen abstraction is real. The manufacturing knowledge gap is real. None of these are reasons to stop. They are reasons to be honest about what "15-40 years" means and to build the intermediate steps that make the long-term work possible.

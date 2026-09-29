@@ -1,0 +1,13 @@
+{{- /* One line of facts about a page. Context: dict "page", "kind" (true names the section) and "long" (true spells out the month). */ -}}
+{{- $p := .page -}}
+{{- $thread := partial "thread.html" $p.Params.thread -}}
+<p class="meta">
+  {{- if or $p.Params.status $p.Params.period }}
+    {{- with $p.Params.status }}<span class="status status-{{ . | urlize }}">{{ . }}</span>{{ end }}
+    {{- with $p.Params.period }}<span>{{ . }}</span>{{ end }}
+    {{- with $thread }}<span>{{ .title }}</span>{{ end }}
+  {{- else }}
+    {{- if and .kind $p.Parent (not $p.Parent.IsHome) }}<span>{{ partial "nav-label.html" $p.Parent }}</span>{{ end }}
+    {{- if not $p.Date.IsZero }}<time datetime="{{ $p.Date.Format "2006-01-02" }}">{{ $p.Date.Format (cond .long "January 2006" "Jan 2006") }}</time>{{ end }}
+  {{- end }}
+</p>

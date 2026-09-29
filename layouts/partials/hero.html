@@ -1,0 +1,25 @@
+{{- /* The picture at the top of a page: a pair of heroes, else the featured image. Shown whole, never cropped. */ -}}
+{{- with .Params.heroes -}}
+<div class="hero-pair">
+  {{- range . }}
+  {{- $res := "" }}
+  {{- if and (strings.HasPrefix .image "/") (in (slice ".png" ".jpg" ".jpeg" ".webp") (lower (path.Ext .image))) }}{{ $res = resources.Get (strings.TrimPrefix "/" .image) }}{{ end }}
+  {{- $ratio := 1.0 }}
+  {{- with $res }}{{ $ratio = div (float .Width) (float .Height) }}{{ end }}
+  {{- /* A tall picture is 34rem high, so it is narrow; a wide one takes at most half the row. */ -}}
+  {{- $rem := math.Min 27 (mul 34 $ratio) }}
+  <figure style="--ratio: {{ printf "%.4f" $ratio }}">
+    {{- partial "img.html" (dict "src" .image "alt" (or .alt .caption) "widths" (slice 360 720 1080) "sizes" (printf "(min-width: 40rem) %.0frem, 46vw" $rem) "loading" "eager") }}
+    {{- with .caption }}
+    <figcaption>{{ . }}</figcaption>
+    {{- end }}
+  </figure>
+  {{- end }}
+</div>
+{{- else -}}
+  {{- with partial "page-image.html" . -}}
+<figure class="featured">
+  {{- partial "img.html" (dict "src" . "alt" (or $.Params.image_alt $.Title) "sizes" "(min-width: 56rem) 54rem, 100vw" "loading" "eager") }}
+</figure>
+  {{- end -}}
+{{- end -}}

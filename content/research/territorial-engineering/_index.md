@@ -1,12 +1,14 @@
 ---
 title: "Territorial Engineering"
-description: "A field guide to building new coastline: what the coast allows, how new land is made, who carries the risk, and when the idea should be rejected."
+description: "Sixteen essays on building new coastline. The Port of Rotterdam built Maasvlakte 2, more than 2,000 hectares in the North Sea, because it was short of large deep-water industrial sites."
 date: 2026-04-21
 heroes:
   - image: /images/research/territorial-engineering/florida-current-night.png
     caption: "Florida today"
   - image: /images/research/territorial-engineering/florida-extended-coastline.png
     caption: "Florida, extended"
+image: /images/research/territorial-engineering/reclamation-methods.png
+image_alt: "Dredge pipeline discharging a sand slurry into a diked reclamation cell, with sheet-pile walls, bulldozers and open water beyond the dike."
 hideAutoList: true
 ---
 

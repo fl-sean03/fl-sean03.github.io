@@ -24,7 +24,7 @@ This is not science fiction. It is an engineering challenge with a clear theoret
 
 Several independent technology curves are converging to make this vision achievable within a generation:
 
-1. **Atomically Precise Manufacturing Is Producing Real Products**: SQC (Silicon Quantum Computing) is selling atom-precision quantum processors to Telstra and Australian Defence, real products generating real revenue. In December 2025, inverted-mode STM achieved 96.4% success rate for covalent mechanosynthesis (arXiv:2512.24431), a major step toward reliable automated atomic assembly. Zyvex patterned 250,000 qubit registers in 8 hours (November 2025), demonstrating throughput that was unthinkable five years ago. DNA origami achieves sub-nanometer precision in 3D self-assembly with near-100% yield. Drexler's MSEP.one (launched October 2024) provides open-source molecular design tools. This is not laboratory curiosity. APM is shipping.
+1. **Atomically Precise Manufacturing Is Producing Real Products**: SQC (Silicon Quantum Computing) offers atom-precision quantum products (Watermelon, Quantum Twins), with a Telstra collaboration and an Australian Defence contract behind them. In December 2025, a CBN Nano Technologies preprint (arXiv:2512.24431) reported inverted-mode STM removing a single hydrogen atom in 27 of 28 trials (96.4%), and presents it as opening a new avenue for scalable atomically precise fabrication. SQC reports patterning 250,000 qubit registers in 8 hours (November 2025), throughput that was unthinkable five years ago. DNA origami achieves sub-nanometer precision in 3D self-assembly with near-100% yield. Drexler's MSEP.one (launched October 2024) provides open-source molecular design tools. This is not laboratory curiosity. APM is shipping.
 
 2. **AI-Accelerated Research Tools**: AI is providing real acceleration to materials research, but the gains are more modest than headlines suggest. ML interatomic potentials genuinely speed up molecular dynamics simulations. Property screening across candidate spaces is faster. Autonomous experimentation (Argonne's Polybot, NIST AFL) reduces human bottlenecks in characterization. However, the hype far outpaces reality. Google DeepMind's GNoME claim of "2.2 million new crystal structures" is deeply contested: independent analysis shows 80%+ of predicted structures exhibit disorder, and retractions have been called for. The real speedup for materials R&D is 5-10x, not the "compressing decades to months" narrative. See [AI in Materials Science: An Honest Assessment](/research/matter-compilation/ai-materials-honest/) for detailed analysis of what AI actually contributes and where the hype diverges from reality.
 
@@ -44,7 +44,7 @@ Matter compilation is not one technology, it's a stack. Each layer has different
 
 | Layer | What It Covers | Status |
 |-------|---------------|--------|
-| **1. Atomic/Molecular Control** | APM, atomic-scale devices, nanoscale assembly | Real but narrow (STM, DNA origami, ALD). SQC shipping commercial products. |
+| **1. Atomic/Molecular Control** | APM, atomic-scale devices, nanoscale assembly | Real but narrow (STM, DNA origami, ALD). SQC offers commercial products. |
 | **2. Materials Intelligence** | Foundation models, inverse design, autonomous experimentation | Active but overhyped. Real speedup is 5-10x. See [AI in Materials Science](/research/matter-compilation/ai-materials-honest/) for honest assessment. |
 | **3. Manufacturing Knowledge** | Process development, recipes, metrology, failure modes | The critical gap, connects design to repeatable production |
 | **4. Production Systems** | Digital thread, digital twins, robotics workcells, QC | Emerging (Genesis Mission, NIST, SMART USA) |
@@ -146,7 +146,7 @@ The model is an **ecosystem of purpose-aligned ventures**, not a single monolith
 
 1. A **research foundation** for open research, grants, publications, and talent pipeline development
 2. A **tools company** building molecular design software and simulation platforms (akin to MSEP.one but commercial-grade)
-3. A **precision manufacturing company** advancing the state of the art from current additive manufacturing toward atomic precision — the central venture that directly builds the core capability
+3. A **precision manufacturing company** advancing the state of the art from current additive manufacturing toward atomic precision, the central venture that directly builds the core capability
 4. A **materials discovery company** running AI-accelerated labs for novel materials discovery, a supporting capability that feeds into fabrication
 5. A **compute/simulation company** providing specialized compute for molecular simulation and materials design
 6. **Vertical application companies** targeting specific industry applications that generate revenue today while advancing the core capability
@@ -161,7 +161,7 @@ Each venture in this model would:
 
 Following the AI lab model, intermediate revenue can sustain long-term APM research. The potential revenue bridges fall into three time horizons:
 
-**In the near term**, revenue bridges could include precision fabrication services for quantum computing and semiconductor customers, government contracts (DOE, DARPA, ARPA-E — though SBIR/STTR authorization lapsed Oct 2025, alternatives like ARPA-E OPEN, DOE BES, and NSF Convergence Accelerator remain active), simulation and design software licensing, consulting for advanced manufacturing optimization, materials discovery as a service, and data curation and annotation for materials AI.
+**In the near term**, revenue bridges could include precision fabrication services for quantum computing and semiconductor customers, government contracts (DOE, DARPA, ARPA-E, though SBIR/STTR authorization lapsed Oct 2025, alternatives like ARPA-E OPEN, DOE BES, and NSF Convergence Accelerator remain active), simulation and design software licensing, consulting for advanced manufacturing optimization, materials discovery as a service, and data curation and annotation for materials AI.
 
 **In the medium term**, as capabilities mature, revenue shifts toward custom materials manufacturing, precision component fabrication, autonomous lab installations, and IP licensing.
 
@@ -175,10 +175,10 @@ Following the AI lab model, intermediate revenue can sustain long-term APM resea
 
 | Entity | Focus | Status |
 |--------|-------|--------|
-| **Silicon Quantum Computing (SQC)** | Atom-by-atom quantum processors | **Selling 11-qubit processors with 99.99% fidelity to Telstra and Australian Defence (2025). First commercial APM product with real customers and real revenue.** |
-| **Zyvex Labs** | STM lithography, APM for semiconductors | Active, DOE-funded, 7.7nm pitch (0.7nm line width with ZyvexLitho1). Patterned 250,000 qubit registers in 8 hours (Nov 2025). |
+| **Silicon Quantum Computing (SQC)** | Atom-by-atom quantum processors | **11-qubit atom processor with gate fidelities from 99.10% to 99.99% (Nature, December 2025). Offers Watermelon and Quantum Twins, with a Telstra collaboration and an Australian Defence contract behind them.** |
+| **Zyvex Labs** | STM lithography, APM for semiconductors | Active, DOE-funded. Wrote a 7.7 nm-pitch test pattern (September 2024); ZyvexLitho1 resolution is 0.768 nm. |
 | **Atomic Machines** | AI-driven MEMS fabrication | **$144M raised, $156M facility expansion, 305 jobs. Calls their platform "Matter Compiler," but operates at micron scale (MEMS), not atomic precision.** |
-| **CBN Nano Technologies** | Diamond mechanosynthesis | **$70M+ invested, 24 mechanosynthesis patents. Canadian. Most direct APM hardware effort, but zero experimental demonstrations to date despite 20+ years of theory work.** |
+| **CBN Nano Technologies** | Diamond mechanosynthesis | **A $220M project with a $40M Government of Canada investment (2019); 25 patents filed. Canadian. Most direct APM hardware effort. Its December 2025 preprint reports hydrogen abstraction from silicon, and no experimental diamond mechanosynthesis has been reported as of early 2026.** |
 | **MSEP.one / Drexler** | Open-source molecular design software | Launched Oct 2024, MSEP Foundation formed Feb 2025 |
 | **Foresight Institute** | Molecular nanotech advocacy, prizes, community | Active, $3M/year grants, Feynman Prizes |
 | **IMM (Freitas/Merkle)** | Diamond mechanosynthesis theory | Active, foundational research |

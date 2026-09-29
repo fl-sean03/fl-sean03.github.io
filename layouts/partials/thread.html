@@ -1,0 +1,5 @@
+{{- /* The entry in data/threads.yaml for a thread key, or nil. */ -}}
+{{- $found := "" -}}
+{{- $key := . -}}
+{{- range site.Data.threads }}{{ if eq .key $key }}{{ $found = . }}{{ end }}{{ end -}}
+{{- return $found -}}

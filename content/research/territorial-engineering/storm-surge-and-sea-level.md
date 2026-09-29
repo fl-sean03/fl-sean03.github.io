@@ -3,6 +3,7 @@ title: "Designing for Water That Will Arrive"
 description: "Coastal design as a moving envelope of tides, storms, waves, rainfall, sea-level change, settlement, and observed performance, not one permanent elevation."
 date: 2026-04-21
 image: /images/research/territorial-engineering/storm-surge-and-sea-level.png
+image_alt: "Night satellite view of a hurricane with a clear eye, moving toward a coastline lit by city lights."
 ---
 
 The crest elevation is fixed on the drawing. Neither side of the measurement is fixed in the field.
@@ -59,7 +60,7 @@ This calculation assumes an annual probability that is stable and independent fr
 
 No single projection should be promoted into a universal finished-grade rule.
 
-The [2022 federal sea-level report](https://oceanservice.noaa.gov/hazards/sealevelrise/sealevelrise-tech-report.html) provides scenarios for relative sea-level change along the United States coast and emphasizes that location matters. Ocean change, vertical land motion, and regional processes produce different relative outcomes from the same global trajectory. The scenarios also diverge more over longer design lives.
+The [2022 federal sea-level report](https://earth.gov/sealevel/us/resources/2022-sea-level-rise-technical-report/) provides scenarios for relative sea-level change along the United States coast and emphasizes that location matters. Ocean change, vertical land motion, and regional processes produce different relative outcomes from the same global trajectory. The scenarios also diverge more over longer design lives.
 
 USACE policy follows the same logic. Its [regulation on incorporating sea-level change](https://www.publications.usace.army.mil/Portals/76/Publications/EngineerRegulations/ER_1100-2-8162.pdf) directs Civil Works studies to evaluate a range of relative sea-level-change scenarios rather than rely on one deterministic line. The design question is not which scenario is "the answer." It is which decisions fail under each plausible path, when they fail, and what can still be changed at that point.
 

@@ -1,0 +1,21 @@
+{{- /* A list row. Context: dict "page", "level" (heading level, default 2), "thumb" (default true), "kind". */ -}}
+{{- $p := .page -}}
+{{- $level := or .level 2 -}}
+{{- $thumb := true -}}
+{{- if isset . "thumb" }}{{ $thumb = .thumb }}{{ end -}}
+{{- $src := "" -}}
+{{- if $thumb }}{{ $src = partial "page-image.html" $p }}{{ end -}}
+<li class="row{{ if $src }} has-thumb{{ end }}">
+  <div class="row-body">
+    {{- partial "meta-line.html" (dict "page" $p "kind" .kind) }}
+    <h{{ $level }} class="row-title"><a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a></h{{ $level }}>
+    {{- with or $p.Description $p.Params.subtitle }}
+    <p class="row-desc">{{ . }}</p>
+    {{- end }}
+  </div>
+  {{- with $src }}
+  <div class="row-thumb">
+    {{- partial "img.html" (dict "src" . "alt" "" "widths" (slice 320 640 960) "sizes" "(min-width: 40rem) 11rem, 6rem" "full" false) }}
+  </div>
+  {{- end }}
+</li>

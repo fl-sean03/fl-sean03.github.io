@@ -3,6 +3,7 @@ title: "The Permit Is Part of the Design"
 description: "A coastal project is shaped by alternatives, jurisdiction, navigation, species protection, public trust, mitigation, and the separate work of securing construction funds."
 date: 2026-04-21
 image: /images/research/territorial-engineering/institutions-and-permitting.png
+image_alt: "Aerial view of a construction staging area on a rocky, forested shoreline, with a barge at a small jetty and a floating boom marked by buoys in the water."
 ---
 
 Coastal proposals often harden around a drawing before their controlling questions have been answered. Once an offshore line carries a fill quantity, it begins to look settled, and permitting gets pushed into a later phase.

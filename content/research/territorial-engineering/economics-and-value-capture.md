@@ -3,6 +3,7 @@ title: "Paying for New Ground"
 description: "A staged account of who funds investigation, fill, ground improvement, infrastructure, and maintenance before reclaimed land produces dependable revenue."
 date: 2026-04-21
 image: /images/research/territorial-engineering/economics-and-value-capture.png
+image_alt: "Aerial view at dusk of a large artificial island ringed by a lit road, with interior basins, marinas, blocks of buildings and a bridge leading off at the bottom."
 ---
 
 The first invoice arrives years before the first dependable rent payment.

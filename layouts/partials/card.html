@@ -1,0 +1,17 @@
+{{- /* A card. Context: dict "page", "sizes" (image sizes attribute), "ratio" (CSS aspect-ratio of the frame). */ -}}
+{{- $p := .page -}}
+{{- $src := partial "page-image.html" $p -}}
+<li class="card{{ if $src }} has-media{{ end }}"{{ with .ratio }} style="--card-ratio: {{ . }}"{{ end }}>
+  {{- with $src }}
+  <div class="card-media">
+    {{- partial "img.html" (dict "src" . "alt" "" "widths" (slice 480 800 1200) "sizes" $.sizes "full" false) }}
+  </div>
+  {{- end }}
+  <div class="card-body">
+    {{- partial "meta-line.html" (dict "page" $p "kind" true) }}
+    <h3 class="card-title"><a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a></h3>
+    {{- with or $p.Description $p.Params.subtitle }}
+    <p class="card-desc">{{ . }}</p>
+    {{- end }}
+  </div>
+</li>

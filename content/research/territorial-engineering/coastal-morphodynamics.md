@@ -3,6 +3,7 @@ title: "How Coasts Move"
 description: "A decision-oriented guide to sediment budgets, longshore and cross-shore transport, inlets, borrow areas, vertical land movement, and the limits of coastal models."
 date: 2026-04-21
 image: /images/research/territorial-engineering/coastal-morphodynamics.png
+image_alt: "Aerial view of a barrier island at low sun, with sandbars and breaking waves running along the shore and a lagoon behind the dune line."
 ---
 
 The morning after a storm, a nourished beach can look as if the project has vanished. The dry beach is narrow, the dune face is cut back, and sand visible a day earlier lies underwater. To the owner, it can look like total loss.
@@ -85,7 +86,7 @@ Simple empirical relations can help screen alternatives, but they should not be 
 
 Water level is measured relative to land, and both can move.
 
-The [NOAA sea-level technical report](https://oceanservice.noaa.gov/hazards/sealevelrise/sealevelrise-tech-report.html) provides scenarios for future sea level along the United States coast. Site design must combine those scenarios with local vertical land movement, measured tides, storm water levels, and the life and consequence class of the project.
+The [NOAA sea-level technical report](https://earth.gov/sealevel/us/resources/2022-sea-level-rise-technical-report/) provides scenarios for future sea level along the United States coast. Site design must combine those scenarios with local vertical land movement, measured tides, storm water levels, and the life and consequence class of the project.
 
 New fill adds another motion. The fill itself can densify. Soft foundation soils can consolidate under the added load. Differential settlement can distort roads, utilities, buildings, drainage slopes, and seawalls even when average settlement stays within the elevation allowance. Regional subsidence can lower the whole platform at the same time.
 

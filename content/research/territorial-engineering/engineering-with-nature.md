@@ -3,6 +3,7 @@ title: "Where Ecology Carries Load"
 description: "A performance-based account of what reefs, marshes, mangroves, dunes, and hybrid shorelines can resist, when that resistance degrades, and where hard protection remains necessary."
 date: 2026-04-21
 image: /images/research/territorial-engineering/engineering-with-nature.png
+image_alt: "Aerial view at sunset of a beach with grassed dunes and tidal marsh ponds behind them."
 ---
 
 The reef performs well during ordinary weather. Wind chop breaks across its crest, the water behind it is quieter, and the marsh edge stops retreating.

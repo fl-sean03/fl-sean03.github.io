@@ -1,38 +1,82 @@
 baseURL = "https://seanflorez.com/"
 languageCode = "en-us"
-title = "Sean Florez"
+title = "Sean P. Florez"
+enableRobotsTXT = true
 
 [params]
-  description = "Materials scientist building the bridge between atomic-level understanding and real-world deployment."
+  description = "Sean P. Florez is a PhD student in materials science at CU Boulder. He runs molecular simulations and builds OpenSDL, open-source software for self-driving labs."
   author = "Sean P. Florez"
   email = "sean.florez@colorado.edu"
   linkedin = "https://linkedin.com/in/sean-florez"
   github = "https://github.com/fl-sean03"
   x = "https://x.com/seanf1orez"
+  resume = "/Sean_Florez_Resume.pdf"
+  cv = "/cv/"
 
 [menu]
   [[menu.main]]
-    name = "About"
-    url = "/"
+    name = "Work"
+    url = "/projects/"
     weight = 1
   [[menu.main]]
-    name = "Writings"
+    name = "Writing"
     url = "/writings/"
     weight = 2
   [[menu.main]]
-    name = "Projects"
-    url = "/projects/"
-    weight = 3
-  [[menu.main]]
     name = "Research"
     url = "/research/"
-    weight = 4
+    weight = 3
   [[menu.main]]
     name = "Archive"
     url = "/archive/"
+    weight = 4
+  [[menu.main]]
+    name = "CV"
+    url = "/cv/"
     weight = 5
 
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+    [markup.goldmark.parser]
+      # A lone image is emitted as a block, so the image hook can wrap it in a figure.
+      wrapStandAloneImageWithinParagraph = false
+
+# Webp variants of the images are built from these settings.
+[imaging]
+  quality = 82
+  hint = "photo"
+  resampleFilter = "CatmullRom"
+
+# Declaring any mount replaces that component's defaults, so the seven Hugo
+# defaults are restated. The two mounts at the end make the originals available
+# to image processing while they stay served from static/ at their old URLs.
+[module]
+  [[module.mounts]]
+    source = "content"
+    target = "content"
+  [[module.mounts]]
+    source = "data"
+    target = "data"
+  [[module.mounts]]
+    source = "layouts"
+    target = "layouts"
+  [[module.mounts]]
+    source = "i18n"
+    target = "i18n"
+  [[module.mounts]]
+    source = "archetypes"
+    target = "archetypes"
+  [[module.mounts]]
+    source = "assets"
+    target = "assets"
+  [[module.mounts]]
+    source = "static"
+    target = "static"
+  [[module.mounts]]
+    source = "static/images"
+    target = "assets/images"
+  [[module.mounts]]
+    source = "static/archive"
+    target = "assets/archive"

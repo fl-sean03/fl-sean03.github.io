@@ -1,40 +1,38 @@
 {{ define "main" }}
-<section class="list archive-list">
-  <h1>{{ .Title }}</h1>
-  {{ .Content }}
-
-  {{ if .Pages }}
-  <ul class="archive-cards">
-    {{ range .Pages.ByDate.Reverse }}
-    {{ $slug := .File.BaseFileName }}
-    {{ $img := printf "/archive/%s.png" $slug }}
-    {{ $imgPath := printf "static/archive/%s.png" $slug }}
-    {{ $hasImg := fileExists $imgPath }}
-    <li class="archive-card">
-      <a href="{{ .RelPermalink }}" class="archive-card-link">
-        {{ if $hasImg }}
-        <div class="archive-card-image">
-          <img src="{{ $img }}" alt="{{ .Title }}" loading="lazy">
-        </div>
-        {{ end }}
-        <div class="archive-card-body">
-          <div class="archive-card-header">
-            <h2>{{ .Title }}</h2>
-            {{ if .Date }}<time>{{ .Date.Format "Jan 2006" }}</time>{{ end }}
-          </div>
-          {{ with .Description }}<p class="description">{{ . }}</p>{{ end }}
-        </div>
-      </a>
-      {{ with .Params.link }}
-      <a href="{{ . }}" class="archive-card-external" target="_blank" rel="noopener">
-        {{ replace . "https://" "" | replaceRE "/$" "" }} ↗
-      </a>
-      {{ end }}
+<div class="wrap-wide list-page">
+  <header class="list-head">
+    <h1>{{ .Title }}</h1>
+  </header>
+  {{- with .Content }}
+  <div class="prose flow">
+    {{- . }}
+  </div>
+  {{- end }}
+  {{- if .Pages }}
+  <ul class="cards archive">
+    {{- range .Pages }}
+    {{- $src := partial "page-image.html" . }}
+    <li class="card{{ if $src }} has-media{{ end }}">
+      {{- with $src }}
+      <div class="card-media">
+        {{- partial "img.html" (dict "src" . "alt" "" "widths" (slice 480 800 1200) "sizes" "(min-width: 56rem) 17rem, (min-width: 36rem) 45vw, 92vw" "full" false) }}
+      </div>
+      {{- end }}
+      <div class="card-body">
+        {{- partial "meta-line.html" (dict "page" .) }}
+        <h2 class="card-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        {{- with .Description }}
+        <p class="card-desc">{{ . }}</p>
+        {{- end }}
+        {{- with .Params.link }}
+        <p class="card-link"><a class="ext" href="{{ . }}" rel="noopener">{{ replace . "https://" "" | replaceRE "/$" "" }}</a></p>
+        {{- end }}
+      </div>
     </li>
-    {{ end }}
+    {{- end }}
   </ul>
-  {{ else }}
+  {{- else }}
   <p class="empty">Nothing here yet.</p>
-  {{ end }}
-</section>
+  {{- end }}
+</div>
 {{ end }}

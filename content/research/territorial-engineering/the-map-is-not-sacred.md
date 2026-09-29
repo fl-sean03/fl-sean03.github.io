@@ -3,6 +3,7 @@ title: "The Map Is Not Sacred"
 description: "The illustrated Florida extension is a hypothesis, not a design. This chapter separates the ability to alter a coast from the evidence required to decide whether doing so is sensible."
 date: 2026-04-21
 image: /images/research/territorial-engineering/florida-current-landscape.png
+image_alt: "Night-light map of Florida and the neighboring southeastern states, with Miami, Havana and the Bahamas labeled."
 heroes:
   - image: /images/research/territorial-engineering/florida-current-night.png
     caption: "Florida today"

@@ -59,7 +59,7 @@ Matter compilation faces several non-negotiable physics constraints:
 3. Form new bonds in desired configuration (may release energy, but positioning costs energy)
 4. Export waste heat
 
-**Energy per Operation**: At room temperature, thermal energy is ~kT = 4.1 x 10^-21 J per degree of freedom. Any mechanosynthetic operation must use energy significantly above kT to be reliable against thermal noise. Drexler's analysis in *Nanosystems* suggests operations on the order of 10-100 kT for reliable positioning, which is energetically cheap per atom but adds up at scale.
+**Energy per Operation**: At room temperature, thermal energy is ~kT = 4.1 x 10⁻²¹ J per degree of freedom. Any mechanosynthetic operation must use energy significantly above kT to be reliable against thermal noise. Drexler's analysis in *Nanosystems* suggests operations on the order of 10-100 kT for reliable positioning, which is energetically cheap per atom but adds up at scale.
 
 **The Bull Case**: The energy requirements per atom are actually quite modest. Diamond formation from carbon is exothermic. Many of the proposed mechanosynthesis reactions release energy. The total energy budget for a desktop nanofactory, in Drexler's analysis, is comparable to a desktop computer, on the order of kilowatts. Biology already does atomically precise manufacturing (protein synthesis) at room temperature using ATP, with an energy cost of ~100 kT per amino acid placement. This is not thermodynamically prohibitive.
 
@@ -123,13 +123,13 @@ Richard Feynman delivered "There's Plenty of Room at the Bottom" at the American
 
 ### The Actual Blocking Challenges
 
-**Throughput**: This is the single biggest barrier. Current STM-based atomic manipulation is agonizingly slow. A single STM tip can place atoms one at a time, with each operation taking milliseconds to seconds. To build a 1 kg object (~10^25 atoms) at 1 atom per millisecond would take ~10^22 seconds, roughly 300 trillion years. Even at megahertz frequencies (Drexler's optimistic estimate), you need massive parallelism.
+**Throughput**: This is the single biggest barrier. Current STM-based atomic manipulation is agonizingly slow. A single STM tip can place atoms one at a time, with each operation taking milliseconds to seconds. To build a 1 kg object (~10²⁵ atoms) at 1 atom per millisecond would take ~10²² seconds, roughly 300 trillion years. Even at megahertz frequencies (Drexler's optimistic estimate), you need massive parallelism.
 
 **Parallelism**: Drexler's proposed solution is millions or billions of assemblers working in parallel. But building the first generation of parallel assemblers is itself a monumental bootstrapping problem. You need atomically precise manufacturing to build the tools of atomically precise manufacturing. Current multi-tip STM arrays are limited to tens or hundreds of tips, not billions.
 
 **Environmental Control**: Most demonstrated atomic manipulation works only in ultra-high vacuum at cryogenic temperatures (4-77 K). Room temperature operation introduces thermal noise that makes positional control vastly harder. Biological molecular machines solve this differently, they use thermal motion constructively rather than fighting it, but this is a fundamentally different design philosophy than Drexler's rigid-machine approach.
 
-**Error Rates and Correction**: At the atomic scale, even tiny error rates compound catastrophically. If you misplace one atom in a billion, a 1 kg product has ~10^16 defects. Real systems need error detection, correction, and quality control at every step, adding enormous complexity.
+**Error Rates and Correction**: At the atomic scale, even tiny error rates compound catastrophically. If you misplace one atom in a billion, a 1 kg product has ~10¹⁶ defects. Real systems need error detection, correction, and quality control at every step, adding enormous complexity.
 
 **Software and Design**: Designing atomically precise structures is itself a computational grand challenge. You need to simulate quantum-mechanical interactions for every proposed structure, predict stability, and design reaction pathways. This is computationally expensive (see Section 7).
 
@@ -175,8 +175,8 @@ Autonomous lab systems (like Berkeley Lab's A-Lab) can synthesize and test mater
 
 Simulating atomic-scale systems accurately requires quantum mechanical calculations:
 
-- **Density Functional Theory (DFT)**: Scales as O(n^3) with the number of electrons. A 1000-atom system requires hours to days on a modern cluster. Freitas's diamond mechanosynthesis work analyzed 1620 tooltip/workpiece structures using DFT, this alone was a massive computational effort.
-- **Molecular Dynamics (MD)**: Classical MD scales O(n^2) naively, O(n log n) with optimizations. You can simulate millions of atoms for nanoseconds, but not the billions of atoms for microseconds needed for realistic nanomachine design.
+- **Density Functional Theory (DFT)**: Scales as O(n³) with the number of electrons. A 1000-atom system requires hours to days on a modern cluster. Freitas's diamond mechanosynthesis work analyzed 1620 tooltip/workpiece structures using DFT, this alone was a massive computational effort.
+- **Molecular Dynamics (MD)**: Classical MD scales O(n²) naively, O(n log n) with optimizations. You can simulate millions of atoms for nanoseconds, but not the billions of atoms for microseconds needed for realistic nanomachine design.
 - **Quantum Chemistry**: Full configuration interaction (exact) scales exponentially. Practical only for systems of ~20-30 atoms.
 
 ### How AI Changes This
@@ -205,18 +205,18 @@ Machine learning is creating a paradigm shift:
 
 This is where the dream meets brutal arithmetic:
 
-- A 1 kg diamond cube contains approximately 10^25 carbon atoms.
-- A single STM tip operating at ~1 atom per second would take 3 x 10^17 years.
-- At 1 MHz (Drexler's optimistic frequency), one assembler takes 3 x 10^11 years.
-- With 10^12 parallel assemblers at 1 MHz each: ~300 seconds. This is Drexler's convergent assembly target.
+- A 1 kg diamond cube contains approximately 10²⁵ carbon atoms.
+- A single STM tip operating at ~1 atom per second would take 3 x 10¹⁷ years.
+- At 1 MHz (Drexler's optimistic frequency), one assembler takes 3 x 10¹¹ years.
+- With 10¹² parallel assemblers at 1 MHz each: ~300 seconds. This is Drexler's convergent assembly target.
 
-**The bootstrapping problem**: You need 10^12 assemblers. Each assembler is itself an atomically precise machine containing perhaps 10^6 atoms. So you need 10^18 atoms placed precisely to build your assembler array. Which requires... assemblers.
+**The bootstrapping problem**: You need 10¹² assemblers. Each assembler is itself an atomically precise machine containing perhaps 10⁶ atoms. So you need 10¹⁸ atoms placed precisely to build your assembler array. Which requires... assemblers.
 
-Drexler's answer is *exponential assembly*: one assembler builds two, two build four, and so on. After ~40 doublings, you have 10^12. If each doubling takes hours, the whole process takes days. This is elegant in theory but:
+Drexler's answer is *exponential assembly*: one assembler builds two, two build four, and so on. After ~40 doublings, you have 10¹². If each doubling takes hours, the whole process takes days. This is elegant in theory but:
 
 - Error accumulation over 40 generations of self-replication
 - No experimental demonstration of even ONE generation of mechanical self-replication at the nanoscale
-- Quality control across 10^12 units is an unsolved problem
+- Quality control across 10¹² units is an unsolved problem
 
 ### Convergent Assembly Architecture
 
@@ -229,10 +229,10 @@ Drexler and others propose a hierarchical system:
 
 Predicted throughput: ~1 kg/hour of product per kg of nanofactory, with the final stage taking ~100 seconds. This is impressive if achievable, but rests on assumptions about:
 
-- Reliable operation of 10^12+ nanoscale devices simultaneously
+- Reliable operation of 10¹²+ nanoscale devices simultaneously
 - Transport mechanisms between assembly stages
 - Defect tolerance and error correction at every level
-- Feedstock delivery to 10^12 reaction sites
+- Feedstock delivery to 10¹² reaction sites
 
 ### What Actually Works Now
 
@@ -297,18 +297,18 @@ This is not Drexler's vision of diamond mechanosynthesis, but it may be more ach
 
 AI is genuinely transforming materials science, not just hype:
 
-- **AlphaFold** (DeepMind): Solved protein structure prediction. 43,000+ citations, 3M+ users across 190+ countries. Won the 2024 Nobel Prize in Chemistry (Hassabis and Jumper). Transformative impact on structural biology.
-- **GNoME** (DeepMind): Predicted 2.2 million new crystal structures. However, a [Max Planck Institute study](https://doi.org/10.1103/PhysRevMaterials.8.033803) found over 80% showed structural disorder, and a [PRX Energy analysis](https://doi.org/10.1103/PRXEnergy.3.011002) found most "novel" predictions are trivial compositional variants. 736 were independently synthesized, a 0.03% validation rate. Useful as a screening tool, not the revolution the press release claimed. See [AI in Materials Science]({{< ref "ai-materials-honest" >}}) for the full analysis.
-- **Autonomous Labs**: Berkeley Lab's A-Lab is a genuinely impressive robotic synthesis platform. However, its novelty claims for synthesized materials are [disputed](https://doi.org/10.1021/acs.chemmater.4c01294), the platform works, the discovery claims are in question.
-- **ML Force Fields**: MACE, ANI, and related models enable molecular simulation at 100-1000x the speed of quantum methods with comparable accuracy.
-- **Inverse Design**: ML models can now predict which compositions and structures will have desired properties, inverting the traditional trial-and-error approach.
+- **AlphaFold** (DeepMind) solved protein structure prediction. It has 43,000+ citations and 3M+ users across 190+ countries, it won the 2024 Nobel Prize in Chemistry (Hassabis and Jumper), and its impact on structural biology has been transformative.
+- **GNoME** (DeepMind) predicted 2.2 million new crystal structures. However, a [study in Advanced Materials](https://doi.org/10.1002/adma.202514226) by researchers at the Fritz Haber Institute of the Max Planck Society and others (Jakob et al.) put the share of computed GNoME structures likely to be crystallographically disordered at 80–84%, and a [Chemistry of Materials perspective](https://doi.org/10.1021/acs.chemmater.4c00643) (Cheetham and Seshadri) called many of the new compositions trivial adaptations of known materials. 736 of the stable structures had already been independently realized in experiments, a 0.03% validation rate. GNoME is useful as a screening tool, not the revolution the press release claimed. See [AI in Materials Science]({{< ref "ai-materials-honest" >}}) for the full analysis.
+- **Autonomous labs** include Berkeley Lab's A-Lab, a genuinely impressive robotic synthesis platform. However, its novelty claims for synthesized materials are disputed. A [PRX Energy re-analysis](https://doi.org/10.1103/PRXEnergy.3.011002) (Leeman et al.) concluded that no new materials had been discovered in that work, and the A-Lab authors have since published an [author correction](https://doi.org/10.1038/s41586-025-09992-y). The platform works, but the discovery claims are in question.
+- **ML force fields** such as MACE and ANI enable molecular simulation at 100-1000x the speed of quantum methods with comparable accuracy.
+- **Inverse design** with ML models can now predict which compositions and structures will have desired properties, inverting the traditional trial-and-error approach.
 
 ### Honest Assessment of Limitations
 
-- **No big wins yet in novel materials**: Despite millions of predictions, there has not been a convincing breakthrough material discovered primarily through AI. Most AI-predicted materials are incremental variants.
-- **Validation gap**: Computational prediction and experimental realization remain disconnected. Most AI predictions are never tested in a lab.
-- **Training data bias**: AI models are only as good as their training data. They interpolate well within known chemical space but cannot reliably extrapolate to genuinely novel chemistries.
-- **Reproducibility concerns**: The 2024 MIT AI materials paper found unreliable by MIT's own economics department highlights systemic issues with overclaiming.
+- There have been **no big wins yet in novel materials**. Despite millions of predictions, there has not been a convincing breakthrough material discovered primarily through AI. Most AI-predicted materials are incremental variants.
+- The **validation gap** is wide. Computational prediction and experimental realization remain disconnected, and most AI predictions are never tested in a lab.
+- **Training data bias** limits what the models can do. AI models are only as good as their training data. They interpolate well within known chemical space but cannot reliably extrapolate to genuinely novel chemistries.
+- **Reproducibility** is a concern. The 2024 MIT AI materials paper found unreliable by MIT's own economics department highlights systemic issues with overclaiming.
 
 ### How AI Could Accelerate the Path to APM
 
@@ -368,7 +368,7 @@ The honest bottom line: **The physics allows it. The engineering is staggeringly
 ## Sources
 
 - [Drexler-Smalley Debate - Wikipedia](https://en.wikipedia.org/wiki/Drexler%E2%80%93Smalley_debate_on_molecular_nanotechnology)
-- [Drexler-Smalley Debate - Chemical & Engineering News](https://pubsapp.acs.org/cen/coverstory/8148/8148counterpoint.html)
+- [Drexler-Smalley Debate - Chemical & Engineering News](https://web.archive.org/web/20190606024047/https://pubsapp.acs.org/cen/coverstory/8148/8148counterpoint.html)
 - [Molecular Assemblers: Molecular Machines Performing Chemical Synthesis - Chemical Science (RSC)](https://pubs.rsc.org/en/content/articlelanding/2020/sc/d0sc03094e)
 - [Grey Goo - Wikipedia](https://en.wikipedia.org/wiki/Gray_goo)
 - [Nanotechnology Pioneer Slays Grey Goo Myths - Phys.org](https://phys.org/news/2004-06-nanotechnology-grey-goo-myths.html)
@@ -379,7 +379,7 @@ The honest bottom line: **The physics allows it. The engineering is staggeringly
 - [A Comprehensive Analysis of the Future of APM - arXiv 2024](https://arxiv.org/abs/2409.00955)
 - [Risks from Atomically Precise Manufacturing - 80,000 Hours](https://80000hours.org/problem-profiles/atomically-precise-manufacturing/)
 - [AI-Driven Atomic Robotic Probe - ScienceDaily](https://www.sciencedaily.com/releases/2024/03/240301134703.htm)
-- [Synergizing Quantum Dynamics, AI, and Quantum Computing for Materials Science - PMC](https://pmc.ncbi.nlm.nih.gov/articles/PMC12621251/)
+- [Mini Review: Synergizing Driven Quantum Dynamics, AI, and Quantum Computing for Next-Gen Materials Science](https://pmc.ncbi.nlm.nih.gov/articles/PMC12621251/) (Journal of Physical Chemistry Letters, 2025)
 - [MACE-OFF: Transferable ML Force Fields - JACS](https://pubs.acs.org/doi/10.1021/jacs.4c07099)
 - [Enabling Scalable AI-Driven Molecular Dynamics - NVIDIA](https://developer.nvidia.com/blog/enabling-scalable-ai-driven-molecular-dynamics-simulations/)
 - [Scalable Nanomanufacturing Review - PMC](https://pmc.ncbi.nlm.nih.gov/articles/PMC6190475/)
@@ -392,8 +392,8 @@ The honest bottom line: **The physics allows it. The engineering is staggeringly
 - [Convergent Assembly - Zyvex](https://www.zyvex.com/nanotech/convergent.html)
 - [Diamond Mechanosynthesis - Freitas / Nanofactory Collaboration](http://www.molecularassembler.com/Nanofactory/DMS.htm)
 - [A Minimal Toolset for Positional Diamond Mechanosynthesis - Freitas](https://www.researchgate.net/publication/266583736_A_Minimal_Toolset_for_Positional_Diamond_Mechanosynthesis)
-- [Is Mechanosynthesis Feasible? - Soft Machines (Richard Jones)](http://www.softmachines.org/wordpress/?p=50)
-- [The Mechanosynthesis Debate - Soft Machines](http://www.softmachines.org/wordpress/?p=71)
+- [Is Mechanosynthesis Feasible? - Soft Machines (Richard Jones)](https://web.archive.org/web/20250912213304/http://www.softmachines.org/wordpress/?p=50)
+- [The Mechanosynthesis Debate - Soft Machines](https://web.archive.org/web/20250916022330/http://www.softmachines.org/wordpress/?p=71)
 - [Zyvex APM Publications](https://www.zyvexlabs.com/apm/rd/publications/)
 - [Atomically Precise Manufacturing of Silicon Electronics - ACS Nano](https://pubs.acs.org/doi/10.1021/acsnano.3c10412)
 - [The Coming Wave of Confluent Biosynthetic Technologies - Nature Communications 2025](https://www.nature.com/articles/s41467-025-58030-y)

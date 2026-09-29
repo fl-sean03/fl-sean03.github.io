@@ -1,20 +1,17 @@
-{{ $slug := .Get "slug" }}
-{{ $title := .Get "title" }}
-{{ $href := printf "/research/territorial-engineering/%s/" $slug }}
-{{ $page := .Site.GetPage (printf "/research/territorial-engineering/%s" $slug) }}
-{{ $img := "" }}
-{{ with $page }}
-  {{ $img = .Params.image }}
-{{ end }}
-{{ if not $img }}
-  {{ $img = printf "/images/research/territorial-engineering/%s.png" $slug }}
-{{ end }}
-<a class="essay-row" href="{{ $href }}">
-  <div class="essay-thumb">
-    <img src="{{ $img }}" alt="{{ $title }}" loading="lazy">
+{{- /* A chapter row for a research index. Parameters: slug and title; the inner text is the description. */ -}}
+{{- $slug := .Get "slug" -}}
+{{- $title := .Get "title" -}}
+{{- $href := printf "/research/territorial-engineering/%s/" $slug -}}
+{{- $page := .Site.GetPage (printf "/research/territorial-engineering/%s" $slug) -}}
+{{- $img := "" -}}
+{{- with $page }}{{ $img = .Params.image }}{{ end -}}
+{{- if not $img }}{{ $img = printf "/images/research/territorial-engineering/%s.png" $slug }}{{ end -}}
+<div class="row has-thumb">
+  <div class="row-body">
+    <h3 class="row-title"><a href="{{ $href }}">{{ $title }}</a></h3>
+    <div class="row-desc">{{ .Inner | .Page.RenderString }}</div>
   </div>
-  <div class="essay-body">
-    <div class="essay-title">{{ $title }}</div>
-    <div class="essay-desc">{{ .Inner | .Page.RenderString }}</div>
+  <div class="row-thumb">
+    {{- partial "img.html" (dict "src" $img "alt" "" "widths" (slice 320 640 960) "sizes" "(min-width: 40rem) 11rem, 6rem" "full" false) }}
   </div>
-</a>
+</div>

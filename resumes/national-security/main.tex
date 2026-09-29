@@ -1,112 +1,147 @@
+% Sean P. Florez | resume, national security
+% Layout and typography follow Sean's supplied LaTeX template.
+% Compile: pdflatex main.tex
 \documentclass[letterpaper,10pt]{article}
-\usepackage[left=0.65in,right=0.65in,top=0.5in,bottom=0.5in]{geometry}
+\usepackage[left=0.65in,right=0.65in,top=0.50in,bottom=0.55in]{geometry}
 \usepackage{enumitem}
-\usepackage{hyperref}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
 \usepackage{titlesec}
 \usepackage{parskip}
 \usepackage{amsmath}
+\usepackage{needspace}
 
-% Section spacing & rule
-\setlength{\parskip}{4pt}
+% Searchable text; the default Computer Modern typography is unchanged.
+\input{glyphtounicode}
+\pdfgentounicode=1
+\hypersetup{
+    pdftitle={Sean P. Florez | Resume},
+    pdfauthor={Sean P. Florez}
+}
+
+% Section spacing and rule, as supplied.
 \setlength{\parindent}{0pt}
-\titlespacing\section{0pt}{10pt plus 2pt minus 1pt}{6pt plus 1pt minus 1pt}
+\setlength{\parskip}{3pt}
+\titlespacing\section{0pt}{9pt plus 2pt minus 1pt}{5pt plus 1pt minus 1pt}
 \titleformat{\section}{\large\bfseries}{\thesection}{1em}{}[\titlerule]
 
-% List style
+% List style, as supplied.
 \setlist[itemize]{leftmargin=*,noitemsep,topsep=0pt}
+\setlength{\emergencystretch}{1em}
+\widowpenalty=10000
+\clubpenalty=10000
+\raggedbottom
+\hyphenation{Quantum materials}
+
+% Page-break guards: keep a heading with the lines that follow it.
+\newcommand{\keep}{\needspace{4\baselineskip}}
+\newcommand{\keepsection}{\needspace{6\baselineskip}}
 
 \begin{document}
 \pagestyle{empty}
 
 % ===== Header =====
 \begin{center}
-    {\LARGE \textbf{Sean P. Florez}} \\
-    \href{mailto:sean.florez@colorado.edu}{sean.florez@colorado.edu} \,|\, (786) 202\textendash5558 \,|\, \href{https://linkedin.com/in/sean-florez}{linkedin.com/in/sean-florez}
+    {\LARGE \textbf{Sean P.\ Florez}}\\
+    \href{mailto:sean.florez@colorado.edu}{sean.florez@colorado.edu} \,\textbar\, (786) 202--5558 \,\textbar\, Boulder, CO\\
+    \href{https://seanflorez.com}{seanflorez.com} \,\textbar\,
+    \href{https://linkedin.com/in/sean-florez}{linkedin.com/in/sean-florez} \,\textbar\,
+    \href{https://github.com/fl-sean03}{github.com/fl-sean03}
 \end{center}
 
-
+\vspace{-2pt}
 \begin{center}
-    \textit{Security Clearance: Top Secret (active); SCI Eligible}
+\textit{Security Clearance: Top Secret (active); SCI eligible.}
 \end{center}
-
 
 \vspace{-6pt}
 \begin{center}
-\textit{Computational materials \& autonomous science. AI/MD/DFT at scale; technology-transition focused.}
+\textit{Materials R\&D \;\textbar\; Production Qualification \;\textbar\; Technology Transition}
 \end{center}
 
-% ===== DoD & National Lab Experience =====
-\section*{DoD \& National Lab Experience}
-\textbf{S\&T Scouting Intern} \hfill \textit{The Joint Staff (J7 / Future Technology Office), Aug--Oct 2025}
+% ===== Synopsis =====
+\keepsection\section*{Synopsis}
+Materials science Ph.D.\ researcher building \textbf{manufacturing qualification systems}, \textbf{research automation}, and \textbf{materials modeling tools}. Experience supporting a new energetic-materials production line, running large computational campaigns, and evaluating technologies for DoD and DOE.
+
+% ===== DoD, defense industry, national laboratories =====
+\keepsection\section*{DoD, Defense Industry \& National Laboratory Experience}
+\textbf{Engineering Contractor, Rocky Mountain Scientific Laboratory} \hfill \textit{Jun--Aug 2026}\\
+\textit{Quality system for a client affiliate's new energetic-materials production line}\\
+\textit{Automation \& Robotics embed, Jun--Aug 2026}
 \begin{itemize}
-    \item Prioritized propulsion/energy concepts; delivered 8 decision-ready briefs informing J7 concepts and project proposals.
-    \item Coordinated with 4 Service/DoD R\&D orgs to map TRL 3--5 capabilities to experimentation and transition paths.
-    \item Advised on integration of academic research into DoD initiatives.
+    \item Developed lot-release records covering inspections, approval authority, hold criteria, and nonconformance disposition, with item-level traceability to the governing \textbf{military specification}.
+    \item Built a controlled, single-source document set with \textbf{10 client-format instructions}, \textbf{20 test-specific quality-control packets}, manufacturing procedures, and inspections.
+    \item Automated checks for process-route isolation, link validity, terminology, and consistency between released documents and their source.
+    \item Built a program tracker that generates the Kanban board, decision log, requirements traceability matrix, and design-review record.
+    \item Supported quality, packaging, labeling, on-site commissioning, and hazard and failure-mode analysis.
 \end{itemize}
 
-\textbf{High Perfomance Computing Intern} \hfill \textit{Air Force Research Laboratory, Wright–Patterson AFB, May--Aug 2025}
+\keep\textbf{S\&T Scouting Intern} \hfill \textit{The Joint Staff, J7 / Future Technology Office, Aug--Oct 2025}
 \begin{itemize}
-    \item Built a shear-testing MD workflow in LAMMPS for OH-terminated Ti\(_3\)C\(_2\) MXenes under controlled hydration; executed 1000+ trajectories using DoD HPC allocations.  
-    \item Fit slip probability \(p(\tau)\) vs.\ stress via logistic regression; revealed a non-monotonic hydration effect—low coverage lubricates, high coverage rebuilds strength via water-bridged H-bonds.  
-    \item Delivered first MD evidence that hydration tunes MXene interlayer shear by an order of magnitude; defined stress windows and design guidance for EM-shielding composites.  
+    \item Produced \textbf{eight technical briefs} on propulsion and energy concepts, assessing readiness, risk, and experimentation paths for TRL 3--5 technologies across Service laboratories and DoD R\&D organizations.
+    \item Advised on integrating academic research into DoD initiatives, with briefs informing J7 concepts and project proposals.
 \end{itemize}
 
-\textbf{Technology Commercialization Intern} \hfill \textit{Idaho National Laboratory, May--Aug 2024}
+\keep\textbf{High-Performance Computing Intern} \hfill \textit{Air Force Research Laboratory, May--Aug 2025}\\
+\textit{Materials \& Manufacturing Directorate, Wright-Patterson AFB}
 \begin{itemize}
-    \item Conducted 20 customer-discovery interviews (Energy I-Corps); authored a commercialization plan for the PI team.
-    \item Developed AI/LM-driven tech-transfer and compliance workflows for a DOE proposal; resulting in a \$2M DOE grant.
+    \item Built LAMMPS shear workflows for hydrated Ti\(_3\)C\(_2\) MXene bilayers and ran parameter sweeps on \textbf{DoD HPC}.
+    \item Quantified hydration-dependent interlayer shear at 103 MPa dry, 8 MPa at quarter-monolayer coverage, and 39 MPa at full coverage.
+    \item Delivered the first MD evidence that hydration tunes MXene interlayer shear strength by an order of magnitude, with stress windows and design guidance for EM-shielding composites.
 \end{itemize}
 
-\textbf{Materials Modeling Intern} \hfill \textit{Air Force Research Laboratory, May--Dec 2023}
+\keep\textbf{Technology Commercialization Intern} \hfill \textit{Idaho National Laboratory (DOE), May--Aug 2024}
 \begin{itemize}
-    \item Built and validated an automated DFT workflow (Quantum ESPRESSO + Python/ASE/pymatgen) for high-throughput screening of low-work-function emitters, enabling rapid, reproducible selection for field-emission applications.  
+    \item Conducted \textbf{20 Energy I-Corps interviews}, developed a commercialization plan for a laboratory technology, built AI and natural-language tooling for the technology-transfer team, and supported a DOE proposal awarded \textbf{\$2M}.
 \end{itemize}
 
-% ===== Academic Research =====
-\section*{Academic Research}
-
-\textbf{Computational Chemistry Researcher} \hfill \textit{Heinz Interfaces Lab (CU Boulder), Oct 2024--Present}
+\keep\textbf{Materials Modeling Intern} \hfill \textit{Air Force Research Laboratory, May--Dec 2023}
 \begin{itemize}
-    \item Led pH-resolved MD of hydrated \(\alpha\)-Al\(_2\)O\(_3\)(0001) (pH 2--12) using INTERFACE FF; built reproducible pipelines; quantified Na\(^+\)/Cl\(^-\) layering, and water structuring in agreement with experiment.
-    \item Conducted atomistic MD of Pt-nanoparticle--catalyzed N-ethylcarbazole (NEC) dehydrogenation in NAMD; parameterized NEC and Pt systems for site-specific adsorption/dissociation mechanisms guiding LOHC catalyst design.
-    \item Open-sourced supporting software across projects (\href{https://github.com/fl-sean03/MolSAICV4}{MolSAIC}; \href{https://github.com/fl-sean03/pdb2msi}{pdb2msi}), and post-processing scripts for NEC dehydrogenation and alumina charge/potential profiles.
+    \item Automated high-throughput DFT screening of low-work-function emitters for field-emission applications, using Quantum ESPRESSO, ASE, and pymatgen.
 \end{itemize}
 
-
-\textbf{Computational Materials Research Assistant} \hfill \textit{Hennig Lab (UF), Oct 2021--May 2024}
+% ===== Academic research =====
+\keepsection\section*{Academic Research}
+\textbf{Graduate Research Assistant} \hfill \textit{University of Colorado Boulder, Oct 2024--Present}\\
+\textit{Heinz Interfaces Laboratory, Prof.\ Hendrik Heinz}
 \begin{itemize}
-    \item Benchmarked and optimized VASPsol for electrochemical interfaces, developing ML surrogate models that improved solvation energy accuracy by \(\sim\)5\% across 3000+ DFT calculations spanning diverse solvent–solute systems.
+    \item Ran the production MXene shear campaign of \textbf{780 NVT trajectories} on CU's Alpine cluster, zero failures, against a protocol frozen before production and independently audited afterward from raw trajectories. Termination sets interlayer shear resistance across a threefold range (\(\tau_{0.5}\) 42--135 MPa).
+    \item Designed and ran the MD campaign behind a lead-author manuscript on N-ethylcarbazole dehydrogenation over Pt nanocrystals for liquid hydrogen carriers; reactive configurations concentrate at low-coordination sites, so local coordination, rather than facet identity, sets where hydrogen release happens.
+    \item Wrote the technical narrative for an ALCF Director's Discretionary award (\(\sim\)\textbf{26,150 node-hours} across Polaris, Crux, Sophia, and Graphcore; granted May 2026).
+    \item Parameterized INTERFACE FF models for copper oxides as the first-year deliverable of an \textbf{industry-funded force-field program}, calibrated exclusively against experimental data and validated within \textbf{\(\pm\)5\%} of both experimental elastic references.
+    \item Built and open-sourced \href{https://github.com/fl-sean03/OpenSDL}{OpenSDL}, an Apache-2.0 framework for computational and autonomous laboratories, built on a durable workflow runtime with policy checks, resource leases, and restart reconciliation over content-addressed artifact storage. \(\sim\)26k non-test lines of Python, \(\sim\)600 test functions, CI.
 \end{itemize}
 
+\keep\textbf{Undergraduate Research Assistant} \hfill \textit{Hennig Group, University of Florida, Oct 2021--May 2024}
+\begin{itemize}
+    \item Benchmarked VASPsol against experimental solvation energies; optimized cavity and screening parameters with grid search, Nelder--Mead, and surrogate modeling.
+\end{itemize}
 
 % ===== Education =====
-\section*{Education}
-\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
-\textbf{University of Colorado Boulder} — Ph.D., Materials Science \& Engineering & \textit{Expected May 2028} \\
-\textbf{University of Florida} — B.S., Materials Science \& Engineering (\textit{Minor: Chemistry}) & \textit{May 2024} \\
-\end{tabular*}
+\keepsection\section*{Education}
+\textbf{University of Colorado Boulder} \hfill \textit{Expected May 2028}\\
+Ph.D., Materials Science \& Engineering. Advisor: Prof.\ Hendrik Heinz.
 
+\textbf{University of Florida} \hfill \textit{May 2024}\\
+B.S., Materials Science \& Engineering. Minor in Chemistry.
 
-% ===== Skills (DoD-Relevant) =====
-\section*{Skills}
-\textbf{MD/DFT:} LAMMPS, NAMD, VASP/VASPsol, Quantum ESPRESSO \quad
-\textbf{FF:} CHARMM, IFF/CVFF\\
-\textbf{Python:} NumPy, pandas, SciPy, MDAnalysis, ASE, pymatgen, matplotlib \quad
-\textbf{HPC:} Slurm/PBS, job arrays\\
-\textbf{ML/UQ:} regression, classification, logistic models, error/uncertainty modeling, feature engineering, scientific NLP\\
-\textbf{Scale:} \(\sim\)10k{+} core-hours on DoD/academic clusters; \(10^6\text{--}10^7\) MD timesteps; multi-GB trajectory analysis
+% ===== Skills =====
+\keepsection\section*{Core Skills}
+\textbf{Manufacturing \& Quality:} Lot-release records; military-specification traceability; requirements traceability matrices; PDR/CDR stage gates; controlled procedures; nonconformance disposition; hazard and failure-mode analysis; bills of materials; vendor qualification.\\
+\textbf{Research Automation:} Campaign orchestration; resource scheduling; adapters for a simulated lab, local compute, and human tasks; run provenance; restart recovery; experiment-selection workflows; policy checks.\\
+\textbf{Software \& HPC:} Python; Bash; Linux; Git; Docker; SQLite; pytest; CI; Slurm; PBS Pro; checkpoint/restart; GPU and CPU-MPI workflows.\\
+\textbf{Materials \& Modeling:} LAMMPS; NAMD; VASP/VASPsol; Quantum ESPRESSO; ASE; pymatgen; MDAnalysis; force-field parameterization; elastic and surface-energy validation.\\
+\textbf{ML \& Data:} scikit-learn; TensorFlow; RDKit; SOAP descriptors; regression and classification; surrogate modeling; uncertainty analysis.\\
+\textbf{Scale:} \(\sim\)26k node-hours awarded on DOE leadership systems; 780-trajectory audited production campaigns; \(10^6\text{--}10^7\) MD timesteps; multi-GB trajectory analysis.
 
-% ===== Leadership & Programs =====
-\section*{Leadership \& Programs}
-\textbf{Co-Founder, \href{https://www.lablinkinitiative.org}{LabLink Initiative (Nonprofit)}} \hfill \textit{Aug 2024--Present}
-\begin{itemize}
-    \item Built a multi-stakeholder pipeline connecting students to STEM/business roles; led concept for an AI-enabled Career Development Platform aligned to DOE workforce priorities.
-\end{itemize}
-% ===== Publications / Preprints =====
-\section*{Publications / Preprints}
-\begin{itemize}
-    \item \textbf{In preparation (lead author):} \textit{Modeling of MXene Shear Properties via Atomistic Molecular Dynamics Simulations}. Preprint planned 12/2025.
-    
-\end{itemize}
+% ===== Leadership =====
+\keepsection\section*{Leadership \& Programs}
+\textbf{Co-Founder, \href{https://www.lablinkinitiative.org}{LabLink Initiative}} (nonprofit) \hfill \textit{Aug 2024--Present}\\
+Partnerships with three Sacramento-area community colleges to move students into DOE Office of Science internships (CCI and SULI), plus a Phi Theta Kappa consortium webinar that drew more than 250 students. Built the matching pipeline and the tooling behind it.
+
+% ===== Research outputs =====
+\keepsection\section*{Selected Research Outputs}
+\textbf{Co-author:} \textit{INTERFACE Force Field for Alumina with Validated Bulk Phases and a pH-Resolved Surface Model Database for Electrolyte and Organic Interfaces.} \href{https://arxiv.org/abs/2601.12570}{arXiv:2601.12570}, 2026 (preprint).
+
+\textbf{Lead-author manuscripts in preparation:} \textit{Modeling of MXene Shear Properties via Atomistic Molecular Dynamics Simulations}, with AFRL Materials \& Manufacturing Directorate co-authors;\\ \textit{Understanding Hydrogen Release Mechanisms of N-Ethylcarbazole on Pt Nano-Crystal Catalysts}.
 
 \end{document}

@@ -1,0 +1,16 @@
+{{- /*
+  Markdown images. A lone image on its own line becomes a figure, captioned when it has a title.
+  Inline images stay inline. Both go through the responsive image partial.
+*/ -}}
+{{- $alt := .PlainText -}}
+{{- $img := partial "img.html" (dict "src" .Destination "alt" $alt "sizes" "(min-width: 56rem) 54rem, 100vw") -}}
+{{- if .IsBlock -}}
+<figure>
+  {{ $img }}
+  {{- with .Title }}
+  <figcaption>{{ . | markdownify }}</figcaption>
+  {{- end }}
+</figure>
+{{- else -}}
+{{ $img }}
+{{- end -}}

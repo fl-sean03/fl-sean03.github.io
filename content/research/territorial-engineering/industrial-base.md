@@ -3,6 +3,7 @@ title: "The Fleet Behind the Map"
 description: "Why fleet fit, skilled crews, shipyard capacity, mobilization, and a steady contract pipeline determine how quickly new land can be built."
 date: 2026-04-21
 image: /images/research/territorial-engineering/industrial-base.png
+image_alt: "Dredger with a large toothed cutterhead moored in a port at sunset, with cranes and other vessels behind it."
 ---
 
 A coherent source, foundation, edge, and protection design still exists only on paper until a delivery system can build it. That system requires a fleet matched to the work, shipyards with capacity, experienced crews, procurement timed to vessel lead times, and enough utilization continuity to keep specialized assets working between contracts.
@@ -51,7 +52,7 @@ Every dredge depends on people whose skills do not appear on a land-use renderin
 
 Some of these workers can move between marine construction sectors; others need vessel-specific experience and credentials. Vessel delivery and operating capacity have to arrive together, because a new hull without an experienced crew remains an unfinished system.
 
-The federal government already recognizes the broader maritime workforce problem through the Maritime Administration's [Centers of Excellence program](https://www.maritime.dot.gov/education/maritime-centers-excellence). A serious reclamation pipeline would need a more direct connection among contractors, maritime academies, unions, technical colleges, shipyards, and project owners. Training slots should follow visible work. Apprentices should encounter the equipment they will maintain. Survey and environmental staff should be planned with the same care as vessel crews.
+The federal government already recognizes the broader maritime workforce problem through the Maritime Administration's [Centers of Excellence program](https://www.maritime.dot.gov/centers-excellence-coe-domestic-maritime-workforce-training-and-education). A serious reclamation pipeline would need a more direct connection among contractors, maritime academies, unions, technical colleges, shipyards, and project owners. Training slots should follow visible work. Apprentices should encounter the equipment they will maintain. Survey and environmental staff should be planned with the same care as vessel crews.
 
 Workforce continuity also affects safety and productivity. A crew that moves from one project to the next retains operating knowledge, maintenance routines, and judgment about local conditions. A stop-and-start market disperses that knowledge and asks the next project to rebuild it.
 
@@ -63,7 +64,7 @@ Contractors finance specialized assets against an expected stream of work. Shipy
 
 That sequence does not require the public owner to guarantee payment for idle vessels. It requires enough continuity for the market to make an informed decision. Site investigations should finish before major plant is reserved. Bid calendars should show which packages depend on unresolved permits or appropriations. Large projects can be divided into stages that preserve competition without creating artificial gaps between mobilizations. Options can be used where later quantities are real but not yet ready to authorize. Owners can publish common survey and sediment data so every bidder does not have to rebuild the same picture.
 
-Maintenance dredging and beneficial use can provide part of the base load. The Corps' [Beneficial Use Program](https://www.usace.army.mil/Missions/Civil-Works/Beneficial-Use-Program/) links navigation work with wetlands, beaches, islands, and other placement needs. In 2023, the Corps announced an initiative to [increase beneficial use of dredged material to 70 percent by 2030](https://www.usace.army.mil/Media/News-Releases/News-Release-Article-View/Article/3380926/usace-launches-new-initiative-for-beneficial-use-of-dredged-sediment/). That goal can support a steadier production system when material quality, timing, transport, environmental review, and receiving-site readiness line up. Timing and grain size determine whether a receiving site can use the available sediment.
+Maintenance dredging and beneficial use can provide part of the base load. The Corps' [Beneficial Use Program](https://www.usace.army.mil/Missions/Civil-Works/Beneficial-Use-Program/) links navigation work with wetlands, beaches, islands, and other placement needs. In 2023, the Corps announced an initiative to [increase beneficial use of dredged material to 70 percent by 2030](https://planning.erdc.dren.mil/toolbox/library/MemosandLetters/ExpandingBeneficialUse_Memo_28Aug2023.pdf). That goal can support a steadier production system when material quality, timing, transport, environmental review, and receiving-site readiness line up. Timing and grain size determine whether a receiving site can use the available sediment.
 
 Continuity also improves public estimates. Repeated work produces better production histories, clearer maintenance intervals, and more reliable mobilization assumptions. The owner learns what the fleet can actually deliver instead of pricing every project from a generic cubic-yard rate.
 

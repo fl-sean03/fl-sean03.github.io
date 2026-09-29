@@ -11,7 +11,7 @@ date: 2026-03-09
 
 Matter compilation is not a single-company problem. It calls for a constellation of purpose-aligned ventures, each generating value independently while collectively advancing the core capability.
 
-A single-company approach is too narrow for the scope of matter compilation. An ecosystem approach — separate ventures with their own brands, sharing infrastructure and knowledge under a common holding structure — maps more naturally to the problem's breadth.
+A single-company approach is too narrow for the scope of matter compilation. An ecosystem approach (separate ventures with their own brands, sharing infrastructure and knowledge under a common holding structure) maps more naturally to the problem's breadth.
 
 ```
                     ┌─────────────────────────────┐
@@ -133,7 +133,7 @@ These companies build the enabling technology stack that all verticals depend on
 - Process licensing
 - Maintenance and consumables
 
-**Market**: $50B+ advanced manufacturing equipment market. Positioned between current 3D printing companies and the semiconductor equipment giants. SQC proves there is commercial revenue in atom-precision fabrication. See [Building Reality Check](/research/matter-compilation/building-reality-check/) for what has actually been built.
+**Market**: $50B+ advanced manufacturing equipment market. Positioned between current 3D printing companies and the semiconductor equipment giants. SQC offers products and holds an Australian Defence contract, which shows commercial interest in atom-precision fabrication. See [Building Reality Check](/research/matter-compilation/building-reality-check/) for what has actually been built.
 
 **Why This Is Central**: This is where the building capability gets built. Materials intelligence tells you WHAT to build. Molecular design tells you HOW to design it. Precision fabrication actually BUILDS it. The [throughput barrier](/research/matter-compilation/throughput-barrier/) is the central unsolved problem, and this venture is the one that works on solving it.
 
@@ -185,14 +185,14 @@ These companies apply the platform technology to specific industries, generating
 
 Phase 0 is bootstrappable with minimal capital. The work is primarily intellectual: completing a technical literature review, setting up molecular simulation capability using open-source tools, engaging the existing APM community (e.g., Foresight Institute), applying for government grants and DOE user facility access, building a materials AI prototype, and landing the first materials consulting project. A position paper or manifesto establishes the ecosystem vision publicly.
 
-This phase can be funded almost entirely through grants and consulting revenue. The team is small — a handful of researchers working with open-source tools.
+This phase can be funded almost entirely through grants and consulting revenue. The team is small, a handful of researchers working with open-source tools.
 
 ### Phase 1: First Ventures
 **Focus**: Launch precision fabrication services and materials intelligence tools
 
 Phase 1 involves incorporating the first venture, building a materials AI prototype as a supporting tool, landing the first precision fabrication customer, and pursuing SBIR and DOE/DARPA grants. An initial seed funding round enables the first hires. An informal research foundation begins to take shape.
 
-The key milestone is first revenue from fabrication services — proving that the ecosystem can generate commercial value while advancing the core technology.
+The key milestone is first revenue from fabrication services, proving that the ecosystem can generate commercial value while advancing the core technology.
 
 ### Phase 2: Platform Expansion
 **Focus**: Launch additional platform companies, formalize research foundation
@@ -244,7 +244,7 @@ Each stage is gated by demonstrable progress rather than timelines. Deep-tech fu
 
 ### Strategic Partners
 - National labs (DOE CRADAs: shared R&D, facility access)
-- Materials companies (Dow, BASF, 3M: joint development, offtake agreements)
+- Materials companies (Dow, 3M: joint development, offtake agreements)
 - Semiconductor companies (Intel, TSMC, Samsung: advanced packaging R&D)
 - Defense primes (Lockheed, Northrop: materials and manufacturing contracts)
 - Tech companies (Google, Microsoft: AI + materials R&D partnerships)

@@ -3,6 +3,7 @@ title: "A Working Vocabulary"
 description: "A short field guide to the terms that change coastal design decisions, from reclamation and nourishment to sediment budgets, settlement, freeboard, and public trust."
 date: 2026-04-21
 image: /images/research/territorial-engineering/ontology.png
+image_alt: "Aerial view of a reclamation site with diked fill cells and settling ponds behind a straight seawall, with dredging vessels and pipelines along the water's edge."
 ---
 
 At a permit meeting, the word *reclamation* can describe two opposite acts. A port engineer may mean placing fill to create industrial land. A restoration team may mean returning a damaged wetland to ecological function. Both uses are established, and every later agreement depends on settling the meaning first.
@@ -31,7 +32,7 @@ A **sediment budget** is an account of material entering, leaving, and remaining
 
 The **tidal prism** is the volume of water exchanged through an inlet during a tidal cycle. Changing the connected basin, opening width, channel depth, or flow path can change velocities and shoaling. The inlet functions as the throat of a moving water system, with every geometric change affecting the exchange through it.
 
-**Relative sea-level rise** is the change in water level relative to the land at a particular place. It combines changes in the ocean with vertical land movement. National scenarios become usable design inputs only after local subsidence, uplift, datum, and project settlement are accounted for. The [NOAA sea-level technical report](https://oceanservice.noaa.gov/hazards/sealevelrise/sealevelrise-tech-report.html) supplies the scenario framework; site measurements anchor it to a place.
+**Relative sea-level rise** is the change in water level relative to the land at a particular place. It combines changes in the ocean with vertical land movement. National scenarios become usable design inputs only after local subsidence, uplift, datum, and project settlement are accounted for. The [NOAA sea-level technical report](https://earth.gov/sealevel/us/resources/2022-sea-level-rise-technical-report/) supplies the scenario framework; site measurements anchor it to a place.
 
 **Settlement** is downward movement caused by compression of the project fill or the soils beneath it. **Subsidence** is the broader lowering of the land surface, which can include groundwater withdrawal, oxidation of organic soils, tectonic movement, or regional compaction. A reclaimed platform can settle while the surrounding region also subsides. The two motions need separate measurements even when they add to the same elevation problem.
 

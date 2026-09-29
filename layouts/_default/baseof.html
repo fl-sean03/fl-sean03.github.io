@@ -1,41 +1,14 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode }}">
+<html lang="{{ site.LanguageCode }}">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
-  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
-  {{ $style := resources.Get "css/style.css" | fingerprint }}
-  <link rel="stylesheet" href="{{ $style.RelPermalink }}">
-  {{ $js := resources.Get "js/lightbox.js" | minify | fingerprint }}
-  <script src="{{ $js.RelPermalink }}" defer></script>
+  {{- partial "head.html" . }}
 </head>
 <body>
-  <div class="container">
-    <nav class="nav">
-      <a href="/" class="nav-title">{{ .Site.Title }}</a>
-      <div class="nav-links">
-        {{ range .Site.Menus.main }}
-          <a href="{{ .URL }}" {{ if eq $.RelPermalink .URL }}class="active"{{ end }}>{{ .Name }}</a>
-        {{ end }}
-      </div>
-    </nav>
-
-    <main class="content">
-      {{ block "main" . }}{{ end }}
-    </main>
-
-    <footer class="footer">
-      <p>
-        <a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a>
-        {{ with .Site.Params.linkedin }} · <a href="{{ . }}" target="_blank">LinkedIn</a>{{ end }}
-        {{ with .Site.Params.github }} · <a href="{{ . }}" target="_blank">GitHub</a>{{ end }}
-        {{ with .Site.Params.x }} · <a href="{{ . }}" target="_blank">X</a>{{ end }}
-      </p>
-      <p class="resume-links">
-        Resume: <a href="/ML_Resume.pdf" target="_blank">Research/ML</a> · <a href="/NS_Resume.pdf" target="_blank">National Security</a>
-      </p>
-    </footer>
-  </div>
+  <a class="skip-link" href="#main">Skip to content</a>
+  {{- partial "header.html" . }}
+  <main id="main" tabindex="-1">
+    {{- block "main" . }}{{ end }}
+  </main>
+  {{- partial "footer.html" . }}
 </body>
 </html>

@@ -1,0 +1,43 @@
+{{ define "main" }}
+{{- $thread := partial "thread.html" .Params.thread -}}
+<article class="article project">
+  <header class="article-head col">
+    {{- partial "breadcrumb.html" . }}
+    <h1>{{ .Title }}</h1>
+    {{- with .Description }}
+    <p class="lede">{{ . }}</p>
+    {{- end }}
+    {{- if or .Params.status .Params.period .Params.role $thread }}
+    <dl class="facts">
+      {{- with .Params.status }}
+      <div><dt>Status</dt><dd><span class="status status-{{ . | urlize }}">{{ . }}</span></dd></div>
+      {{- end }}
+      {{- with .Params.period }}
+      <div><dt>Period</dt><dd>{{ . }}</dd></div>
+      {{- end }}
+      {{- with .Params.role }}
+      <div><dt>Role</dt><dd>{{ . }}</dd></div>
+      {{- end }}
+      {{- with $thread }}
+      <div><dt>Thread</dt><dd><a href="/#thread-{{ .key }}">{{ .title }}</a></dd></div>
+      {{- end }}
+    </dl>
+    {{- else if not .Date.IsZero }}
+    {{- partial "meta-line.html" (dict "page" . "long" true) }}
+    {{- end }}
+    {{- with .Params.links }}
+    <ul class="link-list">
+      {{- range . }}
+      <li><a href="{{ .url }}"{{ if strings.HasPrefix .url "http" }} class="ext" rel="noopener"{{ end }}>{{ .label }}</a></li>
+      {{- end }}
+    </ul>
+    {{- end }}
+  </header>
+  {{- with partial "hero.html" . }}
+  <div class="hero col">{{ . }}</div>
+  {{- end }}
+  <div class="prose col">
+    {{- partial "content.html" . }}
+  </div>
+</article>
+{{ end }}

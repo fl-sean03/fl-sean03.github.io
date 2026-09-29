@@ -14,7 +14,7 @@ This roadmap has two complementary views:
 
 The layers describe *what building capabilities are needed*. The rungs describe *when each level of building capability is achieved*.
 
-**Key insight**: The central barrier is throughput. A single scanning probe places ~1 atom per second. A macroscopic object contains ~10^22 atoms. That is a 20-order-of-magnitude gap. Every rung on this ladder must credibly advance throughput, precision, or material scope. The critical near-term gap is Layer 3 (Manufacturing Knowledge), the accumulated understanding of how to go from a design to a repeatable fabrication outcome. MGI, NIST, and 141 ANSI/America Makes standardization gaps all document this.
+**Key insight**: The central barrier is throughput. A single scanning probe places ~1 atom per second. A macroscopic object contains ~10²² atoms. That is a 20-order-of-magnitude gap. Every rung on this ladder must credibly advance throughput, precision, or material scope. The critical near-term gap is Layer 3 (Manufacturing Knowledge), the accumulated understanding of how to go from a design to a repeatable fabrication outcome. MGI, NIST, and 141 ANSI/America Makes standardization gaps all document this.
 
 ---
 
@@ -207,7 +207,7 @@ Scale from single assemblers to massively parallel arrays capable of practical m
 - [ ] Demonstrated convergent assembly: nm components to um products
 - [ ] Self-replication of simple assembler units (exponential scaling proof)
 - [ ] Throughput: ug/hour of precisely assembled material
-- [ ] Error rate: <10^-6 per assembly operation
+- [ ] Error rate: <10⁻⁶ per assembly operation
 - [ ] First commercially manufactured product made primarily by molecular assembly
 
 ### The Parallelization Architecture

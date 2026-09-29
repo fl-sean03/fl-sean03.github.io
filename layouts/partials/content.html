@@ -1,0 +1,5 @@
+{{- /* A page's body. Task-list checkboxes come out of the Markdown renderer unnamed, so name each one. */ -}}
+{{- $c := .Content -}}
+{{- $c = replace $c `<input disabled="" type="checkbox">` `<input disabled="" type="checkbox" aria-label="To do">` -}}
+{{- $c = replace $c `<input checked="" disabled="" type="checkbox">` `<input checked="" disabled="" type="checkbox" aria-label="Done">` -}}
+{{- return ($c | safeHTML) -}}

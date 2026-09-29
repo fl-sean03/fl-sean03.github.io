@@ -1,0 +1,43 @@
+{{- /*
+  Responsive image. Context keys:
+    src      site-relative URL of the original, such as /images/foo.png
+    alt      alternative text; "" marks the image as decorative
+    sizes    sizes attribute (default 100vw)
+    widths   ascending candidate widths in px (default 640, 1280, 1920)
+    class    optional class for the img
+    loading  lazy (default) or eager; eager also sets fetchpriority=high
+    full     true (default) adds data-full, the largest variant, for the lightbox
+    hint     webp encoder hint: photo (default), picture, drawing, icon or text
+  Emits webp variants with width and height. Sources that cannot be processed
+  (external, missing, SVG, GIF) fall back to the plain URL.
+*/ -}}
+{{- $src := .src -}}
+{{- $alt := or .alt "" -}}
+{{- $sizes := or .sizes "100vw" -}}
+{{- $widths := or .widths (slice 640 1280 1920) -}}
+{{- $loading := or .loading "lazy" -}}
+{{- $full := true -}}
+{{- if isset . "full" }}{{ $full = .full }}{{ end -}}
+{{- $hint := or .hint "" -}}
+{{- $res := "" -}}
+{{- if and (strings.HasPrefix $src "/") (not (strings.HasPrefix $src "//")) (in (slice ".png" ".jpg" ".jpeg" ".webp") (lower (path.Ext $src))) -}}
+  {{- $res = resources.Get (strings.TrimPrefix "/" $src) -}}
+{{- end -}}
+{{- if $res -}}
+  {{- $last := index $widths (sub (len $widths) 1) -}}
+  {{- $cands := slice -}}
+  {{- range $widths }}{{ if le . $res.Width }}{{ $cands = $cands | append . }}{{ end }}{{ end -}}
+  {{- if lt $res.Width $last }}{{ $cands = $cands | append $res.Width }}{{ end -}}
+  {{- $variants := slice -}}
+  {{- range $cands -}}
+    {{- $opts := printf "%dx webp" . -}}
+    {{- with $hint }}{{ $opts = printf "%s %s" $opts . }}{{ end -}}
+    {{- $variants = $variants | append ($res.Resize $opts) -}}
+  {{- end -}}
+  {{- $pick := index $variants 0 -}}
+  {{- range $variants }}{{ if le .Width 1000 }}{{ $pick = . }}{{ end }}{{ end -}}
+  {{- $big := index $variants (sub (len $variants) 1) -}}
+  <img src="{{ $pick.RelPermalink }}" srcset="{{ range $i, $v := $variants }}{{ if $i }}, {{ end }}{{ $v.RelPermalink }} {{ $v.Width }}w{{ end }}" sizes="{{ $sizes }}" width="{{ $pick.Width }}" height="{{ $pick.Height }}" alt="{{ $alt }}"{{ with .class }} class="{{ . }}"{{ end }} loading="{{ $loading }}" decoding="async"{{ if eq $loading "eager" }} fetchpriority="high"{{ end }}{{ if $full }} data-full="{{ $big.RelPermalink }}"{{ end }}>
+{{- else -}}
+  <img src="{{ $src }}" alt="{{ $alt }}"{{ with .class }} class="{{ . }}"{{ end }} loading="{{ $loading }}" decoding="async"{{ if eq $loading "eager" }} fetchpriority="high"{{ end }}>
+{{- end -}}

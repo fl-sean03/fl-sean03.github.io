@@ -28,8 +28,8 @@ Atomically Precise Manufacturing (APM), the assembly of materials, structures, d
 
 The field is advancing along several parallel tracks:
 
-- **Scanning probe-based manufacturing** (STM/AFM) has matured significantly, with Zyvex Labs achieving sub-nanometer lithography (7.7 nm pitch) surpassing ASML's best EUV tools, and Silicon Quantum Computing demonstrating an 11-qubit processor with 99.99% gate fidelity built atom-by-atom. SQC is now selling commercial products (Quantum Twins, Watermelon) to real customers including Telstra and the Australian Department of Defence. In November 2025, SQC patterned 250,000 qubit registers in 8 hours, demonstrating industrial-scale throughput for atom-precision fabrication.
-- **Covalent mechanosynthesis demonstrated for the first time** (December 2025): An inverted-mode STM achieved a 96.4% success rate for hydrogen abstraction from silicon, the first experimental demonstration of deterministic covalent mechanosynthesis. The work involved a team of 54 researchers including Ralph Merkle (arXiv:2512.24431). While this is a landmark result, it is limited to hydrogen removal from silicon, not carbon placement on diamond.
+- **Scanning probe-based manufacturing** (STM/AFM) has matured significantly. In September 2024 Zyvex Labs wrote a 7.7 nm-pitch pattern by STM lithography, a 40%-scale replica of the 19 nm-pitch pattern IMEC released to show ASML's high-NA EUV tool, and says the open problem is throughput. Silicon Quantum Computing built an 11-qubit atom processor from precision-placed phosphorus registers in silicon, with gate fidelities from 99.10% to 99.99% (Nature, December 2025). SQC offers commercial products (Quantum Twins, Watermelon). Telstra ran a 12-month collaboration with SQC on Watermelon, and Australian Defence awarded SQC a contract in August 2025 to deliver a Watermelon system. SQC reports that in November 2025 it patterned 250,000 qubit registers in 8 hours.
+- **Covalent mechanosynthesis** now has an experimental report (December 2025). In a preprint from CBN Nano Technologies with 60 authors, including Ralph Merkle (arXiv:2512.24431), an inverted-mode STM removed a single hydrogen atom from a silicon probe in 27 of 28 trials (96.4%), which the authors call mechanosynthesis. The result is limited to hydrogen removal from silicon, not carbon placement on diamond.
 - **DNA origami** has become a reliable platform for atomically precise nanoscale construction, with demonstrated applications in drug delivery, biosensing, and templating for metal oxide nanofabrication.
 - **Atomically precise metal nanoclusters** are finding commercial traction in catalysis, with precisely defined compositions enabling tunable selectivity.
 - **Synthetic molecular machines** (motors, rotors, switches) continue to advance, with light-activated artificial muscles demonstrated in 2025.
@@ -91,7 +91,7 @@ Following the 2016 Nobel Prize (Sauvage, Stoddart, Feringa), the field of synthe
 
 - Molecular motors achieving 10 million rotations per second (Feringa group)
 - Light-activated photoactuating artificial muscles from self-assembled molecular switches (Nature Communications, 2025)
-- Molecular assemblers that produce specific polymer sequences (demonstrated in Nature Communications, 2020, Leigh group)
+- A track-based molecular machine that builds a single-sequence oligomer (Chem, 2020, Leigh group)
 - Autonomous chemically-fueled synthetic molecular motors (Leigh group, 2016)
 - Two-photon near-infrared sensitized rotary motors
 - Programmable molecular robotics systems emerging as forerunners of a new technological era
@@ -120,18 +120,18 @@ The 2024 Nobel Prize in Chemistry (David Baker for computational protein design;
 
 | Researcher | Affiliation | Contribution |
 |-----------|------------|-------------|
-| **K. Eric Drexler** | Independent / Foresight Institute co-founder | Father of molecular nanotechnology. *Engines of Creation* (1986), *Nanosystems* (1992). Released MSEP.one molecular design software (October 2024). |
+| **K. Eric Drexler** | Independent / Foresight Institute co-founder | Father of molecular nanotechnology. *Engines of Creation* (1986), *Nanosystems* (1992). Architect of the open-source MSEP.one molecular design software (launched October 2024). |
 | **Ralph C. Merkle** | Institute for Molecular Manufacturing (IMM) | Co-founded Nanofactory Collaboration (2000). Published molecular Field Effect Transistor (mFET) design (February 2025). Pioneer of diamondoid mechanosynthesis theory. |
-| **Robert A. Freitas Jr.** | Institute for Molecular Manufacturing (IMM) | Author of *Nanomedicine* volumes. Published "Molecular Workstation Roadmap I" (May 2025) and updated Nanofactory Roadmap (May 2025). Holds foundational mechanosynthesis patents. |
+| **Robert A. Freitas Jr.** | Institute for Molecular Manufacturing (IMM) | Author of *Nanomedicine* volumes. Posted "Molecular Workstation Roadmap I" (a 2008 report) and an updated Nanofactory Roadmap in May 2025. Named inventor on foundational mechanosynthesis patents. |
 
 ### 3.2 Experimental Leaders
 
 | Researcher | Affiliation | Contribution |
 |-----------|------------|-------------|
-| **Michelle Simmons** | UNSW / Silicon Quantum Computing | 2025: 11-qubit atom processor in silicon (Nature). Founded SQC, the only company manufacturing atomic-precision silicon quantum chips commercially. Australian of the Year 2018. |
+| **Michelle Simmons** | UNSW / Silicon Quantum Computing | 2025: 11-qubit atom processor in silicon (Nature). Founded SQC, which says it is the only company worldwide that can manufacture quantum processors at atomic scale. Australian of the Year 2018. |
 | **David Baker** | University of Washington / HHMI | 2024 Nobel Laureate. Computational protein design, atomically precise molecular machines from amino acids. |
 | **Ben Feringa** | University of Groningen | 2016 Nobel Laureate. Molecular motors, photoactuating artificial muscles (2025). |
-| **David Leigh** | University of Manchester | Pioneer in synthetic molecular machines. Autonomous molecular motors, molecular assemblers producing polymer sequences. |
+| **David Leigh** | University of Manchester | Pioneer in synthetic molecular machines. Autonomous molecular motors, machines that build peptides and oligomers. |
 | **Fraser Stoddart** (1942-2025) | Northwestern / Hong Kong | 2016 Nobel Laureate. Mechanically interlocked molecules, molecular switches. |
 | **Christian Schafmeister** | Temple University | Spiroligomer-based atomically precise membranes with tunable pore sizes. Feynman Prize winner. |
 | **Paul Rothemund** | Caltech | Pioneer of DNA origami (2006). |
@@ -144,7 +144,7 @@ The 2024 Nobel Prize in Chemistry (David Baker for computational protein design;
 | **Silicon Quantum Computing** (Sydney, Australia) | Atom-by-atom silicon quantum processors |
 | **Institute for Molecular Manufacturing** (Palo Alto, CA) | Diamondoid mechanosynthesis theory, nanofactory roadmaps |
 | **Foresight Institute** (San Francisco, CA) | APM advocacy, Feynman Prizes, roadmapping |
-| **CBN Nano Technologies** (Ottawa, Canada) | Mechanosynthesis systems, molecular machines (24 patents) |
+| **CBN Nano Technologies** (Ottawa, Canada) | Mechanosynthesis systems, molecular machines (25 patents filed) |
 | **NIST** (Gaithersburg, MD) | Atom-scale device engineering, metrology, manufacturability |
 | **Sandia National Laboratories** | Atomic precision advanced manufacturing (APAM) for quantum electronics |
 | **Paul Scherrer Institute** (Switzerland) | EUV-induced hydrogen desorption for scalable atom patterning |
@@ -195,7 +195,7 @@ Drexler and supporters have argued these objections do not apply to the actual p
 
 ### 4.5 MSEP.one, Drexler's 2024 Software Release
 
-In October 2024, Drexler released the Molecular Systems Engineering Platform (MSEP.one), free and open-source molecular design software built on the Godot game engine. Features include:
+The Molecular Systems Engineering Platform (MSEP.one), free and open-source molecular design software built on the Godot game engine, was launched at a Foresight Institute event in October 2024, with version 1.0 released publicly in July 2025. Drexler is its architect. Features include:
 
 - Atomistic simulation of molecular machines
 - Virtual motors, anchors, and springs for constraining nanomechanical motions
@@ -203,7 +203,7 @@ In October 2024, Drexler released the Molecular Systems Engineering Platform (MS
 - Plans for quantum chemistry and multi-scale modeling integration
 - MIT License, freely available
 
-Drexler frames MSEP as a step toward "generative nanotechnologies", extending generative AI into the physical world at the nanoscale. This represents the first practical software tool specifically designed for exploring the design space of molecular machines envisioned in *Nanosystems*.
+Drexler frames MSEP as a step toward "generative nanotechnologies", extending generative AI into the physical world at the nanoscale. He describes it as providing what has been missing: extensible, open-source tools for exploring the space of molecular machines through direct graphical manipulation and simulation.
 
 ---
 
@@ -226,26 +226,22 @@ Diamond mechanosynthesis is the formation of covalent carbon bonds using precise
 - The closest experimental work involves STM-based manipulation of individual atoms on various surfaces, but not the specific tooltip chemistry proposed for DMS.
 - Diamondoids (small diamond-like hydrocarbon cages) have been isolated, synthesized, and studied, confirming some properties assumed in DMS theory.
 
-**First experimental covalent mechanosynthesis (December 2025, arXiv:2512.24431):**
+An experimental report of covalent mechanosynthesis appeared in December 2025 (arXiv:2512.24431), a preprint from CBN Nano Technologies with 60 authors, including Ralph Merkle. It describes an inverted-mode STM, in which tailored molecules on a silicon surface image the probe apex and also act as the reagents, so that both sides of the tunnel junction are controlled. The reported results are:
 
-In December 2025, a team of 54 researchers (including Ralph Merkle) demonstrated the first experimental covalent mechanosynthesis using an inverted-mode STM. Key results:
+- A single hydrogen atom was removed from the silicon probe in 27 of 28 trials (96.4%), with 20 of the 27 at the targeted atom
+- A second hydrogen atom was removed in 24 of 24 attempts to form a pair of dangling bonds, with 21 of the 24 producing the intended pair
+- The reagents were positioned with sub-angstrom precision, at zero bias
 
-- **96.4% success rate** for single hydrogen atom removal from H-passivated silicon surfaces
-- **100% yield** for sequential hydrogen abstractions to form dangling bond pairs
-- **Sub-angstrom positioning precision** with zero-bias operation
-- **Critical innovation**: functionalizing both sides of the tunnel junction (both the tip and the surface), rather than just the tip
-- This constitutes the first experimental demonstration of deterministic, positionally controlled covalent bond breaking with near-unity yield
-
-**Important caveats**: This result demonstrates hydrogen abstraction from silicon only, not the carbon-carbon bond formation on diamond surfaces that is central to the Drexler/Freitas/Merkle diamondoid mechanosynthesis vision. Extension to other elements and bond types "is expected" by the authors but remains undemonstrated. The gap between removing hydrogen from silicon and placing carbon on diamond is substantial.
+The important caveat is scope. The result is hydrogen abstraction from silicon, not the carbon-carbon bond formation on diamond surfaces that is central to the Drexler/Freitas/Merkle diamondoid mechanosynthesis vision. The authors say the approach "is expected to extend to other elements and moieties," but the preprint does not show that. The gap between removing hydrogen from silicon and placing carbon on diamond is substantial.
 
 ### 5.2 Patents
 
-CBN Nano Technologies holds 24 patents related to mechanosynthesis, including:
+CB Insights counts 25 patents filed by CBN Nano Technologies, across mechanosynthesis, mechanical computing and other areas. Its mechanosynthesis patents include:
 - US Patent 11,708,384 (2023): Systems and methods for mechanosynthesis
-- US Patent 11,592,463 (2023): Methods involving bulk chemical preparation of tips
-- US Patent 11,180,514 (2021): Various aspects of mechanosynthesis
+- US Patent 11,592,463 (2023): Systems and methods for mechanosynthesis, including bulk chemical preparation of tips
+- US Patent 11,180,514 (2021): Systems and methods for mechanosynthesis
 
-Robert Freitas holds the first mechanosynthesis patent (US Patent 7,687,146, 2010) for a simple tool for positional diamond mechanosynthesis.
+Robert Freitas is the inventor on US Patent 7,687,146 (issued 2010, assigned to Zyvex Labs), a simple tool for positional diamond mechanosynthesis. He and Ralph Merkle are the inventors on US Patent 8,276,211 (2012), positional diamondoid mechanosynthesis.
 
 ### 5.3 Near-Term Experimental Pathway
 
@@ -291,7 +287,7 @@ Most researchers treat self-replicating assemblers as a long-term theoretical po
 
 | Year | Milestone | Significance |
 |------|-----------|-------------|
-| 2020 | Leigh group demonstrates molecular assembler producing specific polymer sequences (Nature Comms) | First synthetic molecular machine that acts as a programmable assembler |
+| 2020 | Leigh group reports a track-based molecular machine that builds a single-sequence oligomer (Chem) | A synthetic machine that assembles a defined sequence from building blocks, following the group's 2013 peptide machine |
 | 2022 | Sandia: Atomic-scale manufacturing demonstrated beyond qubit applications | Broadening APM beyond quantum computing |
 | 2023 | CBN Nano Technologies granted two mechanosynthesis patents | Commercial IP protecting the diamondoid pathway |
 | 2023 | Schafmeister spiroligomer-based macrocycles for atomically precise membranes (Angew. Chem.) | Practical atomically precise structures with medical applications |
@@ -301,20 +297,20 @@ Most researchers treat self-replicating assemblers as a long-term theoretical po
 | 2024 (Apr) | DNA-functionalized colloid replication at room temperature (U. Science & Tech China) | Self-replicating nanoassemblies without high-temperature processing |
 | 2024 (Jun) | DNA molecular controllers for autonomous molecular robots (Tohoku/Kyoto) | Autonomous assembly/disassembly under molecular program control |
 | 2024 (Jul) | ML-assisted precision manufacturing of atom qubits in silicon | AI-enhanced yield for atomic-precision device fabrication |
-| 2024 (Sep) | Zyvex: Semiconductor pattern at 7.7 nm pitch via STM lithography | Surpassed ASML's best EUV tool (19 nm pitch) in resolution |
-| 2024 (Sep) | Comprehensive APM future analysis published (arXiv 2409.00955) | First rigorous assessment grounded in current practical limitations |
-| 2024 (Oct) | Drexler releases MSEP.one molecular design software | First purpose-built open-source tool for designing molecular machines |
+| 2024 (Sep) | Zyvex: 7.7 nm-pitch pattern by STM lithography, a 40%-scale replica of IMEC's 19 nm-pitch high-NA EUV test pattern | Zyvex says its pattern is smaller and more precise, and names throughput as the open problem |
+| 2024 (Sep) | Comprehensive APM future analysis posted (arXiv 2409.00955) | A preprint that bases its forecast on current practical limits rather than speculative scenarios |
+| 2024 (Oct) | MSEP.one, Drexler's molecular design software, launched at a Foresight Institute event (version 1.0 in July 2025) | Free, open-source tools for designing and simulating molecular machines |
 | 2024 (Oct) | 2024 Nobel Prize: Baker (protein design), Hassabis/Jumper (AlphaFold) | Validates atomically precise molecular engineering at the highest level |
-| 2024 (Dec) | CBN Nano Technologies: new institute for molecular machines | Institutional commitment to diamondoid pathway |
-| 2025 | SQC: 11-qubit atom processor, 99.99% fidelity (Nature) | Largest atomically precise quantum processor; fidelity improves with scale |
+| 2024 (Dec) | New institute announced to build basic molecular machines, with basic motors as a primary focus (NextBigFuture) | Aims to supply the motors and design tools the field lacks |
+| 2025 (Dec) | SQC: 11-qubit atom processor, gate fidelities from 99.10% to 99.99% (Nature) | SQC reports that qubit quality improves as the qubit count grows |
 | 2025 | Feringa group: photoactuating artificial muscle from molecular switches (Nature Comms) | Synthetic molecular machines producing macroscale mechanical work |
 | 2025 | Merkle/Freitas/Allis: molecular FET design | Molecular-scale electronic device designs advancing |
 | 2025 | Freitas: Molecular Workstation Roadmap I & Nanofactory Roadmap update | Updated engineering pathway from current tools to mechanosynthesis |
 | 2025 | 3D nanofabrication via ALD on DNA origami crystals | Bridging DNA precision with functional material deposition |
 | 2025 | SQC selected for DARPA QBI Stage B | Government validation of atomic-precision quantum computing pathway |
-| 2025 (Nov) | SQC: 250,000 qubit registers patterned in 8 hours | Demonstrating scalability of atom-precision fabrication |
-| 2025 (Nov) | SQC selling Quantum Twins and Watermelon to Telstra and Australian Defence | First commercial revenue from atom-precision manufactured products |
-| 2025 (Dec) | Inverted-mode STM: 96.4% covalent mechanosynthesis success (arXiv:2512.24431) | First experimental demonstration of deterministic covalent mechanosynthesis |
+| 2025 (Nov) | SQC reports patterning 250,000 qubit registers in 8 hours | SQC says this de-risks the yields and volumes a commercial-scale machine needs |
+| 2025 (Aug–Oct) | Australian Defence contracts SQC to deliver a Watermelon system (August); Telstra and SQC announce results of a 12-month Watermelon collaboration (October) | Early commercial engagements for atom-precision manufactured products |
+| 2025 (Dec) | Inverted-mode STM: single hydrogen atom removed in 27 of 28 trials, 96.4% (arXiv:2512.24431, preprint) | An experimental report of what the authors call mechanosynthesis, limited to hydrogen removal from silicon |
 | 2025 | Diamond NV-center fabrication via HDL proposed (OSTI) | Extending atomic-precision techniques from silicon to diamond quantum devices |
 | 2025 | Nobel Prize: Metal-Organic Frameworks (Kitagawa, Robson, Yaghi) | Molecular architecture with atomically precise porous materials |
 
@@ -401,7 +397,7 @@ Based on current trajectories:
 - Over 15,000 nanotechnology companies globally, including 667 startups
 
 **Corporate:**
-- CBN Nano Technologies: Backed by Canadian Bank Note Company ($30.6M raised + $40M government investment)
+- CBN Nano Technologies: A sister company of the Canadian Bank Note Company, with a $40M investment from the Government of Canada (2019) toward a $220M project
 - SQC: Backed by Australian government, Telstra, Commonwealth Bank, and others
 - Zyvex Labs: ~$28M from DARPA, Army Research Office, DOE
 
@@ -413,9 +409,9 @@ Based on current trajectories:
 
 | Company | Location | Focus | Status |
 |---------|---------|-------|--------|
-| **Zyvex Labs** | Richardson, TX | STM lithography, quantum device patterning, ZyvexLitho1 system | Active. Demonstrated 7.7 nm pitch (2024). ~$28M government funding. |
-| **Silicon Quantum Computing (SQC)** | Sydney, Australia | Atom-by-atom silicon quantum processors | Active. 11-qubit processor (2025). 250K qubit registers (Nov 2025). DARPA QBI Stage B. Selling Quantum Twins and Watermelon to Telstra and Australian Defence. Only company with commercial APM revenue. |
-| **CBN Nano Technologies** | Ottawa, Canada | Mechanosynthesis systems, molecular machines | Active. 24 patents. $70M+ total investment. Goal: first commercial-scale APM for anti-counterfeiting. No experimental mechanosynthesis demonstrations despite 15+ years of theoretical work and 24 patents. |
+| **Zyvex Labs** | Richardson, TX | STM lithography, quantum device patterning, ZyvexLitho1 system | Active. Wrote a 7.7 nm-pitch test pattern (September 2024). ~$28M government funding. |
+| **Silicon Quantum Computing (SQC)** | Sydney, Australia | Atom-by-atom silicon quantum processors | Active. 11-qubit processor (December 2025). Reports 250K qubit registers patterned in 8 hours (Nov 2025). DARPA QBI Stage B. Offers Quantum Twins and Watermelon; Telstra ran a 12-month Watermelon collaboration and Australian Defence awarded a contract for a Watermelon system (August 2025). |
+| **CBN Nano Technologies** | Ottawa, Canada | Mechanosynthesis systems, molecular machines | Active. 25 patents filed (CB Insights). $40M investment from the Government of Canada (2019) toward a $220M project. Goal: first commercial-scale APM, with nanoscale anti-counterfeiting features as a stated application. Its December 2025 preprint reports hydrogen abstraction from silicon by inverted-mode STM. No experimental diamond mechanosynthesis reported as of early 2026. |
 | **Tiptek LLC** | USA | Ultra-hard/ultra-sharp nanoprobes for APM | Active. DOE SBIR Phase III. Sole US manufacturer of nanoprobes. Self-sharpening tip technology. |
 
 ### 10.2 Adjacent / Enabling Companies
@@ -573,16 +569,22 @@ The fundamental challenge remains **throughput**. An STM can manipulate perhaps 
 - [DNA Origami and Its Applications in Synthetic Biology (Advanced Science, 2026)](https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.202513357)
 - [Fabrication of Functional 3D Nanoarchitectures via ALD on DNA Origami Crystals (2025)](https://pmc.ncbi.nlm.nih.gov/articles/PMC11926864/)
 - [Self-Replicating DNA-Based Nanoassemblies (JACS, 2024)](https://pubs.acs.org/doi/abs/10.1021/jacs.4c04089)
-- [Atomically Precise Cu Nanoclusters: Synthesis and Catalytic Applications (Nano-Micro Letters, 2024)](https://link.springer.com/article/10.1007/s40820-024-01555-6)
+- [Atomically Precise Cu Nanoclusters: Recent Advances, Challenges, and Perspectives in Synthesis and Catalytic Applications (Nano-Micro Letters, 2024)](https://link.springer.com/article/10.1007/s40820-024-01555-6)
 - [Electronic Control of Silicon Surface Atomic Structures with Two-Probe STM (ACS Nano, 2025)](https://pubs.acs.org/doi/10.1021/acsnano.4c18016)
 - [Ultra-high vacuum STM-assisted atomic-scale manufacture of quantum devices (Chinese Science Bulletin, 2025)](https://www.sciengine.com/CSB/doi/10.1360/CSB-2025-5148)
-- [Inverted-mode STM covalent mechanosynthesis (arXiv:2512.24431, Dec 2025)](https://arxiv.org/abs/2512.24431)
-- [Freitas, R.A. Jr., "Molecular Workstation Roadmap I" (May 2025)](http://www.rfreitas.com/NanoPubls.htm)
+- [Inverted-Mode Scanning Tunneling Microscopy for Atomically Precise Fabrication (arXiv:2512.24431, Dec 2025, preprint)](https://arxiv.org/abs/2512.24431)
+- [Freitas, R.A. Jr., "Molecular Workstation Roadmap I: Survey of Key Technologies Needed to Perform Positionally Controlled Diamondoid Mechanosynthesis using a Molecular Workstation," IMM Report No. 59 (2008, posted May 2025)](http://www.rfreitas.com/NanoPubls.htm)
 
 ### Institutions and Organizations
 - [Zyvex Labs](https://www.zyvexlabs.com/)
+- [Atomically-Precise Nano-Imprint Lithography: A Brief Story (Zyvex Labs)](https://www.zyvexlabs.com/apm/atomically-precise-nano-imprint-lithography-a-brief-story/)
 - [Silicon Quantum Computing](https://www.sqc.com.au/news)
+- [SQC Launches Quantum Twins™ Enabling Simulation of Quantum Physics and Chemistry (SQC, 5 February 2026)](https://sqc.com/news/sqc-launches-quantum-twins)
+- [SQC and Australian Defence Partner to Deliver Quantum Machine Learning (SQC, 25 August 2025)](https://sqc.com/news/silicon-quantum-computing-and-australian-defence-partner-up-to-deliver-quantum-enhanced-machine-learning)
+- [Telstra And SQC Explore Smarter Network Prediction (The Quantum Insider, 13 October 2025)](https://thequantuminsider.com/2025/10/13/telstra-and-sqc-explore-smarter-network-prediction/)
 - [MSEP.one, Molecular Systems Engineering Platform](https://msep.one/)
+- [Molecular Systems Engineering Platform Launch with Eric Drexler (Foresight Institute event, 4 October 2024)](https://foresight.org/events/2024-molecular-systems-engineering-platform-launch-with-eric-drexler/)
+- [MSEP: A Platform for Molecular Systems Engineering (Eric Drexler, AI Prospects, 15 July 2025)](https://aiprospects.substack.com/p/msep-a-platform-for-molecular-systems)
 - [Foresight Institute](https://foresight.org/)
 - [Institute for Molecular Manufacturing](http://www.imm.org/)
 - [CBN Nano Technologies (CBInsights)](https://www.cbinsights.com/company/cbn-nano-technologies)
@@ -595,7 +597,7 @@ The fundamental challenge remains **throughput**. An STM can manipulate perhaps 
 - [DARPA Atoms to Product (A2P)](https://www.darpa.mil/research/programs/atoms-to-product)
 - [DOE AMMTO Small Business Awards (2024)](https://www.energy.gov/eere/ammto/articles/small-businesses-receive-ammto-funding-advance-innovative-manufacturing-and)
 - [NNI FY2025 Budget Supplement](https://www.nano.gov/2025BudgetSupplement/)
-- [DOE APM Infographic](https://www.energy.gov/eere/amo/articles/atomically-precise-manufacturing-apm-infographic)
+- [DOE APM Infographic](https://www.energy.gov/sites/prod/files/2019/10/f67/APM%20infograph%20Oct%202019_compliant.pdf)
 - [DOE OSTI: Platform Technology for High-throughput APM](https://www.osti.gov/biblio/2310926)
 - [Canada $40M Investment in CBN Nano Technologies](https://www.canada.ca/en/innovation-science-economic-development/news/2019/07/minister-bains-announces-investment-that-will-position-canada-as-global-leader-in-nanomanufacturing.html)
 

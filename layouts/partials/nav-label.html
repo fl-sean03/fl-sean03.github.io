@@ -1,0 +1,5 @@
+{{- /* The label the main menu gives a page, else its own title. Headings and page titles use it too, so a section reads the same as the link that led to it. */ -}}
+{{- $label := .LinkTitle -}}
+{{- $url := .RelPermalink -}}
+{{- range site.Menus.main }}{{ if eq .URL $url }}{{ $label = .Name }}{{ end }}{{ end -}}
+{{- return $label -}}

@@ -16,13 +16,13 @@ This is not speculation. Biology proves that atomically precise construction wor
 
 **Existence proofs:**
 
-- **Ribosomes** assemble proteins from amino acids with atomic precision, at rates of ~20 amino acids per second, with error rates below 10^-4. Every cell contains thousands of them running in parallel. Biology solved the throughput problem through massive parallelism of precise molecular machines.
+- **Ribosomes** assemble proteins from amino acids with atomic precision, at rates of ~20 amino acids per second, with error rates below 10⁻⁴. Every cell contains thousands of them running in parallel. Biology solved the throughput problem through massive parallelism of precise molecular machines.
 
-- **DNA replication** copies 3 billion base pairs with error rates around 10^-9 after proofreading. The machinery is atomically precise, self-correcting, and fast (1,000 nucleotides per second in E. coli).
+- **DNA replication** copies 3 billion base pairs with error rates around 10⁻⁹ after proofreading. The machinery is atomically precise, self-correcting, and fast (1,000 nucleotides per second in E. coli).
 
 - **DNA origami** (Rothemund, 2006; subsequent work through 2026) achieves sub-nanometer positioning of components in designed 3D structures. Yields above 90% are routine. This is human-designed atomically precise construction, not just biology.
 
-- **STM atom manipulation** (Eigler and Schweizer, IBM, 1989) placed individual xenon atoms on a nickel surface. Since then, hydrogen depassivation lithography (Zyvex Labs) has demonstrated atomically precise patterning at 7.7nm pitch.
+- **STM atom manipulation** (Eigler and Schweizer, IBM, 1989) placed individual xenon atoms on a nickel surface. Since then, Zyvex Labs has used STM lithography, which removes hydrogen atoms from a silicon surface, to write a 7.7 nm-pitch test pattern (September 2024).
 
 - **Atomic layer deposition** builds films one atomic layer at a time, with thickness control at the angstrom level. This is already industrial-scale atomically precise manufacturing, limited to thin films.
 
@@ -32,7 +32,7 @@ The physics of building with atomic precision is settled. No new physical princi
 
 The throughput problem.
 
-The gap between demonstrated serial atomic manipulation (~50 atoms/sec, Zyvex HDL) and the rate needed to build macroscopic objects (~3 x 10^18 atoms/sec for 1 cm^3 in one hour) spans roughly 17 orders of magnitude. Even a hypothetical million-atom-per-second manipulator, which no one has built, still leaves a 13 order-of-magnitude gap.
+The gap between demonstrated serial atomic manipulation (~50 atoms/sec, reported by Zyvex for HDL in 2010) and the rate needed to build macroscopic objects (~3 x 10¹⁸ atoms/sec for 1 cm³ in one hour) spans roughly 17 orders of magnitude. Even a hypothetical million-atom-per-second manipulator, which no one has built, still leaves a 13 order-of-magnitude gap.
 
 This is the largest throughput gap in any known engineering discipline. The semiconductor industry faced a gap of roughly 8 to 10 orders of magnitude between the first transistor and modern chips. The matter compilation throughput barrier is roughly twice that.
 
@@ -111,4 +111,4 @@ Every project gets judged by one question: **Does this advance the ability to bu
 - **[Ecosystem Plan]({{< ref "ecosystem-plan" >}})**: Multi-venture architecture and phasing.
 - **[AI in Materials Science]({{< ref "ai-materials-honest" >}})**: Honest assessment of what AI discovery can and cannot do.
 
-Sources: [Eigler & Schweizer, Nature 1990](https://doi.org/10.1038/344524a0), [Rothemund, Nature 2006](https://doi.org/10.1038/nature04586), [Zyvex Labs](https://www.zyvexlabs.com/), [MatterGen](https://www.nature.com/articles/s41586-025-08628-5), [White House Genesis Mission](https://www.whitehouse.gov/presidential-actions/2025/11/launching-the-genesis-mission/), [NIST Digital Thread](https://www.nist.gov/programs-projects/digital-thread-manufacturing), [MGI Autonomous Experimentation Workshop](https://www.mgi.gov/sites/mgi/files/MGI_Autonomous_Materials_Innovation_Infrastructure_Workshop_Report.pdf)
+Sources: [Eigler & Schweizer, Nature 1990](https://doi.org/10.1038/344524a0), [Rothemund, Nature 2006](https://doi.org/10.1038/nature04586), [Zyvex Labs](https://www.zyvexlabs.com/), [MatterGen](https://www.nature.com/articles/s41586-025-08628-5), [Launching the Genesis Mission](https://www.whitehouse.gov/presidential-actions/2025/11/launching-the-genesis-mission/) (White House), [Digital Thread for Manufacturing](https://www.nist.gov/programs-projects/digital-thread-manufacturing) (NIST), [Accelerated Materials Experimentation Enabled by the Autonomous Materials Innovation Infrastructure (AMII): A Workshop Report](https://www.mgi.gov/sites/mgi/files/MGI_Autonomous_Materials_Innovation_Infrastructure_Workshop_Report.pdf)

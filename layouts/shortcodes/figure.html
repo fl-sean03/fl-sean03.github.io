@@ -1,0 +1,8 @@
+{{- /* A captioned figure. Parameters follow Hugo's own: src, alt, caption (or title), class. */ -}}
+{{- $caption := or (.Get "caption") (.Get "title") -}}
+<figure{{ with .Get "class" }} class="{{ . }}"{{ end }}>
+  {{- partial "img.html" (dict "src" (.Get "src") "alt" (or (.Get "alt") $caption "") "sizes" "(min-width: 56rem) 54rem, 100vw") }}
+  {{- with $caption }}
+  <figcaption>{{ . | markdownify }}</figcaption>
+  {{- end }}
+</figure>

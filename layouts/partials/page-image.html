@@ -1,0 +1,7 @@
+{{- /* The source URL of a page's picture: its image param, else the archive screenshot with the same slug. */ -}}
+{{- $src := .Params.image -}}
+{{- if and (not $src) (eq .Section "archive") .File -}}
+  {{- $cand := printf "/archive/%s.png" .File.BaseFileName -}}
+  {{- if fileExists (printf "static%s" $cand) }}{{ $src = $cand }}{{ end -}}
+{{- end -}}
+{{- return $src -}}

@@ -1,13 +1,39 @@
+% Sean P. Florez | resume, machine learning and research computing
+% Layout and typography follow Sean's supplied LaTeX template.
+% Compile: pdflatex main.tex
 \documentclass[letterpaper,10pt]{article}
-\usepackage[left=0.65in,right=0.65in,top=0.55in,bottom=0.6in]{geometry}
+\usepackage[left=0.65in,right=0.65in,top=0.50in,bottom=0.55in]{geometry}
 \usepackage{enumitem}
-\usepackage[colorlinks=true, urlcolor=blue]{hyperref}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
 \usepackage{titlesec}
 \usepackage{parskip}
+\usepackage{amsmath}
+\usepackage{needspace}
 
+% Searchable text; the default Computer Modern typography is unchanged.
+\input{glyphtounicode}
+\pdfgentounicode=1
+\hypersetup{
+    pdftitle={Sean P. Florez | Resume},
+    pdfauthor={Sean P. Florez}
+}
+
+% Section spacing and rule, as supplied.
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+\titlespacing\section{0pt}{9pt plus 2pt minus 1pt}{5pt plus 1pt minus 1pt}
 \titleformat{\section}{\large\bfseries}{\thesection}{1em}{}[\titlerule]
-\titlespacing\section{0pt}{8pt plus 2pt minus 1pt}{4pt plus 1pt minus 1pt}
+
+% List style, as supplied.
 \setlist[itemize]{leftmargin=*,noitemsep,topsep=0pt}
+\setlength{\emergencystretch}{1em}
+\widowpenalty=10000
+\clubpenalty=10000
+\raggedbottom
+
+% Page-break guards: keep a heading with the lines that follow it.
+\newcommand{\keep}{\needspace{4\baselineskip}}
+\newcommand{\keepsection}{\needspace{6\baselineskip}}
 
 \begin{document}
 \pagestyle{empty}
@@ -15,98 +41,126 @@
 % ===== Header =====
 \begin{center}
     {\LARGE \textbf{Sean P.\ Florez}}\\
-    \href{mailto:sean.florez@colorado.edu}{sean.florez@colorado.edu} \,|\, (786) 202--5558 \,|\, Boulder, CO \\
-    \href{https://linkedin.com/in/sean-florez}{linkedin.com/in/sean-florez} \,|\, \href{https://github.com/fl-sean03}{github.com/fl-sean03} \,|\, \href{https://www.lablinkinitiative.org}{lablinkinitiative.org}
+    \href{mailto:sean.florez@colorado.edu}{sean.florez@colorado.edu} \,\textbar\, (786) 202--5558 \,\textbar\, Boulder, CO\\
+    \href{https://seanflorez.com}{seanflorez.com} \,\textbar\,
+    \href{https://linkedin.com/in/sean-florez}{linkedin.com/in/sean-florez} \,\textbar\,
+    \href{https://github.com/fl-sean03}{github.com/fl-sean03}
 \end{center}
 
 % ===== Profile =====
-\section*{Research Profile}
-Computational materials scientist building \textbf{AI-accelerated, autonomous workflows} for simulations and interfacial materials. Experience spanning \textbf{large-scale MD/DFT campaigns} (LAMMPS, VASP, QE), \textbf{ML models for quantum chemistry and experimental data}, and \textbf{HPC job orchestration} across DoD and academic clusters. Interested in using generative models, representation learning, Bayesian methods, and agentic systems to close the loop between \textbf{simulation, experiment, and scientific decision-making} in materials discovery.
+\keepsection\section*{Research Profile}
+Computational materials scientist building \textbf{AI-accelerated, autonomous workflows} for simulation and interfacial materials, spanning \textbf{large-scale MD/DFT campaigns} (LAMMPS, VASP, Quantum ESPRESSO), \textbf{ML models for quantum chemistry and experimental data}, \textbf{force fields calibrated against experiment}, and \textbf{HPC orchestration} across DoD, DOE, and academic clusters. Interested in representation learning and agentic systems that close the loop between \textbf{simulation, experiment, and scientific decision-making}.
 
 % ===== Skills =====
-\section*{Skills}
+\keepsection\section*{Skills}
+\textbf{Programming and ML:} Python; scikit-learn, TensorFlow, imbalanced-learn; RDKit, Mordred, SOAP descriptors; NumPy, Pandas, SciPy, Matplotlib; pytest, CI, package and CLI design.\\
+\textbf{Simulation:} LAMMPS, NAMD, VASP/VASPsol, Quantum ESPRESSO, Materials Studio; INTERFACE FF, CHARMM, CVFF, PCFF, COMB3, EAM; model building, parameterization, experimental validation.\\
+\textbf{HPC and systems:} Slurm and PBS Pro, job arrays, checkpoint-restart; ALCF, CU Alpine, DoD HPC; Linux, git, systemd, SQLite, Docker, GitHub Actions, MCP; data lineage and evidence-bundle post-processing.
+
+% ===== Research experience =====
+\keepsection\section*{Research Experience (Materials \& AI/ML)}
+\textbf{Graduate Research Assistant} \hfill \textit{University of Colorado Boulder, Oct 2024--Present}\\
+\textit{Heinz Interfaces Laboratory, Prof.\ Hendrik Heinz}
 \begin{itemize}
-  \item \textbf{Programming \& ML:} Python; scikit-learn, imbalanced-learn; RDKit, Mordred; NumPy, Pandas, Matplotlib; basic PyTorch familiarity.
-  \item \textbf{Simulations:} LAMMPS, VASP, Quantum ESPRESSO, NAMD; INTERFACE FF/IFF; VASPsol; Materials Studio; atomistic model building and parameterization.
-  \item \textbf{HPC \& Automation:} Slurm/PBS, job arrays, shell scripting; workflow design for large MD/DFT campaigns; data lineage, evidence-bundle style post-processing.
-  \item \textbf{Domains:} Interfacial MD (MXenes, oxides, MOFs, Pt/NEC), hydration and electrostatics, shear mechanics, solvation models, DAC/CO\textsubscript{2} capture--relevant materials.
+    \item Ran the production shear campaign for OH-, F-, and mixed-terminated Ti\(_3\)C\(_2\) MXene bilayers, running \textbf{780 NVT trajectories} on CU's Alpine cluster, zero failures, against a protocol frozen before production and audited read-only afterward. Termination sets interlayer shear resistance across a threefold range (\(\tau_{0.5}\) 42--135 MPa).
+    \item Designed and ran the MD campaign behind a lead-author manuscript on N-ethylcarbazole dehydrogenation over Pt nanocrystals; reactive configurations concentrate at low-coordination sites (vertices carry 5.4\(\times\) the per-atom contact density of \{100\} terraces). Wrote the technical narrative for the ALCF Director's Discretionary award funding the next campaign (\(\sim\)\textbf{26,150 node-hours}).
+    \item Parameterized INTERFACE FF models for copper oxides as the first-year deliverable of an \textbf{industry-funded force-field program}, calibrated exclusively against experiment. Validated a Cu\(_2\)O parameter family within \textbf{\(\pm\)5\%} of both experimental elastic references and verified \textbf{52 configurations} for LAMMPS, msi2lmp, CHARMM, and NAMD.
+    \item Built a SOAP-embedding retrieval index over \textbf{3,009 structures and 6.7 million atoms} to assign starting atom types and parameters from nearest structural neighbors, with confidence thresholds and explicit coverage gaps.
 \end{itemize}
 
-% ===== Research Experience (Materials + AI/ML) =====
-\section*{Research Experience (Materials \& AI/ML)}
-
-\textbf{Computational Chemistry Researcher} --- Heinz Interfaces Lab, Uni. Colorado Boulder \hfill Oct 2024 -- Present
+\keep\textbf{High-Performance Computing Intern} \hfill \textit{Air Force Research Laboratory, May--Aug 2025}\\
+\textit{Materials \& Manufacturing Directorate, Wright-Patterson AFB}
 \begin{itemize}
-    \item Led pH-resolved MD of hydrated \(\alpha\)-Al\(_2\)O\(_3\)(0001) (pH 2--12) using INTERFACE FF; built reproducible pipelines, quantified Na\(^+\)/Cl\(^-\) layering and water structuring, and matched experimental surface charge trends.
-    \item Ran atomistic MD of Pt-nanoparticle--catalyzed N-ethylcarbazole (NEC) dehydrogenation in NAMD; parameterized NEC and Pt for site-specific adsorption/dissociation mechanisms relevant to LOHC catalyst design.
-    \item Developed and open-sourced supporting tools (\href{https://github.com/fl-sean03/MolSAICV4}{MolSAIC} for code-first MD setup; \href{https://github.com/fl-sean03/pdb2msi}{pdb2msi} for PDB$\rightarrow$Materials Studio conversion) and post-processing scripts for charge, potential, and density profiles.
+    \item Built LAMMPS shear workflows for hydrated Ti\(_3\)C\(_2\) MXene bilayers and ran parameter sweeps on \textbf{DoD HPC}.
+    \item Fit slip probability \(p(\tau)\) against shear stress with logistic models, revealing a non-monotonic hydration effect. Dry bilayers hold to 103 MPa, a quarter monolayer drops them to 8 MPa, and full coverage recovers to 39 MPa.
+    \item Delivered the first MD evidence that hydration tunes MXene interlayer shear strength by an order of magnitude.
 \end{itemize}
 
-\textbf{High-Performance Computing Intern} --- Air Force Research Laboratory, WPAFB \hfill May 2025 -- Aug 2025
+% ===== Research software =====
+\keepsection\section*{Research Software \& Infrastructure}
+\textbf{OpenSDL, computational and autonomous laboratory framework} \hfill \textit{2026--Present}\\
+\href{https://github.com/fl-sean03/OpenSDL}{github.com/fl-sean03/OpenSDL} \;\textbar\; \href{https://seanflorez.com/OpenSDL/}{seanflorez.com/OpenSDL}\\
+Apache-2.0; \(\sim\)26k non-test lines of Python, \(\sim\)600 test functions, CI
 \begin{itemize}
-    \item Built a shear-testing MD workflow in LAMMPS for OH-terminated Ti\(_3\)C\(_2\) MXenes under controlled hydration; executed 1000+ trajectories on DoD HPC to map stress, hydration, and slip statistics.
-    \item Fit slip probability \(p(\tau)\) vs.\ shear stress using logistic models, revealing a non-monotonic hydration effect (low coverage lubricates; high coverage rebuilds strength via water-bridged H-bonds).
-    \item Delivered first MD evidence that hydration tunes MXene interlayer shear strengths by an order of magnitude, defining stress windows and design guidance for EM-shielding composites.
+    \item Declare what a laboratory can do, execute those declarations as reproducible workflows, preserve the evidence, and feed each result back into the choice of the next experiment.
+    \item Durable DAG runtime with retries, timeouts, resource leases, restart reconciliation, and policy checks over SQLite metadata and content-addressed artifact storage; adapters for a simulated lab, local compute, and human tasks, with Slurm and hardware integration in progress.
+    \item Implemented campaign scoring and next-round selection. A reference three-dye formulation search matched an unseen target recipe within \textbf{0.5 percentage points}, evaluating \textbf{96 candidates per round}.
 \end{itemize}
 
-% ===== Selected AI/ML for Materials Projects =====
-\section*{Selected AI/ML for Materials Projects}
-
-\textbf{QM9 Quantum-Chemical Property Prediction (TensorFlow FNNs)} \hfill GitHub: \href{https://github.com/fl-sean03/qm9-smiles-predictor}{qm9-smiles-predictor}
+\keep\textbf{agent-fleet, persistent research automation} \hfill \textit{2026--Present}\\
+\href{https://github.com/fl-sean03/agent-fleet}{github.com/fl-sean03/agent-fleet}
 \begin{itemize}
-    \item Implemented four fully reproducible pipelines (single-task, multitask, autoencoder, hybrid Mordred\(+\)ECFP4) on the QM9 dataset to predict nine quantum-chemical properties for \(\sim\)130k molecules.
-    \item Reproduced and critiqued SMILES-FNN literature baselines; showed where multitask learning underperforms and where hybrid descriptors reduce MAE (e.g., for dipole moment and polarizability) relative to Mordred-only models.
-    \item Engineered a modular training/evaluation stack with command-line workflows, tests, and visualization scripts suitable as a starting point for more expressive GNN/equivariant models.
+    \item Built a research harness based on a \textbf{15-agent fleet} operating for months, with isolated workspaces, persistent conversations, and inter-agent messaging.
+    \item Ran multi-day computational campaigns with recovery after reboots, credential expiry, and preemption.
 \end{itemize}
 
-\textbf{Automated Phase Identification in Experimental pXRD (opXRD Archive)} \hfill GitHub: \href{https://github.com/fl-sean03/opxrd-ml-binary-phase}{opxrd-ml-binary-phase}
+\keep\textbf{HPC \& Cloud Throughput Infrastructure} \hfill \textit{2025--Present}
 \begin{itemize}
-    \item Ingested the \(\sim\)92k-pattern opXRD archive (\(\sim\)2.4\% labeled) and formulated a binary classification task for the rare As\(_8\)O\(_{12}\) phase; built an interpolation-based 2\(\theta\) grid and normalized intensities for ML.
-    \item Trained logistic regression and random forest classifiers; applied SMOTE to address extreme class imbalance and improved minority-phase F1-score to 0.80 with balanced precision/recall on held-out data.
-    \item Positioned the pipeline as a prototype for automated, scalable pXRD analysis in self-driving materials laboratories, emphasizing robustness to heterogeneous experimental conditions.
+    \item Developed \textbf{subjob} to multiplex short tasks in one HPC allocation, with shared worker pools and heartbeat recovery.
+    \item Built \textbf{CloudComputeManager} for GPU spot-instance provisioning, environment setup, pipeline execution, preemption recovery, and per-run cost tracking; used it for MXene shear sweeps.
 \end{itemize}
 
-\newpage
-\textbf{Optimization of VASPsol Solvation Parameters (DFT + Surrogate)} 
+% ===== Projects =====
+\keepsection\section*{Selected AI/ML for Materials Projects}
+\textbf{QM9 Quantum-Chemical Property Prediction (TensorFlow FNNs)} \hfill \href{https://github.com/fl-sean03/qm9-smiles-predictor}{GitHub: qm9-smiles-predictor}
 \begin{itemize}
-    \item Benchmarked the VASPsol implicit solvation model against experimental energies from the \href{https://comp.chem.umn.edu/mnsol}{Minnesota Solvation Database} for neutral and charged solutes in water; explored cavity and screening parameters for implicit solvation.
-    \item Implemented grid search and Nelder--Mead optimization of key VASPsol parameters to reduce RMSE; outlined a surrogate-model-based strategy for future calibrations to avoid high-count parameter sweeps.
+    \item Four reproducible pipelines (single-task, multitask, autoencoder, hybrid Mordred\(+\)ECFP4) predicting nine quantum-chemical properties for \(\sim\)130k molecules.
+    \item Reproduced and critiqued SMILES-FNN baselines; showed where multitask learning underperforms and where hybrid descriptors reduce MAE relative to Mordred-only models, for dipole moment and polarizability in particular.
 \end{itemize}
 
-
-% ===== Additional Experience =====
-\section*{Additional Experience}
-
-\textbf{S\&T Scouting Intern} --- The Joint Staff (J7 / Future Technology Office) \hfill Aug 2025 -- Oct 2025
+\keep\textbf{Automated Phase Identification in Experimental pXRD (opXRD)} \hfill \href{https://github.com/fl-sean03/opxrd-ml-binary-phase}{GitHub: opxrd-ml-binary-phase}
 \begin{itemize}
-    \item Prioritized propulsion and energy concepts; delivered 8 decision-ready briefs mapping technical readiness, risk, and experimentation paths for TRL 3--5 technologies.
-    \item Coordinated with Service labs and DoD R\&D orgs to connect emerging academic research with operational experimentation and transition pipelines.
+    \item Ingested the \(\sim\)92k-pattern opXRD archive (\(\sim\)2.4\% labeled) and formulated binary classification for the rare As\(_8\)O\(_{12}\) phase, on an interpolated 2\(\theta\) grid with normalized intensities.
+    \item Trained logistic regression and random forest classifiers; applied SMOTE against extreme class imbalance and reached a 0.80 minority-phase F1 with balanced precision and recall on held-out data.
 \end{itemize}
 
-\textbf{Technology Commercialization Intern} --- Idaho National Laboratory (DOE) \hfill May 2024 -- Aug 2024
+\keep\textbf{Optimization of VASPsol Solvation Parameters (DFT + Surrogate)} \hfill \textit{Hennig Group, University of Florida}
 \begin{itemize}
-  \item Conducted customer-discovery interviews (Energy I-Corps); led a commercialization plan for a lab-origin technology.
-  \item Supported a DOE proposal (\(\sim\)\$2M awarded) and prototyped AI/NL tools for the technology-transfer team.
+    \item Benchmarked VASPsol against experimental energies from the \href{https://comp.chem.umn.edu/mnsol}{Minnesota Solvation Database} for neutral and charged solutes in water; optimized cavity and screening parameters by grid search and Nelder--Mead to reduce RMSE, and outlined a surrogate-model strategy replacing high-count parameter sweeps.
+\end{itemize}
+
+% ===== Additional experience =====
+\keepsection\section*{Additional Experience}
+\textbf{Engineering Contractor, Rocky Mountain Scientific Laboratory} \hfill \textit{Jun--Aug 2026}\\
+\textit{Quality system for a client affiliate's new energetic-materials production line}
+\begin{itemize}
+    \item Developed lot-release records covering inspections, approval authority, hold criteria, and nonconformance disposition, with item-level traceability to the governing military specification. Built a controlled, single-source document set with automated link, terminology, and source-consistency checks, and a program tracker that generates the Kanban board, decision log, and requirements traceability matrix.
+\end{itemize}
+
+\keep\textbf{S\&T Scouting Intern} \hfill \textit{The Joint Staff, J7 / Future Technology Office, Aug--Oct 2025}
+\begin{itemize}
+    \item Produced \textbf{eight technical briefs} on propulsion and energy concepts, assessing readiness, risk, and experimentation paths for TRL 3--5 technologies across Service laboratories and DoD R\&D organizations.
+\end{itemize}
+
+\keep\textbf{Technology Commercialization Intern} \hfill \textit{Idaho National Laboratory (DOE), May--Aug 2024}
+\begin{itemize}
+    \item Conducted \textbf{20 Energy I-Corps interviews}, developed a commercialization plan for a laboratory technology, built AI and natural-language tooling for the technology-transfer team, and supported a DOE proposal awarded \textbf{\$2M}.
+\end{itemize}
+
+\keep\textbf{Materials Modeling Intern} \hfill \textit{Air Force Research Laboratory, May--Dec 2023}
+\begin{itemize}
+    \item Automated high-throughput DFT screening of low-work-function emitters (Quantum ESPRESSO, ASE, pymatgen).
 \end{itemize}
 
 % ===== Education =====
-\section*{Education}
-\textbf{University of Colorado Boulder} --- Ph.D., Materials Science \& Engineering \hfill Expected May 2028\\
-Focus: atomistic simulations of interfaces; AI/ML-accelerated workflows for materials and interfacial phenomena.\\[2pt]
-\textbf{University of Florida} --- B.S., Materials Science \& Engineering (Minor: Chemistry) \hfill May 2024
+\keepsection\section*{Education}
+\textbf{University of Colorado Boulder} \hfill \textit{Expected May 2028}\\
+Ph.D., Materials Science \& Engineering. Advisor: Prof.\ Hendrik Heinz.
 
-% ===== Selected Outputs =====
-\section*{Selected Outputs}
-\begin{itemize}
-  \item \textbf{In preparation:} \textit{Hydration-Tuned Interlayer Shear in OH-Terminated Ti\(_3\)C\(_2\) MXenes from Atomistic MD.}
-  \item Open-source: \href{https://github.com/fl-sean03/MolSAICV4}{MolSAIC} (MD system builder; code-first workflows), \href{https://github.com/fl-sean03/pdb2msi}{pdb2msi} (PDB-to-Materials Studio converter).
-\end{itemize}
+\textbf{University of Florida} \hfill \textit{May 2024}\\
+B.S., Materials Science \& Engineering. Minor in Chemistry.
+
+% ===== Publications =====
+\keepsection\section*{Publications \& Outputs}
+\textbf{Co-author:} \textit{INTERFACE Force Field for Alumina with Validated Bulk Phases and a pH-Resolved Surface Model Database for Electrolyte and Organic Interfaces.} \href{https://arxiv.org/abs/2601.12570}{arXiv:2601.12570}, 2026 (preprint).
+
+\textbf{Lead-author manuscripts in preparation:} \textit{Modeling of MXene Shear Properties via Atomistic Molecular Dynamics Simulations}; \textit{Understanding Hydrogen Release Mechanisms of N-Ethylcarbazole on Pt Nano-Crystal Catalysts}.
+
+\textbf{Open-source releases:} \href{https://github.com/fl-sean03/MolSAICV4}{MolSAIC} (MD system builder), \href{https://github.com/fl-sean03/pdb2msi}{pdb2msi} (PDB-to-Materials Studio converter).
 
 % ===== Leadership =====
-\section*{Leadership}
-\textbf{Co-Founder, \href{https://www.lablinkinitiative.org}{LabLink Initiative}} (STEM career access) \hfill Aug 2024 -- Present
-\begin{itemize}
-  \item Built a multi-stakeholder pipeline and AI-enabled matching tools connecting students, labs, and industry for research opportunities.
-\end{itemize}
+\keepsection\section*{Leadership}
+\textbf{Co-Founder, \href{https://www.lablinkinitiative.org}{LabLink Initiative}} (STEM career access) \hfill \textit{Aug 2024--Present}\\
+Partnerships with three Sacramento-area community colleges to move students into DOE Office of Science laboratory internships (CCI and SULI), plus a Phi Theta Kappa consortium webinar that drew more than 250 students.
 
 \end{document}

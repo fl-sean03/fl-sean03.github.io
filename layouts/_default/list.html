@@ -1,45 +1,26 @@
 {{ define "main" }}
-<section class="list">
-  <h1>{{ .Title }}</h1>
-  {{ with .Params.heroes }}
-  <div class="hero-pair">
-    {{ range . }}
-    <figure>
-      <img src="{{ .image }}" alt="{{ .caption }}">
-      {{ with .caption }}<figcaption>{{ . }}</figcaption>{{ end }}
-    </figure>
-    {{ end }}
+<div class="wrap-wide list-page">
+  <header class="list-head">
+    {{- partial "breadcrumb.html" . }}
+    <h1>{{ partial "nav-label.html" . }}</h1>
+    {{- with .Description }}
+    <p class="lede">{{ . }}</p>
+    {{- end }}
+  </header>
+  {{- with partial "hero.html" . }}
+  <div class="hero">{{ . }}</div>
+  {{- end }}
+  {{- with .Content }}
+  <div class="prose flow">
+    {{- . }}
   </div>
-  {{ else }}
-  {{ with .Params.image }}
-  <figure class="featured-image list-hero">
-    <img src="{{ . }}" alt="{{ $.Title }}">
-  </figure>
-  {{ end }}
-  {{ end }}
-  {{ .Content }}
-
-  {{ if and .Pages (not .Params.hideAutoList) }}
-  <ul class="post-list">
-    {{ range .Pages.ByDate.Reverse }}
-    <li class="post-row">
-      <a class="post-row-link" href="{{ .RelPermalink }}">
-        {{ with .Params.image }}
-        <div class="post-row-thumb">
-          <img src="{{ . }}" alt="{{ $.Title }}" loading="lazy">
-        </div>
-        {{ end }}
-        <div class="post-row-body">
-          <div class="post-row-header">
-            <span class="post-row-title">{{ .Title }}</span>
-            {{ if .Date }}<time>{{ .Date.Format "Jan 2006" }}</time>{{ end }}
-          </div>
-          {{ with .Description }}<p class="description">{{ . }}</p>{{ end }}
-        </div>
-      </a>
-    </li>
-    {{ end }}
+  {{- end }}
+  {{- if and .Pages (not .Params.hideAutoList) }}
+  <ul class="rows">
+    {{- range .Pages }}
+    {{- partial "row.html" (dict "page" . "level" 2) }}
+    {{- end }}
   </ul>
-  {{ end }}
-</section>
+  {{- end }}
+</div>
 {{ end }}

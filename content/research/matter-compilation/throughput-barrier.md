@@ -13,22 +13,22 @@ date: 2026-03-09
 
 The throughput problem in matter compilation is not subtle. It is a straightforward arithmetic problem, and the numbers are punishing.
 
-A 1 cm cube of solid matter contains on the order of 10^22 to 10^23 atoms, depending on the material. Diamond (carbon) packs roughly 1.76 x 10^23 atoms per cubic centimeter. Silicon is about 5 x 10^22. Aluminum is about 6 x 10^22. For the calculations that follow, we will use 10^22 as a conservative lower bound.
+A 1 cm cube of solid matter contains on the order of 10²² to 10²³ atoms, depending on the material. Diamond (carbon) packs roughly 1.76 x 10²³ atoms per cubic centimeter. Silicon is about 5 x 10²². Aluminum is about 6 x 10²². For the calculations that follow, we will use 10²² as a conservative lower bound.
 
 Now consider current manipulation speeds:
 
-| Method | Rate (atoms/sec) | Time for 1 cm³ (10^22 atoms) | Source |
+| Method | Rate (atoms/sec) | Time for 1 cm³ (10²² atoms) | Source |
 |--------|------------------|-------------------------------|--------|
-| STM research manipulation | ~1 | 10^22 sec (~300 trillion years) | Various, since IBM 1989 |
-| Zyvex HDL (hydrogen depassivation) | ~50 | 2 x 10^20 sec (~6 trillion years) | Zyvex Labs |
-| Hypothetical 1M atoms/sec | 10^6 | 10^16 sec (~300 million years) | No one has demonstrated this |
-| Required for 1 cm³ in 1 hour | 2.8 x 10^18 | 3,600 sec (1 hour) | Target |
+| STM research manipulation | ~1 | 10²² sec (~300 trillion years) | Various, since IBM 1989 |
+| Zyvex HDL (hydrogen depassivation) | ~50 | 2 x 10²⁰ sec (~6 trillion years) | Zyvex Labs, reported 2010 |
+| Hypothetical 1M atoms/sec | 10⁶ | 10¹⁶ sec (~300 million years) | No one has demonstrated this |
+| Required for 1 cm³ in 1 hour | 2.8 x 10¹⁸ | 3,600 sec (1 hour) | Target |
 
-The gap between the best demonstrated serial rate (~50 atoms/sec) and the rate needed for practical macroscale manufacturing (~3 x 10^18 atoms/sec) is roughly 17 orders of magnitude. Even granting a hypothetical million-atom-per-second serial manipulator that nobody has built, the gap is still 13 orders of magnitude.
+The gap between the serial rate Zyvex reported in 2010 (~50 atoms/sec) and the rate needed for practical macroscale manufacturing (~3 x 10¹⁸ atoms/sec) is roughly 17 orders of magnitude. Even granting a hypothetical million-atom-per-second serial manipulator that nobody has built, the gap is still 13 orders of magnitude.
 
-To put this differently: to build 1 cm³ in 1 hour at Zyvex's demonstrated rate, you would need approximately 6 x 10^16 parallel manipulators. At the hypothetical 1M atoms/sec rate, you would need roughly 3 x 10^12 parallel manipulators. That is 3 trillion.
+To put this differently: to build 1 cm³ in 1 hour at Zyvex's demonstrated rate, you would need approximately 6 x 10¹⁶ parallel manipulators. At the hypothetical 1M atoms/sec rate, you would need roughly 3 x 10¹² parallel manipulators. That is 3 trillion.
 
-No other known engineering challenge has a gap of this magnitude between demonstrated capability and practical requirement. The semiconductor industry faced a gap of perhaps 8 to 10 orders of magnitude between the first transistor (1947) and modern chips with 10^11 to 10^12 transistors. The throughput barrier for matter compilation is roughly twice that large, measured in orders of magnitude.
+No other known engineering challenge has a gap of this magnitude between demonstrated capability and practical requirement. The semiconductor industry faced a gap of perhaps 8 to 10 orders of magnitude between the first transistor (1947) and modern chips with 10¹¹ to 10¹² transistors. The throughput barrier for matter compilation is roughly twice that large, measured in orders of magnitude.
 
 **Confidence: Established.** This is arithmetic, not speculation.
 
@@ -40,30 +40,29 @@ No other known engineering challenge has a gap of this magnitude between demonst
 
 The scanning tunneling microscope has been used to position individual atoms since Don Eigler's famous IBM logo in 1989. In the 36 years since, STM-based manipulation has progressed from a laboratory stunt to a semi-routine technique, but the fundamental speed has not changed dramatically.
 
-The most significant recent result in serial mechanosynthesis came in December 2025. A team of 54 researchers, including Ralph Merkle, demonstrated inverted-mode STM with 96.4% success rate for covalent mechanosynthesis. The specific reaction was hydrogen abstraction from a silicon surface. This was published as arXiv:2512.24431.
+The most significant recent result in serial mechanosynthesis came in December 2025. A team of 60 authors at CBN Nano Technologies, including Ralph Merkle, demonstrated inverted-mode STM, in which tailored molecules on a silicon surface image the probe apex and can also react with it. The specific reaction was the abstraction of a hydrogen atom from the hydrogen-terminated silicon probe, which worked in 27 of 28 trials (96.4%). The work is a preprint, arXiv:2512.24431.
 
 This result is genuinely important. It demonstrates that:
 
 1. Covalent bond breaking under positional control is achievable with high reliability.
-2. The success rate is high enough that error correction through repeat attempts is feasible.
-3. The approach can be automated.
+2. A success rate this high makes error correction through repeat attempts plausible, though the preprint does not test it.
 
 What it does not demonstrate:
 
-1. Speed beyond single-digit atoms per second.
+1. Any throughput. The preprint reports no rate of operations.
 2. Any chemistry beyond hydrogen abstraction from silicon.
 3. Bond formation (only bond breaking was shown).
 4. Three-dimensional construction.
 
-Zyvex Labs has pushed hydrogen depassivation lithography (HDL) to approximately 50 atoms per second. This is the fastest demonstrated rate for any form of tip-based atomic manipulation. HDL is a subtractive process: hydrogen atoms are removed from a passivated silicon surface, exposing bare silicon for subsequent chemical processing. It is not additive construction.
+Zyvex Labs reported removing 50 hydrogen atoms per second by hydrogen depassivation lithography (HDL) in 2010. Its 2025 conference abstract on nanoimprint masks says the throughput of the technique is "severely limited compared to other direct write techniques such as E-beam Lithography." HDL is a subtractive process: hydrogen atoms are removed from a passivated silicon surface, exposing bare silicon for subsequent chemical processing. It is not additive construction.
 
 ### AI-Assisted Automation
 
-In 2025, AutoOSS (published in JACS) demonstrated a system that can run scanning probe operations autonomously for more than 25 hours. This is meaningful because the human operator has historically been the bottleneck in SPM experiments. Tip preparation, approach, drift correction, image analysis, and decision-making about where to manipulate all required expert human attention.
+In 2025, AutoOSS (published in JACS) automated the removal of bromine from hundreds of porphyrin molecules on a gold surface, using neural networks to interpret the scanning tunneling microscope's output and deep reinforcement learning to choose the manipulation parameters. Its authors say it enables long-term operation without human intervention. This is meaningful because the human operator has historically been the bottleneck in SPM experiments. Tip preparation, approach, drift correction, image analysis, and decision-making about where to manipulate all required expert human attention.
 
 AutoOSS and similar systems reduce the human bottleneck. They do not reduce the physics bottleneck. A perfectly automated STM that can run 24/7 without human intervention still operates at roughly 1 atom per second. That converts a 300-trillion-year task into a 300-trillion-year task that does not require anyone to sit at the console.
 
-This distinction matters. AI automation of scanning probe microscopy is valuable for research. It accelerates discovery. It enables experiments that were previously impractical because no human could maintain focus for 25 hours. But it does not address the throughput barrier by any significant factor. Even a 100x speedup from better automation and tip design (which has not been demonstrated) would reduce 300 trillion years to 3 trillion years.
+This distinction matters. AI automation of scanning probe microscopy is valuable for research. It accelerates discovery. It enables experiments that were previously impractical because no human could maintain focus for that long. But it does not address the throughput barrier by any significant factor. Even a 100x speedup from better automation and tip design (which has not been demonstrated) would reduce 300 trillion years to 3 trillion years.
 
 **Confidence: Established.** These are published results with known limitations.
 
@@ -79,9 +78,9 @@ The most direct approach is to build arrays of many tips and operate them simult
 
 **Cantilever-free parallel AFM.** In 2021, a team published in Nature Communications a cantilever-free parallel AFM architecture with more than 1,000 probes. This system demonstrated parallel imaging, meaning the tips could scan a surface simultaneously. It did not demonstrate parallel manipulation. Imaging is far simpler than manipulation because imaging only requires measuring tip-surface interaction forces, while manipulation requires controlling those forces precisely enough to move or remove individual atoms.
 
-**MEMS-based parallel STM arrays.** Zyvex and collaborators have demonstrated parallel STM-based hydrogen depassivation lithography using MEMS-actuated tip arrays. The demonstrated parallelism is modest: a handful of tips operating simultaneously. Zyvex has projected scaling to 10 parallel tips at 1M atoms/sec each. Neither the 10-tip parallelism nor the 1M atoms/sec rate has been demonstrated.
+**MEMS-based parallel STM arrays.** Zyvex has said what it expects from parallelism. In 2010 it projected that within seven years it would sell tools with 10 parallel tips removing more than a million hydrogen atoms a second in total. The seven years have passed, and neither the 10-tip parallelism nor that rate has been demonstrated.
 
-**DOE AMO project.** The U.S. Department of Energy has funded an Atomically Precise Manufacturing (APM) program that includes development of MEMS-based massively parallel scanning probe systems. The target is a 1000x speedup over current SPM rates. This program is in development and has not published results demonstrating the target speedup.
+**DOE AMMTO project.** The U.S. Department of Energy's Advanced Materials and Manufacturing Technologies Office funded a project at the University of Texas at Dallas, with Zyvex Labs, to develop the enabling technologies for high-throughput atomically precise manufacturing. Its 2022 report lists as milestones a high-speed nanopositioner, one- and three-degree-of-freedom MEMS scanning tunneling microscopes for imaging and lithography, and a cantilever array for parallel AFM imaging. It says MEMS scanners make hydrogen depassivation lithography "parallelizable to potentially millions of beams," and also that the high level of parallelism commercial APM needs "currently does not exist."
 
 The fundamental challenges of parallel tip arrays are:
 
@@ -93,7 +92,7 @@ The fundamental challenges of parallel tip arrays are:
 
 4. **Cross-talk.** Mechanical and electrical coupling between adjacent tips in a dense array can cause one tip's operation to disturb its neighbors. This gets worse as tip density increases.
 
-The honest assessment: nobody has demonstrated even 10 parallel tips doing precise atomic manipulation simultaneously. The requirement is 10^12 to 10^16 parallel tips. That is a gap of 11 to 15 orders of magnitude in parallelism, on top of whatever serial speed improvement is needed.
+The honest assessment: nobody has demonstrated even 10 parallel tips doing precise atomic manipulation simultaneously. The requirement is 10¹² to 10¹⁶ parallel tips. That is a gap of 11 to 15 orders of magnitude in parallelism, on top of whatever serial speed improvement is needed.
 
 **Confidence: Established for the challenges. Plausible that tip arrays can scale to thousands. Speculative that they can scale to trillions.**
 
@@ -111,7 +110,7 @@ However:
 
 2. **The chicken-and-egg problem.** You need a working assembler to build the first self-replicating assembler. If you had a working assembler, you might not need self-replication (you could just build more assemblers with it). The bootstrap problem is real: how do you get from zero assemblers to one?
 
-3. **Error accumulation.** Copies degrade without error correction. A photocopier-of-photocopier chain degrades rapidly. Biological replication solves this with proofreading enzymes that achieve error rates of roughly 1 per 10^9 nucleotides. These proofreading systems are themselves complex molecular machines that must be replicated accurately.
+3. **Error accumulation.** Copies degrade without error correction. A photocopier-of-photocopier chain degrades rapidly. Biological replication solves this with proofreading enzymes that achieve error rates of roughly 1 per 10⁹ nucleotides. These proofreading systems are themselves complex molecular machines that must be replicated accurately.
 
 4. **Environmental requirements.** Biological self-replication requires a rich chemical environment: specific substrates, energy carriers (ATP), cofactors, water, temperature control, and pH buffering. A synthetic self-replicating assembler would either need similar environmental support or would need to be far more self-sufficient than any biological system.
 
@@ -171,11 +170,11 @@ Biology is the existence proof that molecular-scale manufacturing at practical t
 
 ### What Biology Demonstrates
 
-**Massively parallel molecular machines.** A typical mammalian cell contains roughly 10 million ribosomes. Each ribosome synthesizes protein at a rate of 15 to 20 amino acids per second. The total protein synthesis rate per cell is therefore on the order of 10^8 amino acid additions per second. This is massively parallel molecular manufacturing, running continuously, at room temperature (well, 310 K), in water.
+**Massively parallel molecular machines.** A typical mammalian cell contains roughly 10 million ribosomes. Each ribosome synthesizes protein at a rate of 15 to 20 amino acids per second. The total protein synthesis rate per cell is therefore on the order of 10⁸ amino acid additions per second. This is massively parallel molecular manufacturing, running continuously, at room temperature (well, 310 K), in water.
 
-**Self-replication at scale.** A human body contains approximately 37 trillion cells (3.7 x 10^13), all descended from a single fertilized egg. The entire construction process takes about 9 months. This is convergent assembly in action: one cell becomes two, two become four, continuing through roughly 47 doublings to reach the final cell count. Along the way, cells differentiate into roughly 200 distinct types and organize into tissues and organs.
+**Self-replication at scale.** A human body contains approximately 37 trillion cells (3.7 x 10¹³), all descended from a single fertilized egg. The entire construction process takes about 9 months. This is convergent assembly in action: one cell becomes two, two become four, continuing through roughly 47 doublings to reach the final cell count. Along the way, cells differentiate into roughly 200 distinct types and organize into tissues and organs.
 
-**High-speed polymer synthesis with error correction.** DNA polymerase III in E. coli synthesizes DNA at roughly 1,000 nucleotides per second per replication fork. The raw error rate is about 1 per 10^5 nucleotides, but proofreading and mismatch repair reduce this to about 1 per 10^9 to 10^10 nucleotides. This is an error rate of roughly one part per billion, at a synthesis rate of 1,000 monomers per second. No synthetic system comes close.
+**High-speed polymer synthesis with error correction.** DNA polymerase III in E. coli synthesizes DNA at roughly 1,000 nucleotides per second per replication fork. The raw error rate is about 1 per 10⁵ nucleotides, but proofreading and mismatch repair reduce this to about 1 per 10⁹ to 10¹⁰ nucleotides. This is an error rate of roughly one part per billion, at a synthesis rate of 1,000 monomers per second. No synthetic system comes close.
 
 ### What Biology Does Not Demonstrate
 
@@ -193,8 +192,8 @@ The gap between biological molecular machines and synthetic ones is enormous. Th
 |----------|----------|----------------------|
 | Rate | 15-20 amino acids/sec | ~1 amino acid per 12 hours |
 | Speed ratio | 1x | 1/648,000 to 1/864,000 |
-| Error rate | ~1 per 10^4 (before proofreading) | Not characterized at scale |
-| Parallelism | ~10^7 per cell | Single molecule |
+| Error rate | ~1 per 10⁴ (before proofreading) | Not characterized at scale |
+| Parallelism | ~10⁷ per cell | Single molecule |
 | Energy source | GTP hydrolysis | Chemical fuel |
 | Self-replicating | Yes (indirectly, via cell division) | No |
 
@@ -208,30 +207,30 @@ The Leigh group's molecular assembler (University of Manchester) was a landmark 
 
 Let us work through the requirements for a practical matter compiler that can build 1 cm³ of arbitrary material in 1 hour.
 
-**Target throughput:** 10^22 atoms in 3,600 seconds = 2.8 x 10^18 atomic operations per second.
+**Target throughput:** 10²² atoms in 3,600 seconds = 2.8 x 10¹⁸ atomic operations per second.
 
 **Scenario: Ribosome-speed assemblers.**
 
 If each assembler operates at ribosome speed (roughly 20 operations per second), you need:
 
-- 2.8 x 10^18 / 20 = 1.4 x 10^17 assemblers
+- 2.8 x 10¹⁸ / 20 = 1.4 x 10¹⁷ assemblers
 
-A ribosome has a mass of approximately 2.5 x 10^6 daltons, or about 4.2 x 10^-21 kg. For 1.4 x 10^17 assemblers:
+A ribosome has a mass of approximately 2.5 x 10⁶ daltons, or about 4.2 x 10⁻²¹ kg. For 1.4 x 10¹⁷ assemblers:
 
-- Total assembler mass: 1.4 x 10^17 x 4.2 x 10^-21 kg = 5.9 x 10^-4 kg, or about 0.6 grams.
+- Total assembler mass: 1.4 x 10¹⁷ x 4.2 x 10⁻²¹ kg = 5.9 x 10⁻⁴ kg, or about 0.6 grams.
 
 This is a physically plausible mass. Less than a gram of molecular machinery could, in principle, provide sufficient throughput for macroscale manufacturing. The volume would be roughly 0.6 cm³ (assuming density near water). You could hold the entire assembler fleet in a thimble.
 
 **The bootstrap problem.**
 
-But building 1.4 x 10^17 assemblers requires either:
+But building 1.4 x 10¹⁷ assemblers requires either:
 
-1. An existing manufacturing system capable of producing 10^17 molecular machines (which is the problem we are trying to solve), or
+1. An existing manufacturing system capable of producing 10¹⁷ molecular machines (which is the problem we are trying to solve), or
 2. Self-replication.
 
 If assemblers can self-replicate with a doubling time of 1 hour (E. coli manages 20 minutes, so this is conservative), then starting from a single assembler:
 
-- 1 assembler to 1.4 x 10^17 assemblers requires log2(1.4 x 10^17) = approximately 57 doublings.
+- 1 assembler to 1.4 x 10¹⁷ assemblers requires log2(1.4 x 10¹⁷) = approximately 57 doublings.
 - At 1 hour per doubling: 57 hours, or about 2.4 days.
 
 This is the exponential growth argument for self-replicating assemblers. The numbers are seductive. But every step after step 1 (building the first assembler) is undemonstrated. Step 1 itself is undemonstrated.
@@ -240,7 +239,7 @@ This is the exponential growth argument for self-replicating assemblers. The num
 
 At 10 to 100 kT per atomic operation (Drexler's estimate from *Nanosystems*):
 
-- 10^22 operations x 100 x 4.1 x 10^-21 J = 4.1 x 10^3 J = 4.1 kJ per cm³
+- 10²² operations x 100 x 4.1 x 10⁻²¹ J = 4.1 x 10³ J = 4.1 kJ per cm³
 - Over 1 hour: 4.1 kJ / 3600 s = 1.1 W
 
 About one watt. This is negligibly small. Even at 1000 kT per operation, you need about 11 watts. The energy cost of matter compilation is not the bottleneck. The throughput is.
@@ -257,7 +256,7 @@ About one watt. This is negligibly small. Even at 1000 kT per operation, you nee
 
 **The energy costs are modest.** At 10 to 100 kT per operation, matter compilation is energetically cheap. There is no thermodynamic wall. The energy per kilogram of compiled matter would be on the order of kilojoules, comparable to the energy in a few grams of sugar.
 
-**Computing overcame a similar scale gap.** The semiconductor industry went from 1 transistor (1947) to 10^12 transistors on a single chip (2020s) in roughly 70 years. That is 12 orders of magnitude. Matter compilation needs 15 to 20 orders of magnitude of improvement. The scale is larger, but the computing precedent shows that sustained exponential improvement over decades is possible when there are strong economic incentives and no fundamental physical barriers.
+**Computing overcame a similar scale gap.** The semiconductor industry went from 1 transistor (1947) to 10¹² transistors on a single chip (2020s) in roughly 70 years. That is 12 orders of magnitude. Matter compilation needs 15 to 20 orders of magnitude of improvement. The scale is larger, but the computing precedent shows that sustained exponential improvement over decades is possible when there are strong economic incentives and no fundamental physical barriers.
 
 ### Arguments Against Near-Term Feasibility
 
@@ -271,9 +270,9 @@ About one watt. This is negligibly small. Even at 1000 kT per operation, you nee
 
 The most pragmatic assessment may be that the throughput barrier is solvable for specific high-value, small-volume applications, but not for general-purpose macroscale manufacturing in the foreseeable future.
 
-**Quantum computing components.** Silicon Quantum Computing (SQC) in Sydney is already using STM-based atomic precision manufacturing to build quantum computing devices. Each device contains millions of atoms, not 10^23. At current SPM rates, building a device with 10^6 precisely placed atoms takes hours to days, not geological time. For a $10 million quantum computer, spending a week on atomic-precision fabrication of the critical qubit layer is commercially viable.
+**Quantum computing components.** Silicon Quantum Computing (SQC) in Sydney is already using STM-based atomic precision manufacturing to build quantum computing devices. Each device contains millions of atoms, not 10²³. At current SPM rates, building a device with 10⁶ precisely placed atoms takes hours to days, not geological time. For a $10 million quantum computer, spending a week on atomic-precision fabrication of the critical qubit layer is commercially viable.
 
-**Catalysts and molecular sieves.** A catalyst particle might contain 10^8 to 10^12 atoms. At 50 atoms/sec, 10^10 atoms takes about 6 years. Too slow for serial production, but potentially viable with modest parallelism (1,000 tips reduces it to 2 days).
+**Catalysts and molecular sieves.** A catalyst particle might contain 10⁸ to 10¹² atoms. At 50 atoms/sec, 10¹⁰ atoms takes about 6 years. Too slow for serial production, but potentially viable with modest parallelism (1,000 tips reduces it to 2 days).
 
 **The hybrid approach.** Use atomic precision for the critical features (active sites, quantum dots, molecular recognition surfaces) and conventional manufacturing for bulk structure. This avoids the throughput barrier entirely for the bulk material while achieving atomic precision where it matters. This is likely the first commercially viable path.
 
@@ -286,7 +285,7 @@ The most pragmatic assessment may be that the throughput barrier is solvable for
 | Claim | Confidence | Basis |
 |-------|-----------|-------|
 | The throughput gap is 15-20 orders of magnitude | **Established** | Arithmetic from known atomic densities and demonstrated manipulation rates |
-| No existing serial technology can bridge this gap | **Established** | Even 10^6 atoms/sec (undemonstrated) leaves 13 orders of magnitude |
+| No existing serial technology can bridge this gap | **Established** | Even 10⁶ atoms/sec (undemonstrated) leaves 13 orders of magnitude |
 | Massively parallel molecular assemblers could theoretically bridge it | **Plausible** | Biology proves the physics works; engineering path unclear |
 | Self-replicating assemblers could bootstrap the fleet | **Speculative** | No synthetic nanoscale self-replicator has been demonstrated |
 | Convergent assembly provides a viable architecture | **Plausible** | Math is sound; no complete chain demonstrated |
@@ -303,20 +302,20 @@ This does not mean matter compilation is impossible. It means matter compilation
 
 ## Sources
 
-1. **Inverted-mode STM mechanosynthesis.** Rashidi, M. et al. (2025). "Covalent mechanosynthesis with an inverted scanning tunneling microscope." arXiv:2512.24431. [https://arxiv.org/abs/2512.24431](https://arxiv.org/abs/2512.24431)
+1. **Inverted-mode STM mechanosynthesis.** Barrera, E. et al. (2025). "Inverted-Mode Scanning Tunneling Microscopy for Atomically Precise Fabrication." arXiv:2512.24431. [https://arxiv.org/abs/2512.24431](https://arxiv.org/abs/2512.24431)
 
-2. **Cantilever-free parallel AFM.** Sarioglu, A.F. et al. (2021). "Cantilever-free scanning probe microscopy with massively parallel probes." Nature Communications. [https://www.nature.com/articles/s41467-021-22266-3](https://www.nature.com/articles/s41467-021-22266-3)
+2. **Cantilever-free parallel AFM.** Cao, W. et al. (2021). "Massively parallel cantilever-free atomic force microscopy." Nature Communications 12, 393. [https://www.nature.com/articles/s41467-020-20612-3](https://www.nature.com/articles/s41467-020-20612-3)
 
-3. **Zyvex Labs.** Hydrogen depassivation lithography and atomically precise manufacturing. [https://www.zyvexlabs.com/](https://www.zyvexlabs.com/)
+3. **Zyvex Labs.** Hydrogen depassivation lithography and atomically precise manufacturing. [https://www.zyvexlabs.com/](https://www.zyvexlabs.com/). The 2010 rate and projection: "Atomic-level manufacturing," American Institute of Physics, 19 October 2010. [https://www.eurekalert.org/news-releases/738776](https://www.eurekalert.org/news-releases/738776). The 2025 abstract: Owen, J.H.G., Fuchs, E. and Randall, J.N., "Atomically Precise Lithography for Nanoimprint masks," EIPBN 2025. [https://eipbn.org/abstracts/2025/papers/4C-2.pdf](https://eipbn.org/abstracts/2025/papers/4C-2.pdf)
 
-4. **AutoOSS.** Gordon, O. et al. (2025). "Autonomous on-surface synthesis." Journal of the American Chemical Society. [https://pubs.acs.org/journal/jacsat](https://pubs.acs.org/journal/jacsat)
+4. **AutoOSS.** Wu, N. et al. (2025). "Precise Large-Scale Chemical Transformations on Surfaces: Deep Learning Meets Scanning Probe Microscopy with Interpretability." Journal of the American Chemical Society 147(1), 1240–1250. [https://doi.org/10.1021/jacs.4c14757](https://doi.org/10.1021/jacs.4c14757)
 
-5. **DOE Atomically Precise Manufacturing program.** U.S. Department of Energy, Office of Science. [https://science.osti.gov/bes/Community-Resources/Reports](https://science.osti.gov/bes/Community-Resources/Reports)
+5. **DOE AMMTO project.** Moheimani, S.O.R. (2022). "A Platform Technology for High-throughput Atomically Precise Manufacturing: Mechatronics at the Atomic Scale." Technical report DE-EE0008322, University of Texas at Dallas, for the U.S. Department of Energy Advanced Materials & Manufacturing Technologies Office. [https://www.osti.gov/biblio/2310926](https://www.osti.gov/biblio/2310926)
 
 6. **Drexler, K.E.** *Nanosystems: Molecular Machinery, Manufacturing, and Computation.* Wiley, 1992. Energy and throughput analysis in Chapters 13-14.
 
 7. **JCVI-syn3.0.** Hutchison, C.A. et al. (2016). "Design and synthesis of a minimal bacterial genome." Science 351(6280). [https://www.science.org/doi/10.1126/science.aad6253](https://www.science.org/doi/10.1126/science.aad6253)
 
-8. **Leigh assembler.** Lewandowski, B. et al. (2013). "Sequence-specific peptide synthesis by an artificial small-molecule machine." Science 339(6116). [https://www.science.org/doi/10.1126/science.1229753](https://www.science.org/doi/10.1126/science.1229753). See also De Bo, G. et al. (2020). Chem. [https://doi.org/10.1016/j.chempr.2020.09.021](https://doi.org/10.1016/j.chempr.2020.09.021)
+8. **Leigh assembler.** Lewandowski, B. et al. (2013). "Sequence-specific peptide synthesis by an artificial small-molecule machine." Science 339(6116). [https://www.science.org/doi/10.1126/science.1229753](https://www.science.org/doi/10.1126/science.1229753). See also McTernan, C.T., De Bo, G. and Leigh, D.A. (2020). "A Track-Based Molecular Synthesizer that Builds a Single-Sequence Oligomer through Iterative Carbon-Carbon Bond Formation." Chem 6(11), 2964–2973. [https://doi.org/10.1016/j.chempr.2020.09.021](https://doi.org/10.1016/j.chempr.2020.09.021)
 
 9. **Silicon Quantum Computing (SQC).** STM-based atomically precise fabrication of silicon quantum devices. [https://sqc.com.au/](https://sqc.com.au/)

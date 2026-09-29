@@ -3,6 +3,7 @@ title: "Risk Does Not Disappear on New Land"
 description: "How geotechnical, flood, construction, environmental, market, and political losses move among owners, contractors, tenants, insurers, lenders, and the public."
 date: 2026-04-21
 image: /images/research/territorial-engineering/risk-and-insurance.png
+image_alt: "Aerial view at dusk of a city behind a levee, with flooded land and treetops on the water side and long causeways crossing the flat water beyond."
 ---
 
 A settlement plate moves after the contractor has placed the last planned lift.

@@ -3,6 +3,7 @@ title: "Florida Is Not One Coast"
 description: "A statewide coastal concept breaks into distinct Atlantic, Keys, Gulf, Panhandle, and estuarine problems, each with its own evidence burden."
 date: 2026-04-21
 image: /images/research/territorial-engineering/florida-case-study.png
+image_alt: "Aerial view at sunset of a low-lying coastal city along a sandy shoreline, with wetlands and shallow ponds inland, turquoise water offshore and a narrow sandy spit in the foreground."
 ---
 
 Florida's outline encourages statewide shorthand. On a small map, a continuous offshore belt takes seconds to draw around what appears to be one long edge with one exposure.

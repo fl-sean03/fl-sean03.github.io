@@ -2,4 +2,4 @@
 title: "Projects"
 ---
 
-Selected work that reflects the thesis: bridging atomic-level understanding with real-world deployment.
+What I've built and studied, from simulations of a few atomic layers to software that runs whole laboratories.

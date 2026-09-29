@@ -3,6 +3,7 @@ title: "Private Agent Networks"
 subtitle: "Why owned infrastructure changes what small teams can sustain"
 date: 2026-03-01
 image: "/images/writings/fleet-dashboard.png"
+image_alt: 'Screenshot of the Seed Fleet dashboard, titled Command Center, showing the tagline "7 autonomous agents. $35/mo hosting. Model layer pluggable." above four counter tiles for agents, cycles, messages and days online.'
 ---
 
 Every organization has a gap between what it knows how to do and what it actually does. The constraint is rarely knowledge or talent. It's coordination overhead. Monitoring, follow-up, context-switching, routine decisions. The cumulative weight of keeping everything moving.
@@ -53,4 +54,4 @@ My broader [thesis](/writings/thesis/) is about the gap between frontier science
 
 &nbsp;
 
-If you're interested in what a working implementation looks like, the details are on the [project page](/projects/seed-fleet/). You can also see the fleet running live at [fleet.seanflorez.com](https://fleet.seanflorez.com).
+If you're interested in what a working implementation looks like, the details are on the [project page](/projects/seed-fleet/).

@@ -3,6 +3,7 @@ title: "The American Record Is Longer Than It Looks"
 description: "Battery Park City, Back Bay, Treasure Island, and Galveston show that American landmaking succeeds only when ownership and long-term liabilities are designed with the fill."
 date: 2026-04-21
 image: /images/research/territorial-engineering/us-precedents.png
+image_alt: "Aerial view at sunset of a dense waterfront district of high-rises on a point of land, with parks and a promenade along the shore."
 ---
 
 In Boston's Back Bay, an observation well can matter more to an old building than the stone facade above it.

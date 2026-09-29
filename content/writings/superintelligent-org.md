@@ -3,6 +3,7 @@ title: "The Superintelligent Organization"
 subtitle: "What happens when your infrastructure thinks for itself"
 date: 2026-04-02
 image: "/images/writings/superintelligent-org.jpeg"
+image_alt: "Abstract network of glowing spheres joined by fine lines on a dark background, dense and bright at the center and sparse toward the edges."
 ---
 
 A team of specialists with tools built for their domain. Knowledge scattered across documents, old emails, and the people who've been around longest. The same loop every day: gather context, make the decision that matters, execute, check, repeat. On a good day, maybe a quarter of their time goes to the decisions. The rest is connective tissue.
@@ -39,7 +40,7 @@ For a law firm, it's contract databases that return structured clauses, regulato
 
 For a DevOps team, it's monitoring systems that explain what they see, deployment pipelines that reason about risk, incident memory that prevents the same failure twice. A system that knows a CPU spike at 3am on *this* server is normal but on *that* one means the backup job hung.
 
-For a startup, it's a unified context layer across the twelve tools the founder uses. Customer conversations, deployment status, financial state, market signals — connected so that decisions happen against full context instead of whatever the founder last looked at.
+For a startup, it's a unified context layer across the twelve tools the founder uses. Customer conversations, deployment status, financial state, market signals, connected so that decisions happen against full context instead of whatever the founder last looked at.
 
 The implementation details change completely. The architecture doesn't. An intelligence layer that understands the organization's tools, context, and history. Connected to whatever the organization actually uses. Tailored to its domain. Improving continuously because every interaction teaches it something.
 
@@ -75,7 +76,7 @@ A system that captures this memory as a side effect of doing the work, and makes
 
 The pattern is the same everywhere. The implementation is domain-specific. That's both the difficulty and the moat.
 
-The opportunity is to build the infrastructure pattern once and make it deployable to any domain. The same underlying architecture — persistent agents, structured memory, domain-aware orchestration, tool integration — tailored to each organization's context and needs. Starting where the domain expertise is deepest and expanding outward because the architecture transfers even when the domain knowledge doesn't.
+The opportunity is to build the infrastructure pattern once and make it deployable to any domain. The same underlying architecture (persistent agents, structured memory, domain-aware orchestration, tool integration) tailored to each organization's context and needs. Starting where the domain expertise is deepest and expanding outward because the architecture transfers even when the domain knowledge doesn't.
 
 I started in my lab because that's where I work. I wrote a [detailed blueprint](/writings/superintelligent-science-lab/) for how to build this in a computational materials science lab, step by step, based on what actually worked and what didn't. The specifics are materials science. The pattern generalizes.
 

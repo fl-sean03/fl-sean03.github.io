@@ -3,6 +3,7 @@ title: "Where Are We"
 subtitle: "Materials AI, and where its training labels come from"
 date: 2026-09-03
 image: "/images/writings/where-are-we-title.png"
+image_alt: 'Title slide of the deck, "Where are we? Foundation models for materials, and where their labels come from," beside a figure from Unke et al. (2021) that arranges systems from small molecules to proteins between ab initio accuracy and force-field efficiency.'
 ---
 
 Talk given in a foundation models and alignment course at CU Boulder, September 2026. The brief was to present the state of practice in your own field, name the methods people actually use, and say where they break.

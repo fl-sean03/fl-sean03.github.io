@@ -170,8 +170,8 @@ The DOE operates **five Nanoscale Science Research Centers**, which are the corn
 - CHIPS for America R&D programs (see Section 4)
 
 **Key Links:**
-- NSRC Portal: https://nsrcportal.sandia.gov/
-- Becoming a User: https://nsrcportal.sandia.gov/Home/User
+- NSRC Portal: https://nsrc.energy.gov/
+- Becoming a User: https://nsrc.energy.gov/user
 - Molecular Foundry: https://foundry.lbl.gov/become-a-foundry-user/
 - NNI User Facilities: https://www.nano.gov/userfacilities/
 
@@ -322,7 +322,7 @@ This program sits at the DOE level (not just EERE) and coordinates cross-cutting
 
 **Key Links:**
 - CMC: https://www.energy.gov/cmm/critical-materials-collaborative
-- DOE Critical Minerals: https://www.energy.gov/topics/critical-minerals-and-materials
+- DOE Critical Minerals: https://www.energy.gov/cmm/critical-minerals-and-materials-program
 
 ---
 
@@ -347,12 +347,12 @@ ARPA-E releases OPEN solicitations every three years (most recent: 2024) that ac
 
 ### How to Apply
 
-ARPA-E uses Funding Opportunity Announcements (FOAs) published through the ARPA-E eXCHANGE portal. The 2026 ARPA-E Energy Innovation Summit (April 7-9, 2026) is a major networking event.
+ARPA-E uses Funding Opportunity Announcements (FOAs) published through the ARPA-E eXCHANGE portal. The ARPA-E Energy Innovation Summit is a major networking event. The 2026 summit was held April 7-9, 2026 in San Diego, and the 2027 summit is scheduled for April 26-28, 2027 in Orlando.
 
 **Key Links:**
 - ARPA-E Programs: https://arpa-e.energy.gov/programs-and-initiatives/program-overview
 - Funding Opportunities: https://arpa-e-foa.energy.gov/
-- ARPA-E Summit 2026: https://www.arpae-summit.com/
+- ARPA-E Energy Innovation Summit: https://www.arpae-summit.com/
 
 ---
 
@@ -604,7 +604,7 @@ Identified at a 2015 DOE Advanced Manufacturing Office workshop in Berkeley:
 | **Atom-scale Devices** | NIST | Atom-by-atom fabrication using scanning tunneling microscopy |
 | **SBIR/STTR Topics** | DOE | Periodic APM-related topics in solicitations (2018 notable) |
 
-### DARPA Atoms to Product (A2P) — Details
+### DARPA Atoms to Product (A2P) Details {#darpa-atoms-to-product-a2p--details}
 
 The A2P program addresses the "assembly gap" between atomic-scale manufacturing and practical products. Notable performers:
 

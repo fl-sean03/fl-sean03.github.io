@@ -1,0 +1,14 @@
+{{ define "main" }}
+<div class="wrap-wide list-page">
+  <header class="list-head">
+    <h1>Page not found</h1>
+    <p class="lede">The address may have been mistyped, or the page may have moved.</p>
+  </header>
+  <ul class="link-list">
+    <li><a href="/">Home</a></li>
+    {{- range site.Menus.main }}
+    <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+    {{- end }}
+  </ul>
+</div>
+{{ end }}

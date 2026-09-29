@@ -13,27 +13,27 @@ What has actually been BUILT with atomic precision? Not predicted, not simulated
 
 ---
 
-## 1. Silicon Quantum Devices (The Most Commercially Advanced APM)
+## 1. Silicon Quantum Devices (Commercial Atom-Precise Manufacturing) {#1-silicon-quantum-devices-the-most-commercially-advanced-apm}
 
-**Silicon Quantum Computing (SQC), Sydney, Australia** is the most commercially advanced atomically precise manufacturing operation in the world. Their approach uses scanning tunneling microscopy combined with phosphine dosing to place individual phosphorus atoms into a silicon crystal lattice with 0.13 nm accuracy. The process is called PAQMan (Parallel Atomically Quilted Manufacturing), and it is the only method in the world that can image the exact positions of qubits embedded in a solid-state substrate.
+**Silicon Quantum Computing (SQC), Sydney, Australia** is an atomically precise manufacturing operation with commercial products. Their approach uses scanning tunneling microscopy combined with phosphine dosing to place individual phosphorus atoms into a silicon crystal lattice with 0.13 nm accuracy. The process is called PAQMan (Precision Atom Qubit Manufacturing), and SQC says it is the only company worldwide that can manufacture quantum processors at atomic scale.
 
 What SQC has actually demonstrated:
 
-- November 2025: patterned 250,000 qubit registers in 8 hours, a throughput that would have seemed absurd five years ago
-- 99.99% gate fidelity, among the highest reported for any qubit platform
-- Real commercial products being sold to paying customers
+- November 2025: SQC reports patterning 250,000 qubit registers in 8 hours, a throughput that would have seemed absurd five years ago
+- An 11-qubit atom processor with gate fidelities from 99.10% to 99.99%, and Bell-state fidelities of up to 99.5% that the Nature paper calls state-of-the-art (December 2025)
+- Commercial products on offer, with an Australian Defence contract to deliver one
 
-The products are worth listing explicitly because they represent genuine APM revenue:
+The products are worth listing explicitly because they show APM on offer commercially:
 
 - **Quantum Twins**: application-specific quantum simulators. These are custom chips where the arrangement of phosphorus atoms encodes a replica of a physical system the customer wants to simulate. Each chip is a bespoke atomically precise structure built to order.
 - **Watermelon**: a quantum machine learning system built on the same atomically precise silicon platform.
-- **Customers**: Telstra (Australian telecom) and the Australian Department of Defence, which took delivery of a rack-mounted quantum system deployed in a datacenter in August 2025.
+- **Customers and partners**: Telstra (Australian telecom) ran a 12-month collaboration with SQC on Watermelon, and Australian Defence awarded SQC a contract in August 2025 to deliver a Watermelon system. SQC offers these systems as turnkey hardware for a customer's datacenter or as remote access to machines hosted at SQC.
 
-This is real APM being used commercially today. Atoms are being placed with sub-nanometer precision to build functional devices that people pay money for.
+This is real APM with a commercial offering today. Atoms are being placed with sub-nanometer precision to build functional devices that SQC offers to customers.
 
-**Verdict**: The most commercially advanced APM in the world. Real products, real customers, real revenue. But the scope is narrow: placing one type of atom (phosphorus) in one substrate (silicon) for one application (quantum computing). Extending this to other elements or other substrates is a separate engineering challenge that SQC has not attempted.
+**Verdict**: Real products on offer, with a government contract and a telecom collaboration behind them. But the scope is narrow: placing one type of atom (phosphorus) in one substrate (silicon) for one application (quantum computing). Extending this to other elements or other substrates is a separate engineering challenge that SQC has not attempted.
 
-**Source**: [Silicon Quantum Computing](https://sqc.com.au/)
+**Sources**: [Silicon Quantum Computing](https://sqc.com.au/), [Technology](https://sqc.com/technology), [SQC Launches Quantum Twins™ Enabling Simulation of Quantum Physics and Chemistry](https://sqc.com/news/sqc-launches-quantum-twins), [An 11-qubit atom processor in silicon](https://www.nature.com/articles/s41586-025-09827-w), [SQC and Australian Defence Partner to Deliver Quantum Machine Learning](https://sqc.com/news/silicon-quantum-computing-and-australian-defence-partner-up-to-deliver-quantum-enhanced-machine-learning), and [Telstra And SQC Explore Smarter Network Prediction](https://thequantuminsider.com/2025/10/13/telstra-and-sqc-explore-smarter-network-prediction/)
 
 ---
 
@@ -43,35 +43,35 @@ This is real APM being used commercially today. Atoms are being placed with sub-
 
 The numbers:
 
-- Rate: approximately 50 hydrogen atoms per second
-- Resolution: 768 picometers (0.768 nm), which is sub-nanometer and below what either EUV or e-beam lithography can achieve
-- May 2025: Zyvex demonstrated atomically precise nanoimprint masks at dimensions beyond the capability of any other lithography technology
+- The rate is 50 hydrogen atoms per second, the figure Zyvex reported in 2010. Its 2025 conference abstract on nanoimprint masks says the throughput of this STM-based lithography is "severely limited compared to other direct write techniques such as E-beam Lithography".
+- The resolution is 768 picometers (0.768 nm), the width of a Si(100) 2×1 dimer row. That is sub-nanometer and below what either EUV or e-beam lithography can achieve.
+- In May 2025 Zyvex presented a route to nanoimprint templates written with HDL and reported sub-10 nm features and gratings with a feature radius of curvature down to 1.5 nm. Transfer of the template into quartz was listed as the next step.
 
-Their projection (not yet achieved) calls for 10 parallel tips operating at 1 million atoms per second, which would bring the cost down to roughly $2,000 per cubic micrometer of atomically precise material. That projection remains undemonstrated, but the single-tip system is a shipping product.
+The projection that goes with these numbers is also from 2010. Zyvex said then that within seven years it would be selling tools that remove more than a million hydrogen atoms a second using 10 parallel tips, at a cost of about $2,000 per cubic micrometer of added silicon. Those seven years have passed and the projection remains undemonstrated, but the single-tip system is a shipping product.
 
 **Verdict**: Real commercial product. But there are important caveats. HDL removes atoms (subtraction), it does not place them (addition). It creates 2D patterns on silicon surfaces, not 3D structures. And it operates in a single material system. This is atomically precise patterning, not atomically precise construction.
 
-**Source**: [Zyvex Labs](https://www.zyvexlabs.com/)
+**Sources**: [Zyvex Labs](https://www.zyvexlabs.com/). For the 2010 rate and projection, [Atomic-level manufacturing](https://www.eurekalert.org/news-releases/738776) (American Institute of Physics, 19 October 2010). For the 2025 work, the conference abstracts [Atomically Precise Lithography for Nanoimprint masks](https://eipbn.org/abstracts/2025/papers/4C-2.pdf) and [Fabrication of Atomically-precise Nanoimprint Masks by STM Lithography](https://eipbn.org/abstracts/2025/papers/6A-4.pdf). For the resolution, [Zyvex Labs Announces Sub-Nanometer Resolution Lithography System](https://thequantuminsider.com/2022/09/28/zyvex-labs-announces-sub-nanometer-resolution-lithography-system-2/).
 
 ---
 
-## 3. Covalent Mechanosynthesis (The First Experimental Demonstration)
+## 3. Covalent Mechanosynthesis (An Experimental Demonstration) {#3-covalent-mechanosynthesis-the-first-experimental-demonstration}
 
-In December 2025, a team of 54 researchers published an experimental demonstration of deterministic covalent mechanosynthesis using inverted-mode scanning tunneling microscopy (arXiv:2512.24431). The author list includes Ralph Merkle, who has been writing about mechanosynthesis since the 1990s.
+In December 2025, a team of 60 authors, all listed with CBN Nano Technologies, posted a preprint demonstrating what they call mechanosynthesis, using inverted-mode scanning tunneling microscopy (arXiv:2512.24431). The author list includes Ralph Merkle, who has been writing about mechanosynthesis since the 1990s.
 
 What they actually demonstrated:
 
-- 96.4% success rate for single hydrogen atom removal from a silicon surface
-- 100% yield in sequential hydrogen abstractions for dangling bond pair formation
+- A single hydrogen atom removed from the silicon probe in 27 of 28 trials (96.4%), with 20 of the 27 at the targeted atom
+- A second hydrogen atom removed in 24 of 24 attempts to form a pair of dangling bonds, with 21 of the 24 producing the intended pair
 - Sub-angstrom positioning precision
 - Zero-bias operation (no applied voltage during the mechanosynthetic step)
-- The critical innovation was functionalizing both sides of the tunnel junction with characterized matter, meaning both the tip and the surface are known at the atomic level
+- The key idea is control of both sides of the tunnel junction: tailored molecules on the sample surface image the probe apex and also act as the reagents, so the probe's atomic structure is known
 
-This is the first published experimental result that can legitimately be called mechanosynthesis: a mechanical tool performing a specific chemical reaction at a specific site with high fidelity and atomic positioning.
+The authors call this mechanosynthesis: a specific chemical reaction driven by mechanical control of where the reagents sit, with no applied bias.
 
-**Verdict**: A genuine milestone. The first real experimental mechanosynthesis. But the scope is extremely limited: only hydrogen abstraction from silicon. Only one type of reaction on one substrate. The paper notes that extension to other elements and reaction types "is expected," but that extension has not been demonstrated. There is a large distance between removing hydrogen atoms from silicon and building arbitrary covalent structures from multiple elements.
+**Verdict**: A genuine milestone. But the scope is extremely limited: only hydrogen abstraction from silicon. Only one type of reaction on one substrate. The paper says the approach "is expected to extend to other elements and moieties," but that extension is not shown in it. There is a large distance between removing hydrogen atoms from silicon and building arbitrary covalent structures from multiple elements.
 
-**Source**: [arXiv:2512.24431](https://arxiv.org/abs/2512.24431)
+**Source**: [Inverted-Mode Scanning Tunneling Microscopy for Atomically Precise Fabrication (arXiv:2512.24431)](https://arxiv.org/abs/2512.24431), a preprint. The trial counts are in its main text and supplement.
 
 ---
 
@@ -89,7 +89,7 @@ What has actually been built and demonstrated:
 
 Commercial products actually being sold today:
 
-- **GATTAquant** (Braunschweig, Germany): sells DNA nanorulers for super-resolution microscopy calibration. These are atomically precise structures with fluorophores at known separations, used as measurement standards. Real product, real customers, real revenue.
+- **GATTAquant** (Braunschweig, Germany): sells DNA nanorulers for super-resolution microscopy calibration. These are atomically precise structures with fluorophores at known separations, used as measurement standards. It is a real product on sale.
 - **tilibit nanosystems** (Munich, Germany): sells modular DNA origami kits for research laboratories. Pre-designed scaffold and staple sets for building specific nanostructures.
 
 **Verdict**: The most versatile nanoscale construction method available today. Real commercial products exist and are being sold. But the limitations are significant: DNA origami operates in aqueous environments only, at approximately 100 nm scale, producing structures that are soft and not mechanically robust. The chemistry is limited to what is compatible with DNA. This is a powerful research tool and a real commercial product category, but it is not a path to general-purpose manufacturing of hard, dry, mechanically strong structures.
@@ -121,17 +121,17 @@ What has been demonstrated:
 
 - **Molecular motors**: rotational speeds of 10 million revolutions per second (Ben Feringa's group, University of Groningen). These are light-driven or chemically driven molecular rotors.
 - **Light-activated artificial muscles**: macroscopic actuation from molecular-level photochemical switching (Nature Communications, 2025).
-- **Polymer assemblers**: the group of David Leigh at the University of Manchester demonstrated a synthetic molecular machine that assembles specific polymer sequences by threading monomers onto a track in a defined order (Chem, 2020).
+- **Polymer assemblers**: the group of David Leigh at the University of Manchester demonstrated a synthetic molecular machine that moves along a track and joins building blocks in a defined order, forming a single-sequence oligomer with a carbon-carbon backbone (Chem, 2020).
 
-The Leigh group result is the most relevant because it demonstrates a synthetic machine that actually builds a specific molecular product. But the performance numbers are sobering:
+The Leigh group work is the most relevant because it demonstrates a synthetic machine that actually builds a specific molecular product. But the performance numbers are sobering. The group's 2013 peptide machine took 36 hours to link three amino acids:
 
-- Speed: approximately 1 amino acid equivalent per 12 hours
+- Speed: approximately 1 amino acid per 12 hours
 - For comparison, a biological ribosome assembles 15 to 20 amino acids per second
 - That is a factor of roughly 600,000 to 900,000 times slower than biology
 
 **Verdict**: Proof that synthetic molecular machines CAN build specific molecular products. This is a genuine scientific achievement. But at six orders of magnitude slower than biology, there is no manufacturing application. These are research demonstrations, not manufacturing tools. Closing a factor-of-a-million performance gap is not incremental engineering; it requires fundamentally different approaches.
 
-**Source**: Leigh group polymer assembler: [DOI: 10.1016/j.chempr.2020.09.021](https://doi.org/10.1016/j.chempr.2020.09.021)
+**Sources**: McTernan, De Bo and Leigh, [A Track-Based Molecular Synthesizer that Builds a Single-Sequence Oligomer through Iterative Carbon-Carbon Bond Formation](https://doi.org/10.1016/j.chempr.2020.09.021) (Chem, 2020). For the 2013 machine, Lewandowski et al., [Sequence-Specific Peptide Synthesis by an Artificial Small-Molecule Machine](https://doi.org/10.1126/science.1229753) (Science, 2013), and the 36 hours in [Rotaxane mimics ribosome to spin out peptides](https://www.chemistryworld.com/news/rotaxane-mimics-ribosome-to-spin-out-peptides/5793.article) (Chemistry World).
 
 ---
 
@@ -141,17 +141,17 @@ Diamond mechanosynthesis has the most extensive theoretical literature of any pr
 
 The track record:
 
-- **CBN Nano Technologies**: holds 24+ mechanosynthesis patents granted between 2021 and 2023. These patents describe tooltip geometries, reaction sequences, and molecular machine designs for diamond construction.
+- **CBN Nano Technologies**: holds mechanosynthesis patents, among them [US 11,180,514](https://patents.google.com/patent/US11180514B2/en) (granted 2021) and [US 11,708,384](https://patents.google.com/patent/US11708384B2/en) (granted 2023). These patents describe tooltip geometries, reaction sequences, and molecular machine designs for diamond construction.
 - **Freitas's theoretical framework**: multiple publications describing specific tooltip chemistries, reaction energetics calculated via density functional theory (DFT), and designs for complete molecular assembler systems.
-- **Philip Moriarty at the University of Nottingham**: received 1.53 million GBP for a 5-year experimental program to attempt diamond mechanosynthesis, starting in 2008. Moriarty's team found diamond surfaces too difficult to work with experimentally and pivoted to silicon, which is how they contributed to the silicon-based work described in Section 3.
+- **Philip Moriarty at the University of Nottingham**: received 1.53 million GBP for a 5-year experimental program to attempt diamond mechanosynthesis, starting in 2008. In a 2011 interview Moriarty said diamond is "a very difficult material to work with" and that his group had "a parallel effort focused on silicon, which is much, much easier to work with than diamond."
 
-The bottom line: despite more than 20 years of theoretical work, detailed computational modeling, and significant experimental funding, there is zero experimental demonstration of diamond mechanosynthesis. No one has placed a carbon atom onto a diamond surface using a mechanical tool with positional control. The patents describe machines that have never been built.
+The bottom line: despite more than 20 years of theoretical work, detailed computational modeling, and significant experimental funding, there is zero experimental demonstration of diamond mechanosynthesis. No one has placed a carbon atom onto a diamond surface using a mechanical tool with positional control. The patents describe machines that no one has reported building.
 
 This does not mean diamond mechanosynthesis is impossible. The theoretical work may be entirely correct. But the gap between "DFT says this reaction should work" and "we did this reaction in a lab" is the gap where most proposed nanotechnologies go to die.
 
-**Verdict**: Extensive theoretical work. Computationally modeled. Patented. But zero experimental demonstrations after two decades. The theory is ahead of experiment by at least a generation.
+**Verdict**: Extensive theoretical work. Computationally modeled. Patented. But zero experimental demonstrations of diamond mechanosynthesis after two decades. The theory is ahead of experiment by at least a generation.
 
-**Source**: [CBN Nano Technologies](https://www.cbnano.com/)
+**Sources**: [CBN Nano Technologies](https://www.cbnano.com/). The two patents are both titled "Systems and methods for mechanosynthesis". The Nottingham grant is in [Diamond mechanosynthesis for atomically precise nanotechnology to be explored experimentally](https://events.foresight.org/diamond-mechanosynthesis-for-atomically-precise-nanotechnology-to-be-explored-experimentally/) (Foresight Institute), and the 2011 interview is [Philip Moriarty discusses mechanosynthesis with Sander Olson](https://www.nextbigfuture.com/2011/03/philip-moriarty-discusses.html) (NextBigFuture).
 
 ---
 
@@ -163,7 +163,7 @@ The pattern across all seven categories is consistent: real atomically precise m
 |---|---|---|---|
 | SQC qubit placement | Phosphorus in silicon | Single atom type, single substrate | 250K registers in 8 hours |
 | Zyvex HDL | Hydrogen on silicon | Atom removal, not addition | 2D patterns, sub-nm resolution |
-| Inverted-mode STM | H abstraction from Si | One reaction type | Single atoms, 96.4% yield |
+| Inverted-mode STM | H abstraction from Si | One reaction type | Single atoms, 27 of 28 trials |
 | DNA origami | DNA | Aqueous, soft, ~100 nm | Billions of copies per batch |
 | Metal nanoclusters | Au, Ag, Cu clusters | Self-assembled, specific compositions | Sub-2 nm clusters |
 | Molecular machines | Organic molecules | Extremely slow | Single molecules |
@@ -185,7 +185,7 @@ Several observations emerge:
 
 **Established** (high confidence, experimentally demonstrated):
 
-Atomically precise construction works for narrow domains. SQC, Zyvex, and GATTAquant have commercial products generating revenue. The December 2025 inverted-mode STM result is the first legitimate experimental mechanosynthesis. Individual atoms can be placed or removed with sub-nanometer precision on silicon surfaces. DNA origami can build complex 3D nanostructures in aqueous solution. These are facts, not projections.
+Atomically precise construction works for narrow domains. SQC, Zyvex, and GATTAquant have commercial products. The December 2025 inverted-mode STM preprint reports experimental mechanosynthesis of one reaction type. Individual atoms can be placed or removed with sub-nanometer precision on silicon surfaces. DNA origami can build complex 3D nanostructures in aqueous solution. These are facts, not projections.
 
 **Plausible** (reasonable extrapolation, not yet demonstrated):
 

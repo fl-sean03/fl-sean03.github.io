@@ -1,28 +1,26 @@
 {{ define "main" }}
-<article class="archive-single">
-  {{ $slug := .File.BaseFileName }}
-  {{ $img := printf "/archive/%s.png" $slug }}
-  {{ $imgPath := printf "static/archive/%s.png" $slug }}
-  {{ $hasImg := fileExists $imgPath }}
-
-  <header class="archive-single-header">
-    <p class="archive-breadcrumb"><a href="/archive/">← Archive</a></p>
+<article class="article">
+  <header class="article-head col">
+    {{- partial "breadcrumb.html" . }}
     <h1>{{ .Title }}</h1>
-    {{ with .Description }}<p class="archive-single-description">{{ . }}</p>{{ end }}
-    <div class="archive-single-meta">
-      {{ if .Date }}<time>{{ .Date.Format "January 2006" }}</time>{{ end }}
-      {{ with .Params.link }}<span>·</span><a href="{{ . }}" target="_blank" rel="noopener">{{ replace . "https://" "" | replaceRE "/$" "" }} ↗</a>{{ end }}
-    </div>
+    {{- with .Description }}
+    <p class="lede">{{ . }}</p>
+    {{- end }}
+    <p class="meta">
+      {{- if not .Date.IsZero }}<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2006" }}</time>{{ end }}
+      {{- with .Params.link }}<a class="ext" href="{{ . }}" rel="noopener">{{ replace . "https://" "" | replaceRE "/$" "" }}</a>{{ end }}
+    </p>
   </header>
-
-  {{ if $hasImg }}
-  <figure class="archive-single-image">
-    <img src="{{ $img }}" alt="{{ .Title }}">
-  </figure>
-  {{ end }}
-
-  <div class="archive-single-body">
-    {{ .Content }}
+  {{- $src := partial "page-image.html" . }}
+  {{- with $src }}
+  <div class="hero col">
+    <figure class="featured">
+      {{- partial "img.html" (dict "src" . "alt" (printf "Screenshot of %s" $.Title) "sizes" "(min-width: 56rem) 54rem, 100vw" "loading" "eager") }}
+    </figure>
+  </div>
+  {{- end }}
+  <div class="prose col">
+    {{- partial "content.html" . }}
   </div>
 </article>
 {{ end }}

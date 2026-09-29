@@ -3,6 +3,7 @@ title: "A Capability, Not a Megaproject"
 description: "The near-term agenda is a sequence of evidence gates: shared inventories, comparable models, usable sediment pathways, delivery continuity, reversible pilots, and a decision before scale."
 date: 2026-04-21
 image: /images/research/territorial-engineering/roadmap-and-ecosystem.png
+image_alt: "Aerial view of a reclaimed peninsula, with landscaped buildings on one side, a graded sand platform covered in construction equipment in the middle and a shallow basin beside it."
 ---
 
 The wrong roadmap begins with a megaproject and works backwards to the studies needed to approve it. That structure rewards confirmation. Data collection is narrowed to the preferred site, models are asked to refine a chosen geometry, and early contracts make retreat more expensive before the main assumptions have been tested.

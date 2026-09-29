@@ -1,0 +1,32 @@
+{{ define "main" }}
+<article class="article cv wrap-wide">
+  <header class="list-head">
+    <h1>{{ .Title }}</h1>
+    {{- with .Description }}
+    <p class="lede">{{ . }}</p>
+    {{- end }}
+    {{- if or .Params.resume_pdf .Params.cv_pdf }}
+    <p class="downloads">
+      {{- with .Params.resume_pdf }}<a class="button" href="{{ . }}">Resume (PDF)</a>{{ end }}
+      {{- with .Params.cv_pdf }}<a class="button" href="{{ . }}">CV (PDF)</a>{{ end }}
+    </p>
+    {{- end }}
+    {{- with .Params.variants }}
+    <div class="variants">
+      <h2 class="eyebrow">Resume versions</h2>
+      <ul class="link-list">
+        {{- range . }}
+        <li><a href="{{ .url }}">{{ .label }}</a></li>
+        {{- end }}
+      </ul>
+    </div>
+    {{- end }}
+  </header>
+  {{- /* A line break may follow a separator dot but never precede one, and a date range stays whole. */}}
+  {{- $body := replaceRE ` · ` "&nbsp;· " .Content }}
+  {{- $body = replaceRE `((?:[A-Z][a-z]{2}\.? )?\d{4}\s?(?:–|&ndash;)\s?(?:(?:[A-Z][a-z]{2}\.? )?\d{4}|[Pp]resent)|[A-Z][a-z]{2}\.?(?:–|&ndash;)[A-Z][a-z]{2}\.? \d{4})` `<span class="nowrap">$1</span>` $body }}
+  <div class="cv-body">
+    {{- $body | safeHTML }}
+  </div>
+</article>
+{{ end }}

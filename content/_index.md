@@ -1,65 +1,17 @@
 ---
 title: "Sean P. Florez"
+tagline: "I'm doing a PhD in materials science at CU Boulder, and I build OpenSDL, open-source software for self-driving labs."
+photo: /images/profile.jpg
+photo_alt: "Sean P. Florez standing in front of the Golden Gate Bridge"
+now: "I'm lead author on two papers in preparation, on [MXene shear](/projects/mxene-shear/) and on [hydrogen release on platinum](/projects/pt-hydrogen-release/). On OpenSDL I'm working on Slurm support and on its first connection to real hardware."
+selected:
+  - /projects/opensdl/
+  - /writings/where-are-we-materials-ai/
+  - /research/territorial-engineering/
+  - /projects/mxene-shear/
+  - /projects/pt-hydrogen-release/
 ---
 
-<img src="/images/profile.jpg" alt="Sean P. Florez at Golden Gate Bridge" class="profile-photo">
+In 2011 the Materials Genome Initiative put the time it takes a new material to get from initial research to first use at [about 10 to 20 years](https://obamawhitehouse.archives.gov/sites/default/files/microsites/ostp/materials_genome_initiative-final.pdf). It traced part of that to slow, repetitive loops of experiment and characterization, and to simulations that weren't yet accurate enough to replace them. I work on both.
 
-# Sean P. Florez
-
-PhD Student, Materials Science & Engineering
-University of Colorado Boulder
-
-I study where materials fail. Specifically at interfaces, the boundaries where different materials meet. This is where most advanced systems break down. It's also where academic expertise and manufacturing reality diverge most sharply.
-
-My work spans national labs, defense programs, and the full arc from early-stage research to deployment constraints. I'm building the position that sits between pure academic and pure operator. That's where the translation actually happens.
-
----
-
-**Currently:** Building intuition for materials translation across energy, defense, aerospace, and quantum applications.
-
-**Interests:** Autonomous science systems, scientific computing infrastructure, materials qualification, industrial capacity.
-
-[Read my personal thesis →](/writings/thesis/)
-
----
-
-## Highlights
-
-<div class="highlights-grid">
-
-<div class="highlight-card">
-<h3>Seed Fleet</h3>
-<p>Seven autonomous AI agents on dedicated ARM servers, each with persistent memory and a specific domain of work. They coordinate through encrypted messages, self-schedule, and self-heal. The fleet found, fixed, and deployed a bug patch across every server in four hours with no human involvement.</p>
-<div class="highlight-buttons">
-<a href="/projects/seed-fleet/" class="btn-read">Read</a>
-<a href="https://fleet.seanflorez.com" class="btn-link">Live Dashboard</a>
-</div>
-</div>
-
-<div class="highlight-card">
-<h3>Matter Compilation</h3>
-<p>A 14-document research corpus on building arbitrary physical structures with atomic precision. Covers the 20-order-of-magnitude throughput gap between scanning probe methods and macroscopic objects, the biological existence proof, and the multi-decade engineering roadmap to close it.</p>
-<div class="highlight-buttons">
-<a href="/research/matter-compilation/" class="btn-read">Read</a>
-</div>
-</div>
-
-<div class="highlight-card">
-<h3>Private Agent Networks</h3>
-<p>Why owned infrastructure changes what small teams can sustain. The constraint on most organizations isn't knowledge or talent. It's coordination overhead. Agent networks that run independently on machines you control are a structural answer, not a productivity hack.</p>
-<div class="highlight-buttons">
-<a href="/writings/private-agent-networks/" class="btn-read">Read</a>
-</div>
-</div>
-
-<div class="highlight-card">
-<h3>Heinz Lab Agent</h3>
-<p>Autonomous research agent for a computational materials science group at CU Boulder. Automated IFF parameterization, weekly arXiv scans, deep paper analysis. Completed a seven-phase publication-ready research workflow autonomously. Spawns sub-agents for complex projects.</p>
-<div class="highlight-buttons">
-<a href="/projects/heinz-lab-agent/" class="btn-read">Read</a>
-<a href="https://github.com/Heinz-Laboratory" class="btn-link">GitHub</a>
-</div>
-</div>
-
-</div>
-
+At the Air Force Research Laboratory in summer 2025 I ran molecular dynamics on two sheets of an [MXene](/projects/mxene-shear/), OH-terminated Ti<sub>3</sub>C<sub>2</sub>, sliding past each other with water between them. Dry, the two sheets hold to 103 MPa in shear. A quarter monolayer of water drops that to 8 MPa, and full coverage brings it back to 39. Water moves the shear strength by an order of magnitude, which gives stress windows for designing electromagnetic-shielding composites.

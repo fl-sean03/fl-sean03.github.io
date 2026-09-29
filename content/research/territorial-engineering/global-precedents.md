@@ -3,6 +3,7 @@ title: "What Other Countries Actually Built"
 description: "Four coastal projects show what large-scale land creation can accomplish, and why purpose, seabed, sediment supply, ownership, environmental duty, and maintenance determine whether a precedent transfers."
 date: 2026-04-21
 image: /images/research/territorial-engineering/global-precedents.png
+image_alt: "Aerial view of a dense city at left and rectangular reclaimed port and industrial islands extending into a dark bay at right."
 ---
 
 The outer defense of Maasvlakte 2 changes character along its length. A broad beach and dune absorb North Sea waves on one reach; near the port entrance, a hard seawall handles a different combination of exposure, navigation, and available space.

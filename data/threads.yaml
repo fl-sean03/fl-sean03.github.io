@@ -1,0 +1,42 @@
+# The three threads the home page is organised around. A project page names one
+# of them in its `thread` front matter (models, loop or scale). The text is
+# markdown, and its links are the thread's only links on the home page.
+- key: models
+  title: Materials models
+  text: >-
+    Most materials AI is trained on DFT calculations and scored against them.
+    In a 2024 paper by [Röcken and Zavadlav](https://doi.org/10.1038/s41524-024-01251-4),
+    a titanium potential with a 6.0 meV per atom energy error against DFT was
+    off the measured shear modulus by 24 percent on average. I used that case
+    in a [talk](/writings/where-are-we-materials-ai/) for a CU Boulder course
+    on foundation models in September 2026, about making materials models
+    answer to reality. For the 780 shear trajectories in my CU Boulder
+    [MXene](/projects/mxene-shear/) campaign, I froze the protocol before
+    production and had the campaign audited afterward. The audit re-derived
+    every reported critical stress from the raw trajectories and caught an
+    inflated trajectory count in the campaign's own reporting before it
+    reached the manuscript.
+- key: loop
+  title: Self-driving labs
+  text: >-
+    [OpenSDL](/projects/opensdl/) is open-source software for self-driving
+    labs, and for now it's an alpha that runs only in simulation. In its color
+    example the simulated lab gets a target color and has to find the
+    three-dye recipe that makes it. Each round it mixes 96 recipes on a plate
+    and draws the next 96 from a tighter region around whatever came closest.
+    The best well was 14.0 RGB units off the target in the first round and 0.5
+    off in the sixth. A [viewer](https://seanflorez.com/OpenSDL/viewer/)
+    replays a recorded run.
+- key: scale
+  title: First use
+  text: >-
+    At Idaho National Laboratory in 2024 I ran
+    [20 customer-discovery interviews](/cv/#technology-commercialization-intern)
+    under Energy I-Corps to work out what a technology the lab had developed
+    needed before anyone would use it. In 2025 I asked the same of propulsion
+    and energy concepts at technology readiness levels 3 to 5, in
+    [eight briefs](/cv/#st-scouting-intern) I wrote as a science and technology
+    scouting intern at the Joint Staff's Future Technology Office. My two
+    published research corpora ask it at a far larger scale, for
+    [new coastline](/research/territorial-engineering/) and for
+    [building with atomic precision](/research/matter-compilation/).

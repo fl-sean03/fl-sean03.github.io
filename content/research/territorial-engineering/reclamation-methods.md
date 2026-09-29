@@ -3,6 +3,7 @@ title: "How New Land Is Built"
 description: "Reclamation as a controlled sequence of investigation, containment, placement, ground treatment, drainage, monitoring, and use-specific acceptance."
 date: 2026-04-21
 image: /images/research/territorial-engineering/reclamation-methods.png
+image_alt: "Dredge pipeline discharging a sand slurry into a diked reclamation cell, with sheet-pile walls, bulldozers and open water beyond the dike."
 ---
 
 The new platform is dry enough to drive across. Survey stakes stand above a broad, level surface. From the perimeter road, the land appears finished.
@@ -75,7 +76,7 @@ Prefabricated vertical drains shorten the distance that water must travel out of
 
 Densification addresses a different problem. Vibration, compaction, or related methods rearrange loose granular fill into a denser state, improving stiffness and reducing liquefaction susceptibility. Their effectiveness declines as fines interfere with drainage and grain rearrangement. A method selected for clean sand cannot be assumed to work after the source grading changes.
 
-Deep mixing treats weak soil in place with a binder to create stronger, stiffer, and often less permeable material. It is useful where the foundation needs added strength, lower compressibility, or seepage control, and where excavation or years of waiting are impractical. The actual soil-binder response sets the design strength. The [FHWA deep mixing design manual](https://www.fhwa.dot.gov/publications/research/infrastructure/geotechnical/13046/13046.pdf) emphasizes laboratory studies, field trials, installation control, sampling, and verification. Installation logs show where columns were attempted; sampling and verification establish whether the treated mass has the required continuity and properties.
+Deep mixing treats weak soil in place with a binder to create stronger, stiffer, and often less permeable material. It is useful where the foundation needs added strength, lower compressibility, or seepage control, and where excavation or years of waiting are impractical. The actual soil-binder response sets the design strength. The [FHWA deep mixing design manual](https://www.fhwa.dot.gov/publications/research/infrastructure/structures/bridge/13046/13046.pdf) emphasizes laboratory studies, field trials, installation control, sampling, and verification. Installation logs show where columns were attempted; sampling and verification establish whether the treated mass has the required continuity and properties.
 
 The broader [FHWA ground-modification reference](https://www.fhwa.dot.gov/engineering/geotech/pubs/nhi16027.pdf) organizes selection around soil type, depth, purpose, constraints, and verification. That is more useful than assigning one treatment to an entire reclamation. A heavy quay may need deep treatment. A road corridor may need preload and drains. A landscape zone may be allowed to settle with periodic regrading. Zoning the ground by use can avoid both undertreatment and unnecessary treatment.
 

@@ -1,5 +1,84 @@
 {{ define "main" }}
-<section class="home">
-  {{ .Content }}
-</section>
+<div class="home">
+  <section class="intro wrap" aria-labelledby="intro-title">
+    <div class="intro-name">
+      <h1 id="intro-title">{{ .Title }}</h1>
+      {{- with .Params.tagline }}
+      <p class="tagline">{{ . | markdownify }}</p>
+      {{- end }}
+    </div>
+    {{- with .Params.photo }}
+    <div class="intro-photo">
+      {{- partial "img.html" (dict "src" . "alt" $.Params.photo_alt "widths" (slice 320 640 960) "sizes" "(min-width: 52rem) 18rem, 12rem" "loading" "eager" "full" false) }}
+    </div>
+    {{- end }}
+    <div class="intro-bio">
+      {{- .Content }}
+    </div>
+  </section>
+
+  {{- with .Params.now }}
+  <section class="rail wrap" aria-labelledby="now-title">
+    <h2 class="eyebrow" id="now-title">Now</h2>
+    <p class="now">{{ . | markdownify }}</p>
+  </section>
+  {{- end }}
+
+  <section class="threads wrap" aria-label="Three threads">
+    <ol class="thread-list" role="list">
+      {{- range site.Data.threads }}
+      <li class="thread" id="thread-{{ .key }}">
+        <h2>{{ .title }}</h2>
+        <p>{{ .text | markdownify }}</p>
+      </li>
+      {{- end }}
+    </ol>
+  </section>
+
+  {{- $selected := slice }}
+  {{- range .Params.selected }}
+    {{- with site.GetPage (strings.TrimSuffix "/" .) }}{{ $selected = $selected | append . }}{{ end }}
+  {{- end }}
+  {{- with $selected }}
+  <section class="wrap" aria-labelledby="selected-title">
+    <h2 class="eyebrow section-label" id="selected-title">Selected work</h2>
+    <ul class="cards selected">
+      {{- range . }}
+      {{- partial "card.html" (dict "page" . "sizes" "(min-width: 80rem) 23rem, (min-width: 64rem) 30vw, (min-width: 40rem) 45vw, 92vw") }}
+      {{- end }}
+    </ul>
+  </section>
+  {{- end }}
+
+  {{- /* Recent writing skips pieces already shown above, so nothing appears twice. It lists titles and dates only. */ -}}
+  {{- with site.GetPage "/writings" }}
+  {{- $shown := slice }}
+  {{- range $selected }}{{ $shown = $shown | append .RelPermalink }}{{ end }}
+  <section class="rail wrap" aria-labelledby="recent-title">
+    <h2 class="eyebrow" id="recent-title">Recent writing</h2>
+    <ul class="rows">
+      {{- range first 5 (where .Pages "RelPermalink" "not in" $shown) }}
+      <li class="row">
+        <div class="row-body">
+          {{- partial "meta-line.html" (dict "page" .) }}
+          <h3 class="row-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        </div>
+      </li>
+      {{- end }}
+    </ul>
+  </section>
+  {{- end }}
+
+  <section class="rail wrap" aria-labelledby="contact-title">
+    <h2 class="eyebrow" id="contact-title">Contact</h2>
+    <ul class="link-list contact">
+      {{- with site.Params.email }}<li><a href="mailto:{{ . }}">Email</a></li>{{ end }}
+      {{- with site.Params.github }}<li><a class="ext" href="{{ . }}" rel="noopener">GitHub</a></li>{{ end }}
+      {{- with site.Params.linkedin }}<li><a class="ext" href="{{ . }}" rel="noopener">LinkedIn</a></li>{{ end }}
+      {{- with site.Params.x }}<li><a class="ext" href="{{ . }}" rel="noopener">X</a></li>{{ end }}
+      {{- with site.Params.resume }}<li><a href="{{ . }}">Resume</a></li>{{ end }}
+      {{- with site.GetPage "/cv" }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>{{ else }}{{ with site.Params.cv }}<li><a href="{{ . }}">CV</a></li>{{ end }}{{ end }}
+    </ul>
+  </section>
+</div>
 {{ end }}
