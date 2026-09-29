@@ -385,10 +385,6 @@ Based on current trajectories:
 
 ### 9.2 International Government Funding
 
-**Australia:**
-- Significant investment in SQC through UNSW and direct government support
-- ARC Centre of Excellence for Quantum Computation and Communication Technology
-
 **Canada:**
 - $40 million investment in CBN Nano Technologies announced by Minister of Innovation, Science and Economic Development
 - CBN's $220 million nanotechnology project aimed at first commercial-scale APM
