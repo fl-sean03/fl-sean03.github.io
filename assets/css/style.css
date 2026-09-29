@@ -405,6 +405,32 @@ h4 {
   color: var(--accent);
 }
 
+/* The resume and CV PDFs sit on their own row under the contact links. */
+.footer-pdfs {
+  flex-basis: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 1.25rem;
+}
+
+.footer-pdfs ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-pdfs a {
+  color: var(--text);
+}
+
+.footer-pdfs a:hover {
+  color: var(--accent);
+}
+
 /* ---------- Article header and metadata ---------- */
 
 .article-head {
@@ -1349,18 +1375,21 @@ td:last-child {
 /* On a phone or a touch screen, a list of links becomes full-height rows. */
 @media (max-width: 40rem), (pointer: coarse) {
   .footer-links a,
+  .footer-pdfs a,
   .link-list a {
     display: inline-block;
     padding: 0.7rem 0.5rem;
   }
 
   .footer-links ul,
+  .footer-pdfs ul,
   .link-list:not(.stacked) {
     margin-inline: -0.5rem;
     row-gap: 0;
   }
 
-  .footer-links ul {
+  .footer-links ul,
+  .footer-pdfs ul {
     column-gap: 0.25rem;
   }
 

@@ -13,6 +13,20 @@ enableRobotsTXT = true
   resume = "/Sean_Florez_Resume.pdf"
   cv = "/cv/"
 
+  # The resume and CV as PDFs, linked from the footer of every page.
+  [[params.pdfs]]
+    label = "Resume"
+    url = "/Sean_Florez_Resume.pdf"
+  [[params.pdfs]]
+    label = "CV"
+    url = "/Sean_Florez_CV.pdf"
+  [[params.pdfs]]
+    label = "Research and ML resume"
+    url = "/ML_Resume.pdf"
+  [[params.pdfs]]
+    label = "National security resume"
+    url = "/NS_Resume.pdf"
+
 [menu]
   [[menu.main]]
     name = "Work"

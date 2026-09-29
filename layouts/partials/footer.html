@@ -4,16 +4,24 @@
       <p class="footer-name">{{ site.Title }}</p>
       <p>PhD student in materials science, University of Colorado Boulder</p>
     </div>
-    <nav class="footer-links" aria-label="Contact and documents">
+    <nav class="footer-links" aria-label="Contact">
       <ul>
         {{- with site.Params.email }}<li><a href="mailto:{{ . }}">Email</a></li>{{ end }}
         {{- with site.Params.github }}<li><a href="{{ . }}">GitHub</a></li>{{ end }}
         {{- with site.Params.linkedin }}<li><a href="{{ . }}">LinkedIn</a></li>{{ end }}
         {{- with site.Params.x }}<li><a href="{{ . }}">X</a></li>{{ end }}
-        {{- with site.Params.resume }}<li><a href="{{ . }}">Resume</a></li>{{ end }}
-        {{- with site.Params.cv }}<li><a href="{{ . }}">CV</a></li>{{ end }}
         {{- with site.Home.OutputFormats.Get "rss" }}<li><a href="{{ .RelPermalink }}">RSS</a></li>{{ end }}
       </ul>
     </nav>
+    {{- with site.Params.pdfs }}
+    <nav class="footer-pdfs" aria-labelledby="footer-pdfs-label">
+      <p id="footer-pdfs-label">Download as PDF</p>
+      <ul>
+        {{- range . }}
+        <li><a href="{{ .url }}" type="application/pdf">{{ .label }}</a></li>
+        {{- end }}
+      </ul>
+    </nav>
+    {{- end }}
   </div>
 </footer>
