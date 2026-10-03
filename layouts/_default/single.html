@@ -7,6 +7,13 @@
     <p class="lede">{{ . }}</p>
     {{- end }}
     {{- partial "meta-line.html" (dict "page" . "long" true) }}
+    {{- with .Params.links }}
+    <ul class="link-list">
+      {{- range . }}
+      <li><a href="{{ .url }}"{{ if strings.HasPrefix .url "http" }} class="ext" rel="noopener"{{ end }}{{ if .download }} download{{ end }}>{{ .label }}</a></li>
+      {{- end }}
+    </ul>
+    {{- end }}
   </header>
   {{- with partial "hero.html" . }}
   <div class="hero col">{{ . }}</div>
