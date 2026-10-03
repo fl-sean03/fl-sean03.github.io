@@ -1,0 +1,29 @@
+{
+  "element": "Rh",
+  "phase": "fcc",
+  "space_group": "Fm-3m (225)",
+  "a_angstrom": 3.8032,
+  "unit_atoms": 4,
+  "supercell_atoms": 108,
+  "slab_atoms": 144,
+  "slab_orientation": "(111)",
+  "slab_inplane_vectors_angstrom": [
+    [
+      16.135611061252067,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      9.315899389752982,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      24.978892718909922
+    ]
+  ],
+  "reconstruction": "Fm-3m symmetry expansion from corrected rh_unit_cell_Fm3m.car; slab via ASE fcc111; static ideal source-grounded construction, not relaxed simulation",
+  "source": "Kanhaiya 2021 corrected Supplementary Data; author correction DOI 10.1038/s41524-021-00576-8"
+}

@@ -1,0 +1,931 @@
+"""Public presentation story and cited primary sources."""
+
+SL = [{'id': 1,
+  'title': 'Interface Force Field',
+  'chapter': 'OPENING',
+  'layout': 'hero',
+  'lead': 'From atoms to a testable material prediction',
+  'items': ['Structure → model → energy & forces → simulation → observable → evidence'],
+  'image': 'rh111-slab.png',
+  'refs': ['K21', 'K21C'],
+  'notes': 'This deck explains Interface Force Field (IFF) as a classical molecular-mechanics '
+           'framework. The running example is face-centered cubic rhodium, with source-grounded '
+           'ideal structures and numerical results from Kanhaiya et al. (2021). Camera motion and '
+           'analytical two-atom illustrations explain concepts; they are not recorded material '
+           'trajectories. Published predictions are replotted and are not newly rerun simulations. '
+           'The aim is to understand how an atomic model becomes a claim that can be tested '
+           'against experiment, including where the claim should be restricted. Pure-metal, alloy '
+           'and agent-workflow examples have separate evidence boundaries.',
+  'tag': 'RHODIUM · A SOURCE-GROUNDED WALKTHROUGH',
+  'media': None,
+  'text_equivalents': []},
+ {'id': 2,
+  'title': 'Begin with the decision',
+  'chapter': 'OPENING',
+  'layout': 'image',
+  'lead': 'What would change if the predicted interface were wrong?',
+  'items': ['Question: what does it cost to expose a Rh surface?',
+            'Observable: (111) surface energy, γ111, in J/m².',
+            'Scope: pure fcc Rh, a defined face and thermodynamic state.'],
+  'image': 'rh111-slab.png',
+  'refs': ['K21'],
+  'notes': 'Surface energy matters when evaluating exposed crystal faces, cleavage and interface '
+           'formation. This is a narrow pedagogical material question, not a prediction of a '
+           'complete product or catalyst. The paper parameterizes metal models using lattice and '
+           'surface evidence at standard conditions. A surface energy should not be confused with '
+           'adsorption free energy, liquid interface tension, reaction barrier or corrosion rate. '
+           'Changing the decision usually changes the required estimator, conditions and '
+           'validation evidence. We begin with pure fcc Rh to avoid introducing unsupported alloy '
+           'or reaction generality.',
+  'tag': 'DEFINE THE OBSERVABLE BEFORE CHOOSING THE METHOD',
+  'media': None,
+  'text_equivalents': []},
+ {'id': 3,
+  'title': 'Keep every link in the chain visible',
+  'chapter': 'OPENING',
+  'layout': 'chain',
+  'lead': 'A structure is an input. A validated claim is an outcome.',
+  'items': [('Structure', 'composition · phase · cell'),
+            ('Model', 'types · parameters · rules'),
+            ('Energy / force', 'Hamiltonian · gradient'),
+            ('Simulation', 'minimize · integrate'),
+            ('Observable', 'estimator · conditions'),
+            ('Evidence', 'fit · test · limit')],
+  'image': None,
+  'refs': ['K21', 'AGENT'],
+  'notes': 'Coordinates and a cell specify a configuration. A Hamiltonian and parameter package '
+           'specify how the model assigns energy to that configuration. Forces follow from '
+           'derivatives. A numerical operation then explores configurations or time evolution. An '
+           'observable is an estimator applied to the resulting configurations. Only comparison '
+           'under a suitable evidence contract supports a qualified material claim. Each '
+           'transformation requires enough provenance to reproduce it. The IFF Agent is meant to '
+           'preserve that evidence chain rather than collapse a successful file export or '
+           'calculation into scientific acceptance.',
+  'tag': '',
+  'media': None,
+  'text_equivalents': []},
+ {'id': 4,
+  'title': 'Start with a real periodic crystal',
+  'chapter': '01 · STRUCTURE & CHEMISTRY',
+  'layout': 'image',
+  'lead': 'Rhodium: fcc, Fm-3m, a = 3.8032 Å',
+  'items': ['Corrected supplementary CAR: one symmetry-unique Rh site.',
+            'Expand Fm-3m symmetry → 4 atoms per conventional cell.',
+            'Render equivalent boundary sites to show the cell clearly.'],
+  'image': 'rh-unit.png',
+  'refs': ['K21', 'K21C'],
+  'notes': 'The corrected public supplementary archive supplies rh_unit_cell_Fm3m.car. Its cubic '
+           'cell has a=b=c=3.8032 Å and an Rh site at the origin under Fm-3m symmetry. This source '
+           'is expanded into the four conventional fcc sites: (0,0,0), (0,1/2,1/2), (1/2,0,1/2), '
+           'and (1/2,1/2,0). The illustration includes periodic equivalents on the cell boundary, '
+           'so visible sphere count is not a cell atom count. The geometry is an ideal '
+           'source-grounded construction, not a relaxed measured snapshot. The conventional-cell '
+           'length agrees with the Rh five-cell reference in Table 2: 19.016 Å / 5.',
+  'tag': 'SOURCE GEOMETRY · STATIC IDEAL CELL',
+  'media': None,
+  'text_equivalents': []},
+ {'id': 5,
+  'title': 'A supercell changes scale, not chemistry',
+  'chapter': '01 · STRUCTURE & CHEMISTRY',
+  'layout': 'image',
+  'lead': 'Replicate the cell while preserving periodic meaning.',
+  'items': ['3 × 3 × 3 conventional cells → 108 Rh atoms.',
+            'Bulk periodic boundaries reconnect opposing faces.',
+            'Paper lattice calculations used 5 × 5 × 5 cells, not this display.'],
+  'image': 'rh-supercell.png',
+  'refs': ['K21', 'K21C'],
+  'notes': 'The visual supercell is built by repeating the source-derived conventional cell three '
+           'times in each direction. It contains 108 atoms because 4 × 3³ = 108. It is smaller '
+           'than the 500-atom, 5 × 5 × 5 fcc supercells used in the paper to calculate lattice '
+           'parameters. Replication changes the finite model size without changing the element or '
+           'ideal phase. Atom count alone does not establish convergence: long-wavelength modes, '
+           'defects, correlations, cutoffs and periodic image effects can all change the required '
+           'size. This image is a reproducible structural illustration, not a claim about '
+           'simulation accuracy.',
+  'tag': 'DISPLAY SUPERCELL · NO NEW SIMULATION',
+  'media': None,
+  'text_equivalents': []},
+ {'id': 6,
+  'title': 'A surface introduces a physical boundary',
+  'chapter': '01 · STRUCTURE & CHEMISTRY',
+  'layout': 'image',
+  'lead': 'Cut the crystal along a named plane.',
+  'items': ['Rh(111): a triangular in-plane neighbor arrangement.',
+            'Constructed display slab: 6 × 4 × 6, 144 atoms.',
+            'State orientation, termination, vacuum and surface area.'],
+  'image': 'rh111-slab.png',
+  'refs': ['K21', 'K21C'],
+  'notes': 'The display slab is constructed with ASE fcc111 from the corrected Rh lattice '
+           'constant. It has 144 atoms, six layers and 7 Å vacuum on either side, and is not the '
+           'research slab used to produce the published results. Bulk periodicity and surface '
+           'boundary conditions answer different physical questions. In an ionic material, '
+           'termination, stoichiometry and charge neutrality can make a surface construction '
+           'substantially more consequential; the neutral elemental-metal example avoids those '
+           'issues but does not make them optional elsewhere. The source archive also supplies '
+           'oriented Rh surface cells, which we retain for geometry provenance. Playback shows '
+           'only camera and construction-stage changes.',
+  'tag': '(111) · IDEAL SLAB · TOP LAYER IN TEAL',
+  'media': 'structure-walkthrough',
+  'text_equivalents': []},
+ {'id': 7,
+  'title': 'Coordinates do not define the model',
+  'chapter': '02 · MODEL & SIMULATION',
+  'layout': 'layers',
+  'lead': 'The same atomic positions can produce different predictions.',
+  'items': [('Geometry', 'species · coordinates · periodic cell'),
+            ('Chemical assignment', 'atom type · charge · bonded topology'),
+            ('Parameter package', 'functional form · coefficients · mixing'),
+            ('Numerical settings', 'cutoff · electrostatics · units · engine')],
+  'image': None,
+  'refs': ['K21', 'AGENT'],
+  'notes': 'A coordinate file does not determine atomic charges, which interaction terms apply or '
+           'the coefficients in those terms. In the published pure-metal example, Rh is modeled by '
+           'charge-neutral atoms with Lennard–Jones interactions. An alloy or mineral can require '
+           'physically justified charge assignments and different conventions. Combining packages '
+           'also requires compatible functional forms, cross interactions, units and exclusion '
+           'rules. A renderer can show a plausible crystal while the actual Hamiltonian is wrong, '
+           'so structure and parameter provenance must be checked separately. The current IFF '
+           'Agent workflow explicitly maintains these distinctions and separates model-family '
+           'branches.',
+  'tag': '',
+  'media': None,
+  'text_equivalents': []},
+ {'id': 8,
+  'title': 'IFF is classical molecular mechanics',
+  'chapter': '02 · MODEL & SIMULATION',
+  'layout': 'family',
+  'lead': 'Its role is a chemically interpretable, compatible model.',
+  'items': [('Classical models', 'Pair potentials, many-body models, bonded and reactive families'),
+            ('IFF', 'Materials and interfaces within specific supported conventions'),
+            ('Intended use', 'Connect inorganic chemistry with compatible molecular models')],
+  'image': None,
+  'refs': ['K21', 'L18SI'],
+  'notes': 'IFF belongs within classical molecular mechanics, so IFF versus molecular mechanics is '
+           'a category error. Useful comparisons are between specific models for a defined '
+           'chemistry, state and observable. The cited metal work uses simple pair potentials, '
+           'while other classical models such as EAM include many-body metallic effects and '
+           'reactive families serve different purposes. Compatibility with an organic or '
+           'biomolecular host force field does not guarantee every mixed interface is accurate; '
+           'the host parameters and cross-interaction rules still affect the result. The '
+           'presentation avoids the paper’s broad speed or accuracy slogans and instead uses '
+           'observable-specific numerical evidence.',
+  'tag': '',
+  'media': None,
+  'text_equivalents': []},
+ {'id': 9,
+  'title': 'Sum only the applicable interactions',
+  'chapter': '02 · MODEL & SIMULATION',
+  'layout': 'terms',
+  'lead': 'U(R; θ) is the model, with coordinates R and parameters θ.',
+  'items': [('Bonded', 'bonds · angles · dihedrals, when applicable'),
+            ('Electrostatic', 'charges and their long-range convention'),
+            ('Nonbonded', 'repulsion / attraction, such as Lennard–Jones')],
+  'image': None,
+  'refs': ['K21', 'L18SI', 'DERIVED'],
+  'notes': 'A generic classical Hamiltonian may contain bonded, electrostatic and nonbonded terms, '
+           'with additional cross terms or many-body terms depending on the family. This is a menu '
+           'rather than a prescription that all IFF systems use all listed terms. The pure Rh '
+           'example in Kanhaiya et al. uses neutral atoms and the applicable Lennard–Jones form. '
+           'Electrostatics becomes chemically important in the alloy example later in the deck. A '
+           'model can hold topology or electronic response fixed, which limits phenomena such as '
+           'bond breaking, polarization or changing oxidation state unless a suitable extension is '
+           'explicitly included and validated.',
+  'tag': 'PURE RH EXAMPLE: NEUTRAL ATOMS + LJ',
+  'media': None,
+  'text_equivalents': []},
+ {'id': 10,
+  'title': 'Two parameters have physical meaning',
+  'chapter': '02 · MODEL & SIMULATION',
+  'layout': 'parameters',
+  'lead': 'Rh: set the length scale and the well depth.',
+  'items': [('12–6 LJ', 'Rmin = 2.757 Å', 'ε = 7.84 kcal/mol'),
+            ('9–6 LJ', 'Rmin = 2.807 Å', 'ε = 6.38 kcal/mol')],
+  'image': None,
+  'refs': ['K21'],
+  'notes': 'Table 1 gives separate 12–6 and 9–6 Rh parameters. In the paper’s equations, the '
+           'symbol sigma denotes the equilibrium nonbond distance, which this deck calls Rmin to '
+           'avoid confusing it with the conventional LAMMPS lj/cut sigma. Epsilon is the energy '
+           'well depth. Lattice and surface properties are coupled functions of both parameters, '
+           'even though their dominant interpretations are length and cohesion. The 9–6 set is not '
+           'obtained by copying the 12–6 values into a different formula, and it is not a '
+           'demonstrated later revision of the 12–6 model. These values are reproduced for '
+           'explanation, not adopted as a newly reviewed package.\n'
+           '\n'
+           'Readable equations and values:\n'
+           'Rh 12-6: Rmin = 2.757 angstrom; epsilon = 7.84 kcal/mol. Rh 9-6: Rmin = 2.807 '
+           'angstrom; epsilon = 6.38 kcal/mol.',
+  'tag': 'TABLE 1 · EACH FAMILY IS A DISTINCT MODEL',
+  'media': None,
+  'text_equivalents': ['Rh 12-6: Rmin = 2.757 angstrom; epsilon = 7.84 kcal/mol. Rh 9-6: Rmin = '
+                       '2.807 angstrom; epsilon = 6.38 kcal/mol.']},
+ {'id': 11,
+  'title': 'Check the engine’s parameter convention',
+  'chapter': '02 · MODEL & SIMULATION',
+  'layout': 'convention',
+  'lead': 'The word “sigma” can denote different distances.',
+  'items': [('Paper convention', 'U = ε[(Rmin/r)¹² − 2(Rmin/r)⁶]'),
+            ('LAMMPS lj/cut', 'U = 4ε[(σ/r)¹² − (σ/r)⁶]'),
+            ('Exact conversion', 'σ = Rmin / 2^(1/6)  ·  ε unchanged')],
+  'image': None,
+  'refs': ['K21', 'LJ'],
+  'notes': 'A convention mismatch changes the potential even if a coefficient file appears '
+           'syntactically valid. The paper’s 12–6 potential has its minimum at Rmin. LAMMPS lj/cut '
+           'defines sigma at the zero crossing, with the minimum at 2^(1/6) sigma. Converting Rh '
+           'therefore gives sigma approximately 2.4562 Å. The 9–6 expression in the paper has its '
+           'own coefficient and mixing conventions and must not be converted using this 12–6 rule. '
+           'Unit systems, cutoff handling, long-range corrections and mixing rules also matter. '
+           'Export readback should compare energies, forces and affected observables from the '
+           'exact consumed files.\n'
+           '\n'
+           'Readable equations and values:\n'
+           'Paper 12-6: U = epsilon * ((Rmin/r)^12 - 2*(Rmin/r)^6).\n'
+           'LAMMPS lj/cut: U = 4*epsilon * ((sigma/r)^12 - (sigma/r)^6).\n'
+           'sigma = Rmin / 2^(1/6) = 2.4562077659 angstrom for Rh; epsilon unchanged.',
+  'tag': 'RH 12–6: Rmin 2.757 Å → σ ≈ 2.4562 Å',
+  'media': None,
+  'text_equivalents': ['Paper 12-6: U = epsilon * ((Rmin/r)^12 - 2*(Rmin/r)^6).',
+                       'LAMMPS lj/cut: U = 4*epsilon * ((sigma/r)^12 - (sigma/r)^6).',
+                       'sigma = Rmin / 2^(1/6) = 2.4562077659 angstrom for Rh; epsilon '
+                       'unchanged.']},
+ {'id': 12,
+  'title': 'Forces are the slope of energy',
+  'chapter': '02 · MODEL & SIMULATION',
+  'layout': 'image',
+  'lead': 'Fi = −∇ri U(R; θ)',
+  'items': ['Too close: short-range repulsion dominates.',
+            'Past the minimum: attraction points back inward.',
+            'A pair minimum does not equal the bulk lattice constant.'],
+  'image': 'energy-force.png',
+  'refs': ['K21', 'DERIVED'],
+  'notes': 'For a two-atom separation r, the radial force is minus dU/dr. Under the Rmin '
+           'convention the illustrative pair force is 12ε/Rmin[(Rmin/r)^13 − (Rmin/r)^7]. Positive '
+           'radial force on the atom at positive r points outward; negative force points inward. A '
+           'solid contains many interacting neighbors, so its equilibrium lattice spacing is '
+           'determined by the total energy, not by a single pair minimum alone. The plotted curve '
+           'is analytical in reduced units and is not an experimental result, a fitted force curve '
+           'or an IFF trajectory. A finite-difference check of the derivative is included in '
+           'validation.\n'
+           '\n'
+           'Readable equations and values:\n'
+           'Force on atom i = minus the gradient of total potential energy with respect to its '
+           'position.\n'
+           'Radial pair force = (12*epsilon/Rmin) * ((Rmin/r)^13 - (Rmin/r)^7). Positive points '
+           'outward, negative inward.',
+  'tag': 'ANALYTICAL 12–6 PAIR · REDUCED UNITS',
+  'media': None,
+  'text_equivalents': ['Force on atom i = minus the gradient of total potential energy with '
+                       'respect to its position.',
+                       'Radial pair force = (12*epsilon/Rmin) * ((Rmin/r)^13 - (Rmin/r)^7). '
+                       'Positive points outward, negative inward.']},
+ {'id': 13,
+  'title': 'Minimization searches a local basin',
+  'chapter': '02 · MODEL & SIMULATION',
+  'layout': 'minimize',
+  'lead': 'Move toward a configuration with smaller residual forces.',
+  'items': ['Start from a structure and a fixed Hamiltonian.',
+            'Choose convergence tolerances and movable degrees of freedom.',
+            'A local minimum is neither a thermal ensemble nor a proof of truth.'],
+  'image': None,
+  'refs': ['MD', 'DERIVED'],
+  'notes': 'Energy minimization changes coordinates, and sometimes cell degrees of freedom, to '
+           'seek a local energy minimum. Convergence criteria can include energy changes and force '
+           'thresholds. The result depends on the initial basin, constraints and algorithm; it '
+           'need not be the global minimum. A converged minimizer can still be solving an '
+           'inappropriate physical model or a wrongly terminated slab. Temperature-dependent '
+           'observables generally require more than a static minimum. The schematic basin on this '
+           'slide is an explanatory drawing with no numerical material trajectory behind it.',
+  'tag': 'SCHEMATIC ENERGY LANDSCAPE · NO MATERIAL DATA',
+  'media': None,
+  'text_equivalents': []},
+ {'id': 14,
+  'title': 'MD follows a time evolution',
+  'chapter': '02 · MODEL & SIMULATION',
+  'layout': 'movie',
+  'lead': 'Mass and force determine acceleration; an ensemble defines state.',
+  'items': ['Newton: mi d²ri/dt² = Fi.',
+            'Time step, thermostat and barostat require explicit choices.',
+            'Equilibrate, then sample; inspect drift and correlations.'],
+  'image': 'model-walkthrough-poster.png',
+  'refs': ['MD', 'K21'],
+  'notes': 'Molecular dynamics numerically integrates equations of motion. A common classical '
+           'integrator is velocity Verlet. NVE, NVT and NPT ensembles address different '
+           'constraints; thermostats and barostats affect how a target temperature and pressure '
+           'are maintained. The FCC-metal paper used 1 fs steps and property-specific ensembles, '
+           'described in its methods and SI. The embedded movie is prescribed analytical two-atom '
+           'motion designed to show the force sign and different simulation operations. It does '
+           'not integrate a Rh material trajectory, report a physical oscillation period or '
+           'support a thermal prediction. Arrow direction follows the force sign; arrow length is '
+           'clipped for display and is not a quantitative vector scale. A static poster remains '
+           'visible if a presentation viewer cannot play the MP4.\n'
+           '\n'
+           'Readable equations and values:\n'
+           'Mass of atom i times its second time derivative of position equals force on atom i: mi '
+           '* d^2(ri)/dt^2 = Fi.',
+  'tag': 'PLAYABLE TWO-ATOM ILLUSTRATION · NOT MATERIALS MD',
+  'media': 'model-walkthrough',
+  'text_equivalents': ['Mass of atom i times its second time derivative of position equals force '
+                       'on atom i: mi * d^2(ri)/dt^2 = Fi.']},
+ {'id': 15,
+  'title': 'An observable needs a defined estimator',
+  'chapter': '02 · MODEL & SIMULATION',
+  'layout': 'observables',
+  'lead': 'A trajectory is not yet the quantity you will compare.',
+  'items': [('Density', 'ρ = total mass / volume', 'NPT state and sampling window'),
+            ('Structure',
+             'g(r), coordination, lattice spacing',
+             'normalization and phase definition'),
+            ('Mechanical response', 'K = −V(∂P/∂V)T', 'isothermal / adiabatic distinction'),
+            ('Transport', 'D = lim MSD(t)/(6t)', 'diffusive regime and finite-size effects')],
+  'image': None,
+  'refs': ['K21', 'DERIVED'],
+  'notes': 'These formulas illustrate distinct measurement contracts. Density depends on '
+           'composition and volume; a distribution such as g(r) requires normalization; the '
+           'isothermal bulk modulus requires an appropriate pressure-volume derivative; a '
+           'diffusion estimate requires a diffusive long-time regime and correct unwrapping. The '
+           'MSD expression here assumes three-dimensional isotropic diffusion and must be adjusted '
+           'for other settings. Static elastic constants, finite-temperature isothermal moduli and '
+           'measured acoustic adiabatic moduli are not automatically interchangeable. No transport '
+           'or g(r) result is generated for this deck. Report units, state, estimator, sampling '
+           'and uncertainty with every actual number.\n'
+           '\n'
+           'Readable equations and values:\n'
+           'Density = total mass / volume.\n'
+           'Isothermal bulk modulus K = -V * (partial P / partial V) at fixed temperature.\n'
+           'Three-dimensional isotropic diffusion D = long-time mean squared displacement / (6*t), '
+           'in a diffusive regime.',
+  'tag': '',
+  'media': None,
+  'text_equivalents': ['Density = total mass / volume.',
+                       'Isothermal bulk modulus K = -V * (partial P / partial V) at fixed '
+                       'temperature.',
+                       'Three-dimensional isotropic diffusion D = long-time mean squared '
+                       'displacement / (6*t), in a diffusive regime.']},
+ {'id': 16,
+  'title': 'Cleave, then normalize the energy',
+  'chapter': '03 · EXPERIMENT & EVIDENCE',
+  'layout': 'cleavage',
+  'lead': 'Two equivalent new surfaces introduce a factor of two.',
+  'items': ['γ ≈ (Ecleaved − Eunified)/(2A).',
+            'Compare systems with consistent atom counts and cell geometry.',
+            'This energy estimator approximates free energy only under stated assumptions.'],
+  'image': 'rh111-slab.png',
+  'refs': ['K21'],
+  'notes': 'The paper compares unified and separated metal slabs with matched total atom counts '
+           'and box dimensions using NVT simulations at 298.15 K. The energy difference is divided '
+           'by the area of two newly created surfaces. The SI estimates the omitted entropy '
+           'contribution to be small for these elemental-metal examples, within the stated '
+           'experimental uncertainty. That approximation cannot be applied to every interface, '
+           'adsorbate or temperature without justification. The display slab is an explanatory '
+           'reconstruction rather than the actual research slab. Other geometries need their '
+           'actual number of interfaces and area normalization, not a memorized universal factor '
+           'of two.\n'
+           '\n'
+           'Readable equations and values:\n'
+           'Surface energy gamma approximately equals (cleaved energy - unified energy) / '
+           '(2*surface area), for two equivalent new surfaces under the stated assumptions.',
+  'tag': 'K21 SI S3–S4 · CLEAVAGE AT 298.15 K',
+  'media': None,
+  'text_equivalents': ['Surface energy gamma approximately equals (cleaved energy - unified '
+                       'energy) / (2*surface area), for two equivalent new surfaces under the '
+                       'stated assumptions.']},
+ {'id': 17,
+  'title': 'Match the experimental state',
+  'chapter': '03 · EXPERIMENT & EVIDENCE',
+  'layout': 'state',
+  'lead': 'A comparison is meaningful only when definitions align.',
+  'items': [('Material', 'composition · crystal phase · purity · surface'),
+            ('State', 'temperature · pressure · environment'),
+            ('Measurement', 'observable definition · protocol · uncertainty'),
+            ('Simulation', 'ensemble · finite size · convergence · averaging')],
+  'image': None,
+  'refs': ['K21', 'AGENT'],
+  'notes': 'A careful comparison reconciles experimental specimen, method, state and uncertainty '
+           'with the model and estimator. The metal SI discusses the difference between '
+           'polycrystalline experimental surface references and an ideal (111) face, and the small '
+           'energy-versus-free-energy approximation. Table 5 includes multiple experimental '
+           'mechanical references, so the deck identifies the selected ones instead of disguising '
+           'them as a single definitive average. In the current IFF Agent workflow, '
+           'primary-reference adoption precedes fitting and includes unresolved derivation rules '
+           'or state definitions. An unexplained secondary number or a published model coefficient '
+           'is not itself a primary experimental reference.',
+  'tag': 'FITTED, MEASURED AND PREDICTED ARE DIFFERENT LABELS',
+  'media': None,
+  'text_equivalents': []},
+ {'id': 18,
+  'title': 'Published fit: Rh matches its targets',
+  'chapter': '03 · EXPERIMENT & EVIDENCE',
+  'layout': 'image',
+  'lead': 'Agreement on calibration quantities follows the fitting objective.',
+  'items': ['5-cell lattice: 19.016 → 19.016 Å (12–6); 19.014 Å (9–6).',
+            'Rh γ111 reference: 2.64 ± 0.02 J/m².',
+            'Both published Rh models: γ111 = 2.643 J/m².'],
+  'image': 'calibration.png',
+  'refs': ['K21'],
+  'notes': 'The paper assigns parameters from experimental density/lattice and surface-energy '
+           'evidence. The Rh agreement shown here is therefore calibration agreement, not an '
+           'independent validation score. The chart also shows Ca(alpha) and Sr(alpha) from Table '
+           '3 to make the published surface fits inspectable; all references and uncertainties are '
+           'exactly transcribed. Table 2 contains five-cell lengths, so those lengths should not '
+           'be misreported as single-cell lattice constants. The paper’s conditions are 298 K and '
+           'atmospheric pressure for lattice calculations, with surface methods explained in the '
+           'SI. These are published calculations; the deck does not claim a new rerun or fit.\n'
+           '\n'
+           'Readable equations and values:\n'
+           'Rh five-cell lattice reference 19.016 angstrom; 12-6 result 19.016; 9-6 result '
+           '19.014.\n'
+           'Rh (111) surface reference 2.64 +/- 0.02 J/m^2; both model results 2.643 J/m^2. These '
+           'are calibration comparisons.',
+  'tag': 'TABLES 2–3 · 298 K · CALIBRATION, NOT INDEPENDENT VALIDATION',
+  'media': None,
+  'text_equivalents': ['Rh five-cell lattice reference 19.016 angstrom; 12-6 result 19.016; 9-6 '
+                       'result 19.014.',
+                       'Rh (111) surface reference 2.64 +/- 0.02 J/m^2; both model results 2.643 '
+                       'J/m^2. These are calibration comparisons.']},
+ {'id': 19,
+  'title': 'Independent predictions reveal the limits',
+  'chapter': '03 · EXPERIMENT & EVIDENCE',
+  'layout': 'image',
+  'lead': 'A good surface fit can coexist with a poor elastic prediction.',
+  'items': ['Rh K: experiment 276 GPa; 12–6 LJ 258; 9–6 LJ 175.',
+            'Relative deviations: −6.5% and −36.6%.',
+            'The pair-model elastic constraint limits what can be matched.'],
+  'image': 'rh-validation.png',
+  'refs': ['K21'],
+  'notes': 'Kanhaiya et al. report Rh bulk modulus predictions of 258 GPa and 175 GPa for the two '
+           'LJ families. We use the 276 GPa experimental entry marked reference d in Table 5; the '
+           'same table also lists 270, 271 and 269 GPa from other references. Percent deviations '
+           'on this slide are calculated against the selected 276 GPa reference, not copied from a '
+           'universal benchmark. These mechanical properties were not the density/surface '
+           'calibration targets. The paper explains limits of central-force pair models, including '
+           'the elastic relation C12/C44=1 for the pair framework and material-dependent '
+           'performance. Do not describe this as a formal blinded campaign or universal IFF '
+           'validation. Kanhaiya et al. SI S7-S8 reports approximately ±3% reproducibility of '
+           'calculated elastic moduli and agreement of small-strain Discover and LAMMPS E/K '
+           'protocols within 0% to ±3% (strain 0.001-0.01). This is computational protocol '
+           'repeatability, not accuracy against experiment, a statistical confidence interval or '
+           'the error of a reserved-property prediction. The Rh deviations from the selected 276 '
+           'GPa experimental entry remain -6.5% and -36.6%.\n'
+           '\n'
+           'Readable equations and values:\n'
+           'Rh bulk modulus: selected experiment 276 GPa; 12-6 model 258 GPa (-6.5%); 9-6 model '
+           '175 GPa (-36.6%).',
+  'tag': 'TABLE 5 · NON-FITTED K · SI PROTOCOL REPEATABILITY ≈ ±3%',
+  'media': None,
+  'text_equivalents': ['Rh bulk modulus: selected experiment 276 GPa; 12-6 model 258 GPa (-6.5%); '
+                       '9-6 model 175 GPa (-36.6%).']},
+ {'id': 20,
+  'title': 'Alloys can add chemical polarity',
+  'chapter': '03 · EXPERIMENT & EVIDENCE',
+  'layout': 'alloy',
+  'lead': 'Charge assignment follows chemistry, not the element name alone.',
+  'items': ['Liu SI: match Al–Ni alloy-formation evidence to model charges.',
+            'AlNi example: base charges ±0.39e in SI Table S2.',
+            'Charge transfer must preserve total neutrality.'],
+  'image': None,
+  'refs': ['L18', 'L18SI'],
+  'notes': 'The original supporting information explains charge assignments using pure-metal pair '
+           'potentials and experimentally measured alloy formation evidence. Table S2 uses ±0.39e '
+           'base charges for AlNi. The SI’s extended-Born discussion also reports a feasible Al '
+           'charge range of approximately +0.39e to +0.5e under its assumptions, so a single '
+           'charge value must not be presented as a uniquely measured electron population. The '
+           'topology diagram is schematic, not a source coordinate file or a fitted lattice '
+           'reconstruction. The original SI supports this binary-alloy example. No numerical '
+           'main-paper defect comparison, universal alloy predictor or high-entropy-alloy '
+           'performance is inferred.',
+  'tag': 'BINARY ALLOY EXAMPLE · NO GENERAL HEA CLAIM',
+  'media': None,
+  'text_equivalents': []},
+ {'id': 21,
+  'title': 'A defect changes its local environment',
+  'chapter': '03 · EXPERIMENT & EVIDENCE',
+  'layout': 'image',
+  'lead': 'Different charge hypotheses change the computed energy.',
+  'items': ['Ni vacancy in AlNi: redistribute the removed site’s charge.',
+            'SI Table S2 raw energies: 5.49, 4.57 and 2.59 eV.',
+            'Raw defect energies are not final formation free energies.'],
+  'image': 'alloy-defect.png',
+  'refs': ['L18SI'],
+  'notes': 'The three plotted values are from Table S2 for a Ni vacancy. They correspond to '
+           'redistribution into the first neighbor shell (100/0), into first and second shells '
+           '(67/33), and into the second shell (0/100). The table describes the first option as '
+           'most likely and lists the others as alternative charge hypotheses. Its heading '
+           'explicitly calls the numbers raw defect formation energy in MM. A final thermodynamic '
+           'defect quantity needs appropriate reservoirs, charge-state terms and conditions; this '
+           'chart is not a fresh validation or a final vacancy-formation-energy benchmark. It '
+           'shows why a chemically justified local assignment is consequential. The plot is newly '
+           'drawn from table facts and reproduces no source figure.\n'
+           '\n'
+           'Readable equations and values:\n'
+           'AlNi Ni-vacancy raw defect energies in eV: first/second-shell redistribution 100/0 -> '
+           '5.49; 67/33 -> 4.57; 0/100 -> 2.59.',
+  'tag': 'TABLE S2 · CHARGE-HYPOTHESIS SENSITIVITY',
+  'media': None,
+  'text_equivalents': ['AlNi Ni-vacancy raw defect energies in eV: first/second-shell '
+                       'redistribution 100/0 -> 5.49; 67/33 -> 4.57; 0/100 -> 2.59.']},
+ {'id': 22,
+  'title': 'Calibration and validation take different paths',
+  'chapter': '03 · EXPERIMENT & EVIDENCE',
+  'layout': 'validation',
+  'lead': 'Protect the independent test from every tuning decision.',
+  'items': [('Calibration', 'references → fit parameters → verify targets'),
+            ('Independent test', 'reserved property → forward prediction → compare'),
+            ('Disposition', 'qualified for scope · limited · withheld')],
+  'image': None,
+  'refs': ['K21', 'AGENT'],
+  'notes': 'The implemented crystalline/ionic workflow separates primary reference selection, '
+           'branch-specific fitting and independent evidence. Its fitting sequence adjusts the '
+           'minimum-distance parameter to an adopted lattice reference and a common well-depth '
+           'scale to adopted surface evidence, revisiting their coupling. Bulk modulus is '
+           'reserved: it must not influence fit objectives, weights, parameter bounds, family '
+           'selection or tuning. A failed reserved-property comparison restricts the claim. The '
+           'FCC-metal literature example is separate from this implemented workflow; its '
+           'non-fitted mechanical predictions were not rerun here.',
+  'tag': '',
+  'media': None,
+  'text_equivalents': []},
+ {'id': 23,
+  'title': 'A revised model needs fresh evidence',
+  'chapter': '03 · EXPERIMENT & EVIDENCE',
+  'layout': 'revision',
+  'lead': 'Once a test informs a revision, it is no longer untouched.',
+  'items': ['Changing parameters or model family creates a new candidate.',
+            'Retire reused test data into development evidence.',
+            'Reserve fresh observations for the next independent claim.'],
+  'image': None,
+  'refs': ['AGENT', 'DERIVED'],
+  'notes': 'Changing model parameters, chemistry or functional form creates a new candidate. Test '
+           'data that inform that change become development evidence; a fresh independent claim '
+           'requires fresh evidence. The published 12-6 and 9-6 models are alternatives, not a '
+           'temporal revision. The evidence movie reveals published comparisons before '
+           'illustrating a possible new evidence contract. The implemented workflow reserves bulk '
+           'modulus from fitting and family selection. No completed new revision or independent '
+           'validation is claimed.',
+  'tag': 'EVIDENCE HYGIENE · NO NEW FIT OR VALIDATED REVISION CLAIM',
+  'media': 'evidence-walkthrough',
+  'text_equivalents': []},
+ {'id': 24,
+  'title': 'The IFF Agent carries the evidence chain',
+  'chapter': '04 · THE IFF AGENT',
+  'layout': 'workflow',
+  'lead': 'The workflow joins scientific choices to inspectable files.',
+  'items': [('Intake', 'material · intended use'),
+            ('References', 'primary state & uncertainty'),
+            ('Model', 'charges · four branches'),
+            ('Contract', 'fit / test · allocation'),
+            ('Run & fit', 'source-grounded structures'),
+            ('Validate', 'held-out + convergence'),
+            ('Export readback', 'exact consumed bytes'),
+            ('Review & disposition', 'qualified / limited / withheld')],
+  'image': None,
+  'refs': ['AGENT'],
+  'notes': 'The IFF Agent implementation connects intake, primary references, model assignment, a '
+           'bounded fit/test contract, calculation and fitting, independent checks, exact export '
+           'readback, and scientific review. It keeps CHARMM/AMBER, CVFF/OPLS, PCFF and PCFF-HQ as '
+           'distinct model-family branches, preserving the potential of each family, coefficients, '
+           'radius, mixing and export conventions. Runnable software and numerical execution do '
+           'not establish correct chemical assignment or acceptance of a new scientific package.',
+  'tag': 'IMPLEMENTED EVIDENCE WORKFLOW · SCIENTIFIC ACCEPTANCE IS SEPARATE',
+  'media': None,
+  'text_equivalents': []},
+ {'id': 25,
+  'title': 'Scientific decisions define the scope',
+  'chapter': '04 · THE IFF AGENT',
+  'layout': 'gates',
+  'lead': 'References, model choices, test rules and final adoption stay explicit.',
+  'items': [('References', 'primary experiments · state · derivation'),
+            ('Model', 'physical charges · family · neutrality'),
+            ('Fit / test rules', 'variables · bounds · validation · resources'),
+            ('Scientific adoption', 'exact reviewed export · supported scope')],
+  'image': None,
+  'refs': ['AGENT'],
+  'notes': 'The implemented workflow records reference selection, consequential charge/model '
+           'choices, bounded fit/test rules and scientific adoption of an exact reviewed export. '
+           'Family-specific conventions and neutrality remain explicit. Changes to references, '
+           'chemistry or scientific scope require the relevant decision to be revisited. This '
+           'explains the workflow design and implementation; it does not establish that a new '
+           'material package has completed fitting, independent validation or adoption.',
+  'tag': 'IMPLEMENTED WORKFLOW · CONSEQUENTIAL SCIENTIFIC DECISIONS',
+  'media': None,
+  'text_equivalents': []},
+ {'id': 26,
+  'title': 'Inputs become a reproducible dossier',
+  'chapter': '04 · THE IFF AGENT',
+  'layout': 'io',
+  'lead': 'Each output should point back to the input and model revision.',
+  'items': [('Inputs',
+             'composition / phase / state; intended observable; primary references; structural '
+             'origin'),
+            ('Outputs',
+             'branch-specific coefficients; structures and runnable inputs; readback comparisons; '
+             'predictions, uncertainty and limits')],
+  'image': None,
+  'refs': ['AGENT'],
+  'notes': 'An illustrative input brief names composition, phase, interface, thermodynamic state, '
+           'intended observable, primary references and structural origin. The expected dossier '
+           'contains family-specific coefficients and conventions, source-grounded geometry, '
+           'runnable inputs, calibration lineage, independent predictions, uncertainty, export '
+           'readback and supported scope. It describes the implemented input/output contract and '
+           'does not present a completed new scientific package.',
+  'tag': 'ILLUSTRATIVE INPUT / OUTPUT CONTRACT · NOT A COMPLETED EXPORT',
+  'media': None,
+  'text_equivalents': []},
+ {'id': 27,
+  'title': 'Acceptance is more than execution',
+  'chapter': '04 · THE IFF AGENT',
+  'layout': 'status',
+  'lead': 'A runnable package still needs independent scientific evidence.',
+  'items': [('Execution', 'A completed run establishes a result under its stated inputs.'),
+            ('Scientific checks',
+             'Match fit targets, test reserved properties and verify convergence.'),
+            ('Disposition', 'Adopt a qualified or limited scope, or withhold the package.')],
+  'image': None,
+  'refs': ['AGENT'],
+  'notes': 'Numerical execution and engineering checks do not establish scientific acceptance. A '
+           'package needs adopted references and model choices, calibration evidence, independent '
+           'validation, convergence, exact export readback and scientific review. The resulting '
+           'claim may be qualified, limited or withheld. This describes an evidence standard and '
+           'establishes no new accepted package.',
+  'tag': 'SCIENTIFIC ACCEPTANCE REQUIREMENTS',
+  'media': None,
+  'text_equivalents': []},
+ {'id': 28,
+  'title': 'Choose the method for the decision',
+  'chapter': '05 · METHODS & THE FULL LOOP',
+  'layout': 'comparison',
+  'lead': 'Compare specific models, chemistry and observables.',
+  'items': [('Classical / IFF',
+             'Defined potential and conventions',
+             'Large-system sampling, interfaces',
+             'Applicability and missing physics'),
+            ('DFT',
+             'Electronic-structure approximation',
+             'Bonding, electronic effects, reference calculations',
+             'Functional, state and convergence'),
+            ('MLIP',
+             'Learned energy/force representation',
+             'Rich local environments and efficient sampling',
+             'Training coverage and extrapolation')],
+  'image': None,
+  'refs': ['K21', 'MACE'],
+  'notes': 'Classical potentials, DFT and MLIPs are useful for different questions. IFF is a '
+           'classical framework with specific supported chemistry and conventions. DFT provides '
+           'electronic-structure calculations but depends on the chosen functional and numerical '
+           'setup; it is not an infallible experiment. An MLIP learns from data and can provide a '
+           'rich potential representation, but coverage, extrapolation and calibration to the '
+           'intended observable remain consequential. MACE is cited as a primary learned-potential '
+           'example, not a claim that a particular released model is suitable for Rh or a general '
+           'alloy. No unmatched atom-count, hardware, time-to-solution or accuracy benchmark is '
+           'presented.',
+  'tag': 'COMPLEMENTARY ROLES · NO UNIVERSAL SPEED / ACCURACY RANKING',
+  'media': None,
+  'text_equivalents': []},
+ {'id': 29,
+  'title': 'Connect methods to an experimental loop',
+  'chapter': '05 · METHODS & THE FULL LOOP',
+  'layout': 'loop',
+  'lead': 'Use each calculation to change the next physical decision.',
+  'items': [('Question', 'define the target and baseline'),
+            ('Model', 'classical / DFT / MLIP as needed'),
+            ('Prediction', 'observable + uncertainty'),
+            ('Experiment', 'measurement under matched state'),
+            ('Decision', 'retain · restrict · revise'),
+            ('Evidence', 'reserve an independent test')],
+  'image': None,
+  'refs': ['AGENT', 'DERIVED'],
+  'notes': 'A full loop should be authored around the actual material question rather than require '
+           'every available method. Electronic calculations may inform a charge or chemical '
+           'hypothesis; classical models or MLIPs may enable larger sampling; experiments define '
+           'and test a physically meaningful target. Each method enters only if it can change a '
+           'decision and can be checked against a credible baseline. Data used to improve a model '
+           'are development evidence, while a fresh test supports the next independent claim.',
+  'tag': '',
+  'media': None,
+  'text_equivalents': []},
+ {'id': 30,
+  'title': 'Make the first question narrow and testable',
+  'chapter': '05 · METHODS & THE FULL LOOP',
+  'layout': 'closing',
+  'lead': 'A useful model comes with a defined boundary of trust.',
+  'items': [('Inputs',
+             'material / phase / interface; decision and observable; primary data and uncertainty; '
+             'source structures'),
+            ('Outputs',
+             'an exact model package; reproducible predictions; fit-versus-test evidence; '
+             'limitations and failure conditions')],
+  'image': None,
+  'refs': ['AGENT', 'DERIVED'],
+  'notes': 'A useful material brief identifies composition, phase, interface, the decision to be '
+           'changed, an observable, primary experimental evidence and a defined state. After '
+           'fitting and independent scientific qualification, a dossier should identify the exact '
+           'model, reproducible predictions, uncertainty, failures and restrictions. This is an '
+           'evidence standard, with educational literature examples in this presentation; it is '
+           'not a promise of a currently accepted new parameterization.',
+  'tag': 'ATOMS → MODEL → OBSERVABLE → EVIDENCE → DECISION',
+  'media': None,
+  'text_equivalents': []},
+ {'id': 31,
+  'title': 'Appendix · equations and conventions',
+  'chapter': 'APPENDIX',
+  'layout': 'equations',
+  'lead': 'Always name the functional form before copying coefficients.',
+  'items': [('12–6 · Rmin convention', 'U = ε[(Rmin/r)¹² − 2(Rmin/r)⁶]'),
+            ('9–6 · Rmin convention', 'U = ε[2(Rmin/r)⁹ − 3(Rmin/r)⁶]'),
+            ('Electrostatics', 'Uij = qi qj / (4πε0 εr rij), with a defined long-range treatment'),
+            ('Forces and dynamics', 'Fi = −∇ri U; mi r̈i = Fi')],
+  'image': None,
+  'refs': ['K21', 'LJ', 'DERIVED'],
+  'notes': 'The two Lennard–Jones expressions follow Kanhaiya et al. equations 1 and 2 after '
+           'renaming their equilibrium-distance sigma to Rmin. Both have minimum −epsilon at Rmin, '
+           'but their curvature and repulsive shape differ. The Coulomb expression is a generic '
+           'pair expression; periodic electrostatics requires the actual summation and boundary '
+           'convention, and a dielectric factor must not be inserted without defining it. Bonded '
+           'terms, cross terms, mixing rules, exclusions, units and cutoffs depend on the chosen '
+           'force-field family. These equations alone do not define a runnable or qualified '
+           'parameter package.\n'
+           '\n'
+           'Readable equations and values:\n'
+           '12-6: U = epsilon * ((Rmin/r)^12 - 2*(Rmin/r)^6).\n'
+           '9-6: U = epsilon * (2*(Rmin/r)^9 - 3*(Rmin/r)^6).\n'
+           'Electrostatic pair energy Uij = qi*qj / (4*pi*epsilon0*epsilon_r*rij); actual '
+           'long-range convention must be defined.\n'
+           'Force Fi = -gradient_i(U); mass mi * acceleration_i = Fi.',
+  'tag': '',
+  'media': None,
+  'text_equivalents': ['12-6: U = epsilon * ((Rmin/r)^12 - 2*(Rmin/r)^6).',
+                       '9-6: U = epsilon * (2*(Rmin/r)^9 - 3*(Rmin/r)^6).',
+                       'Electrostatic pair energy Uij = qi*qj / (4*pi*epsilon0*epsilon_r*rij); '
+                       'actual long-range convention must be defined.',
+                       'Force Fi = -gradient_i(U); mass mi * acceleration_i = Fi.']},
+ {'id': 32,
+  'title': 'Appendix · the published data remain visible',
+  'chapter': 'APPENDIX',
+  'layout': 'data',
+  'lead': 'Selected reference entries; do not hide failed predictions.',
+  'items': [],
+  'image': None,
+  'refs': ['K21'],
+  'notes': 'This appendix reproduces the selected Ca, Rh and Sr table entries in a native editable '
+           'table and bar chart. Lattice values are lengths for five conventional unit cells (5a), '
+           'not single-cell constants. Surface-energy references and uncertainties come from Table '
+           '3. Bulk moduli use the explicitly selected Table 5 experimental entries: Ca 20 GPa '
+           '(reference b), Rh 276 GPa (reference d), Sr 12.0 GPa (references c,d). Additional '
+           'experimental entries are retained in the article; the deck does not average or discard '
+           'them. Table 5 predictions use the authors’ mechanical procedure, so protocol and state '
+           'equivalence need scrutiny before a new material claim. No new model tuning or '
+           'simulation occurred. Kanhaiya et al. SI S7-S8 reports approximately ±3% '
+           'reproducibility of calculated elastic moduli and agreement of small-strain Discover '
+           'and LAMMPS E/K protocols within 0% to ±3% (strain 0.001-0.01). This is computational '
+           'protocol repeatability, not accuracy against experiment, a statistical confidence '
+           'interval or the error of a reserved-property prediction. The Rh deviations from the '
+           'selected 276 GPa experimental entry remain -6.5% and -36.6%.\n'
+           '\n'
+           'Readable equations and values:\n'
+           'Ca (α): five-cell lattice, experiment / 12-6 / 9-6 = 27.942 / 27.947 / 27.953 '
+           'angstrom; surface energy, experiment +/- uncertainty / 12-6 / 9-6 = 0.492 +/- 0.01 / '
+           '0.49 / 0.49 J/m^2; bulk modulus, selected experiment / 12-6 / 9-6 = 20 / 30 / 21 GPa.\n'
+           'Rh: five-cell lattice, experiment / 12-6 / 9-6 = 19.016 / 19.016 / 19.014 angstrom; '
+           'surface energy, experiment +/- uncertainty / 12-6 / 9-6 = 2.64 +/- 0.02 / 2.643 / '
+           '2.643 J/m^2; bulk modulus, selected experiment / 12-6 / 9-6 = 276 / 258 / 175 GPa.\n'
+           'Sr (α): five-cell lattice, experiment / 12-6 / 9-6 = 30.42 / 30.423 / 30.421 angstrom; '
+           'surface energy, experiment +/- uncertainty / 12-6 / 9-6 = 0.41 +/- 0.01 / 0.411 / 0.41 '
+           'J/m^2; bulk modulus, selected experiment / 12-6 / 9-6 = 12 / 24 / 16 GPa.',
+  'tag': '',
+  'media': None,
+  'text_equivalents': ['Ca (α): five-cell lattice, experiment / 12-6 / 9-6 = 27.942 / 27.947 / '
+                       '27.953 angstrom; surface energy, experiment +/- uncertainty / 12-6 / 9-6 = '
+                       '0.492 +/- 0.01 / 0.49 / 0.49 J/m^2; bulk modulus, selected experiment / '
+                       '12-6 / 9-6 = 20 / 30 / 21 GPa.',
+                       'Rh: five-cell lattice, experiment / 12-6 / 9-6 = 19.016 / 19.016 / 19.014 '
+                       'angstrom; surface energy, experiment +/- uncertainty / 12-6 / 9-6 = 2.64 '
+                       '+/- 0.02 / 2.643 / 2.643 J/m^2; bulk modulus, selected experiment / 12-6 / '
+                       '9-6 = 276 / 258 / 175 GPa.',
+                       'Sr (α): five-cell lattice, experiment / 12-6 / 9-6 = 30.42 / 30.423 / '
+                       '30.421 angstrom; surface energy, experiment +/- uncertainty / 12-6 / 9-6 = '
+                       '0.41 +/- 0.01 / 0.411 / 0.41 J/m^2; bulk modulus, selected experiment / '
+                       '12-6 / 9-6 = 12 / 24 / 16 GPa.']},
+ {'id': 33,
+  'title': 'Appendix · what uncertainty must include',
+  'chapter': 'APPENDIX',
+  'layout': 'state',
+  'lead': 'SI mechanical repeatability is approximately ±3%, separate from accuracy.',
+  'items': [('Sampling', 'autocorrelation · independent blocks · equilibration'),
+            ('Numerical', 'step / cutoff / size / slab / solver convergence'),
+            ('Experimental', 'state · protocol · specimen · measurement error'),
+            ('Model', 'chemical scope · missing physics · extrapolation')],
+  'image': None,
+  'refs': ['K21', 'AGENT', 'DERIVED'],
+  'notes': 'A plotted error bar can represent experimental uncertainty, sampling variation or a '
+           'confidence interval; label which one it is. The calibration chart uses only the '
+           'source-reported experimental uncertainties. It does not invent simulation error bars '
+           'from rounded table values. Published model predictions are transcribed at their '
+           'reported precision. Numerical convergence and systematic model error are different '
+           'from statistical repeatability. For the ideal geometry and explanatory animations in '
+           'this bundle, there is no sampling uncertainty because they are constructions rather '
+           'than a measured simulation campaign. A held-out error does not become less important '
+           'because a run is reproducible. Kanhaiya et al. SI S7-S8 reports approximately ±3% '
+           'reproducibility of calculated elastic moduli and agreement of small-strain Discover '
+           'and LAMMPS E/K protocols within 0% to ±3% (strain 0.001-0.01). This is computational '
+           'protocol repeatability, not accuracy against experiment, a statistical confidence '
+           'interval or the error of a reserved-property prediction. The Rh deviations from the '
+           'selected 276 GPa experimental entry remain -6.5% and -36.6%.',
+  'tag': '',
+  'media': None,
+  'text_equivalents': []},
+ {'id': 34,
+  'title': 'Appendix · primary references',
+  'chapter': 'APPENDIX',
+  'layout': 'references',
+  'lead': 'Source details and changes are retained in the companion manifest.',
+  'items': ['Kanhaiya et al. 2021 · FCC-metal models, Tables 1–5 and SI',
+            'Kanhaiya et al. 2021 · author correction / corrected geometry data',
+            'Liu et al. 2018 · original SI, Tables S1–S2',
+            'LAMMPS · pair_lj, fix_nve and minimize documentation',
+            'Batatia et al. 2022 · MACE primary paper',
+            'IFF Agent workflow documentation (2026)'],
+  'image': None,
+  'refs': ['K21', 'K21C', 'L18', 'L18SI', 'LJ', 'MD', 'MACE', 'AGENT'],
+  'notes': 'The manifest retains primary source locators and evidence classifications. Kanhaiya et '
+           'al., current SI and corrected supplementary geometry support the metal example. The '
+           'author correction restored missing geometry and scripts. The original Liu SI supports '
+           'the binary-alloy example; only its numerical results are used, with no copied figures. '
+           'LAMMPS supports engine conventions, MACE the learned-potential role. The IFF Agent '
+           'section explains its implemented workflow; it supplies no new package validation.',
+  'tag': '',
+  'media': None,
+  'text_equivalents': []},
+ {'id': 35,
+  'title': 'Appendix · reuse and scientific limits',
+  'chapter': 'APPENDIX',
+  'layout': 'closing',
+  'lead': 'Literature evidence, original visuals, and explicit limitations.',
+  'items': [('Original assets',
+             'Geometry renders, plots, diagrams and silent media; CSV data and production scripts. '
+             'No additional reuse license is granted.'),
+            ('Scientific limits',
+             'No new materials MD, parameter fit or adopted package; binary-alloy scope; '
+             'source-derived geometry and illustrative motion.')],
+  'image': None,
+  'refs': ['K21', 'K21C', 'L18SI', 'AGENT', 'DERIVED'],
+  'notes': 'No additional reuse license is granted for original visuals, media, prose or authoring '
+           'code. Third-party material retains its actual license and source attribution. The '
+           'corrected Rh source CAR files and Kanhaiya article are CC BY 4.0; Liu SI is CC BY-NC '
+           '4.0 and is linked rather than distributed. The plots redraw attributed numerical facts '
+           'and reproduce no source figures. Source-derived ideal geometry and prescribed motion '
+           'are educational constructions. Published results were not rerun, and this presentation '
+           'establishes no new materials trajectory, fitted parameter package or scientific '
+           'adoption. Native Microsoft PowerPoint playback, other browser engines and remote '
+           'delivery remain unverified.',
+  'tag': '',
+  'media': None,
+  'text_equivalents': []}]
+
+SOURCES = {'K21': {'title': 'Kanhaiya, Kim, Im & Heinz (2021), Accurate simulation of surfaces and '
+                  'interfaces of ten FCC metals and steel using Lennard–Jones potentials',
+         'url': 'https://doi.org/10.1038/s41524-020-00478-1',
+         'license': 'CC BY 4.0',
+         'scope': 'Original article Tables 1–5 and Supplementary Methods. Published results, not '
+                  'independently rerun here.'},
+ 'K21C': {'title': 'Kanhaiya et al. (2021), Author Correction',
+          'url': 'https://doi.org/10.1038/s41524-021-00576-8',
+          'license': 'CC BY 4.0',
+          'scope': 'Corrects missing unit-cell and script files in Supplementary Data; no reported '
+                   'numerical table correction.'},
+ 'L18': {'title': 'Liu et al. (2018), Understanding Chemical Bonding in Alloys and the '
+                  'Representation in Atomistic Simulations',
+         'url': 'https://doi.org/10.1021/acs.jpcc.8b01891',
+         'license': 'Main article: publisher copyright; SI: CC BY-NC 4.0',
+         'scope': 'Claims here are grounded in original SI S15–S19 and publisher SI metadata; no '
+                  'main-paper numerical comparison is presented.'},
+ 'L18SI': {'title': 'Liu et al. (2018), original Supporting Information, Tables S1–S2 and '
+                    'discussion S18–S19',
+           'url': 'https://acs.figshare.com/articles/journal_contribution/Understanding_Chemical_Bonding_in_Alloys_and_the_Representation_in_Atomistic_Simulations/6531197',
+           'license': 'CC BY-NC 4.0',
+           'scope': 'Original diagrams/plots here are newly drawn from cited facts; copyrighted '
+                    'source figures and source PDFs are excluded from the website bundle.'},
+ 'LJ': {'title': 'LAMMPS documentation: lj/cut interaction convention',
+        'url': 'https://docs.lammps.org/pair_lj.html',
+        'license': 'Documentation cited; no figure reuse',
+        'scope': 'Engine convention: U=4epsilon[(sigma/r)^12-(sigma/r)^6].'},
+ 'MD': {'title': 'LAMMPS documentation: fix nve and minimize',
+        'url': 'https://docs.lammps.org/fix_nve.html',
+        'license': 'Documentation cited; no figure reuse',
+        'scope': 'Velocity-Verlet NVE integration; minimization reference '
+                 'https://docs.lammps.org/minimize.html.'},
+ 'MACE': {'title': 'Batatia et al. (2022), MACE: Higher Order Equivariant Message Passing Neural '
+                   'Networks for Fast and Accurate Force Fields',
+          'url': 'https://arxiv.org/abs/2206.07697',
+          'license': 'Paper cited; no figure reuse',
+          'scope': 'A primary example of learned interatomic potentials; no transfer claim or '
+                   'universal benchmark ranking.'},
+ 'AGENT': {'title': 'IFF Agent workflow documentation (2026)',
+           'url': None,
+           'license': 'No additional reuse license granted for original workflow explanation',
+           'scope': 'High-level explanation of the implemented evidence workflow and distinct '
+                    'model families. Implementation is separate from completion or scientific '
+                    'acceptance of a new package.'},
+ 'DERIVED': {'title': 'Original derivation / explicitly illustrative visual',
+             'url': None,
+             'license': 'No additional reuse license granted for original authoring assets; source '
+                        'facts retain attribution',
+             'scope': 'Mathematical definitions, ideal cell constructions and pedagogical '
+                      'illustrations. Not new material simulation evidence.'}}
