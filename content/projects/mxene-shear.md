@@ -2,7 +2,7 @@
 title: "MXene Interlayer Shear"
 description: "Molecular dynamics on what sets the shear resistance between MXene layers, from hydration to surface termination."
 date: 2026-09-28
-status: "In preparation"
+status: "Active"
 period: "2025–present"
 role: "Lead author"
 thread: "models"
@@ -23,4 +23,4 @@ A persistent disagreement with published reference values traced back to the NPT
 
 Understanding why hydration and termination matter at the molecular level lets you predict which processing conditions will reach target properties. That's what connects atomic-scale physics to manufacturing guidance.
 
-Manuscript in preparation, with me as lead author and co-authors at the AFRL Materials & Manufacturing Directorate and CU Boulder. I've also run a molecular dynamics campaign on [hydrogen release from N-ethylcarbazole on platinum nanocrystals](/projects/pt-hydrogen-release/).
+I'm writing up this work as lead author, with co-authors at the AFRL Materials & Manufacturing Directorate and CU Boulder. I've also run a molecular dynamics campaign on [hydrogen release from N-ethylcarbazole on platinum nanocrystals](/projects/pt-hydrogen-release/).

@@ -1,17 +1,24 @@
 ---
 title: "Sean P. Florez"
-tagline: "I'm doing a PhD in materials science at CU Boulder, and I build OpenSDL, open-source software for self-driving labs."
+description: "I work on new materials for the next generation of industry. I'm a materials science PhD student at CU Boulder."
+headline: "I work on new materials for the next generation of industry."
+tagline: |-
+  Most hard-tech founders are scaling what exists. I fully believe that everything from engineering to deployment gets solved in a few years. I'm working on what comes after. The next competitive advantage is designing better atoms than everyone else.
+
+  When you have a battery that charges in five minutes, a catalyst with a tenth of the platinum, proprietary chemistry, or new physics, you'll dominate.
 photo: /images/profile.jpg
 photo_alt: "Sean P. Florez standing in front of the Golden Gate Bridge"
-now: "I'm lead author on two papers in preparation, on [MXene shear](/projects/mxene-shear/) and on [hydrogen release on platinum](/projects/pt-hydrogen-release/). On OpenSDL I'm working on Slurm support and on its first connection to real hardware."
-selected:
-  - /projects/opensdl/
-  - /writings/where-are-we-materials-ai/
-  - /research/territorial-engineering/
-  - /projects/mxene-shear/
-  - /projects/pt-hydrogen-release/
+featured_essay: /writings/next-generation-of-industry/
+work:
+  - page: /projects/mxene-shear/
+    title: "MXene Interlayer Shear"
+    description: "At the Air Force Research Laboratory I simulated two MXene sheets sliding past each other. Dry, they hold to 103 MPa in shear. A quarter monolayer of water drops that to 8 MPa, and full coverage brings it back up to 39 MPa."
+  - page: /projects/interface-force-field/
+    title: "Interface Force Field"
+    description: "I use this presentation to explain the Interface Force Field, a classical model of how atoms interact. With rhodium as the example, it compares the model with measurements it was fitted to and with ones it wasn't."
+  - page: /projects/opensdl/
+    title: "OpenSDL"
+    description: "I build OpenSDL, open-source software for self-driving labs. In its color example, a simulated lab finds the three-dye recipe behind a target color in six rounds of 96 wells."
 ---
 
-In 2011 the Materials Genome Initiative put the time it takes a new material to get from initial research to first use at [about 10 to 20 years](https://obamawhitehouse.archives.gov/sites/default/files/microsites/ostp/materials_genome_initiative-final.pdf). It traced part of that to slow, repetitive loops of experiment and characterization, and to simulations that weren't yet accurate enough to replace them. I work on both.
-
-At the Air Force Research Laboratory in summer 2025 I ran molecular dynamics on two sheets of an [MXene](/projects/mxene-shear/), OH-terminated Ti<sub>3</sub>C<sub>2</sub>, sliding past each other with water between them. Dry, the two sheets hold to 103 MPa in shear. A quarter monolayer of water drops that to 8 MPa, and full coverage brings it back to 39. Water moves the shear strength by an order of magnitude, which gives stress windows for designing electromagnetic-shielding composites.
+I'm a materials science PhD student at CU Boulder. I use molecular dynamics to study material interfaces, such as [the sites on platinum where a liquid carrier releases its hydrogen](/projects/pt-hydrogen-release/).

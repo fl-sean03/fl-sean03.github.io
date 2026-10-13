@@ -2,7 +2,7 @@
 title: "Hydrogen Release on Pt Nanocrystals"
 description: "How N-ethylcarbazole, a liquid organic hydrogen carrier, gives up its hydrogen on platinum nanocrystals, and which surface sites do the work."
 date: 2026-09-28
-status: "In preparation"
+status: "Active"
 role: "Lead author"
 thread: "models"
 weight: 3
@@ -20,4 +20,4 @@ A slab isolates one facet, so it can't show that a vertex carries several times 
 
 I also wrote the technical narrative for the allocation that funds the next campaign, a Director's Discretionary award at the Argonne Leadership Computing Facility of about 26,150 node-hours, awarded in May 2026. [The program](https://www.alcf.anl.gov/science/directors-discretionary-allocation-program) gives start-up awards to researchers preparing for a major allocation.
 
-Manuscript in preparation, with me as lead author. Another simulation campaign of mine is [MXene interlayer shear](/projects/mxene-shear/).
+I'm writing up this work as lead author. Another simulation campaign of mine is [MXene interlayer shear](/projects/mxene-shear/).

@@ -8,6 +8,6 @@
     {{- with $thread }}<span>{{ .title }}</span>{{ end }}
   {{- else }}
     {{- if and .kind $p.Parent (not $p.Parent.IsHome) }}<span>{{ partial "nav-label.html" $p.Parent }}</span>{{ end }}
-    {{- if not $p.Date.IsZero }}<time datetime="{{ $p.Date.Format "2006-01-02" }}">{{ $p.Date.Format (cond .long "January 2006" "Jan 2006") }}</time>{{ end }}
+    {{- if not $p.Date.IsZero }}<time datetime="{{ $p.Date.Format "2006-01-02" }}">{{ $p.Date.Format (or $p.Params.date_format (cond .long "January 2006" "Jan 2006")) }}</time>{{ end }}
   {{- end }}
 </p>

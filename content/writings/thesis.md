@@ -20,11 +20,11 @@ The people who capture that value won't be the best scientists. They'll be the o
 
 Here's what's underappreciated: the gap between research and deployment isn't a knowledge problem. It's a work problem. Researchers stay in labs because they're incentivized to publish, not deploy. Operators stay in deployment because they don't speak the science. Consultants advise without building because they have no skin in the game. The bridge doesn't get built because no one wants to do the unglamorous work: qualification pathways, feedback loops between lab and field, systems that maintain context across both worlds.
 
-I think this is one of the highest-value positions to occupy over the next decade. Not because materials are interesting (though they are), but because this is where constraints bind across every sector that matters.
+This is one of the highest-value positions to occupy over the next decade. Not because materials are interesting (though they are), but because this is where constraints bind across every sector that matters.
 
 ## The position.
 
-I've spent my PhD building intuition for where materials fail, and for where the models that predict them stop holding. This is where most advanced systems break down. It's also where academic expertise and manufacturing reality diverge most sharply.
+My PhD research examines where materials fail, and where the models that predict them stop holding. This is where most advanced systems break down. It's also where academic expertise and manufacturing reality diverge most sharply.
 
 My work with national labs and defense programs exposed me to the full arc, from early-stage research through to deployment constraints. I've seen what gets funded, what gets built, what fails, and why. I've worked on problems where materials limitations aren't just technical challenges but national security constraints.
 
@@ -46,7 +46,7 @@ This is where I'm placing my career. Not on a single company or technology, but 
 
 I'm building this deliberately. The PhD gives me the scientific foundation: why materials behave as they do, why systems drift, what the research actually shows. The work with national labs and defense programs gives me the deployment reality: where things fail, what the constraints are, what "working" actually means at scale. The next step is the industrial middle, where I can see firsthand how production capability gets built and where scale-up breaks down.
 
-The specifics will evolve. The underlying thesis is that materials translation is the binding constraint. Most discoveries die not because they couldn't work, but because no one builds the bridge to make them work. That's where I'm focused.
+Materials translation is the binding constraint. Most discoveries die not because they couldn't work, but because no one builds the bridge to make them work. That's where I'm focused.
 
 ---
 

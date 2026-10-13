@@ -1,71 +1,84 @@
 {{ define "main" }}
-<div class="home">
-  <section class="intro wrap" aria-labelledby="intro-title">
-    <div class="intro-name">
-      <h1 id="intro-title">{{ .Title }}</h1>
-      {{- with .Params.tagline }}
-      <p class="tagline">{{ . | markdownify }}</p>
+{{- $essay := site.GetPage .Params.featured_essay }}
+{{- $earlier := site.GetPage "/writings/thesis" }}
+{{- /* Until the dated essay is published, the January thesis takes its place below. */ -}}
+{{- $feature := or $essay $earlier }}
+<div class="home industry-home">
+  <section class="industry-intro wrap" aria-labelledby="intro-title">
+    <div class="industry-position">
+      <h1 id="intro-title">{{ .Params.headline }}</h1>
+      <div class="industry-lede">{{ .Params.tagline | .RenderString (dict "display" "block") }}</div>
+    </div>
+    <aside class="industry-bio" aria-label="About Sean">
+      {{- with .Params.photo }}
+      <div class="industry-photo">
+        {{- partial "img.html" (dict "src" . "alt" $.Params.photo_alt "widths" (slice 320 500 800) "sizes" "(min-width: 52rem) 15rem, 6rem" "loading" "eager" "full" false) }}
+      </div>
       {{- end }}
-    </div>
-    {{- with .Params.photo }}
-    <div class="intro-photo">
-      {{- partial "img.html" (dict "src" . "alt" $.Params.photo_alt "widths" (slice 500 800 1200) "sizes" "(min-width: 77rem) 31rem, (min-width: 52rem) 40rem, 100vw" "loading" "eager" "full" false) }}
-    </div>
-    {{- end }}
-    <div class="intro-bio">
-      {{- .Content }}
-    </div>
+      <div class="industry-bio-copy">{{ .Content }}</div>
+    </aside>
   </section>
 
-  {{- with .Params.now }}
-  <section class="rail wrap" aria-labelledby="now-title">
-    <h2 class="eyebrow" id="now-title">Now</h2>
-    <p class="now">{{ . | markdownify }}</p>
+  {{- with $feature }}
+  <section class="industry-feature wrap" aria-labelledby="feature-title">
+    <div class="industry-feature-label">
+      <p class="meta"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format (.Params.date_format | default "January 2006") }}</time></p>
+    </div>
+    <div class="industry-feature-copy">
+      <h2 id="feature-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+      {{- if $essay }}
+      {{- with .Description }}<p>{{ . }}</p>{{ end }}
+      {{- else }}
+      <p>Why most promising materials never make it from the lab into use, and the work it takes to get them there.</p>
+      {{- end }}
+      <a class="industry-read" href="{{ .RelPermalink }}">Read the essay <span aria-hidden="true">↗</span></a>
+      {{- if $essay }}{{ with $earlier }}<p class="industry-earlier">It builds on <a href="{{ .RelPermalink }}">{{ .Title }}</a>, which I wrote in January.</p>{{ end }}{{ end }}
+    </div>
   </section>
   {{- end }}
 
-  <section class="threads wrap" aria-label="Three threads">
-    <ol class="thread-list" role="list">
-      {{- range site.Data.threads }}
-      <li class="thread" id="thread-{{ .key }}">
-        <h2>{{ .title }}</h2>
-        <p>{{ .text | markdownify }}</p>
-      </li>
-      {{- end }}
-    </ol>
-  </section>
-
-  {{- $selected := slice }}
-  {{- range .Params.selected }}
-    {{- with site.GetPage (strings.TrimSuffix "/" .) }}{{ $selected = $selected | append . }}{{ end }}
-  {{- end }}
-  {{- with $selected }}
-  <section class="wrap" aria-labelledby="selected-title">
-    <h2 class="eyebrow section-label" id="selected-title">Selected work</h2>
-    <ul class="cards selected">
-      {{- range . }}
-      {{- partial "card.html" (dict "page" . "sizes" "(min-width: 80rem) 23rem, (min-width: 64rem) 30vw, (min-width: 40rem) 45vw, 92vw") }}
-      {{- end }}
-    </ul>
-  </section>
-  {{- end }}
-
-  {{- /* Recent writing skips pieces already shown above, so nothing appears twice. It lists titles and dates only. */ -}}
-  {{- with site.GetPage "/writings" }}
-  {{- $shown := slice }}
-  {{- range $selected }}{{ $shown = $shown | append .RelPermalink }}{{ end }}
-  <section class="rail wrap" aria-labelledby="recent-title">
-    <h2 class="eyebrow" id="recent-title">Recent writing</h2>
-    <ul class="rows">
-      {{- range first 5 (where .Pages "RelPermalink" "not in" $shown) }}
-      <li class="row">
-        <div class="row-body">
-          {{- partial "meta-line.html" (dict "page" .) }}
-          <h3 class="row-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+  <section class="industry-work wrap" id="selected-work" aria-labelledby="selected-title">
+    <div class="industry-section-line">
+      <h2 class="eyebrow" id="selected-title">Selected work</h2>
+      <a href="/projects/">All work <span aria-hidden="true">↗</span></a>
+    </div>
+    <ul class="cards industry-work-cards">
+      {{- range .Params.work }}
+      {{- $entry := . }}
+      {{- with site.GetPage .page }}
+      <li class="card{{ with .Params.image }} has-media{{ end }}">
+        {{- with .Params.image }}
+        <div class="card-media{{ if eq $entry.page "/projects/interface-force-field/" }} card-media-presentation{{ end }}">{{ partial "img.html" (dict "src" . "alt" "" "widths" (slice 480 800) "sizes" "(min-width: 52rem) 30vw, 90vw" "full" false) }}</div>
+        {{- end }}
+        <div class="card-body">
+          <p class="meta">{{ if eq .Section "writings" }}Talk{{ else }}Project{{ end }}</p>
+          <h3 class="card-title"><a href="{{ .RelPermalink }}">{{ $entry.title }}</a></h3>
+          <p class="card-desc">{{ $entry.description | markdownify }}</p>
         </div>
       </li>
       {{- end }}
+      {{- end }}
     </ul>
+    <p class="industry-research">My <a href="/research/matter-compilation/honest-assessment/">research on building with atomic precision</a> starts from what has been demonstrated, such as quantum processors built atom by atom, and works out what larger structures would take.</p>
+  </section>
+
+  {{- with site.GetPage "/writings" }}
+  <section class="rail wrap" aria-labelledby="recent-title">
+    <h2 class="eyebrow" id="recent-title">Recent writing</h2>
+    <div>
+      <ul class="rows">
+        {{- /* The featured piece is already shown above, so it is left out here. */ -}}
+        {{- $recent := .Pages }}
+        {{- with $feature }}{{ $recent = where $recent "RelPermalink" "ne" .RelPermalink }}{{ end }}
+        {{- range first 4 $recent }}
+        <li class="row"><div class="row-body">
+          {{- partial "meta-line.html" (dict "page" .) }}
+          <h3 class="row-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        </div></li>
+        {{- end }}
+      </ul>
+      <a class="industry-all-writing" href="{{ .RelPermalink }}">All writing <span aria-hidden="true">↗</span></a>
+    </div>
   </section>
   {{- end }}
 
@@ -77,7 +90,7 @@
       {{- with site.Params.linkedin }}<li><a class="ext" href="{{ . }}" rel="noopener">LinkedIn</a></li>{{ end }}
       {{- with site.Params.x }}<li><a class="ext" href="{{ . }}" rel="noopener">X</a></li>{{ end }}
       {{- with site.Params.resume }}<li><a href="{{ . }}">Resume</a></li>{{ end }}
-      {{- with site.GetPage "/cv" }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>{{ else }}{{ with site.Params.cv }}<li><a href="{{ . }}">CV</a></li>{{ end }}{{ end }}
+      {{- with site.GetPage "/cv" }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>{{ end }}
     </ul>
   </section>
 </div>

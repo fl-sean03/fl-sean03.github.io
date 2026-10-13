@@ -61,7 +61,7 @@
 {{- if .IsHome }}
 {{- $sameAs := slice }}
 {{- range slice site.Params.github site.Params.linkedin site.Params.x }}{{ with . }}{{ $sameAs = $sameAs | append . }}{{ end }}{{ end }}
-{{- $person := dict "@context" "https://schema.org" "@type" "Person" "name" site.Title "url" site.Home.Permalink "jobTitle" "PhD student in materials science" "affiliation" (dict "@type" "CollegeOrUniversity" "name" "University of Colorado Boulder") "sameAs" $sameAs }}
+{{- $person := dict "@context" "https://schema.org" "@type" "Person" "name" site.Title "url" site.Home.Permalink "description" "Works on new materials for the next generation of industry." "jobTitle" "PhD student in materials science" "affiliation" (dict "@type" "CollegeOrUniversity" "name" "University of Colorado Boulder") "sameAs" $sameAs }}
 <script type="application/ld+json">{{ $person | jsonify | safeJS }}</script>
 {{- end }}
 <link rel="preload" href="/fonts/source-serif-4-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
