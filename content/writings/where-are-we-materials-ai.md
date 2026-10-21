@@ -1,5 +1,5 @@
 ---
-title: "Where Are We"
+title: "Where Are We with Materials AI"
 subtitle: "Materials AI, and where its training labels come from"
 date: 2026-09-03
 image: "/images/writings/where-are-we-title.png"

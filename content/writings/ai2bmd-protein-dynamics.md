@@ -49,7 +49,7 @@ For two proteins, barnase and CI2, AI²BMD recomputed the energies of shapes sam
 
 Accuracy depends on the reference, the chemistry and the sampling.
 
-The reference is one chosen version of DFT, applied in fragments and joined by classical terms. Matching it shows the model is faithful to that setup, which is why the experimental checks matter. My earlier talk, [Where Are We](/writings/where-are-we-materials-ai/), makes the same point about materials AI.
+The reference is one chosen version of DFT, applied in fragments and joined by classical terms. Matching it shows the model is faithful to that setup, which is why the experimental checks matter. My earlier talk, [Where Are We with Materials AI](/writings/where-are-we-materials-ai/), makes the same point.
 
 The chemistry is the vocabulary of 21 fragment types. Molecules bound to the protein, unusual amino acids, changed charge states and chemical reactions need evidence this study doesn't provide.
 
