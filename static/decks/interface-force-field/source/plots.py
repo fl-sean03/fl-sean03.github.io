@@ -48,6 +48,8 @@ def force(r, r0, epsilon):
 def save(fig, name):
     fig.savefig(ASSETS / f"{name}.png", dpi=160, metadata={"Software": "Sean Florez"})
     fig.savefig(ASSETS / f"{name}.svg", metadata={"Creator": "Sean Florez", "Date": None})
+    svg = ASSETS / f"{name}.svg"
+    svg.write_text("\n".join(line.rstrip() for line in svg.read_text().splitlines()) + "\n")
     plt.close(fig)
 
 
@@ -209,7 +211,7 @@ def main():
     }
     (DATA / "science-checks.json").write_text(json.dumps(results, indent=2) + "\n")
     with (DATA / "lj-curves.csv").open("w", newline="") as handle:
-        writer = csv.writer(handle)
+        writer = csv.writer(handle, lineterminator="\n")
         writer.writerow(["metal", "r_A", "U_kcal_mol_pairs", "F_radial_kcal_mol_A"])
         writer.writerows(rows)
     print(json.dumps(results, indent=2))
