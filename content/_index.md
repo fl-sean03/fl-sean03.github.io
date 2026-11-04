@@ -13,7 +13,7 @@ work:
   - page: /projects/mxene-shear/
     title: "MXene Interlayer Shear"
     description: "At the Air Force Research Laboratory I simulated two MXene sheets sliding past each other. Dry, they hold to 103 MPa in shear. A quarter monolayer of water drops that to 8 MPa, and full coverage brings it back up to 39 MPa."
-  - page: /projects/interface-force-field/
+  - page: /writings/interface-force-field/
     title: "Interface Force Field"
     description: "I use this presentation to explain the Interface Force Field, a classical model of how atoms interact. With rhodium as the example, it compares the model with measurements it was fitted to and with ones it wasn't."
   - page: /projects/opensdl/

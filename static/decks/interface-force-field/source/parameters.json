@@ -1,0 +1,44 @@
+{
+  "source": {
+    "id": "K21",
+    "citation": "Kanhaiya, Kim, Im and Heinz, npj Computational Materials 7, 17 (2021)",
+    "doi": "10.1038/s41524-020-00478-1",
+    "url": "https://doi.org/10.1038/s41524-020-00478-1",
+    "locator": "Equation 1, p. 2; Table 1, p. 3; Tables 2, 3 and 5, pp. 4, 6 and 9 (printed article pages)",
+    "license": "CC BY 4.0",
+    "status": "Published parameters and results, not newly fitted or rerun"
+  },
+  "convention": {
+    "potential": "U(r) = epsilon * [(r0/r)^12 - 2*(r0/r)^6]",
+    "radial_force": "F(r) = 12*epsilon/r * [(r0/r)^12 - (r0/r)^6]",
+    "r0": "Pair minimum; called sigma in Kanhaiya et al.",
+    "sigma": "Zero crossing in 4*epsilon*[(sigma/r)^12-(sigma/r)^6]; sigma=r0/2^(1/6)",
+    "energy_unit": "kcal/mol of pairs",
+    "length_unit": "angstrom",
+    "force_unit": "kcal/(mol angstrom)",
+    "force_sign": "Positive pushes atoms apart; negative pulls them together",
+    "mixing": "CVFF geometric means for both r0_ij and epsilon_ij; this is one explicit family convention, not a universal rule",
+    "mixing_source": "K21 Integration of the LJ parameters into other force fields, p. 3; SI Supplementary Note 2, p. S11"
+  },
+  "metals": {
+    "Rh": {"name": "Rhodium", "r0_A": 2.757, "epsilon_kcal_mol": 7.84},
+    "Ir": {"name": "Iridium", "r0_A": 2.785, "epsilon_kcal_mol": 9.20},
+    "Ca": {"name": "Calcium (alpha)", "r0_A": 4.025, "epsilon_kcal_mol": 3.36},
+    "Sr": {"name": "Strontium (alpha)", "r0_A": 4.379, "epsilon_kcal_mol": 3.40}
+  },
+  "rhodium_evidence": {
+    "five_cell_lattice_A": {"experiment": 19.016, "LJ12_6": 19.016, "LJ9_6": 19.014, "role": "calibration", "locator": "Table 2, p. 4"},
+    "surface111_J_m2": {"experiment": 2.64, "experimental_uncertainty": 0.02, "LJ12_6": 2.643, "LJ9_6": 2.643, "role": "calibration", "locator": "Table 3, p. 6"},
+    "bulk_modulus_GPa": {"experiment_selected": 276, "other_experimental_entries": [270, 271, 269], "LJ12_6": 258, "LJ9_6": 175, "role": "not a density/surface fitting target", "locator": "Table 5, p. 9; selected experiment is reference d"},
+    "young_modulus_GPa": {"experiment_selected": 379, "other_experimental_entries": [319, 378], "LJ12_6": 209, "LJ9_6": 128, "locator": "Table 5, p. 9; selected experiment is reference d"},
+    "shear_modulus_GPa": {"experiment_selected": 147, "other_experimental_entries": [150], "LJ12_6": 77, "LJ9_6": 47, "locator": "Table 5, p. 9; selected experiment is reference d"},
+    "poisson_ratio": {"experiment": 0.26, "LJ12_6": 0.365, "LJ9_6": 0.378, "locator": "Table 5, p. 9"},
+    "elastic_limit": "Central-force pair framework imposes C12/C44=1; K21 p. 3"
+  },
+  "coulomb": {
+    "formula": "U_C = k*q_i*q_j/r; F_C = k*q_i*q_j/r^2",
+    "constant_rounded_kcal_A_mol_e2": 332.064,
+    "source": "Coulomb law with SI charge and Avogadro constants, rounded to six significant figures; https://physics.nist.gov/cuu/Constants/Table/allascii.txt (2022 CODATA)",
+    "example": "Illustrative +1e and -1e point charges in vacuum; no solvent dielectric or periodic images; these are not Rh atom charges"
+  }
+}

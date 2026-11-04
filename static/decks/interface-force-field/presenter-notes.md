@@ -1,291 +1,503 @@
-# Presenter notes and citations
+# Presenter notes
 
-## 01. Interface Force Field
+## 1. Interface Force Field
 
-This deck explains Interface Force Field (IFF) as a classical molecular-mechanics framework. The running example is face-centered cubic rhodium, with source-grounded ideal structures and numerical results from Kanhaiya et al. (2021). Camera motion and analytical two-atom illustrations explain concepts; they are not recorded material trajectories. Published predictions are replotted and are not newly rerun simulations. The aim is to understand how an atomic model becomes a claim that can be tested against experiment, including where the claim should be restricted. Pure-metal, alloy and agent-workflow examples have separate evidence boundaries.
+I want to connect the atoms in a picture to a result we can check. We'll build the background first, work through rhodium, and then look at published systems where a molecular model helped explain an experiment. Every atomic drawing here is idealized. The plotted pair curves are analytic calculations from published parameters. The material results come from the cited papers and were not rerun for this talk.
 
-- [Kanhaiya, Kim, Im & Heinz (2021), Accurate simulation of surfaces and interfaces of ten FCC metals and steel using Lennard–Jones potentials](https://doi.org/10.1038/s41524-020-00478-1)
-- [Kanhaiya et al. (2021), Author Correction](https://doi.org/10.1038/s41524-021-00576-8)
+Sources: H13, K21
 
-## 02. Begin with the decision
+## 2. An atom has a nucleus and electrons
 
-Surface energy matters when evaluating exposed crystal faces, cleavage and interface formation. This is a narrow pedagogical material question, not a prediction of a complete product or catalyst. The paper parameterizes metal models using lattice and surface evidence at standard conditions. A surface energy should not be confused with adsorption free energy, liquid interface tension, reaction barrier or corrosion rate. Changing the decision usually changes the required estimator, conditions and validation evidence. We begin with pure fcc Rh to avoid introducing unsupported alloy or reaction generality.
+An atom is a unit of an element. Its positive nucleus and negative electrons give it electrical structure. The electron cloud has no hard outer wall, so a sphere is a model of atomic size. A drawing can leave out electronic detail while keeping the atomic positions we need for a material calculation. The size used in a rendering must be stated separately from a claim about electron density.
 
-- [Kanhaiya, Kim, Im & Heinz (2021), Accurate simulation of surfaces and interfaces of ten FCC metals and steel using Lennard–Jones potentials](https://doi.org/10.1038/s41524-020-00478-1)
+Sources: DERIVED
 
-## 03. Keep every link in the chain visible
+## 3. Molecules connect atoms; crystals repeat a pattern
 
-Coordinates and a cell specify a configuration. A Hamiltonian and parameter package specify how the model assigns energy to that configuration. Forces follow from derivatives. A numerical operation then explores configurations or time evolution. An observable is an estimator applied to the resulting configurations. Only comparison under a suitable evidence contract supports a qualified material claim. Each transformation requires enough provenance to reproduce it. The IFF Agent is meant to preserve that evidence chain rather than collapse a successful file export or calculation into scientific acceptance.
+Water is a familiar molecule. A metal crystal is an extended arrangement of atoms rather than a collection of small separate molecules. At an interface, which is where two materials meet, both kinds of structure can be present. We need a model that describes each material and the interactions between them. Lines are omitted from the space-filling drawing so the occupied volume stays visible.
 
-- [Kanhaiya, Kim, Im & Heinz (2021), Accurate simulation of surfaces and interfaces of ten FCC metals and steel using Lennard–Jones potentials](https://doi.org/10.1038/s41524-020-00478-1)
-- IFF Agent workflow documentation (2026)
+Sources: H13
 
-## 04. Start with a real periodic crystal
+## 4. Atoms push and pull on one another
 
-The corrected public supplementary archive supplies rh_unit_cell_Fm3m.car. Its cubic cell has a=b=c=3.8032 Å and an Rh site at the origin under Fm-3m symmetry. This source is expanded into the four conventional fcc sites: (0,0,0), (0,1/2,1/2), (1/2,0,1/2), and (1/2,1/2,0). The illustration includes periodic equivalents on the cell boundary, so visible sphere count is not a cell atom count. The geometry is an ideal source-grounded construction, not a relaxed measured snapshot. The conventional-cell length agrees with the Rh five-cell reference in Table 2: 19.016 Å / 5.
+Imagine compressing a metal or pulling its surface apart. Work changes how its atoms are arranged. The model assigns an energy to those arrangements and a force to each atom. The touching spheres show an ideal rhodium crystal. Their radius follows the crystal's nearest-neighbor spacing, so the rendering shows a filled solid. It is a structural illustration, with no claim that atoms are rigid billiard balls.
 
-- [Kanhaiya, Kim, Im & Heinz (2021), Accurate simulation of surfaces and interfaces of ten FCC metals and steel using Lennard–Jones potentials](https://doi.org/10.1038/s41524-020-00478-1)
-- [Kanhaiya et al. (2021), Author Correction](https://doi.org/10.1038/s41524-021-00576-8)
+Sources: K21, DERIVED
 
-## 05. A supercell changes scale, not chemistry
+## 5. Can a short molecule change a metal particle’s shape?
 
-The visual supercell is built by repeating the source-derived conventional cell three times in each direction. It contains 108 atoms because 4 × 3³ = 108. It is smaller than the 500-atom, 5 × 5 × 5 fcc supercells used in the paper to calculate lattice parameters. Replication changes the finite model size without changing the element or ideal phase. Atom count alone does not establish convergence: long-wavelength modes, defects, correlations, cutoffs and periodic image effects can all change the required size. This image is a reproducible structural illustration, not a claim about simulation accuracy.
+Ruan and colleagues used peptide variants and electron microscopy to study crystal-face recognition. Their model is named CHARMM-METAL in the paper and belongs to the metal-parameter lineage incorporated into IFF. A face is a flat exposed orientation of the crystal. We'll return to the result after introducing energy, water competition and surfaces. Crystal shape is an indirect readout of selective binding, so growth conditions remain part of the evidence.
 
-- [Kanhaiya, Kim, Im & Heinz (2021), Accurate simulation of surfaces and interfaces of ten FCC metals and steel using Lennard–Jones potentials](https://doi.org/10.1038/s41524-020-00478-1)
-- [Kanhaiya et al. (2021), Author Correction](https://doi.org/10.1038/s41524-021-00576-8)
+Sources: R13
 
-## 06. A surface introduces a physical boundary
+## 6. A simulation is a controlled model experiment
 
-The display slab is constructed with ASE fcc111 from the corrected Rh lattice constant. It has 144 atoms, six layers and 7 Å vacuum on either side, and is not the research slab used to produce the published results. Bulk periodicity and surface boundary conditions answer different physical questions. In an ionic material, termination, stoichiometry and charge neutrality can make a surface construction substantially more consequential; the neutral elemental-metal example avoids those issues but does not make them optional elsewhere. The source archive also supplies oriented Rh surface cells, which we retain for geometry provenance. Playback shows only camera and construction-stage changes.
+An observable is a quantity we can estimate from the calculation and compare with an experiment, such as density or surface energy. A simulation can make a buried interface easier to inspect, or compare candidate molecules before synthesis. Its answer depends on the chemistry included, the mathematical approximation and the configurations explored. Agreement must be assessed for the actual question and conditions.
 
-- [Kanhaiya, Kim, Im & Heinz (2021), Accurate simulation of surfaces and interfaces of ten FCC metals and steel using Lennard–Jones potentials](https://doi.org/10.1038/s41524-020-00478-1)
-- [Kanhaiya et al. (2021), Author Correction](https://doi.org/10.1038/s41524-021-00576-8)
+Sources: H13, K21
 
-## 07. Coordinates do not define the model
+## 7. Different methods keep different physical detail
 
-A coordinate file does not determine atomic charges, which interaction terms apply or the coefficients in those terms. In the published pure-metal example, Rh is modeled by charge-neutral atoms with Lennard–Jones interactions. An alloy or mineral can require physically justified charge assignments and different conventions. Combining packages also requires compatible functional forms, cross interactions, units and exclusion rules. A renderer can show a plausible crystal while the actual Hamiltonian is wrong, so structure and parameter provenance must be checked separately. The current IFF Agent workflow explicitly maintains these distinctions and separates model-family branches.
+Density functional theory, or DFT, is an electronic-structure method built around electron density. It can address changes in bonding and charge, with results that depend on the chosen approximation. Classical molecular mechanics replaces that electronic calculation with an energy function and parameters. Learned potentials use examples from reference calculations to approximate the energy landscape. More electronic detail usually increases cost, while a useful approximation must retain the physics the question needs.
 
-- [Kanhaiya, Kim, Im & Heinz (2021), Accurate simulation of surfaces and interfaces of ten FCC metals and steel using Lennard–Jones potentials](https://doi.org/10.1038/s41524-020-00478-1)
-- IFF Agent workflow documentation (2026)
+Sources: HK64, H13, MACE
 
-## 08. IFF is classical molecular mechanics
+## 8. Compare the scale and the work actually timed
 
-IFF belongs within classical molecular mechanics, so IFF versus molecular mechanics is a category error. Useful comparisons are between specific models for a defined chemistry, state and observable. The cited metal work uses simple pair potentials, while other classical models such as EAM include many-body metallic effects and reactive families serve different purposes. Compatibility with an organic or biomolecular host force field does not guarantee every mixed interface is accurate; the host parameters and cross-interaction rules still affect the result. The presentation avoids the paper’s broad speed or accuracy slogans and instead uses observable-specific numerical evidence.
+Wang and colleagues report 21 minutes for a DFT energy evaluation of 281-atom Trp-cage and 0.072 seconds for AI²BMD. Figure 2f compares energy-calculation timings; the accompanying prose calls this a simulation step. This timing benchmark does not report a trajectory duration. Kanhaiya's classical lattice protocol uses five conventional fcc cells along each axis. Four atoms per cell gives 500 atoms. It describes roughly 100 ps before stable behavior followed by 500 ps for averaging, using NPT at 298.15 K. A picosecond is one trillionth of a second. The classical paper does not provide an equivalent wall-clock timing here. Cross-paper differences in hardware, system, solvent and task prevent a universal speed ratio.
 
-- [Kanhaiya, Kim, Im & Heinz (2021), Accurate simulation of surfaces and interfaces of ten FCC metals and steel using Lennard–Jones potentials](https://doi.org/10.1038/s41524-020-00478-1)
-- [Liu et al. (2018), original Supporting Information, Tables S1–S2 and discussion S18–S19](https://acs.figshare.com/articles/journal_contribution/Understanding_Chemical_Bonding_in_Alloys_and_the_Representation_in_Atomistic_Simulations/6531197)
+Sources: W24, K21, K21SI, DERIVED, W24C
 
-## 09. Sum only the applicable interactions
+## 9. Molecular mechanics assigns energy to atom positions
 
-A generic classical Hamiltonian may contain bonded, electrostatic and nonbonded terms, with additional cross terms or many-body terms depending on the family. This is a menu rather than a prescription that all IFF systems use all listed terms. The pure Rh example in Kanhaiya et al. uses neutral atoms and the applicable Lennard–Jones form. Electrostatics becomes chemically important in the alloy example later in the deck. A model can hold topology or electronic response fixed, which limits phenomena such as bond breaking, polarization or changing oxidation state unless a suitable extension is explicitly included and validated.
+A configuration is a list of atomic positions, with a simulation cell when periodic boundaries are used. Molecular mechanics evaluates potential energy for that configuration. A force field supplies the functional forms and coefficients. In the common IFF-compatible form, bonded terms describe internal molecular geometry, while electrostatics and van der Waals terms describe nonbonded interactions. The complete package also needs units and rules for which atom pairs interact.
 
-- [Kanhaiya, Kim, Im & Heinz (2021), Accurate simulation of surfaces and interfaces of ten FCC metals and steel using Lennard–Jones potentials](https://doi.org/10.1038/s41524-020-00478-1)
-- [Liu et al. (2018), original Supporting Information, Tables S1–S2 and discussion S18–S19](https://acs.figshare.com/articles/journal_contribution/Understanding_Chemical_Bonding_in_Alloys_and_the_Representation_in_Atomistic_Simulations/6531197)
-- Original derivation / explicitly illustrative visual
+Sources: H13
 
-## 10. Two parameters have physical meaning
+## 10. Stretching a bond costs energy
 
-Table 1 gives separate 12–6 and 9–6 Rh parameters. In the paper’s equations, the symbol sigma denotes the equilibrium nonbond distance, which this deck calls Rmin to avoid confusing it with the conventional LAMMPS lj/cut sigma. Epsilon is the energy well depth. Lattice and surface properties are coupled functions of both parameters, even though their dominant interpretations are length and cohesion. The 9–6 set is not obtained by copying the 12–6 values into a different formula, and it is not a demonstrated later revision of the 12–6 model. These values are reproduced for explanation, not adopted as a newly reviewed package.
+The spring analogy describes the shape of the energy close to equilibrium. A common harmonic form is U = (k/2)(r-r_eq)^2, with k the stiffness and r_eq the preferred bond length. Force-field families sometimes absorb the factor of one half into k, so the coefficient convention matters. A fixed harmonic bond model has a limited range and does not describe bond breaking. The drawing uses touching spheres and a separate energy diagram.
 
-Readable equations and values:
-Rh 12-6: Rmin = 2.757 angstrom; epsilon = 7.84 kcal/mol. Rh 9-6: Rmin = 2.807 angstrom; epsilon = 6.38 kcal/mol.
+Sources: H13, DERIVED
 
-- [Kanhaiya, Kim, Im & Heinz (2021), Accurate simulation of surfaces and interfaces of ten FCC metals and steel using Lennard–Jones potentials](https://doi.org/10.1038/s41524-020-00478-1)
+## 11. Bending an angle also costs energy
 
-## 11. Check the engine’s parameter convention
+Take two bonds that meet at the same atom. The angle between them is another coordinate of the molecule. A simple harmonic bending term rises quadratically with displacement from the preferred angle. Its stiffness affects vibrations and mechanical response. This term is distinct from an interaction between two separate molecules. The pictured arrangement is an illustrative geometry rather than a fit to a specific compound.
 
-A convention mismatch changes the potential even if a coefficient file appears syntactically valid. The paper’s 12–6 potential has its minimum at Rmin. LAMMPS lj/cut defines sigma at the zero crossing, with the minimum at 2^(1/6) sigma. Converting Rh therefore gives sigma approximately 2.4562 Å. The 9–6 expression in the paper has its own coefficient and mixing conventions and must not be converted using this 12–6 rule. Unit systems, cutoff handling, long-range corrections and mixing rules also matter. Export readback should compare energies, forces and affected observables from the exact consumed files.
+Sources: H13, DERIVED
 
-Readable equations and values:
-Paper 12-6: U = epsilon * ((Rmin/r)^12 - 2*(Rmin/r)^6).
-LAMMPS lj/cut: U = 4*epsilon * ((sigma/r)^12 - (sigma/r)^6).
-sigma = Rmin / 2^(1/6) = 2.4562077659 angstrom for Rh; epsilon unchanged.
+## 12. A torsion describes a twist along a bond
 
-- [Kanhaiya, Kim, Im & Heinz (2021), Accurate simulation of surfaces and interfaces of ten FCC metals and steel using Lennard–Jones potentials](https://doi.org/10.1038/s41524-020-00478-1)
-- [LAMMPS documentation: lj/cut interaction convention](https://docs.lammps.org/pair_lj.html)
+A dihedral angle compares the planes formed by two overlapping sets of three atoms. Rotating around the central bond can bring atoms closer together or change favorable electronic arrangements. Force fields represent the resulting energy variation with periodic terms. In a long molecule these preferences influence the shapes it can sample. Other terms, including nonbonded interactions, also contribute to the total cost of rotation.
 
-## 12. Forces are the slope of energy
+Sources: H13, DERIVED
 
-For a two-atom separation r, the radial force is minus dU/dr. Under the Rmin convention the illustrative pair force is 12ε/Rmin[(Rmin/r)^13 − (Rmin/r)^7]. Positive radial force on the atom at positive r points outward; negative force points inward. A solid contains many interacting neighbors, so its equilibrium lattice spacing is determined by the total energy, not by a single pair minimum alone. The plotted curve is analytical in reduced units and is not an experimental result, a fitted force curve or an IFF trajectory. A finite-difference check of the derivative is included in validation.
+## 13. Atoms interact across a gap, too
 
-Readable equations and values:
-Force on atom i = minus the gradient of total potential energy with respect to its position.
-Radial pair force = (12*epsilon/Rmin) * ((Rmin/r)^13 - (Rmin/r)^7). Positive points outward, negative inward.
+Nonbonded interactions act between atoms that are not directly joined by the relevant covalent bonds. An effective repulsive term prevents unrealistic overlap, while an attractive term can help produce cohesion. Electrostatics accounts for charges and polarity. The force field specifies exclusions and scaling for atoms connected through short bond paths, so these terms are not blindly added for every possible pair in a molecule.
 
-- [Kanhaiya, Kim, Im & Heinz (2021), Accurate simulation of surfaces and interfaces of ten FCC metals and steel using Lennard–Jones potentials](https://doi.org/10.1038/s41524-020-00478-1)
-- Original derivation / explicitly illustrative visual
+Sources: H13, R13
 
-## 13. Minimization searches a local basin
+## 14. The Lennard-Jones curve has a wall and a well
 
-Energy minimization changes coordinates, and sometimes cell degrees of freedom, to seek a local energy minimum. Convergence criteria can include energy changes and force thresholds. The result depends on the initial basin, constraints and algorithm; it need not be the global minimum. A converged minimizer can still be solving an inappropriate physical model or a wrongly terminated slab. Temperature-dependent observables generally require more than a static minimum. The schematic basin on this slide is an explanatory drawing with no numerical material trajectory behind it.
+Lennard-Jones, abbreviated LJ, is a simple effective pair potential. The exponents identify a functional form, not a full electronic calculation. Here the original plot evaluates Kanhaiya's rhodium coefficients. The isolated pair is a teaching device. A metal crystal contains many interacting neighbors, so this curve alone does not give the total binding or elastic behavior of a solid.
 
-- [LAMMPS documentation: fix nve and minimize](https://docs.lammps.org/fix_nve.html)
-- Original derivation / explicitly illustrative visual
+Sources: K21, DERIVED
 
-## 14. MD follows a time evolution
+## 15. Read the zero crossing, minimum and well depth
 
-Molecular dynamics numerically integrates equations of motion. A common classical integrator is velocity Verlet. NVE, NVT and NPT ensembles address different constraints; thermostats and barostats affect how a target temperature and pressure are maintained. The FCC-metal paper used 1 fs steps and property-specific ensembles, described in its methods and SI. The embedded movie is prescribed analytical two-atom motion designed to show the force sign and different simulation operations. It does not integrate a Rh material trajectory, report a physical oscillation period or support a thermal prediction. Arrow direction follows the force sign; arrow length is clipped for display and is not a quantitative vector scale. A static poster remains visible if a presentation viewer cannot play the MP4.
+An angstrom, Å, is one ten-billionth of a meter. Energy is reported per mole of pairs, which scales a microscopic pair energy by Avogadro's number. Our equation is U=epsilon[(r0/r)^12-2(r0/r)^6]. Kanhaiya calls the minimum-length parameter sigma; we call it r0 to distinguish it from the zero-crossing sigma in U=4epsilon[(sigma/r)^12-(sigma/r)^6]. The curves are identical when sigma=r0/2^(1/6). At r0 the pair energy is -epsilon.
 
-Readable equations and values:
-Mass of atom i times its second time derivative of position equals force on atom i: mi * d^2(ri)/dt^2 = Fi.
+Sources: K21, LJ, DERIVED
 
-- [LAMMPS documentation: fix nve and minimize](https://docs.lammps.org/fix_nve.html)
-- [Kanhaiya, Kim, Im & Heinz (2021), Accurate simulation of surfaces and interfaces of ten FCC metals and steel using Lennard–Jones potentials](https://doi.org/10.1038/s41524-020-00478-1)
+## 16. Force is the negative slope of energy
 
-## 15. An observable needs a defined estimator
+The radial force is F_r=-dU/dr. For this minimum-length 12-6 form, F_r=(12epsilon/r)[(r0/r)^12-(r0/r)^6]. The sign convention takes increasing separation as positive. Energy below zero can still have a repulsive slope. The plot is the analytic derivative of the same published pair potential, and its units are kcal per mole per angstrom. It is not a measured force trace.
 
-These formulas illustrate distinct measurement contracts. Density depends on composition and volume; a distribution such as g(r) requires normalization; the isothermal bulk modulus requires an appropriate pressure-volume derivative; a diffusion estimate requires a diffusive long-time regime and correct unwrapping. The MSD expression here assumes three-dimensional isotropic diffusion and must be adjusted for other settings. Static elastic constants, finite-temperature isothermal moduli and measured acoustic adiabatic moduli are not automatically interchangeable. No transport or g(r) result is generated for this deck. Report units, state, estimator, sampling and uncertainty with every actual number.
+Sources: K21, DERIVED
 
-Readable equations and values:
-Density = total mass / volume.
-Isothermal bulk modulus K = -V * (partial P / partial V) at fixed temperature.
-Three-dimensional isotropic diffusion D = long-time mean squared displacement / (6*t), in a diffusive regime.
+## 17. Work the rhodium numbers
 
-- [Kanhaiya, Kim, Im & Heinz (2021), Accurate simulation of surfaces and interfaces of ten FCC metals and steel using Lennard–Jones potentials](https://doi.org/10.1038/s41524-020-00478-1)
-- Original derivation / explicitly illustrative visual
+These rounded values come from direct analytic evaluation of the published 12-6 rhodium parameters. At 2.500 Å, the energy is negative while the force is positive because the separation is shorter than the minimum. At 2.757 Å the energy is -7.84 and the force vanishes. At 3.000 Å the force is attractive. The table's force unit is kcal/(mol Å), and energy is kcal/mol of pairs. Extra digits in the check file document arithmetic, not higher physical precision.
 
-## 16. Cleave, then normalize the energy
+Sources: K21, DERIVED
 
-The paper compares unified and separated metal slabs with matched total atom counts and box dimensions using NVT simulations at 298.15 K. The energy difference is divided by the area of two newly created surfaces. The SI estimates the omitted entropy contribution to be small for these elemental-metal examples, within the stated experimental uncertainty. That approximation cannot be applied to every interface, adsorbate or temperature without justification. The display slab is an explanatory reconstruction rather than the actual research slab. Other geometries need their actual number of interfaces and area normalization, not a memorized universal factor of two.
+## 18. Changing the metal changes the pair curve
 
-Readable equations and values:
-Surface energy gamma approximately equals (cleaved energy - unified energy) / (2*surface area), for two equivalent new surfaces under the stated assumptions.
+Kanhaiya Table 1 gives Rh r0=2.757 Å and epsilon=7.84 kcal/mol; Ir 2.785 and 9.20; alpha-Ca 4.025 and 3.36; alpha-Sr 4.379 and 3.40. These are elemental fcc model parameters. They do not establish that a material remains chemically stable in every environment. For example, reactivity in water needs an appropriate model. The original plots compare the specified pair functions at their published values.
 
-- [Kanhaiya, Kim, Im & Heinz (2021), Accurate simulation of surfaces and interfaces of ten FCC metals and steel using Lennard–Jones potentials](https://doi.org/10.1038/s41524-020-00478-1)
+Sources: K21, DERIVED
 
-## 17. Match the experimental state
+## 19. A solid adds interactions with many neighbors
 
-A careful comparison reconciles experimental specimen, method, state and uncertainty with the model and estimator. The metal SI discusses the difference between polycrystalline experimental surface references and an ideal (111) face, and the small energy-versus-free-energy approximation. Table 5 includes multiple experimental mechanical references, so the deck identifies the selected ones instead of disguising them as a single definitive average. In the current IFF Agent workflow, primary-reference adoption precedes fitting and includes unresolved derivation rules or state definitions. An unexplained secondary number or a published model coefficient is not itself a primary experimental reference.
+The pair sum runs over each distinct unordered atom pair. A solid's equilibrium spacing balances interactions with multiple neighbor shells. Cleaving a solid changes many terms and allows atoms to relax. Surface energy is reported in joules per square meter, whereas epsilon has energy units. Fitting a surface target therefore requires an actual surface calculation, a normalization and stated conditions. There is no universal unit conversion from epsilon to gamma.
 
-- [Kanhaiya, Kim, Im & Heinz (2021), Accurate simulation of surfaces and interfaces of ten FCC metals and steel using Lennard–Jones potentials](https://doi.org/10.1038/s41524-020-00478-1)
-- IFF Agent workflow documentation (2026)
+Sources: K21, K21SI, DERIVED
 
-## 18. Published fit: Rh matches its targets
+## 20. A mixed pair needs an explicit combining rule
 
-The paper assigns parameters from experimental density/lattice and surface-energy evidence. The Rh agreement shown here is therefore calibration agreement, not an independent validation score. The chart also shows Ca(alpha) and Sr(alpha) from Table 3 to make the published surface fits inspectable; all references and uncertainties are exactly transcribed. Table 2 contains five-cell lengths, so those lengths should not be misreported as single-cell lattice constants. The paper’s conditions are 298 K and atmospheric pressure for lattice calculations, with surface methods explained in the SI. These are published calculations; the deck does not claim a new rerun or fit.
+A combining rule generates a cross interaction from the two like-atom parameters. This example uses geometric means for both minimum lengths and well depths, following the selected CVFF family convention. Other families use different length rules. The arithmetic is an illustration of how a rule is consumed. It supplies no evidence that a Rh-Ca alloy is accurately represented. Alloy charge, phase stability and electronic effects need their own evidence.
 
-Readable equations and values:
-Rh five-cell lattice reference 19.016 angstrom; 12-6 result 19.016; 9-6 result 19.014.
-Rh (111) surface reference 2.64 +/- 0.02 J/m^2; both model results 2.643 J/m^2. These are calibration comparisons.
+Sources: K21, K21SI, DERIVED
 
-- [Kanhaiya, Kim, Im & Heinz (2021), Accurate simulation of surfaces and interfaces of ten FCC metals and steel using Lennard–Jones potentials](https://doi.org/10.1038/s41524-020-00478-1)
+## 21. Charges add electrical attraction or repulsion
 
-## 19. Independent predictions reveal the limits
+The symbol e is the magnitude of the elementary charge. Using k=332.064 kcal Å/(mol e²), the point-charge calculation is U=k(+1)(-1)/3. These are illustrative charges in vacuum and are not the charges on rhodium atoms. Real ions also have size and other interactions. In water, solvent orientation, screening and polarization affect the result, so the vacuum value cannot be used as an ion-pair energy in solution.
 
-Kanhaiya et al. report Rh bulk modulus predictions of 258 GPa and 175 GPa for the two LJ families. We use the 276 GPa experimental entry marked reference d in Table 5; the same table also lists 270, 271 and 269 GPa from other references. Percent deviations on this slide are calculated against the selected 276 GPa reference, not copied from a universal benchmark. These mechanical properties were not the density/surface calibration targets. The paper explains limits of central-force pair models, including the elastic relation C12/C44=1 for the pair framework and material-dependent performance. Do not describe this as a formal blinded campaign or universal IFF validation. Kanhaiya et al. SI S7-S8 reports approximately ±3% reproducibility of calculated elastic moduli and agreement of small-strain Discover and LAMMPS E/K protocols within 0% to ±3% (strain 0.001-0.01). This is computational protocol repeatability, not accuracy against experiment, a statistical confidence interval or the error of a reserved-property prediction. The Rh deviations from the selected 276 GPa experimental entry remain -6.5% and -36.6%.
+Sources: CODATA, H13, DERIVED
 
-Readable equations and values:
-Rh bulk modulus: selected experiment 276 GPa; 12-6 model 258 GPa (-6.5%); 9-6 model 175 GPa (-36.6%).
+## 22. A small cluster counts each pair once
 
-- [Kanhaiya, Kim, Im & Heinz (2021), Accurate simulation of surfaces and interfaces of ten FCC metals and steel using Lennard–Jones potentials](https://doi.org/10.1038/s41524-020-00478-1)
+The pairs are atom 1 with 2, atom 1 with 3, and atom 2 with 3. Summing each once gives three times -7.84. The sphere diameter equals the isolated-pair minimum in this deliberately simple illustration. This is not a fragment cut from the equilibrium fcc crystal. No relaxation, long-time stability or preference over other cluster shapes has been calculated. A larger system uses the same counting idea while boundary and cutoff rules also matter.
 
-## 20. Alloys can add chemical polarity
+Sources: K21, DERIVED
 
-The original supporting information explains charge assignments using pure-metal pair potentials and experimentally measured alloy formation evidence. Table S2 uses ±0.39e base charges for AlNi. The SI’s extended-Born discussion also reports a feasible Al charge range of approximately +0.39e to +0.5e under its assumptions, so a single charge value must not be presented as a uniquely measured electron population. The topology diagram is schematic, not a source coordinate file or a fitted lattice reconstruction. The original SI supports this binary-alloy example. No numerical main-paper defect comparison, universal alloy predictor or high-entropy-alloy performance is inferred.
+## 23. Molecular mechanics makes repeated sampling practical
 
-- [Liu et al. (2018), Understanding Chemical Bonding in Alloys and the Representation in Atomistic Simulations](https://doi.org/10.1021/acs.jpcc.8b01891)
-- [Liu et al. (2018), original Supporting Information, Tables S1–S2 and discussion S18–S19](https://acs.figshare.com/articles/journal_contribution/Understanding_Chemical_Bonding_in_Alloys_and_the_Representation_in_Atomistic_Simulations/6531197)
+A single low-energy structure may miss the many arrangements present at a finite temperature. The lower cost of classical interactions makes repeated energy and force evaluation practical. This helps sample molecular conformations, water exchange and surface binding. The benefit depends on the model and workload. A fast trajectory can still sample too little time or use the wrong surface chemistry.
 
-## 21. A defect changes its local environment
+Sources: H13, K21
 
-The three plotted values are from Table S2 for a Ni vacancy. They correspond to redistribution into the first neighbor shell (100/0), into first and second shells (67/33), and into the second shell (0/100). The table describes the first option as most likely and lists the others as alternative charge hypotheses. Its heading explicitly calls the numbers raw defect formation energy in MM. A final thermodynamic defect quantity needs appropriate reservoirs, charge-state terms and conditions; this chart is not a fresh validation or a final vacancy-formation-energy benchmark. It shows why a chemically justified local assignment is consequential. The plot is newly drawn from table facts and reproduces no source figure.
+## 24. Parameters connect equations to physical measurements
 
-Readable equations and values:
-AlNi Ni-vacancy raw defect energies in eV: first/second-shell redistribution 100/0 -> 5.49; 67/33 -> 4.57; 0/100 -> 2.59.
+Parameterization chooses coefficients so the model reflects the material of interest. Structural data constrain packing and bonding geometry. Surface and immersion measurements constrain interactions across material boundaries. Dipole moments and other electrical data help constrain charge assignments. These effects are coupled. Several parameters may affect the same observable, and a fitted coefficient is not necessarily a uniquely measured atom property.
 
-- [Liu et al. (2018), original Supporting Information, Tables S1–S2 and discussion S18–S19](https://acs.figshare.com/articles/journal_contribution/Understanding_Chemical_Bonding_in_Alloys_and_the_Representation_in_Atomistic_Simulations/6531197)
+Sources: H13, C04
 
-## 22. Calibration and validation take different paths
+## 25. Fitting and testing answer different questions
 
-The implemented crystalline/ionic workflow separates primary reference selection, branch-specific fitting and independent evidence. Its fitting sequence adjusts the minimum-distance parameter to an adopted lattice reference and a common well-depth scale to adopted surface evidence, revisiting their coupling. Bulk modulus is reserved: it must not influence fit objectives, weights, parameter bounds, family selection or tuning. A failed reserved-property comparison restricts the claim. The FCC-metal literature example is separate from this implemented workflow; its non-fitted mechanical predictions were not rerun here.
+For the rhodium example, density or lattice size and surface energy are calibration targets. The elastic properties are predictions beyond those targets. This separation lets us ask whether a useful surface model also reproduces mechanical response. A reserved test loses independence if its outcome is used to tune a parameter, choose a model family or adjust a fitting weight. The published paper is not described here as a prospectively blinded campaign.
 
-- [Kanhaiya, Kim, Im & Heinz (2021), Accurate simulation of surfaces and interfaces of ten FCC metals and steel using Lennard–Jones potentials](https://doi.org/10.1038/s41524-020-00478-1)
-- IFF Agent workflow documentation (2026)
+Sources: K21, AGENT
 
-## 23. A revised model needs fresh evidence
+## 26. A parameter should have a defensible physical role
 
-Changing model parameters, chemistry or functional form creates a new candidate. Test data that inform that change become development evidence; a fresh independent claim requires fresh evidence. The published 12-6 and 9-6 models are alternatives, not a temporal revision. The evidence movie reveals published comparisons before illustrating a possible new evidence contract. The implemented workflow reserves bulk modulus from fitting and family selection. No completed new revision or independent validation is claimed.
+Physically interpretable means we can explain why a parameter is present and how it relates to the modeled chemistry. For example, a length parameter changes the distance scale while an energy parameter changes cohesion. Interpretation does not make the fit unique or guarantee transfer to a new compound. The rhodium mechanical limit will show why a sensible parameter set can still be restricted by its functional form.
 
-- IFF Agent workflow documentation (2026)
-- Original derivation / explicitly illustrative visual
+Sources: H13, K21
 
-## 24. The IFF Agent carries the evidence chain
+## 27. IFF connects inorganic surfaces with molecules
 
-The IFF Agent implementation connects intake, primary references, model assignment, a bounded fit/test contract, calculation and fitting, independent checks, exact export readback, and scientific review. It keeps CHARMM/AMBER, CVFF/OPLS, PCFF and PCFF-HQ as distinct model-family branches, preserving the potential of each family, coefficients, radius, mixing and export conventions. Runnable software and numerical execution do not establish correct chemical assignment or acceptance of a new scientific package.
+IFF stands for Interface Force Field. The 2013 paper establishes a framework for combining inorganic and molecular components while retaining chemically interpretable parameters and thermodynamic comparisons. Its purpose includes the boundary where a biomolecule or polymer meets a solid. Coverage is compound-specific. A supported force-field family still needs suitable parameters, charge assignments and surface models for the proposed system.
 
-- IFF Agent workflow documentation (2026)
+Sources: H13
 
-## 25. Scientific decisions define the scope
+## 28. Compatibility is an equation-level requirement
 
-The implemented workflow records reference selection, consequential charge/model choices, bounded fit/test rules and scientific adoption of an exact reviewed export. Family-specific conventions and neutrality remain explicit. Changes to references, chemistry or scientific scope require the relevant decision to be revisited. This explains the workflow design and implementation; it does not establish that a new material package has completed fitting, independent validation or adoption.
+IFF has been integrated with common molecular force-field families, including CHARMM, AMBER, CVFF, OPLS and PCFF in the supported contexts described by the papers. These families do not share every convention. A valid export must preserve the intended interactions, including the treatment of short bond paths and unlike atom types. Reading exported coefficients is useful, but a numerical energy and force comparison checks the consumed interpretation.
 
-- IFF Agent workflow documentation (2026)
+Sources: H13, K21, K21SI, AGENT
 
-## 26. Inputs become a reproducible dossier
+## 29. A silica surface changes its chemistry in water
 
-An illustrative input brief names composition, phase, interface, thermodynamic state, intended observable, primary references and structural origin. The expected dossier contains family-specific coefficients and conventions, source-grounded geometry, runnable inputs, calibration lineage, independent predictions, uncertainty, export readback and supported scope. It describes the implemented input/output contract and does not present a completed new scientific package.
+A silanol is a silicon-oxygen-hydrogen group at the surface. Losing its proton leaves a negatively charged siloxide group. The particle size, solution and preparation influence the extent of this change. The silica papers show why a surface labeled only SiO2 is incomplete. We use their published chemical and adsorption evidence here. The later correction to the 2014 paper changes density-profile plots, which this deck does not reproduce.
 
-- IFF Agent workflow documentation (2026)
+Sources: P12, E14, E14C
 
-## 27. Acceptance is more than execution
+## 30. Rhodium begins with a repeating fcc cell
 
-Numerical execution and engineering checks do not establish scientific acceptance. A package needs adopted references and model choices, calibration evidence, independent validation, convergence, exact export readback and scientific review. The resulting claim may be qualified, limited or withheld. This describes an evidence standard and establishes no new accepted package.
+A unit cell is a building block that can reproduce the crystal by translation. A conventional fcc cell contains four independent atomic sites after sharing corner and face sites with neighboring cells. The corrected source cell has cubic edge 3.8032 Å. Boundary spheres in a drawing can show copies of shared atoms, so their visible count is not the count of independent atoms. Crystal-contact spheres have radius a/(2sqrt(2)), consistent with touching nearest neighbors.
 
-- IFF Agent workflow documentation (2026)
+Sources: K21, K21C, DERIVED
 
-## 28. Choose the method for the decision
+## 31. Repeat the cell to build a supercell
 
-Classical potentials, DFT and MLIPs are useful for different questions. IFF is a classical framework with specific supported chemistry and conventions. DFT provides electronic-structure calculations but depends on the chosen functional and numerical setup; it is not an infallible experiment. An MLIP learns from data and can provide a rich potential representation, but coverage, extrapolation and calibration to the intended observable remain consequential. MACE is cited as a primary learned-potential example, not a claim that a particular released model is suitable for Rh or a general alloy. No unmatched atom-count, hardware, time-to-solution or accuracy benchmark is presented.
+Five cells in each of three directions gives 125 conventional cells. Multiplying by four atoms per fcc cell gives 500 atoms, the lattice-protocol size described in the paper's SI. A smaller drawing may be used to show the pattern clearly. Periodic boundaries mimic extended material through copies; surfaces and isolated molecules require appropriate extra space and boundary treatment. Convergence checks assess whether a larger box changes the observable.
 
-- [Kanhaiya, Kim, Im & Heinz (2021), Accurate simulation of surfaces and interfaces of ten FCC metals and steel using Lennard–Jones potentials](https://doi.org/10.1038/s41524-020-00478-1)
-- [Batatia et al. (2022), MACE: Higher Order Equivariant Message Passing Neural Networks for Fast and Accurate Force Fields](https://arxiv.org/abs/2206.07697)
+Sources: K21SI, DERIVED
 
-## 29. Connect methods to an experimental loop
+## 32. Expose a surface by cleaving the solid
 
-A full loop should be authored around the actual material question rather than require every available method. Electronic calculations may inform a charge or chemical hypothesis; classical models or MLIPs may enable larger sampling; experiments define and test a physically meaningful target. Each method enters only if it can change a decision and can be checked against a credible baseline. Data used to improve a model are development evidence, while a fresh test supports the next independent claim.
+Miller indices such as (111) label an orientation in a crystal. The cut shown here creates equivalent parallel faces. Atoms at those faces have fewer neighbors across the missing solid, and their positions can adjust. The pictured slab is idealized and constructed for explanation. It is not a reconstruction of an experimental surface or a newly simulated rhodium trajectory.
 
-- IFF Agent workflow documentation (2026)
-- Original derivation / explicitly illustrative visual
+Sources: K21, K21SI
 
-## 30. Make the first question narrow and testable
+## 33. Two new faces require a factor of two
 
-A useful material brief identifies composition, phase, interface, the decision to be changed, an observable, primary experimental evidence and a defined state. After fitting and independent scientific qualification, a dossier should identify the exact model, reproducible predictions, uncertainty, failures and restrictions. This is an evidence standard, with educational literature examples in this presentation; it is not a promise of a currently accepted new parameterization.
+The angle brackets denote an average over sampled configurations. If two equivalent faces of area A are created, the total newly exposed area is 2A. Kanhaiya's metal method compares matched unified and cleaved boxes. The full free-energy expression includes entropy; the SI estimates a small correction for the metal conditions studied. This approximation needs to be reassessed for a different interface, temperature or molecular adsorption process.
 
-- IFF Agent workflow documentation (2026)
-- Original derivation / explicitly illustrative visual
+Sources: K21, K21SI, DERIVED
 
-## 31. Appendix · equations and conventions
+## 34. Excellent agreement can be a calibration result
 
-The two Lennard–Jones expressions follow Kanhaiya et al. equations 1 and 2 after renaming their equilibrium-distance sigma to Rmin. Both have minimum −epsilon at Rmin, but their curvature and repulsive shape differ. The Coulomb expression is a generic pair expression; periodic electrostatics requires the actual summation and boundary convention, and a dielectric factor must not be inserted without defining it. Bonded terms, cross terms, mixing rules, exclusions, units and cutoffs depend on the chosen force-field family. These equations alone do not define a runnable or qualified parameter package.
+Kanhaiya Table 2 reports a five-cell length, 5a, rather than a single cell edge. The published 12-6 model gives the same rounded value as the reference. Table 3 reports Rh(111) surface energy 2.643 J/m² for both LJ families versus reference 2.64±0.02. These comparisons test reproduction of calibration data. The SI discusses experimental face mixtures and the approximation between surface free energy and the energy-difference method. Published values are reproduced here as facts and were not rerun.
 
-Readable equations and values:
-12-6: U = epsilon * ((Rmin/r)^12 - 2*(Rmin/r)^6).
-9-6: U = epsilon * (2*(Rmin/r)^9 - 3*(Rmin/r)^6).
-Electrostatic pair energy Uij = qi*qj / (4*pi*epsilon0*epsilon_r*rij); actual long-range convention must be defined.
-Force Fi = -gradient_i(U); mass mi * acceleration_i = Fi.
+Sources: K21, K21SI
 
-- [Kanhaiya, Kim, Im & Heinz (2021), Accurate simulation of surfaces and interfaces of ten FCC metals and steel using Lennard–Jones potentials](https://doi.org/10.1038/s41524-020-00478-1)
-- [LAMMPS documentation: lj/cut interaction convention](https://docs.lammps.org/pair_lj.html)
-- Original derivation / explicitly illustrative visual
+## 35. Minimization finds a nearby low-energy arrangement
 
-## 32. Appendix · the published data remain visible
+Energy minimization uses forces or gradients to reduce the potential energy. It is useful for removing unrealistic close contacts and relaxing a structure before dynamics. It does not assign a physical time to the movement down the landscape. A minimizer can stop in a local basin, so several starting configurations or broader sampling may be needed. The landscape is an original explanatory sketch.
 
-This appendix reproduces the selected Ca, Rh and Sr table entries in a native editable table and bar chart. Lattice values are lengths for five conventional unit cells (5a), not single-cell constants. Surface-energy references and uncertainties come from Table 3. Bulk moduli use the explicitly selected Table 5 experimental entries: Ca 20 GPa (reference b), Rh 276 GPa (reference d), Sr 12.0 GPa (references c,d). Additional experimental entries are retained in the article; the deck does not average or discard them. Table 5 predictions use the authors’ mechanical procedure, so protocol and state equivalence need scrutiny before a new material claim. No new model tuning or simulation occurred. Kanhaiya et al. SI S7-S8 reports approximately ±3% reproducibility of calculated elastic moduli and agreement of small-strain Discover and LAMMPS E/K protocols within 0% to ±3% (strain 0.001-0.01). This is computational protocol repeatability, not accuracy against experiment, a statistical confidence interval or the error of a reserved-property prediction. The Rh deviations from the selected 276 GPa experimental entry remain -6.5% and -36.6%.
+Sources: MD, H13, DERIVED
 
-Readable equations and values:
-Ca (α): five-cell lattice, experiment / 12-6 / 9-6 = 27.942 / 27.947 / 27.953 angstrom; surface energy, experiment +/- uncertainty / 12-6 / 9-6 = 0.492 +/- 0.01 / 0.49 / 0.49 J/m^2; bulk modulus, selected experiment / 12-6 / 9-6 = 20 / 30 / 21 GPa.
-Rh: five-cell lattice, experiment / 12-6 / 9-6 = 19.016 / 19.016 / 19.014 angstrom; surface energy, experiment +/- uncertainty / 12-6 / 9-6 = 2.64 +/- 0.02 / 2.643 / 2.643 J/m^2; bulk modulus, selected experiment / 12-6 / 9-6 = 276 / 258 / 175 GPa.
-Sr (α): five-cell lattice, experiment / 12-6 / 9-6 = 30.42 / 30.423 / 30.421 angstrom; surface energy, experiment +/- uncertainty / 12-6 / 9-6 = 0.41 +/- 0.01 / 0.411 / 0.41 J/m^2; bulk modulus, selected experiment / 12-6 / 9-6 = 12 / 24 / 16 GPa.
+## 36. Molecular dynamics advances motion in short steps
 
-- [Kanhaiya, Kim, Im & Heinz (2021), Accurate simulation of surfaces and interfaces of ten FCC metals and steel using Lennard–Jones potentials](https://doi.org/10.1038/s41524-020-00478-1)
+Newton's equation connects acceleration to force through atomic mass. A molecular-dynamics integrator repeatedly updates positions and velocities using that relationship. A femtosecond, fs, is one quadrillionth of a second. Temperature and pressure controls set the intended statistical conditions, and their settings affect sampling. A successful short run does not prove convergence. Any motion in our diagrams is illustrative and does not represent a new material trajectory.
 
-## 33. Appendix · what uncertainty must include
+Sources: K21, MD, DERIVED
 
-A plotted error bar can represent experimental uncertainty, sampling variation or a confidence interval; label which one it is. The calibration chart uses only the source-reported experimental uncertainties. It does not invent simulation error bars from rounded table values. Published model predictions are transcribed at their reported precision. Numerical convergence and systematic model error are different from statistical repeatability. For the ideal geometry and explanatory animations in this bundle, there is no sampling uncertainty because they are constructions rather than a measured simulation campaign. A held-out error does not become less important because a run is reproducible. Kanhaiya et al. SI S7-S8 reports approximately ±3% reproducibility of calculated elastic moduli and agreement of small-strain Discover and LAMMPS E/K protocols within 0% to ±3% (strain 0.001-0.01). This is computational protocol repeatability, not accuracy against experiment, a statistical confidence interval or the error of a reserved-property prediction. The Rh deviations from the selected 276 GPa experimental entry remain -6.5% and -36.6%.
+## 37. A trajectory becomes evidence through an observable
 
-- [Kanhaiya, Kim, Im & Heinz (2021), Accurate simulation of surfaces and interfaces of ten FCC metals and steel using Lennard–Jones potentials](https://doi.org/10.1038/s41524-020-00478-1)
-- IFF Agent workflow documentation (2026)
-- Original derivation / explicitly illustrative visual
+A trajectory is a time-ordered series of atomic configurations. Turning it into a material result requires an estimator with a reference state and conditions. Neighboring time samples are correlated, so a large frame count does not automatically mean many independent observations. Block averages, repeated runs and convergence checks help assess sampling. Experimental uncertainty and model error are separate sources of disagreement.
 
-## 34. Appendix · primary references
+Sources: H13, K21SI
 
-The manifest retains primary source locators and evidence classifications. Kanhaiya et al., current SI and corrected supplementary geometry support the metal example. The author correction restored missing geometry and scripts. The original Liu SI supports the binary-alloy example; only its numerical results are used, with no copied figures. LAMMPS supports engine conventions, MACE the learned-potential role. The IFF Agent section explains its implemented workflow; it supplies no new package validation.
+## 38. Rhodium mechanics exposes the pair model’s limit
 
-- [Kanhaiya, Kim, Im & Heinz (2021), Accurate simulation of surfaces and interfaces of ten FCC metals and steel using Lennard–Jones potentials](https://doi.org/10.1038/s41524-020-00478-1)
-- [Kanhaiya et al. (2021), Author Correction](https://doi.org/10.1038/s41524-021-00576-8)
-- [Liu et al. (2018), Understanding Chemical Bonding in Alloys and the Representation in Atomistic Simulations](https://doi.org/10.1021/acs.jpcc.8b01891)
-- [Liu et al. (2018), original Supporting Information, Tables S1–S2 and discussion S18–S19](https://acs.figshare.com/articles/journal_contribution/Understanding_Chemical_Bonding_in_Alloys_and_the_Representation_in_Atomistic_Simulations/6531197)
-- [LAMMPS documentation: lj/cut interaction convention](https://docs.lammps.org/pair_lj.html)
-- [LAMMPS documentation: fix nve and minimize](https://docs.lammps.org/fix_nve.html)
-- [Batatia et al. (2022), MACE: Higher Order Equivariant Message Passing Neural Networks for Fast and Accurate Force Fields](https://arxiv.org/abs/2206.07697)
-- IFF Agent workflow documentation (2026)
+Moduli describe stiffness under different deformations. K is the bulk modulus for volume compression, E is Young's modulus for uniaxial stretching, and G is the shear modulus. This table uses the selected experimental reference d in Kanhaiya Table 5; other reference values are listed in the paper. The 12-6 bulk modulus is about 6.5% lower than 276 GPa, but its Young's and shear moduli differ much more. The Cauchy-type central-force restriction limits independent elastic behavior. The examples are published predictions beyond the lattice and surface calibration, not newly rerun measurements.
 
-## 35. Appendix · reuse and scientific limits
+Sources: K21, K21SI
 
-No additional reuse license is granted for original visuals, media, prose or authoring code. Third-party material retains its actual license and source attribution. The corrected Rh source CAR files and Kanhaiya article are CC BY 4.0; Liu SI is CC BY-NC 4.0 and is linked rather than distributed. The plots redraw attributed numerical facts and reproduce no source figures. Source-derived ideal geometry and prescribed motion are educational constructions. Published results were not rerun, and this presentation establishes no new materials trajectory, fitted parameter package or scientific adoption. Native Microsoft PowerPoint playback, other browser engines and remote delivery remain unverified.
+## 39. An alloy needs evidence beyond a mixing rule
 
-- [Kanhaiya, Kim, Im & Heinz (2021), Accurate simulation of surfaces and interfaces of ten FCC metals and steel using Lennard–Jones potentials](https://doi.org/10.1038/s41524-020-00478-1)
-- [Kanhaiya et al. (2021), Author Correction](https://doi.org/10.1038/s41524-021-00576-8)
-- [Liu et al. (2018), original Supporting Information, Tables S1–S2 and discussion S18–S19](https://acs.figshare.com/articles/journal_contribution/Understanding_Chemical_Bonding_in_Alloys_and_the_Representation_in_Atomistic_Simulations/6531197)
-- IFF Agent workflow documentation (2026)
-- Original derivation / explicitly illustrative visual
+Liu's SI states that alloy charges were obtained using pure-metal pair potentials and experimental formation energies, with extended-Born reasoning to interpret chemical trends. The AlNi base assignment is +0.39e for Al and -0.39e for Ni. These are model partial charges. They are not a unique experimental partition of electrons. A neutral elemental metal model cannot simply be copied into every alloy without examining polarity, phase and structure.
+
+Sources: L18, L18SI
+
+## 40. Defects and polarization change the model question
+
+A defect is a departure from the ideal crystal, such as a missing atom. L18SI Table S2 varies how charge left by an AlNi vacancy is assigned among nearby atoms. Its raw molecular-mechanics energies depend on that hypothesis and are not measured formation free energies. A fixed neutral LJ model also lacks an explicit responding electron cloud. Geada's gold extension adds a charged core-shell response. Many-body models such as EAM can address other metal-specific behavior, with their own scope and interface limitations.
+
+Sources: L18SI, G18, K21
+
+## 41. Real systems test different parts of a model
+
+We have enough background to return to real questions. These six published examples use related interface modeling ideas across different chemistry. Some establish a mechanism through matched trends, while others compare a numerical surface property. Their evidential strength differs. A success on one interface does not validate all supported compounds or every property of the same material.
+
+Sources: R13, P12, E14, L16, M13, G18
+
+## 42. Peptide chemistry steers platinum crystal shape
+
+Ruan et al., Nano Letters 2013, pp. 842-844, Figures 2-3. The CHARMM-METAL model, an IFF metal-model predecessor, describes competition between water and peptides. Phenylalanine's ring can lie on (111) but has an unfavorable geometry on (100), reducing adsorption there. Strong binding to (111) alone did not correlate with tetrahedral yield; contrast between faces mattered. The TLT-to-TFT substitution and microscopy provided an experimental test of the proposed recognition principle. The calculations did not simulate the complete synthesis reaction.
+
+Sources: R13
+
+## 43. A silica-binding peptide must fit the surface
+
+Patwardhan et al., JACS 2012, Figure 10 and Table 3, pp. 6251-6253. Replacing histidine at one position relieved conformational strain and allowed better contacts. Replacing a terminal histidine removed useful contacts and weakened binding. Adsorption assays and zeta-potential data supported the computed relative trends. A hydrogen bond is an attractive interaction involving a hydrogen-bearing group and a suitable electronegative site. Zeta potential measures an electrical property of the particle's moving liquid boundary, rather than a direct image of individual charges.
+
+Sources: P12
+
+## 44. Surface groups change how water wets silica
+
+Emami et al., Chemistry of Materials 2014, section 4.1 and Figure 5, pp. 2653-2654. Heat of immersion is the energy released when a dry surface enters water; values here are its positive magnitude. The SPC, TIP3P and PCFF water models gave 167, 160 and 157 mJ/m² respectively, so the selected comparison explicitly names TIP3P. Section 4.2 and Figure 6 also compare wetting as surface chemistry changes. The 2016 correction revises density-profile Figures 8-9; it leaves the immersion and contact-angle data used here unchanged. These comparisons support a specified surface/water model and are not a universal held-out accuracy score. The paper states that hydration energies of Q3 surfaces were among the quantities used to refine nonbonded parameters, so this numerical agreement is a calibration check.
+
+Sources: E14, E14C
+
+## 45. Bone mineral presents a pH-dependent surface
+
+Lin and Heinz, JPCC 2016, Table 7 and discussion, pp. 4986-4987. Hydroxyapatite contains calcium, phosphate and hydroxide. Changing pH changes surface protonation and calcium content in the constructed models. The work compares immersion energies and hydration-stabilized crystal shapes with experimental data. Dry-sample calorimetry reports values around 600-700 mJ/m², while broader literature values depend on preparation. The paper explains how facet weighting and hydration history affect comparisons. This evidence concerns mineral surfaces; it establishes no drug efficacy or clinical prediction.
+
+Sources: L16
+
+## 46. Grinding aids reduce attraction between cement grains
+
+Mishra, Flatt and Heinz, JPCC 2013, Figure 6 and section 6, pp. 10426-10427. The model compares reconstructed dry, hydroxylated and organically covered surfaces. MDIPA and TIPA show greater reductions in attraction than the weaker aids, in the same qualitative order as grinding observations. The comparison is a trend across additives, rather than a direct measurement of each atomistic agglomeration energy. Direct C3S cleavage data are limited and some calibration checks use related phases. Fracture, roughness, coverage and processing conditions also influence milling performance.
+
+Sources: M13
+
+## 47. Gold’s electrons respond to nearby charges
+
+Geada et al., Nature Communications 2018, Table 2 p. 6 and Figure 5 p. 7. A harmonically coupled charged core-shell pair on each metal atom models polarization. The water-monolayer comparison above is for the polarizable (111) model, with experimental reference differences and surface mismatch retained. The nonpolarizable model already gives similar liquid-water energetics; induced charges matter differently for ion contact. The interfacial-tension experimental entry is an upper bound, so it must not be treated as an exact measurement. The extension does not give a general model of chemical reactions or arbitrary electrode conditions.
+
+Sources: G18
+
+## 48. Choose the observable before judging the result
+
+Across the examples, the strongest conclusion follows the actual measured quantity. A morphology trend, an adsorption assay and a calorimetric energy are different tests. Keep conditions attached to the result. A model that explains one trend may still have important numerical errors elsewhere, as the rhodium mechanical table shows. New chemistry or an altered surface calls for renewed evidence.
+
+Sources: R13, P12, E14, L16, M13, G18
+
+## 49. The IFF Agent carries evidence through eight steps
+
+The approved public workflow has eight steps: Intake, References, Model, Contract, Run and fit, Validate, Export readback, and Review and disposition. The workflow aims to carry decisions and evidence through a calculation without losing their context. Implementing this workflow does not establish that any new material package has passed fitting, independent validation or scientific adoption.
+
+Sources: AGENT
+
+## 50. Define the question before running the fit
+
+A fit/test contract is a plan for assessing a bounded model, including which measurements may tune it and which are reserved. The model assignment must include the chosen family conventions. Changing the chemistry, references or intended use can change which model and tests are appropriate. Keeping these choices inspectable lets a reviewer reconstruct why a coefficient set was considered suitable.
+
+Sources: AGENT
+
+## 51. Run, test, read back, then review
+
+An export can be syntactically valid while changing units, mixing or length conventions. Readback compares the consumed model against the intended one, including energy and forces where relevant. Validation also needs numerical convergence and suitable scientific comparisons. A final review can accept a bounded use, narrow it or withhold a material claim. Execution receipts prove that operations happened; scientific evidence determines what their results establish.
+
+Sources: AGENT
+
+## 52. A repeatable answer can still be inaccurate
+
+If every input, coefficient and numerical setting is preserved, rerunning a calculation should produce consistent behavior within its statistical and numerical variability. That is useful evidence about execution. A physical model can reproduce the same wrong answer. Rhodium's elastic mismatch illustrates this distinction even when its density and surface targets are reproduced well.
+
+Sources: K21, AGENT
+
+## 53. Use DFT when electron rearrangement matters
+
+DFT evaluates electronic energy using an electron-density framework. It is useful when a fixed-chemistry model cannot represent the event being studied, such as a chemical reaction or changing electronic distribution. Results depend on the functional, electronic setup and sampled structures. DFT is an approximation with property-specific errors. A more detailed method still needs evidence for the target observable.
+
+Sources: HK64, K21
+
+## 54. Use classical IFF for supported interface sampling
+
+Classical IFF is useful when its effective interactions and surface models are appropriate and the need is to explore molecular configurations or interface behavior. Fixed-topology bonded models do not automatically form and break bonds. A fixed neutral metal model also lacks explicit changing charge. The published example papers support defined uses. They do not grant blanket transfer to untested compounds, defects or reaction pathways.
+
+Sources: H13, K21, G18
+
+## 55. Use a learned potential within its supported data domain
+
+A learned potential estimates an energy function from data. MACE is one primary example of this approach; AI²BMD applies a learned quantum-based strategy to biomolecular simulation. Architecture alone does not determine transfer. A model trained around one set of structures can make unreliable predictions when bonding, composition or configuration changes beyond its coverage. Its reference method also contributes uncertainty.
+
+Sources: MACE, W24
+
+## 56. Compare methods against the same physical question
+
+This comparison describes tendencies rather than a universal ranking. A fair performance claim specifies the same observable, system, target error and workload, with hardware and sampling costs. Hybrid approaches can combine methods when needed. Learned and classical models both require suitable validation; quantum calculations also need convergence and a defensible reference approximation. The method name alone cannot settle accuracy.
+
+Sources: HK64, H13, MACE, W24
+
+## 57. What these figures establish
+
+The new curves can be rebuilt from the public source scripts and parameter table. Reproducing their arithmetic establishes correct evaluation of the equation. It does not independently validate the equation as a model of rhodium. The surface, mechanics and application examples refer to published studies. No new fit, material trajectory, experiment or adopted parameter package is presented in this deck.
+
+Sources: DERIVED, K21
+
+## 58. Ask what would change your confidence
+
+For a peptide, check which face and solution were used. For bone mineral, check the protonation and hydration history. For a force-field export, check the consumed equation and units. For rhodium mechanics, keep the deformation mode visible. These checks make the claim reviewable and help decide when a more detailed or different model is required.
+
+Sources: H13, K21, P12, L16, AGENT
+
+## 59. IFF makes an interface a testable atomic model
+
+The Interface Force Field provides a framework for supported inorganic and molecular interactions in one compatible description. Its papers show how chemical assignment, surface models and property comparisons can make interface simulations useful. The examples span several types of evidence. The size of a claimed success should remain tied to the actual tested system and observable.
+
+Sources: H13
+
+## 60. Some questions require a different model
+
+An ordinary fixed-topology IFF model has a stated set of atoms, terms and charges. Reactive extensions and polarizable models expand particular capabilities, with separate parameterization and validation. The gold extension is one such bounded example. A model should be selected by the physical question and tested within the proposed conditions. An unfamiliar system can fall outside several available models at once.
+
+Sources: H13, K21, G18, L18SI
+
+## 61. Read the primary evidence
+
+The citation manifest lists source titles, DOI links, precise use and reuse status. Presenter notes keep the context of each comparison. Original plots and drawings avoid redistributing paper figures. The source rebuild instructions identify how the deck and analytic curves were made. The appendix defines equation conventions and retains the rhodium evidence table and experimental qualifications.
+
+Sources: H13, K21, R13, P12, E14, L16, M13, G18
+
+## 62. Questions
+
+I would start with the observable we need to trust. The method, parameter choices and checks follow from that question. A useful next experiment or calculation distinguishes plausible explanations and can change the decision. The appendix is available for equations, conventions and the numerical evidence behind the worked examples.
+
+Sources: DERIVED
+
+## B1. Equations and units
+
+Bond, angle and torsion functions depend on the chosen family, as do exclusions and scale factors for short bond paths. The written radial force is positive for increasing separation. The constants and coefficient meanings must be consistent with the unit system. The analytic plots sum explicitly defined pair interactions and do not replace a complete periodic simulation with its cutoff and electrostatic choices.
+
+Sources: H13, K21, CODATA, DERIVED
+
+## B2. The paper’s sigma is a minimum-length parameter
+
+The symbol sigma alone is ambiguous across sources. Kanhaiya Equation 1 uses it at the energy minimum, while the common lj/cut form uses it at the zero crossing. Epsilon remains the well depth for this algebraic conversion. Entering 2.757 Å as the zero-crossing sigma would define a different pair potential. Preserve the equation with the number and verify the consumed energy curve.
+
+Sources: K21, LJ, DERIVED
+
+## B3. The 9-6 and 12-6 wells are different functions
+
+The different repulsive exponents change the shape and curvature of the well. Their fitted coefficients are not interchangeable. The 12-6 conversion between zero crossing and minimum length is an exact rewriting of one function. Moving from a 12-6 function to a 9-6 function changes the model. Kanhaiya reports separate rhodium coefficients for both forms in Table 1. Host-family combination rules must also be retained.
+
+Sources: H13, K21, DERIVED
+
+## B4. Parameters and worked-number checks
+
+All four elemental-metal rows come from Kanhaiya Table 1 and are the 12-6 family. The zero-crossing sigma is derived from the minimum-length r0. The public science-checks file contains unrounded values and algebraic assertions at the minimum and for the derivative. The Coulomb and cluster examples use the deliberately restricted geometries stated on their slides. These computations verify arithmetic and convention handling, rather than new material accuracy.
+
+Sources: K21, CODATA, DERIVED
+
+## B5. Rhodium evidence and uncertainty
+
+Kanhaiya Tables 2, 3 and 5 provide these values. The lattice and surface rows were calibration targets. The elastic rows are predictions beyond those targets. Selected E and G references are listed in the main mechanical slide; Poisson ratio appears in this appendix, and other reference values remain in the paper. The Rh-water table gives an experimental upper bound, so it is excluded as a direct accuracy benchmark. L18SI's AlNi vacancy comparisons separately report raw MM energies of 5.49, 4.57 and 2.59 eV for first/second-shell charge partitions 100/0, 67/33 and 0/100. Those hypotheses are not measured formation free energies.
+
+Sources: K21, K21SI, L18SI
+
+## B6. References and visual provenance
+
+The full bibliography is in citation-license-manifest.json and this story source. Public facts were checked against the cited papers. No third-party scientific figure is reproduced. Original structures and analytic plots state their assumptions and do not claim newly simulated material results. The source files preserve the values, equation conventions and method needed to reconstruct the authoring assets.
+
+Sources: H13, K21, K21C, DERIVED
+
+# References
+
+K21. Kanhaiya, Kim, Im & Heinz (2021), Accurate simulation of surfaces and interfaces of ten FCC metals and steel using Lennard–Jones potentials
+
+https://doi.org/10.1038/s41524-020-00478-1
+
+K21C. Kanhaiya et al. (2021), Author Correction
+
+https://doi.org/10.1038/s41524-021-00576-8
+
+L18. Liu et al. (2018), Understanding Chemical Bonding in Alloys and the Representation in Atomistic Simulations
+
+https://doi.org/10.1021/acs.jpcc.8b01891
+
+L18SI. Liu et al. (2018), original Supporting Information, Tables S1–S2 and discussion S18–S19
+
+https://acs.figshare.com/articles/journal_contribution/Understanding_Chemical_Bonding_in_Alloys_and_the_Representation_in_Atomistic_Simulations/6531197
+
+LJ. LAMMPS documentation: lj/cut interaction convention
+
+https://docs.lammps.org/pair_lj.html
+
+MD. LAMMPS documentation: fix nve and minimize
+
+https://docs.lammps.org/fix_nve.html
+
+MACE. Batatia et al. (2022), MACE: Higher Order Equivariant Message Passing Neural Networks for Fast and Accurate Force Fields
+
+https://arxiv.org/abs/2206.07697
+
+AGENT. IFF Agent workflow documentation (2026)
+
+
+
+DERIVED. Original derivation / explicitly illustrative visual
+
+
+
+H13. Heinz, Lin, Mishra and Emami (2013). Thermodynamically Consistent Force Fields for the Assembly of Inorganic, Organic, and Biological Nanostructures: The INTERFACE Force Field. Langmuir 29, 1754-1765.
+
+https://doi.org/10.1021/la3038846
+
+C04. Heinz and Suter (2004). Atomic Charges for Classical Simulations of Polar Systems. J. Phys. Chem. B 108, 18341-18352.
+
+https://doi.org/10.1021/jp048142t
+
+R13. Ruan et al. (2013). Tailoring Molecular Specificity Toward a Crystal Facet: a Lesson From Biorecognition Toward Pt{111}. Nano Letters 13, 840-846.
+
+https://doi.org/10.1021/nl400022g
+
+P12. Patwardhan et al. (2012). Chemistry of Aqueous Silica Nanoparticle Surfaces and the Mechanism of Selective Peptide Adsorption. JACS 134, 6244-6256.
+
+https://doi.org/10.1021/ja211307u
+
+E14. Emami et al. (2014). Force Field and a Surface Model Database for Silica to Simulate Interfacial Properties in Atomic Resolution. Chemistry of Materials 26, 2647-2658.
+
+https://doi.org/10.1021/cm500365c
+
+E14C. Emami et al. (2016). Correction to Force Field and a Surface Model Database for Silica to Simulate Interfacial Properties in Atomic Resolution. Chemistry of Materials 28, 406-407.
+
+https://doi.org/10.1021/acs.chemmater.5b04760
+
+L16. Lin and Heinz (2016). Accurate Force Field Parameters and pH Resolved Surface Models for Hydroxyapatite to Understand Structure, Mechanics, Hydration, and Biological Interfaces. J. Phys. Chem. C 120, 4975-4992.
+
+https://doi.org/10.1021/acs.jpcc.5b12504
+
+M13. Mishra, Flatt and Heinz (2013). Force Field for Tricalcium Silicate and Insight into Nanoscale Properties: Cleavage, Initial Hydration, and Adsorption of Organic Molecules. J. Phys. Chem. C 117, 10417-10432.
+
+https://doi.org/10.1021/jp312815g
+
+G18. Geada et al. (2018). Insight into induced charges at metal surfaces and biointerfaces using a polarizable Lennard-Jones potential. Nature Communications 9, 716.
+
+https://doi.org/10.1038/s41467-018-03137-8
+
+W24. Wang et al. (2024). Ab initio characterization of protein molecular dynamics with AI2BMD. Nature.
+
+https://doi.org/10.1038/s41586-024-08127-z
+
+W24C. Wang et al. (2025). Author Correction to Ab initio characterization of protein molecular dynamics with AI2BMD. Nature.
+
+https://doi.org/10.1038/s41586-024-08556-w
+
+HK64. Hohenberg and Kohn (1964). Inhomogeneous Electron Gas. Physical Review 136, B864-B871.
+
+https://doi.org/10.1103/PhysRev.136.B864
+
+K21SI. Kanhaiya et al. (2021), original Supplementary Information
+
+https://static-content.springer.com/esm/art%3A10.1038%2Fs41524-020-00478-1/MediaObjects/41524_2020_478_MOESM1_ESM.pdf
+
+CODATA. NIST, 2022 CODATA recommended values of fundamental physical constants
+
+https://physics.nist.gov/cuu/Constants/Table/allascii.txt

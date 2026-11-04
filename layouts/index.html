@@ -48,7 +48,7 @@
       {{- with site.GetPage .page }}
       <li class="card{{ with .Params.image }} has-media{{ end }}">
         {{- with .Params.image }}
-        <div class="card-media{{ if eq $entry.page "/projects/interface-force-field/" }} card-media-presentation{{ end }}">{{ partial "img.html" (dict "src" . "alt" "" "widths" (slice 480 800) "sizes" "(min-width: 52rem) 30vw, 90vw" "full" false) }}</div>
+        <div class="card-media{{ if eq $entry.page "/writings/interface-force-field/" }} card-media-presentation{{ end }}">{{ partial "img.html" (dict "src" . "alt" "" "widths" (slice 480 800) "sizes" "(min-width: 52rem) 30vw, 90vw" "full" false) }}</div>
         {{- end }}
         <div class="card-body">
           <p class="meta">{{ if eq .Section "writings" }}Talk{{ else }}Project{{ end }}</p>
@@ -67,9 +67,12 @@
     <h2 class="eyebrow" id="recent-title">Recent writing</h2>
     <div>
       <ul class="rows">
-        {{- /* The featured piece is already shown above, so it is left out here. */ -}}
+        {{- /* Featured and Selected work pages are already shown above. */ -}}
         {{- $recent := .Pages }}
         {{- with $feature }}{{ $recent = where $recent "RelPermalink" "ne" .RelPermalink }}{{ end }}
+        {{- range $.Params.work }}
+        {{- with site.GetPage .page }}{{ $recent = where $recent "RelPermalink" "ne" .RelPermalink }}{{ end }}
+        {{- end }}
         {{- range first 4 $recent }}
         <li class="row"><div class="row-body">
           {{- partial "meta-line.html" (dict "page" .) }}

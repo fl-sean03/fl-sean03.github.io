@@ -1,0 +1,89 @@
+{
+  "status": "algebra and numeric checks passed; no new material validation",
+  "parameters": [
+    {
+      "metal": "Rh",
+      "r0_A": 2.757,
+      "epsilon_kcal_mol": 7.84,
+      "sigma_zero_A": 2.4562077659129153,
+      "minimum_and_derivative_checks": "pass"
+    },
+    {
+      "metal": "Ir",
+      "r0_A": 2.785,
+      "epsilon_kcal_mol": 9.2,
+      "sigma_zero_A": 2.481152930020845,
+      "minimum_and_derivative_checks": "pass"
+    },
+    {
+      "metal": "Ca",
+      "r0_A": 4.025,
+      "epsilon_kcal_mol": 3.36,
+      "sigma_zero_A": 3.585867340514866,
+      "minimum_and_derivative_checks": "pass"
+    },
+    {
+      "metal": "Sr",
+      "r0_A": 4.379,
+      "epsilon_kcal_mol": 3.4,
+      "sigma_zero_A": 3.901245486736545,
+      "minimum_and_derivative_checks": "pass"
+    }
+  ],
+  "Rh_worked_examples": [
+    {
+      "distance_A": 2.5,
+      "energy_kcal_mol": -2.8375626076679294,
+      "radial_force_kcal_mol_A": 54.07177724343192
+    },
+    {
+      "distance_A": 2.757,
+      "energy_kcal_mol": -7.84,
+      "radial_force_kcal_mol_A": 0.0
+    },
+    {
+      "distance_A": 3.0,
+      "energy_kcal_mol": -6.600677730729025,
+      "radial_force_kcal_mol_A": -7.511094356920327
+    },
+    {
+      "distance_A": 4.0,
+      "energy_kcal_mol": -1.591027580158165,
+      "radial_force_kcal_mol_A": -2.251356334845054
+    }
+  ],
+  "Rh_Ca_geometric_pair": {
+    "r0_A": 3.331204737028332,
+    "epsilon_kcal_mol": 5.13248477835054,
+    "energy_at_4A_kcal_mol": -2.853320355100967
+  },
+  "coulomb_opposite_unit_charges_vacuum_at_3A_kcal_mol": -110.688,
+  "cluster": {
+    "pairs": [
+      {
+        "i": 1,
+        "j": 2,
+        "distance_A": 2.757,
+        "energy_kcal_mol": -7.84
+      },
+      {
+        "i": 1,
+        "j": 3,
+        "distance_A": 2.757,
+        "energy_kcal_mol": -7.84
+      },
+      {
+        "i": 2,
+        "j": 3,
+        "distance_A": 2.757,
+        "energy_kcal_mol": -7.84
+      }
+    ],
+    "total_energy_kcal_mol_of_clusters": -23.52
+  },
+  "Rh_bulk_modulus_deviation_percent": {
+    "LJ12_6": -6.521739130434778,
+    "LJ9_6": -36.59420289855072
+  },
+  "surface_note": "epsilon is a pair well depth; gamma is energy per area from many interactions. They have different units."
+}
