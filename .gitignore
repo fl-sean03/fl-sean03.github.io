@@ -16,5 +16,8 @@ Thumbs.db
 # Hugo cache
 .hugo_build.lock
 
+# Python bytecode from the deck build scripts, which would otherwise be published from static/
+__pycache__/
+
 # Drafts (local only)
 drafts/

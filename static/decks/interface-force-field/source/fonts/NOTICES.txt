@@ -1,4 +1,4 @@
-Embedded fonts: Lato and TeX Gyre Pagella, original unmodified system font files.
+Embedded font: Lato, original unmodified system font files.
 
 LATO
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/

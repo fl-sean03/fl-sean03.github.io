@@ -1,26 +1,27 @@
 # Rebuilding the Interface Force Field presentation
 
-`source/story.json` holds the public slide text, speaker notes, figure descriptions and source identifiers. `source/build.py` lays out that one story as self-contained browser slides and PowerPoint slides with editable text and notes. Each element uses the same 1920 × 1080 coordinates in both formats. The PowerPoint canvas is 13⅓ × 7½ inches.
+`source/story.json` holds the slide text, speaker notes, picture descriptions and source identifiers. `source/build.py` lays out that one story as browser slides with a reading version, as PowerPoint slides with editable text and notes, and as `presenter-notes.md`. Each element uses the same 1920 × 1080 coordinates in the browser and in PowerPoint, whose canvas is 13⅓ × 7½ inches.
 
-Create a Python environment with `source/requirements.txt`. LibreOffice must be on the executable path. Lato must be available to LibreOffice; the exact browser fonts and their notices are included under `source/fonts/`. Install those fonts locally if the system does not already provide Lato. Do not substitute fonts when checking the exported PowerPoint.
+Create a Python 3.12 environment from `source/requirements.txt`. The PDF export needs LibreOffice on the executable path, and LibreOffice needs Lato. The font files and their notices are in `source/fonts/`, so install them if the system lacks Lato, and do not let another font stand in when checking the export.
 
-From this bundle directory, run the following commands with that environment's Python. Choose a local scratch directory outside the published bundle for the LibreOffice profile and intermediate export.
+From this bundle directory, run these commands with that environment’s Python. The export needs a new scratch directory outside the bundle for the LibreOffice profile and the intermediate PDF.
 
 ```sh
-python source/plots.py
-python source/drawings.py
+python source/science.py
+python source/figures.py
 python source/build.py
 python source/export.py --work-dir /absolute/local/scratch/iff-export
+python source/manifest.py
 ```
 
-The outputs are `index.html`, `downloads/iff-visual-showcase.pptx`, `downloads/iff-visual-showcase.pdf` and `presenter-notes.md`. The PDF is exported from the native PowerPoint text through LibreOffice. Its text remains selectable. Public document metadata names Sean Florez as author, leaves lastModifiedBy and creator empty, and retains only LibreOffice's PDF Producer field.
+`science.py` computes the worked numbers from the published parameters in `source/parameters.json` and checks them, writing `source/data/science-checks.json` and `source/data/lj-curves.csv`. The checks cover the arithmetic and algebra, not the accuracy of a model.
 
-The browser viewer embeds its fonts and figures, so it has no network dependency. Arrow keys move between pages. Digits then Enter jump to a page. Q opens Questions, B then 1–6 opens the appendices, O or G opens the overview, F toggles full screen, and H or ? opens help. URL fragments accept page numbers, Q and B1–B6. The viewer supports edge clicks and horizontal swipes.
+`figures.py` draws every picture into `assets/`, or only the ones named, as in `python source/figures.py cover lj`. Each part of the talk has its own module of pictures, in slide order from `fig_opening.py` to `fig_close.py`, and `draw.py` holds the slide-pixel canvas, the labels, arrows and charts, and the scenes that several pictures share. `structures.py` builds the atoms from the Crystallography Open Database files in `source/data/structures/`, from published lattice constants and from RDKit molecules. `render.py` is a small ray tracer for the atoms, and `style.py` holds the colours and file locations that the pictures, the science checks and the slide builder share. The water electron cloud is a PySCF calculation with the PBE functional, and it only draws a picture. Molecules on surfaces are arranged to show the idea and are not simulation snapshots.
 
-`source/plots.py` computes the analytical curves and numeric checks from `source/parameters.json`. It writes plot images and underlying data, including `source/data/science-checks.json`. `source/drawings.py` creates original teaching diagrams. Its fcc lattice uses the four conventional fractional basis sites. Space-filling sphere radii equal half the nearest-neighbour spacing; these are idealized models, not new simulation results. The energy landscape is illustrative.
+`build.py` writes `index.html`, `downloads/iff-visual-showcase.pptx`, `presenter-notes.md` and `citation-license-manifest.json`, and it stops if a source is cited but not listed, or listed but not cited, or if Lato lacks a character on a slide. A slide’s `refs` appear in its footer, and its `note_refs` are sources that only its notes cite. `export.py` turns the PowerPoint into `downloads/iff-visual-showcase.pdf` through LibreOffice, so the PDF text stays selectable. Both files name Sean Florez as author. The PowerPoint leaves lastModifiedBy empty, and the PDF takes its title and subject from the PowerPoint and leaves its creator empty.
 
-After rebuilding, inspect every browser slide and the LibreOffice-rendered PowerPoint. Check for clipped labels, missing glyphs and changed line breaks. Check keyboard navigation, overview selection, hash links, downloads and selectable PDF text. The title image on the Writings page must be captured from the actual new first slide. After that capture and all exports, run `python source/manifest.py` to record final artifact and title-image hashes. The artifact manifest excludes itself. Reconcile the source identifiers and slide claims in `citation-license-manifest.json` whenever the story changes.
+The viewer embeds its fonts and pictures, so it needs no network. Arrow keys, edge clicks and swipes move between pages. Digits then Enter jump to a page, Q opens the questions slide, O or G opens the overview, F toggles full screen, and H or ? opens help. T opens the reading version, every slide in order with its notes, and T or Esc returns to the slides. Clicking or tapping a picture in the reading version enlarges it. The address accepts page numbers, slide names such as `#lj`, and `#read`, and the reading version opens by itself on a phone held upright.
 
-Published results were not rerun. Analytic pair calculations and ideal structures do not establish model accuracy for a new material. Workflow repeatability does not establish scientific accuracy.
+After rebuilding, look at every slide in the browser and in the PDF, on a laptop and on a phone 390 pixels wide, including the reading version and an enlarged picture. Check for clipped labels, changed line breaks, the keyboard and touch controls, the downloads and the selectable PDF text. Before running `manifest.py`, capture the Writings page title image, `static/images/writings/interface-force-field-title.png`, from the actual first slide at 1920 × 1080; `manifest.py` then records the final hashes of the bundle and that image, leaving itself out. `build.py` rewrites `citation-license-manifest.json` from the story, so reconcile its sources with the slide claims whenever the story changes.
 
-The three `source/data/rh_*.car` files retain the original corrected rhodium cell and surface structures from the supplementary archive for Kanhaiya et al. (2021), including its author correction. They are retained as source evidence, under the cited CC BY 4.0 terms. The new idealized teaching pictures are constructed from the fcc basis rather than rendered from these files.
+Published results were not rerun. The worked pair calculations and ideal structures do not show that a model is accurate for a new material.

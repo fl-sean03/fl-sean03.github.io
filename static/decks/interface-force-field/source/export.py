@@ -23,15 +23,15 @@ def main():
     if original.exists():
         raise ValueError('Use a new work directory; an earlier PDF export is already present.')
     presentation = BUNDLE/'downloads/iff-visual-showcase.pptx'
-    expected_pages = len(Presentation(presentation).slides)
+    deck = Presentation(presentation)
+    expected_pages, props = len(deck.slides), deck.core_properties  # the PDF repeats the PowerPoint's title and subject
     source_hash = hashlib.sha256(presentation.read_bytes()).digest()
     subprocess.run(['libreoffice','-env:UserInstallation='+ (work/'lo-profile').as_uri(),
                     '--headless','--convert-to','pdf','--outdir',str(work),str(presentation)],check=True)
     document = pymupdf.open(original)
     producer = document.metadata.get('producer','')
     document.del_xml_metadata()
-    document.set_metadata({'title':'Interface Force Field','author':'Sean Florez',
-                           'subject':'From atoms to material predictions and evidence',
+    document.set_metadata({'title':props.title,'author':props.author,'subject':props.subject,
                            'creator':'','keywords':'',
                            'producer':producer if 'LibreOffice' in producer else ''})
     destination = BUNDLE/'downloads/iff-visual-showcase.pdf'
@@ -44,7 +44,7 @@ def main():
     temporary = destination.with_suffix('.new.pdf')
     shutil.copyfile(candidate,temporary)
     temporary.replace(destination)
-    print(f'Exported {len(document)} selectable-text PDF pages. Author Sean Florez; creator empty.')
+    print(f'Exported {len(document)} selectable-text PDF pages. Author {props.author}; creator empty.')
 
 
 if __name__=='__main__':

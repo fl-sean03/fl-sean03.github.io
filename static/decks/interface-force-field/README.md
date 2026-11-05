@@ -1,7 +1,7 @@
 # Interface Force Field
 
-This presentation introduces atomic interactions and molecular mechanics, then explains how the Interface Force Field connects material models with published measurements. Rhodium provides a worked example. Six published applications show how evidence differs across systems and properties.
+This presentation is a beginner’s guide to simulating where molecules meet solid materials. It shows how a force field describes atoms with balls, springs and charges, why the Interface Force Field, or IFF, was needed, how it tunes a solid such as rhodium to its measured surface energy, and three published studies in which IFF was compared with experiments.
 
-Open `index.html` for the self-contained browser viewer. The editable PowerPoint and selectable-text PDF are in `downloads/`. Presenter notes, primary-source citations and rebuild instructions are included alongside them.
+Open `index.html` for the self-contained viewer. Press T, or add `#read` to the address, for the reading version with the speaker’s notes; it opens by itself on a phone held upright. The editable PowerPoint and the PDF with selectable text are in `downloads/`, and `presenter-notes.md` holds the notes with their sources.
 
-The figures are original calculations or teaching diagrams. Structures are idealized, the energy landscape is illustrative, and published results were not rerun. No private lecture material is distributed.
+Every picture was drawn for this presentation from open crystal structures, published parameters and molecules built with RDKit. Pictures of molecules on surfaces are illustrations, not simulation snapshots. Published results are quoted from the cited papers and were not rerun.

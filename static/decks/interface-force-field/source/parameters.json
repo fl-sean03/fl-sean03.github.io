@@ -26,6 +26,11 @@
     "Ca": {"name": "Calcium (alpha)", "r0_A": 4.025, "epsilon_kcal_mol": 3.36},
     "Sr": {"name": "Strontium (alpha)", "r0_A": 4.379, "epsilon_kcal_mol": 3.40}
   },
+  "metals_9_6": {
+    "potential": "U(r) = epsilon * [2*(r0/r)^9 - 3*(r0/r)^6], K21 Eq. 2, used by CFF, PCFF and COMPASS",
+    "locator": "Table 1, p. 3",
+    "Rh": {"name": "Rhodium", "r0_A": 2.807, "epsilon_kcal_mol": 6.38}
+  },
   "rhodium_evidence": {
     "five_cell_lattice_A": {"experiment": 19.016, "LJ12_6": 19.016, "LJ9_6": 19.014, "role": "calibration", "locator": "Table 2, p. 4"},
     "surface111_J_m2": {"experiment": 2.64, "experimental_uncertainty": 0.02, "LJ12_6": 2.643, "LJ9_6": 2.643, "role": "calibration", "locator": "Table 3, p. 6"},

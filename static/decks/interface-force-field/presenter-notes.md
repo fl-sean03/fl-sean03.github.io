@@ -2,502 +2,252 @@
 
 ## 1. Interface Force Field
 
-I want to connect the atoms in a picture to a result we can check. We'll build the background first, work through rhodium, and then look at published systems where a molecular model helped explain an experiment. Every atomic drawing here is idealized. The plotted pair curves are analytic calculations from published parameters. The material results come from the cited papers and were not rerun for this talk.
+How can a computer tell us which face of a crystal a molecule will stick to, and why should we believe its answer? We build the tools one at a time, from a single pair of atoms up to whole surfaces in water, and then look at three published studies where the Interface Force Field, or IFF, was compared with experiments.
 
-Sources: H13, K21
+The picture is a peptide called S7 lying on platinum in water; it comes back in the first example and at the end.
 
-## 2. An atom has a nucleus and electrons
+The crystal structures come from the Crystallography Open Database or from published lattice sizes, and the surfaces were built from them with ASE and the molecules with RDKit, all open software. The pictures of molecules on surfaces are illustrations, arranged to show the idea rather than taken from a simulation. Every result quoted comes from the cited papers and was not rerun here. Besides the worked arithmetic, the one calculation made for this presentation is the electron cloud of a water molecule, and it only draws a picture.
 
-An atom is a unit of an element. Its positive nucleus and negative electrons give it electrical structure. The electron cloud has no hard outer wall, so a sphere is a model of atomic size. A drawing can leave out electronic detail while keeping the atomic positions we need for a material calculation. The size used in a rendering must be stated separately from a claim about electron density.
+### Sources
 
-Sources: DERIVED
+- Ruan et al. (2013). Tailoring Molecular Specificity Toward a Crystal Facet: a Lesson From Biorecognition Toward Pt{111}. Nano Letters 13, 840–846. https://doi.org/10.1021/nl400022g
+- Wyckoff (1963). Crystal Structures 1, 7–83. Crystallography Open Database entry 9008480, platinum. https://www.crystallography.net/cod/9008480.html
+- RDKit, open-source cheminformatics software. https://www.rdkit.org
+- Larsen et al. (2017). The atomic simulation environment, a Python library for working with atoms. Journal of Physics: Condensed Matter 29, 273002. https://doi.org/10.1088/1361-648X/aa680e
 
-## 3. Molecules connect atoms; crystals repeat a pattern
+## 2. Can one amino acid change the shape of a metal crystal?
 
-Water is a familiar molecule. A metal crystal is an extended arrangement of atoms rather than a collection of small separate molecules. At an interface, which is where two materials meet, both kinds of structure can be present. We need a model that describes each material and the interactions between them. Lines are omitted from the space-filling drawing so the occupied volume stays visible.
+Proteins are chains of amino acids, and a peptide is a short chain. Each amino acid has a one-letter code. Here T is threonine, L is leucine and F is phenylalanine, which carries a flat ring of six carbon atoms.
 
-Sources: H13
+Ruan and colleagues grew platinum crystals in water with each peptide present. With TLT the crystals came out as cubes, whose faces all show a square pattern of atoms. With TFT most came out as tetrahedra, whose faces all show a triangular pattern. Chemists call these the {100} and {111} faces.
 
-## 4. Atoms push and pull on one another
+A crystal grows by adding atoms to its faces. A molecule that sticks to one kind of face slows growth there, so that face ends up covering the crystal. The question is how a simulation could explain why F prefers the triangular face.
 
-Imagine compressing a metal or pulling its surface apart. Work changes how its atoms are arranged. The model assigns an energy to those arrangements and a force to each atom. The touching spheres show an ideal rhodium crystal. Their radius follows the crystal's nearest-neighbor spacing, so the rendering shows a filled solid. It is a structural illustration, with no claim that atoms are rigid billiard balls.
+### Sources
 
-Sources: K21, DERIVED
+- Ruan et al. (2013). Tailoring Molecular Specificity Toward a Crystal Facet: a Lesson From Biorecognition Toward Pt{111}. Nano Letters 13, 840–846. https://doi.org/10.1021/nl400022g
+- Wyckoff (1963). Crystal Structures 1, 7–83. Crystallography Open Database entry 9008480, platinum. https://www.crystallography.net/cod/9008480.html
+- RDKit, open-source cheminformatics software. https://www.rdkit.org
 
-## 5. Can a short molecule change a metal particle’s shape?
+## 3. Models built separately do not fit together
 
-Ruan and colleagues used peptide variants and electron microscopy to study crystal-face recognition. Their model is named CHARMM-METAL in the paper and belongs to the metal-parameter lineage incorporated into IFF. A face is a flat exposed orientation of the crystal. We'll return to the result after introducing energy, water competition and surfaces. Crystal shape is an indirect readout of selective binding, so growth conditions remain part of the evidence.
+To simulate a peptide on platinum in water, the computer needs rules for three sets of interactions. Platinum atoms hold the solid together. Water molecules and the peptide interact with each other. And every platinum atom interacts with every nearby atom of water and peptide, and this third set decides which crystal face the peptide sticks to.
 
-Sources: R13
+Good rules for the first two sets already existed, but separately. Metal models were built to describe metals, and molecular models were built to describe water and proteins. The third set needs both sides described in the same terms.
 
-## 6. A simulation is a controlled model experiment
+A popular metal model, the embedded-atom method, uses equations of its own, while protein models such as CHARMM and AMBER use different ones. Nothing in either says how a metal atom should feel a water molecule. Kanhaiya and colleagues also report that metal-only models of this kind give surface energies up to about 50% too low.
 
-An observable is a quantity we can estimate from the calculation and compare with an experiment, such as density or surface energy. A simulation can make a buried interface easier to inspect, or compare candidate molecules before synthesis. Its answer depends on the chemistry included, the mathematical approximation and the configurations explored. Agreement must be assessed for the actual question and conditions.
+IFF describes the metal with the same simple equation the molecular models already use between atoms that are not bonded, the Lennard-Jones curve we meet shortly. Its two numbers per metal are tuned so the simulated metal has the measured density and surface energy, and the metal–molecule pairs then follow from the same rules. For ten metals, Kanhaiya and colleagues report agreement with experiment within 0.1 to 5% for lattice size, surface energy, water interface energy and binding of organic molecules.
 
-Sources: H13, K21
+### Sources
 
-## 7. Different methods keep different physical detail
+- Kanhaiya, Kim, Im and Heinz (2021). Accurate simulation of surfaces and interfaces of ten FCC metals and steel using Lennard-Jones potentials. npj Computational Materials 7, 17. https://doi.org/10.1038/s41524-020-00478-1
+- Heinz, Lin, Mishra and Emami (2013). Thermodynamically Consistent Force Fields for the Assembly of Inorganic, Organic, and Biological Nanostructures: The INTERFACE Force Field. Langmuir 29, 1754–1765. https://doi.org/10.1021/la3038846
 
-Density functional theory, or DFT, is an electronic-structure method built around electron density. It can address changes in bonding and charge, with results that depend on the chosen approximation. Classical molecular mechanics replaces that electronic calculation with an energy function and parameters. Learned potentials use examples from reference calculations to approximate the energy landscape. More electronic detail usually increases cost, while a useful approximation must retain the physics the question needs.
+## 4. IFF puts solids and molecules in one compatible model
 
-Sources: HK64, H13, MACE
+A force-field family is a complete set of rules and numbers for one kind of chemistry, such as AMBER, CHARMM and OPLS-AA for proteins and organic molecules, or PCFF for polymers. IFF adds solids, such as metals, silica, minerals and cement, written in the same style as those families so the two can be used together.
 
-## 8. Compare the scale and the work actually timed
+The surfaces are built to match the real ones, including the OH groups on silica and the way a mineral surface changes with acidity. One simulation can then hold a solid, water and a molecule together, and its results can be compared with experiments.
 
-Wang and colleagues report 21 minutes for a DFT energy evaluation of 281-atom Trp-cage and 0.072 seconds for AI²BMD. Figure 2f compares energy-calculation timings; the accompanying prose calls this a simulation step. This timing benchmark does not report a trajectory duration. Kanhaiya's classical lattice protocol uses five conventional fcc cells along each axis. Four atoms per cell gives 500 atoms. It describes roughly 100 ps before stable behavior followed by 500 ps for averaging, using NPT at 298.15 K. A picosecond is one trillionth of a second. The classical paper does not provide an equivalent wall-clock timing here. Cross-paper differences in hardware, system, solvent and task prevent a universal speed ratio.
+### Sources
 
-Sources: W24, K21, K21SI, DERIVED, W24C
+- Heinz, Lin, Mishra and Emami (2013). Thermodynamically Consistent Force Fields for the Assembly of Inorganic, Organic, and Biological Nanostructures: The INTERFACE Force Field. Langmuir 29, 1754–1765. https://doi.org/10.1021/la3038846
+- Kanhaiya, Kim, Im and Heinz (2021). Accurate simulation of surfaces and interfaces of ten FCC metals and steel using Lennard-Jones potentials. npj Computational Materials 7, 17. https://doi.org/10.1038/s41524-020-00478-1
+- Wyckoff (1963). Crystal Structures 1, 7–83. Crystallography Open Database entry 9008463, gold. https://www.crystallography.net/cod/9008463.html
+- Levien, Prewitt and Weidner (1980). Structure and elastic properties of quartz at pressure. American Mineralogist 65, 920–930. Crystallography Open Database entry 9000775. https://www.crystallography.net/cod/9000775.html
+- Sudarsanan and Young (1969). Significant precision in crystal structural details: Holly Springs hydroxyapatite. Acta Crystallographica B 25, 1534–1543. Crystallography Open Database entry 9011091. https://www.crystallography.net/cod/9011091.html
+- Mumme (1995). Crystal structure of tricalcium silicate from a Portland cement clinker and its application to quantitative XRD analysis. Neues Jahrbuch für Mineralogie, Monatshefte 4, 145–160. Crystallography Open Database entry 1540704. https://www.crystallography.net/cod/1540704.html
+- RDKit, open-source cheminformatics software. https://www.rdkit.org
 
-## 9. Molecular mechanics assigns energy to atom positions
+## 5. A force field replaces the electron cloud with simple rules
 
-A configuration is a list of atomic positions, with a simulation cell when periodic boundaries are used. Molecular mechanics evaluates potential energy for that configuration. A force field supplies the functional forms and coefficients. In the common IFF-compatible form, bonded terms describe internal molecular geometry, while electrostatics and van der Waals terms describe nonbonded interactions. The complete package also needs units and rules for which atom pairs interact.
+Every atom has a small, heavy nucleus made of protons and, in most atoms, neutrons, surrounded by a cloud of electrons. Where atoms sit and how they hold together is decided by these electrons.
 
-Sources: H13
+Quantum chemistry computes the electron cloud directly. The most common method is density functional theory, or DFT, which uses an approximate formula called a functional to describe how electrons affect each other. It is accurate but slow, so it is usually limited to hundreds or a few thousand atoms.
 
-## 10. Stretching a bond costs energy
+A force field skips the electrons. Atoms become balls, bonds become springs, and each atom carries a fixed partial charge, a fraction of an electron’s charge, written δ− or δ+. In water the oxygen pulls electrons towards itself, so it is slightly negative and the hydrogens slightly positive.
 
-The spring analogy describes the shape of the energy close to equilibrium. A common harmonic form is U = (k/2)(r-r_eq)^2, with k the stiffness and r_eq the preferred bond length. Force-field families sometimes absorb the factor of one half into k, so the coefficient convention matters. A fixed harmonic bond model has a limited range and does not describe bond breaking. The drawing uses touching spheres and a separate energy diagram.
+Machine-learned force fields sit in between. A model such as MACE or AI²BMD is trained to reproduce quantum results on many example structures, and it is reliable only for structures like the ones it was trained on. A classical force field such as IFF uses fixed rules, so it is the fastest of these methods and reaches millions of atoms, but a standard one never breaks or forms bonds. It suits questions about surfaces, binding and water, where bonds stay intact.
 
-Sources: H13, DERIVED
+The cloud on the left is a real calculation of one water molecule, made with the PySCF program and the PBE functional. The balls and springs on the right are a drawing of the same molecule.
 
-## 11. Bending an angle also costs energy
+### Sources
 
-Take two bonds that meet at the same atom. The angle between them is another coordinate of the molecule. A simple harmonic bending term rises quadratically with displacement from the preferred angle. Its stiffness affects vibrations and mechanical response. This term is distinct from an interaction between two separate molecules. The pictured arrangement is an illustrative geometry rather than a fit to a specific compound.
+- Hohenberg and Kohn (1964). Inhomogeneous Electron Gas. Physical Review 136, B864–B871. https://doi.org/10.1103/PhysRev.136.B864
+- Heinz and Suter (2004). Atomic Charges for Classical Simulations of Polar Systems. Journal of Physical Chemistry B 108, 18341–18352. https://doi.org/10.1021/jp048142t
+- PySCF, the Python-based Simulations of Chemistry Framework. https://pyscf.org
+- Batatia et al. (2022). MACE: Higher Order Equivariant Message Passing Neural Networks for Fast and Accurate Force Fields. arXiv 2206.07697. https://arxiv.org/abs/2206.07697
+- Wang et al. (2024). Ab initio characterization of protein molecular dynamics with AI²BMD. Nature 635, 1019–1027. https://doi.org/10.1038/s41586-024-08127-z
+- Wang et al. (2025). Author Correction to Ab initio characterization of protein molecular dynamics with AI²BMD. Nature. https://doi.org/10.1038/s41586-024-08556-w
 
-Sources: H13, DERIVED
+## 6. The energy is a sum of five kinds of terms
 
-## 12. A torsion describes a twist along a bond
+Molecular mechanics adds up the energy of a whole system from simple pieces. Bond stretching, angle bending and twisting act along the chemical bonds inside a molecule. Van der Waals and charge interactions act between atoms that are not bonded to each other, including atoms in different molecules, and between a molecule and a solid.
 
-A dihedral angle compares the planes formed by two overlapping sets of three atoms. Rotating around the central bond can bring atoms closer together or change favorable electronic arrangements. Force fields represent the resulting energy variation with periodic terms. In a long molecule these preferences influence the shapes it can sample. Other terms, including nonbonded interactions, also contribute to the total cost of rotation.
+Bonds and angles act like springs. A bond has a natural length, and stretching or squeezing it costs energy that grows with the square of the change, E = k (r − r₀)², so twice the stretch costs four times the energy. An angle works the same way, E = k (θ − θ₀)². Water’s O–H bond rests at about 0.96 ångström, where one ångström is a ten-billionth of a metre, and its H–O–H angle rests at about 104.5 degrees. Each family tunes the stiffness k so that molecules vibrate at their measured frequencies. The springs never break, so a standard force field cannot describe chemical reactions, in which bonds form or break.
 
-Sources: H13, DERIVED
+Twisting around a bond has favourite angles. Ethane is two carbon atoms, each carrying three hydrogens. Looking along the bond between the carbons, the back hydrogens can sit between the front ones, called staggered, or behind them, called eclipsed, which costs a little more energy. The energy repeats every 120°, and a force field describes it with a smooth wave, E = k [1 + cos(nφ − δ)], where φ is the twist angle, n is the number of repeats in a full turn, three for ethane, and δ shifts where the lowest points fall. The height k is tuned to measurements or to quantum chemistry. Twisting terms like this decide how flexible molecules such as peptides and polymers fold and bend.
 
-## 13. Atoms interact across a gap, too
+Each force-field family writes these pieces in its own way and with its own numbers. Some write the spring energy with a factor of one half and some leave it out, so stiffness numbers cannot be copied from one family into another without checking. Some, such as PCFF, add extra terms that couple stretching and bending and use a softer van der Waals curve, but all of them build the energy from these five pieces. Families also differ in how they treat atoms close together in one molecule. Pairs joined by one or two bonds are usually left out of the van der Waals and charge sums, and pairs three bonds apart are counted in full or scaled down, depending on the family.
 
-Nonbonded interactions act between atoms that are not directly joined by the relevant covalent bonds. An effective repulsive term prevents unrealistic overlap, while an attractive term can help produce cohesion. Electrostatics accounts for charges and polarity. The force field specifies exclusions and scaling for atoms connected through short bond paths, so these terms are not blindly added for every possible pair in a molecule.
+A simulation then moves the atoms. Molecular dynamics adds up the force on every atom, moves every atom a tiny step according to those forces, and repeats. Each step is typically one femtosecond, a millionth of a billionth of a second, so a million steps make one nanosecond. Averages over many steps give measurable quantities such as density, energy or binding. Energy minimization, a related method, skips the motion and moves the atoms straight downhill to the nearest low-energy arrangement.
 
-Sources: H13, R13
+### Sources
 
-## 14. The Lennard-Jones curve has a wall and a well
+- Heinz, Lin, Mishra and Emami (2013). Thermodynamically Consistent Force Fields for the Assembly of Inorganic, Organic, and Biological Nanostructures: The INTERFACE Force Field. Langmuir 29, 1754–1765. https://doi.org/10.1021/la3038846
 
-Lennard-Jones, abbreviated LJ, is a simple effective pair potential. The exponents identify a functional form, not a full electronic calculation. Here the original plot evaluates Kanhaiya's rhodium coefficients. The isolated pair is a teaching device. A metal crystal contains many interacting neighbors, so this curve alone does not give the total binding or elastic behavior of a solid.
+## 7. Two atoms attract until they get too close
 
-Sources: K21, DERIVED
+Even neutral atoms attract each other weakly, because their electron clouds flicker and pull on each other. This is the van der Waals attraction. When the atoms get too close, their electron clouds overlap and they push apart strongly.
 
-## 15. Read the zero crossing, minimum and well depth
+Energies here are in kilocalories per mole, the energy of one mole of such pairs, about 6 × 10²³ of them. The rhodium curve has its lowest point at r₀ = 2.757 Å with a depth ε of 7.84 kcal/mol. These two numbers were tuned so that simulated rhodium has the measured density and surface energy.
 
-An angstrom, Å, is one ten-billionth of a meter. Energy is reported per mole of pairs, which scales a microscopic pair energy by Avogadro's number. Our equation is U=epsilon[(r0/r)^12-2(r0/r)^6]. Kanhaiya calls the minimum-length parameter sigma; we call it r0 to distinguish it from the zero-crossing sigma in U=4epsilon[(sigma/r)^12-(sigma/r)^6]. The curves are identical when sigma=r0/2^(1/6). At r0 the pair energy is -epsilon.
+The curve is called 12-6 because its push grows as the twelfth power of one over the distance and its pull as the sixth power. Written with the lowest point, it is E = ε [(r₀/r)¹² − 2 (r₀/r)⁶].
 
-Sources: K21, LJ, DERIVED
+The force on the atoms is the slope of the curve with its sign flipped. At 2.5 Å the energy is still negative, about −2.8 kcal/mol, yet the slope is steep and the atoms push apart with a force of about 54 kcal/mol per ångström. At 3.0 Å the slope is gentle and the atoms pull together with about 7.5. At 2.757 Å the curve is flat and the force is zero. A simulation moves atoms using these forces, so the shape of the curve matters as much as its depth.
 
-## 16. Force is the negative slope of energy
+Each metal gets its own pair of numbers. In the same study iridium has r₀ = 2.785 Å and ε = 9.20 kcal/mol, calcium 4.025 Å and 3.36, and strontium 4.379 Å and 3.40. Calcium and strontium are larger atoms, so their lowest points sit further out. A deeper well means the atoms hold on to each other more strongly, which goes with a higher surface energy. The study gives values like these for ten metals and for stainless steel.
 
-The radial force is F_r=-dU/dr. For this minimum-length 12-6 form, F_r=(12epsilon/r)[(r0/r)^12-(r0/r)^6]. The sign convention takes increasing separation as positive. Energy below zero can still have a repulsive slope. The plot is the analytic derivative of the same published pair potential, and its units are kcal per mole per angstrom. It is not a measured force trace.
+Pairs of unlike atoms come from a mixing rule. A simulation with 10 kinds of atoms has 55 different pairs, too many to fit one by one, so the rule builds every unlike pair from the two like ones. The rule used here takes the geometric mean, the square root of the product. For rhodium with calcium, r₀ = √(2.757 × 4.025) = 3.331 Å and ε = √(7.84 × 3.36) = 5.13 kcal/mol. Families such as CHARMM and AMBER use the ordinary average for r₀ instead, so the rule must match the family the numbers are used with. This is a worked example of the rule, not a claim about real rhodium–calcium alloys.
 
-Sources: K21, DERIVED
+The same curve is often written with σ, the distance where the energy crosses zero, which is shorter than r₀ by a factor of 1.1225. Programs such as LAMMPS expect σ. The 2021 paper calls its 2.757 Å σ but means the lowest point, which earlier IFF papers called r₀. If 2.757 Å is typed in as a zero crossing, the lowest point moves out to 3.095 Å, 12% too far. Five cells of rhodium would then measure about 21.3 Å instead of 19.0, and the surface energy would be wrong, all without any error message.
 
-## 17. Work the rhodium numbers
+The fix is σ = 2.757 / 1.1225 = 2.456 Å. A force-field file can load without errors and still describe a different material, so after converting, check the curve family and the units the program expects, then compute one pair by hand. Its energy at 2.757 Å should read −7.84 kcal/mol, not 0, and its force should be zero. A 2021 correction to the paper added missing supplementary files and changed none of its tables.
 
-These rounded values come from direct analytic evaluation of the published 12-6 rhodium parameters. At 2.500 Å, the energy is negative while the force is positive because the separation is shorter than the minimum. At 2.757 Å the energy is -7.84 and the force vanishes. At 3.000 Å the force is attractive. The table's force unit is kcal/(mol Å), and energy is kcal/mol of pairs. Extra digits in the check file document arithmetic, not higher physical precision.
+### Sources
 
-Sources: K21, DERIVED
+- Kanhaiya, Kim, Im and Heinz (2021). Accurate simulation of surfaces and interfaces of ten FCC metals and steel using Lennard-Jones potentials. npj Computational Materials 7, 17. https://doi.org/10.1038/s41524-020-00478-1
+- Kanhaiya, Kim, Im and Heinz (2021). Author Correction to Accurate simulation of surfaces and interfaces of ten FCC metals and steel using Lennard-Jones potentials. npj Computational Materials. https://doi.org/10.1038/s41524-021-00576-8
+- Kanhaiya, Kim, Im and Heinz (2021). Supplementary Information for Accurate simulation of surfaces and interfaces of ten FCC metals and steel using Lennard-Jones potentials. https://static-content.springer.com/esm/art%3A10.1038%2Fs41524-020-00478-1/MediaObjects/41524_2020_478_MOESM1_ESM.pdf
+- LAMMPS documentation, pair style lj/cut. https://docs.lammps.org/pair_lj.html
+- Calculations and illustrations made for this presentation.
 
-## 18. Changing the metal changes the pair curve
+## 8. Charges reach much further than van der Waals
 
-Kanhaiya Table 1 gives Rh r0=2.757 Å and epsilon=7.84 kcal/mol; Ir 2.785 and 9.20; alpha-Ca 4.025 and 3.36; alpha-Sr 4.379 and 3.40. These are elemental fcc model parameters. They do not establish that a material remains chemically stable in every environment. For example, reactivity in water needs an appropriate model. The original plots compare the specified pair functions at their published values.
+Coulomb’s law says the energy of two charges falls off only as one over the distance, E = 332.064 q₁q₂ / r. The number converts the energy to kcal/mol when r is in ångströms and the charges q₁ and q₂ are in elementary charges, the charge of one proton. Two opposite unit charges in a vacuum, such as a sodium ion and a chloride ion, have −110.7 kcal/mol at 3 Å and still −33.2 at 10 Å. The rhodium van der Waals pull at 10 Å is about −0.007.
 
-Sources: K21, DERIVED
+In water the pull between ions is about 80 times weaker, because water molecules turn so that their opposite partial charge faces each ion, which screens it. A force field does not add this screening by hand. It comes out of the partial charges on the water molecules themselves.
 
-## 19. A solid adds interactions with many neighbors
+### Sources
 
-The pair sum runs over each distinct unordered atom pair. A solid's equilibrium spacing balances interactions with multiple neighbor shells. Cleaving a solid changes many terms and allows atoms to relax. Surface energy is reported in joules per square meter, whereas epsilon has energy units. Fitting a surface target therefore requires an actual surface calculation, a normalization and stated conditions. There is no universal unit conversion from epsilon to gamma.
+- NIST (2022). CODATA recommended values of the fundamental physical constants. https://physics.nist.gov/cuu/Constants/Table/allascii.txt
+- Kanhaiya, Kim, Im and Heinz (2021). Accurate simulation of surfaces and interfaces of ten FCC metals and steel using Lennard-Jones potentials. npj Computational Materials 7, 17. https://doi.org/10.1038/s41524-020-00478-1
+- Calculations and illustrations made for this presentation.
 
-Sources: K21, K21SI, DERIVED
+## 9. IFF tunes each solid to its measured surface energy
 
-## 20. A mixed pair needs an explicit combining rule
+Atoms at a surface have lost some of their neighbours, so a surface costs energy. Splitting a block makes two new faces, so the surface energy is the energy needed to pull the halves apart divided by twice the area of one face. It is measured in joules per square metre.
 
-A combining rule generates a cross interaction from the two like-atom parameters. This example uses geometric means for both minimum lengths and well depths, following the selected CVFF family convention. Other families use different length rules. The arithmetic is an illustration of how a rule is consumed. It supplies no evidence that a Rh-Ca alloy is accurately represented. Alloy charge, phase stability and electronic effects need their own evidence.
+The energy of the block is the sum over every pair of atoms in it. Three rhodium atoms at the lowest-energy distance make three pairs, so their total is 3 × (−7.84) = −23.52 kcal/mol. Inside the crystal each atom has 12 nearest neighbours, each 2.689 Å away. That is closer than r₀ because the farther neighbours also pull, squeezing the nearest ones a little closer than a lone pair would sit. In practice a simulation adds up pairs out to a cutoff distance, beyond which the van der Waals pull is too weak to matter.
 
-Sources: K21, K21SI, DERIVED
+Rhodium is a face-centred cubic, or fcc, metal. Its repeating cell is a cube 3.803 Å on a side with an atom at each corner and one in the middle of each face. Each corner atom is shared by eight cells and each face atom by two, so one cell holds 8 × ⅛ + 6 × ½ = 4 atoms. Five cells in each direction give 500 atoms, and the simulation box repeats in every direction, called periodic boundaries, so the block behaves like part of an endless crystal. The two rhodium numbers were tuned to give this block its measured size, 19.016 Å along each edge, so that agreement is a calibration rather than a test.
 
-## 21. Charges add electrical attraction or repulsion
+For rhodium’s triangular face the measured surface energy is 2.64 ± 0.02 J/m² and the model gives 2.643. Like the crystal size, this was a tuning target, so it confirms the tuning rather than tests the model. Two small differences remain. The measurements may come from samples with mixed faces and read 1 to 2% high. The simulation gives an energy, while the measurement gives a free energy, which also counts entropy, a measure of how many ways the atoms can move and arrange themselves. The authors estimate that these two differences partly cancel.
 
-The symbol e is the magnitude of the elementary charge. Using k=332.064 kcal Å/(mol e²), the point-charge calculation is U=k(+1)(-1)/3. These are illustrative charges in vacuum and are not the charges on rhodium atoms. Real ions also have size and other interactions. In water, solvent orientation, screening and polarization affect the result, so the vacuum value cannot be used as an ion-pair energy in solution.
+Stiffness was not a tuning target, so it tests the model. It is measured in gigapascals, and one gigapascal is about ten thousand times the pressure of the atmosphere. For squeezing from all sides, the bulk modulus, the model gives 258 GPa against a measured 276, 6.5% low. For stretching, Young’s modulus, it gives 209 against 379, and for sliding one layer over another, the shear modulus, 77 against 147. Other measurements give 269 to 271 GPa for squeezing, 319 and 378 for stretching and 150 for shearing.
 
-Sources: CODATA, H13, DERIVED
+Curves that act only between pairs of atoms force two of the crystal’s stiffness constants to be equal, and real rhodium does not follow that rule. So the model is good for surfaces and interfaces, but its stiffness is a known weakness.
 
-## 22. A small cluster counts each pair once
+Force fields such as PCFF, COMPASS and CFF use a softer 9-6 curve, E = ε [2 (r₀/r)⁹ − 3 (r₀/r)⁶], whose push grows as the ninth power instead of the twelfth, while CHARMM, AMBER, OPLS-AA and CVFF use the 12-6 curve. Because the shapes differ, IFF publishes separate rhodium values for each. The 9-6 values are r₀ = 2.807 Å and ε = 6.38 kcal/mol. Both sets reproduce the crystal size and the surface energy, 2.643 J/m², but the 9-6 crystal is softer still, 175 GPa against 276 measured for squeezing. Using 12-6 numbers in a 9-6 force field, or the reverse, gives a different material without any error message.
 
-The pairs are atom 1 with 2, atom 1 with 3, and atom 2 with 3. Summing each once gives three times -7.84. The sphere diameter equals the isolated-pair minimum in this deliberately simple illustration. This is not a fragment cut from the equilibrium fcc crystal. No relaxation, long-time stability or preference over other cluster shapes has been calculated. A larger system uses the same counting idea while boundary and cutoff rules also matter.
+### Sources
 
-Sources: K21, DERIVED
+- Kanhaiya, Kim, Im and Heinz (2021). Accurate simulation of surfaces and interfaces of ten FCC metals and steel using Lennard-Jones potentials. npj Computational Materials 7, 17. https://doi.org/10.1038/s41524-020-00478-1
+- Kanhaiya, Kim, Im and Heinz (2021). Supplementary Information for Accurate simulation of surfaces and interfaces of ten FCC metals and steel using Lennard-Jones potentials. https://static-content.springer.com/esm/art%3A10.1038%2Fs41524-020-00478-1/MediaObjects/41524_2020_478_MOESM1_ESM.pdf
+- Calculations and illustrations made for this presentation.
 
-## 23. Molecular mechanics makes repeated sampling practical
+## 10. The F ring lies flat on platinum’s triangular face
 
-A single low-energy structure may miss the many arrangements present at a finite temperature. The lower cost of classical interactions makes repeated energy and force evaluation practical. This helps sample molecular conformations, water exchange and surface binding. The benefit depends on the model and workload. A fast trajectory can still sample too little time or use the wrong surface chemistry.
+S7 is a seven-amino-acid peptide, SSFPQPN, found by screening many peptides for ones that bind platinum. Ruan and colleagues simulated it on both faces in water with CHARMM-METAL, IFF’s early model for metals, which combines the CHARMM protein model with metal parameters written the same way.
 
-Sources: H13, K21
+On the triangular face the F ring lies flat, because its six carbons fit the triangular pattern of platinum atoms. On the square face the ring stands up instead, and the computed binding energy of +3 kcal/mol means the peptide does not stick, so water keeps that surface covered.
 
-## 24. Parameters connect equations to physical measurements
+In the lab, every version of the peptide that contained F grew many tetrahedra, crystals with only triangular faces, and versions without F grew mainly cuboctahedra. One version, S7-G, with F replaced by glycine, G, still binds the triangular face strongly, at about −52 kcal/mol, but it also binds the square face, so it gives few tetrahedra. Versions with tyrosine in place of F lie flat on both faces. What matters is the contrast between the faces. The same idea explains the TLT to TFT switch from the opening.
 
-Parameterization chooses coefficients so the model reflects the material of interest. Structural data constrain packing and bonding geometry. Surface and immersion measurements constrain interactions across material boundaries. Dipole moments and other electrical data help constrain charge assignments. These effects are coupled. Several parameters may affect the same observable, and a fitted coefficient is not necessarily a uniquely measured atom property.
+The pictures are illustrations of these poses, not snapshots from the simulations.
 
-Sources: H13, C04
+### Sources
 
-## 25. Fitting and testing answer different questions
+- Ruan et al. (2013). Tailoring Molecular Specificity Toward a Crystal Facet: a Lesson From Biorecognition Toward Pt{111}. Nano Letters 13, 840–846. https://doi.org/10.1021/nl400022g
+- Wyckoff (1963). Crystal Structures 1, 7–83. Crystallography Open Database entry 9008480, platinum. https://www.crystallography.net/cod/9008480.html
+- RDKit, open-source cheminformatics software. https://www.rdkit.org
 
-For the rhodium example, density or lattice size and surface energy are calibration targets. The elastic properties are predictions beyond those targets. This separation lets us ask whether a useful surface model also reproduces mechanical response. A reserved test loses independence if its outcome is used to tune a parameter, choose a model family or adjust a fitting weight. The published paper is not described here as a prospectively blinded campaign.
+## 11. Water spreads or beads up depending on the silica surface
 
-Sources: K21, AGENT
+Heating silica to between 200 and 1000 °C drives off its OH groups. On the fully covered surface water spreads flat, with a contact angle of 0°, and on the most heated surface it beads up at about 42°. The contact angle is the angle between the surface and the edge of a droplet, so a small angle means the water spreads.
 
-## 26. A parameter should have a defensible physical role
+Emami and colleagues built silica models with 4.7, 2.35, 1.2 and 0 OH groups per square nanometre to match these samples. The simulated angles came within 3° of the measured ones.
 
-Physically interpretable means we can explain why a parameter is present and how it relates to the modeled chemistry. For example, a length parameter changes the distance scale while an energy parameter changes cohesion. Interpretation does not make the fit unique or guarantee transfer to a new compound. The rhodium mechanical limit will show why a sensible parameter set can still be restricted by its functional form.
+With a standard water model called TIP3P, the model also releases 160 mJ/m² of heat when dry silica with 4.7 OH groups per square nanometre is dipped in water, against 160 ± 5 measured. The paper lists both matches as features of the model, not as independent tests. A 2016 correction to the paper changed only two density plots, not these results.
 
-Sources: H13, K21
+The droplets are drawn to these angles and are not simulation snapshots.
 
-## 27. IFF connects inorganic surfaces with molecules
+### Sources
 
-IFF stands for Interface Force Field. The 2013 paper establishes a framework for combining inorganic and molecular components while retaining chemically interpretable parameters and thermodynamic comparisons. Its purpose includes the boundary where a biomolecule or polymer meets a solid. Coverage is compound-specific. A supported force-field family still needs suitable parameters, charge assignments and surface models for the proposed system.
+- Emami et al. (2014). Force Field and a Surface Model Database for Silica to Simulate Interfacial Properties in Atomic Resolution. Chemistry of Materials 26, 2647–2658. https://doi.org/10.1021/cm500365c
+- Emami et al. (2016). Correction to Force Field and a Surface Model Database for Silica to Simulate Interfacial Properties in Atomic Resolution. Chemistry of Materials 28, 406–407. https://doi.org/10.1021/acs.chemmater.5b04760
+- Levien, Prewitt and Weidner (1980). Structure and elastic properties of quartz at pressure. American Mineralogist 65, 920–930. Crystallography Open Database entry 9000775. https://www.crystallography.net/cod/9000775.html
+- Jorgensen, Chandrasekhar, Madura, Impey and Klein (1983). Comparison of simple potential functions for simulating liquid water. Journal of Chemical Physics 79, 926–935. https://doi.org/10.1063/1.445869
 
-Sources: H13
+## 12. Bone mineral changes its surface with pH
 
-## 28. Compatibility is an equation-level requirement
+Hydroxyapatite is made of calcium ions, phosphate groups and hydroxide ions. pH measures how acidic water is, with 7 neutral and lower numbers more acidic. Protonation means a hydrogen ion, H⁺, attaching to a group such as phosphate.
 
-IFF has been integrated with common molecular force-field families, including CHARMM, AMBER, CVFF, OPLS and PCFF in the supported contexts described by the papers. These families do not share every convention. A valid export must preserve the intended interactions, including the treatment of short bond paths and unlike atom types. Reading exported coefficients is useful, but a numerical energy and force comparison checks the consumed interpretation.
+Lin and Heinz built surface models for different pH. The bare crystal surface is stable only above pH 14, which almost never occurs in water around living things. By about pH 10 each surface phosphate has gained one hydrogen and the hydroxide and some calcium have left. By about pH 5 each has gained two, and more calcium has gone. Near pH 7 the surface carries a mix, and an infrared measurement found 31% with one hydrogen and 69% with two.
 
-Sources: H13, K21, K21SI, AGENT
+When dry hydroxyapatite meets water it gives off heat, the immersion energy, measured in millijoules per square metre. Weighting the model faces by how much of a real crystal each one covers gives 619 mJ/m² at pH 7, and counting all faces equally gives 533. Heat measurements on perfectly dried crystals give 600 to 700. The comparison depends on how the faces are weighted and on how dry the real samples were, since a sample that has already taken up water from the air gives off less heat.
 
-## 29. A silica surface changes its chemistry in water
+The slices are cut from the measured crystal structure, with hydrogens added and calcium removed by hand to show each step. They are illustrations, not simulation results.
 
-A silanol is a silicon-oxygen-hydrogen group at the surface. Losing its proton leaves a negatively charged siloxide group. The particle size, solution and preparation influence the extent of this change. The silica papers show why a surface labeled only SiO2 is incomplete. We use their published chemical and adsorption evidence here. The later correction to the 2014 paper changes density-profile plots, which this deck does not reproduce.
+### Sources
 
-Sources: P12, E14, E14C
+- Lin and Heinz (2016). Accurate Force Field Parameters and pH Resolved Surface Models for Hydroxyapatite to Understand Structure, Mechanics, Hydration, and Biological Interfaces. Journal of Physical Chemistry C 120, 4975–4992. https://doi.org/10.1021/acs.jpcc.5b12504
+- Sudarsanan and Young (1969). Significant precision in crystal structural details: Holly Springs hydroxyapatite. Acta Crystallographica B 25, 1534–1543. Crystallography Open Database entry 9011091. https://www.crystallography.net/cod/9011091.html
 
-## 30. Rhodium begins with a repeating fcc cell
+## 13. The IFF Agent carries one material through eight steps
 
-A unit cell is a building block that can reproduce the crystal by translation. A conventional fcc cell contains four independent atomic sites after sharing corner and face sites with neighboring cells. The corrected source cell has cubic edge 3.8032 Å. Boundary spheres in a drawing can show copies of shared atoms, so their visible count is not the count of independent atoms. Crystal-contact spheres have radius a/(2sqrt(2)), consistent with touching nearest neighbors.
+The IFF Agent is a workflow described by the author for building and checking IFF models step by step. It sits around the force field and is not part of it. This presentation describes the workflow only and claims no implementation or results from it.
 
-Sources: K21, K21C, DERIVED
+Its eight steps are named intake, references, model, contract, run and fit, validate, export readback, and review and disposition. The first four decide what the result must show before anything is computed. The contract fixes in advance which measurements may be used for tuning and which are kept back as tests.
 
-## 31. Repeat the cell to build a supercell
+Rhodium shows the steps with the published numbers. The question is rhodium faces in water. The references are the measured size, surface energy and stiffness. The model is a 12-6 pair curve. The contract tunes the size and surface energy and keeps stiffness as a test. The fit gives r₀ = 2.757 Å and ε = 7.84 kcal/mol. The test finds a stretching stiffness of 209 GPa against 379 measured. The readback checks that the exported file gives −7.84 kcal/mol at r₀, not 0, which catches the mix-up between r₀ and σ described with the Lennard-Jones curve. The review approves the model for surfaces and flags its stiffness.
 
-Five cells in each of three directions gives 125 conventional cells. Multiplying by four atoms per fcc cell gives 500 atoms, the lattice-protocol size described in the paper's SI. A smaller drawing may be used to show the pattern clearly. Periodic boundaries mimic extended material through copies; surfaces and isolated molecules require appropriate extra space and boundary treatment. Convergence checks assess whether a larger box changes the observable.
+Every number comes from the 2021 rhodium paper; none is a new fit or result.
 
-Sources: K21SI, DERIVED
+### Sources
 
-## 32. Expose a surface by cleaving the solid
+- Author’s description of the IFF Agent workflow (2026).
+- Kanhaiya, Kim, Im and Heinz (2021). Accurate simulation of surfaces and interfaces of ten FCC metals and steel using Lennard-Jones potentials. npj Computational Materials 7, 17. https://doi.org/10.1038/s41524-020-00478-1
 
-Miller indices such as (111) label an orientation in a crystal. The cut shown here creates equivalent parallel faces. Atoms at those faces have fewer neighbors across the missing solid, and their positions can adjust. The pictured slab is idealized and constructed for explanation. It is not a reconstruction of an experimental surface or a newly simulated rhodium trajectory.
+## 14. A flat ring on a triangular face explains the crystal shape
 
-Sources: K21, K21SI
+Back to the opening question. Swapping one amino acid, L for F, turned platinum cubes into tetrahedra. The simulations showed why. The F ring lies flat on the triangular face and sticks, while on the square face the ring stands up and the peptide does not stick. Crystals grow slowest on the faces that are covered, so the triangular faces end up covering the crystal, and a crystal with only triangular faces is a tetrahedron.
 
-## 33. Two new faces require a factor of two
+That answer needed all three sets of interactions in one model, which is what IFF provides. IFF supplies compatible interaction equations and material parameters so a classical simulation can describe a solid together with water, polymers or biological molecules. It addresses inconsistent material/surface descriptions and the difficulty of combining separately developed models, allowing supported interface structures, binding and energies to be calculated and compared with experiments.
 
-The angle brackets denote an average over sampled configurations. If two equivalent faces of area A are created, the total newly exposed area is 2A. Kanhaiya's metal method compares matched unified and cleaved boxes. The full free-energy expression includes entropy; the SI estimates a small correction for the metal conditions studied. This approximation needs to be reassessed for a different interface, temperature or molecular adsorption process.
+The three examples each compared a different kind of result with experiment, the face a peptide prefers on platinum, how water wets silica, and the heat given off as water meets bone mineral. In each, it matters which measurements tuned the model and which were left to test it, and a standard model still cannot describe reactions.
 
-Sources: K21, K21SI, DERIVED
+Other published studies tested IFF in other ways. On silica, simulations with PCFF-SILICA, IFF’s silica model, compared the twelve-amino-acid peptide KSLSRHDHIHHH with two versions of it. In the experiments, swapping the histidine at position 6 for alanine made the peptide stick more, and the same swap at position 11, near the C-terminal end of the chain, made it stick less. The simulations ranked the three in the same order, but only on the surface model that matched the experiment, with about 4.7 OH groups per square nanometre. With twice as many, 9.4, the order changed.
 
-## 34. Excellent agreement can be a calibration result
+For cement, Mishra, Flatt and Heinz computed the energy needed to pull two broken faces of tricalcium silicate apart at 90 °C, close to the conditions in a working mill. Bare faces needed 240 to 450 mJ/m², depending on whether water had reached them, and less than one layer of grinding additive cut that to between 50 and 110. These results are in section 4.3 and Figures 10 and 11 of their paper. Mill tests reported in a patent ranked three amine additives in the same order as the simulation. That is a ranking only, and glycerine, the fourth additive, was not in those tests.
 
-Kanhaiya Table 2 reports a five-cell length, 5a, rather than a single cell edge. The published 12-6 model gives the same rounded value as the reference. Table 3 reports Rh(111) surface energy 2.643 J/m² for both LJ families versus reference 2.64±0.02. These comparisons test reproduction of calibration data. The SI discusses experimental face mixtures and the approximation between surface free energy and the energy-difference method. Published values are reproduced here as facts and were not rerun.
+For gold, a polarizable model, in which each gold atom’s electrons can shift towards or away from a nearby ion, gives −13.0 ± 0.1 kcal/mol per water molecule in a layer on gold’s triangular face, and the plain model −12.8 ± 0.1. Measurements on gold made of many small crystals give −13 and −15.5. The shift matters most for ions close to the metal; for water the plain model is nearly as good.
 
-Sources: K21, K21SI
+### Sources
 
-## 35. Minimization finds a nearby low-energy arrangement
+- Ruan et al. (2013). Tailoring Molecular Specificity Toward a Crystal Facet: a Lesson From Biorecognition Toward Pt{111}. Nano Letters 13, 840–846. https://doi.org/10.1021/nl400022g
+- Heinz, Lin, Mishra and Emami (2013). Thermodynamically Consistent Force Fields for the Assembly of Inorganic, Organic, and Biological Nanostructures: The INTERFACE Force Field. Langmuir 29, 1754–1765. https://doi.org/10.1021/la3038846
+- Kanhaiya, Kim, Im and Heinz (2021). Accurate simulation of surfaces and interfaces of ten FCC metals and steel using Lennard-Jones potentials. npj Computational Materials 7, 17. https://doi.org/10.1038/s41524-020-00478-1
+- Patwardhan et al. (2012). Chemistry of Aqueous Silica Nanoparticle Surfaces and the Mechanism of Selective Peptide Adsorption. Journal of the American Chemical Society 134, 6244–6256. https://doi.org/10.1021/ja211307u
+- Mishra, Flatt and Heinz (2013). Force Field for Tricalcium Silicate and Insight into Nanoscale Properties: Cleavage, Initial Hydration, and Adsorption of Organic Molecules. Journal of Physical Chemistry C 117, 10417–10432. https://doi.org/10.1021/jp312815g
+- Patent EP2527307A1 (2012, in German), clinker grinding tests with amine additives. https://data.epo.org/publication-server/rest/v1.0/publication-dates/20121128/patents/EP2527307NWA1/document.pdf
+- Geada et al. (2018). Insight into induced charges at metal surfaces and biointerfaces using a polarizable Lennard-Jones potential. Nature Communications 9, 716. https://doi.org/10.1038/s41467-018-03137-8
 
-Energy minimization uses forces or gradients to reduce the potential energy. It is useful for removing unrealistic close contacts and relaxing a structure before dynamics. It does not assign a physical time to the movement down the landscape. A minimizer can stop in a local basin, so several starting configurations or broader sampling may be needed. The landscape is an original explanatory sketch.
+## 15. Thank you
 
-Sources: MD, H13, DERIVED
+Thank you. The notes for each slide hold the equations, the worked numbers and the sources behind it, and the reading version shows them with every slide.
 
-## 36. Molecular dynamics advances motion in short steps
+### Sources
 
-Newton's equation connects acceleration to force through atomic mass. A molecular-dynamics integrator repeatedly updates positions and velocities using that relationship. A femtosecond, fs, is one quadrillionth of a second. Temperature and pressure controls set the intended statistical conditions, and their settings affect sampling. A successful short run does not prove convergence. Any motion in our diagrams is illustrative and does not represent a new material trajectory.
-
-Sources: K21, MD, DERIVED
-
-## 37. A trajectory becomes evidence through an observable
-
-A trajectory is a time-ordered series of atomic configurations. Turning it into a material result requires an estimator with a reference state and conditions. Neighboring time samples are correlated, so a large frame count does not automatically mean many independent observations. Block averages, repeated runs and convergence checks help assess sampling. Experimental uncertainty and model error are separate sources of disagreement.
-
-Sources: H13, K21SI
-
-## 38. Rhodium mechanics exposes the pair model’s limit
-
-Moduli describe stiffness under different deformations. K is the bulk modulus for volume compression, E is Young's modulus for uniaxial stretching, and G is the shear modulus. This table uses the selected experimental reference d in Kanhaiya Table 5; other reference values are listed in the paper. The 12-6 bulk modulus is about 6.5% lower than 276 GPa, but its Young's and shear moduli differ much more. The Cauchy-type central-force restriction limits independent elastic behavior. The examples are published predictions beyond the lattice and surface calibration, not newly rerun measurements.
-
-Sources: K21, K21SI
-
-## 39. An alloy needs evidence beyond a mixing rule
-
-Liu's SI states that alloy charges were obtained using pure-metal pair potentials and experimental formation energies, with extended-Born reasoning to interpret chemical trends. The AlNi base assignment is +0.39e for Al and -0.39e for Ni. These are model partial charges. They are not a unique experimental partition of electrons. A neutral elemental metal model cannot simply be copied into every alloy without examining polarity, phase and structure.
-
-Sources: L18, L18SI
-
-## 40. Defects and polarization change the model question
-
-A defect is a departure from the ideal crystal, such as a missing atom. L18SI Table S2 varies how charge left by an AlNi vacancy is assigned among nearby atoms. Its raw molecular-mechanics energies depend on that hypothesis and are not measured formation free energies. A fixed neutral LJ model also lacks an explicit responding electron cloud. Geada's gold extension adds a charged core-shell response. Many-body models such as EAM can address other metal-specific behavior, with their own scope and interface limitations.
-
-Sources: L18SI, G18, K21
-
-## 41. Real systems test different parts of a model
-
-We have enough background to return to real questions. These six published examples use related interface modeling ideas across different chemistry. Some establish a mechanism through matched trends, while others compare a numerical surface property. Their evidential strength differs. A success on one interface does not validate all supported compounds or every property of the same material.
-
-Sources: R13, P12, E14, L16, M13, G18
-
-## 42. Peptide chemistry steers platinum crystal shape
-
-Ruan et al., Nano Letters 2013, pp. 842-844, Figures 2-3. The CHARMM-METAL model, an IFF metal-model predecessor, describes competition between water and peptides. Phenylalanine's ring can lie on (111) but has an unfavorable geometry on (100), reducing adsorption there. Strong binding to (111) alone did not correlate with tetrahedral yield; contrast between faces mattered. The TLT-to-TFT substitution and microscopy provided an experimental test of the proposed recognition principle. The calculations did not simulate the complete synthesis reaction.
-
-Sources: R13
-
-## 43. A silica-binding peptide must fit the surface
-
-Patwardhan et al., JACS 2012, Figure 10 and Table 3, pp. 6251-6253. Replacing histidine at one position relieved conformational strain and allowed better contacts. Replacing a terminal histidine removed useful contacts and weakened binding. Adsorption assays and zeta-potential data supported the computed relative trends. A hydrogen bond is an attractive interaction involving a hydrogen-bearing group and a suitable electronegative site. Zeta potential measures an electrical property of the particle's moving liquid boundary, rather than a direct image of individual charges.
-
-Sources: P12
-
-## 44. Surface groups change how water wets silica
-
-Emami et al., Chemistry of Materials 2014, section 4.1 and Figure 5, pp. 2653-2654. Heat of immersion is the energy released when a dry surface enters water; values here are its positive magnitude. The SPC, TIP3P and PCFF water models gave 167, 160 and 157 mJ/m² respectively, so the selected comparison explicitly names TIP3P. Section 4.2 and Figure 6 also compare wetting as surface chemistry changes. The 2016 correction revises density-profile Figures 8-9; it leaves the immersion and contact-angle data used here unchanged. These comparisons support a specified surface/water model and are not a universal held-out accuracy score. The paper states that hydration energies of Q3 surfaces were among the quantities used to refine nonbonded parameters, so this numerical agreement is a calibration check.
-
-Sources: E14, E14C
-
-## 45. Bone mineral presents a pH-dependent surface
-
-Lin and Heinz, JPCC 2016, Table 7 and discussion, pp. 4986-4987. Hydroxyapatite contains calcium, phosphate and hydroxide. Changing pH changes surface protonation and calcium content in the constructed models. The work compares immersion energies and hydration-stabilized crystal shapes with experimental data. Dry-sample calorimetry reports values around 600-700 mJ/m², while broader literature values depend on preparation. The paper explains how facet weighting and hydration history affect comparisons. This evidence concerns mineral surfaces; it establishes no drug efficacy or clinical prediction.
-
-Sources: L16
-
-## 46. Grinding aids reduce attraction between cement grains
-
-Mishra, Flatt and Heinz, JPCC 2013, Figure 6 and section 6, pp. 10426-10427. The model compares reconstructed dry, hydroxylated and organically covered surfaces. MDIPA and TIPA show greater reductions in attraction than the weaker aids, in the same qualitative order as grinding observations. The comparison is a trend across additives, rather than a direct measurement of each atomistic agglomeration energy. Direct C3S cleavage data are limited and some calibration checks use related phases. Fracture, roughness, coverage and processing conditions also influence milling performance.
-
-Sources: M13
-
-## 47. Gold’s electrons respond to nearby charges
-
-Geada et al., Nature Communications 2018, Table 2 p. 6 and Figure 5 p. 7. A harmonically coupled charged core-shell pair on each metal atom models polarization. The water-monolayer comparison above is for the polarizable (111) model, with experimental reference differences and surface mismatch retained. The nonpolarizable model already gives similar liquid-water energetics; induced charges matter differently for ion contact. The interfacial-tension experimental entry is an upper bound, so it must not be treated as an exact measurement. The extension does not give a general model of chemical reactions or arbitrary electrode conditions.
-
-Sources: G18
-
-## 48. Choose the observable before judging the result
-
-Across the examples, the strongest conclusion follows the actual measured quantity. A morphology trend, an adsorption assay and a calorimetric energy are different tests. Keep conditions attached to the result. A model that explains one trend may still have important numerical errors elsewhere, as the rhodium mechanical table shows. New chemistry or an altered surface calls for renewed evidence.
-
-Sources: R13, P12, E14, L16, M13, G18
-
-## 49. The IFF Agent carries evidence through eight steps
-
-The approved public workflow has eight steps: Intake, References, Model, Contract, Run and fit, Validate, Export readback, and Review and disposition. The workflow aims to carry decisions and evidence through a calculation without losing their context. Implementing this workflow does not establish that any new material package has passed fitting, independent validation or scientific adoption.
-
-Sources: AGENT
-
-## 50. Define the question before running the fit
-
-A fit/test contract is a plan for assessing a bounded model, including which measurements may tune it and which are reserved. The model assignment must include the chosen family conventions. Changing the chemistry, references or intended use can change which model and tests are appropriate. Keeping these choices inspectable lets a reviewer reconstruct why a coefficient set was considered suitable.
-
-Sources: AGENT
-
-## 51. Run, test, read back, then review
-
-An export can be syntactically valid while changing units, mixing or length conventions. Readback compares the consumed model against the intended one, including energy and forces where relevant. Validation also needs numerical convergence and suitable scientific comparisons. A final review can accept a bounded use, narrow it or withhold a material claim. Execution receipts prove that operations happened; scientific evidence determines what their results establish.
-
-Sources: AGENT
-
-## 52. A repeatable answer can still be inaccurate
-
-If every input, coefficient and numerical setting is preserved, rerunning a calculation should produce consistent behavior within its statistical and numerical variability. That is useful evidence about execution. A physical model can reproduce the same wrong answer. Rhodium's elastic mismatch illustrates this distinction even when its density and surface targets are reproduced well.
-
-Sources: K21, AGENT
-
-## 53. Use DFT when electron rearrangement matters
-
-DFT evaluates electronic energy using an electron-density framework. It is useful when a fixed-chemistry model cannot represent the event being studied, such as a chemical reaction or changing electronic distribution. Results depend on the functional, electronic setup and sampled structures. DFT is an approximation with property-specific errors. A more detailed method still needs evidence for the target observable.
-
-Sources: HK64, K21
-
-## 54. Use classical IFF for supported interface sampling
-
-Classical IFF is useful when its effective interactions and surface models are appropriate and the need is to explore molecular configurations or interface behavior. Fixed-topology bonded models do not automatically form and break bonds. A fixed neutral metal model also lacks explicit changing charge. The published example papers support defined uses. They do not grant blanket transfer to untested compounds, defects or reaction pathways.
-
-Sources: H13, K21, G18
-
-## 55. Use a learned potential within its supported data domain
-
-A learned potential estimates an energy function from data. MACE is one primary example of this approach; AI²BMD applies a learned quantum-based strategy to biomolecular simulation. Architecture alone does not determine transfer. A model trained around one set of structures can make unreliable predictions when bonding, composition or configuration changes beyond its coverage. Its reference method also contributes uncertainty.
-
-Sources: MACE, W24
-
-## 56. Compare methods against the same physical question
-
-This comparison describes tendencies rather than a universal ranking. A fair performance claim specifies the same observable, system, target error and workload, with hardware and sampling costs. Hybrid approaches can combine methods when needed. Learned and classical models both require suitable validation; quantum calculations also need convergence and a defensible reference approximation. The method name alone cannot settle accuracy.
-
-Sources: HK64, H13, MACE, W24
-
-## 57. What these figures establish
-
-The new curves can be rebuilt from the public source scripts and parameter table. Reproducing their arithmetic establishes correct evaluation of the equation. It does not independently validate the equation as a model of rhodium. The surface, mechanics and application examples refer to published studies. No new fit, material trajectory, experiment or adopted parameter package is presented in this deck.
-
-Sources: DERIVED, K21
-
-## 58. Ask what would change your confidence
-
-For a peptide, check which face and solution were used. For bone mineral, check the protonation and hydration history. For a force-field export, check the consumed equation and units. For rhodium mechanics, keep the deformation mode visible. These checks make the claim reviewable and help decide when a more detailed or different model is required.
-
-Sources: H13, K21, P12, L16, AGENT
-
-## 59. IFF makes an interface a testable atomic model
-
-The Interface Force Field provides a framework for supported inorganic and molecular interactions in one compatible description. Its papers show how chemical assignment, surface models and property comparisons can make interface simulations useful. The examples span several types of evidence. The size of a claimed success should remain tied to the actual tested system and observable.
-
-Sources: H13
-
-## 60. Some questions require a different model
-
-An ordinary fixed-topology IFF model has a stated set of atoms, terms and charges. Reactive extensions and polarizable models expand particular capabilities, with separate parameterization and validation. The gold extension is one such bounded example. A model should be selected by the physical question and tested within the proposed conditions. An unfamiliar system can fall outside several available models at once.
-
-Sources: H13, K21, G18, L18SI
-
-## 61. Read the primary evidence
-
-The citation manifest lists source titles, DOI links, precise use and reuse status. Presenter notes keep the context of each comparison. Original plots and drawings avoid redistributing paper figures. The source rebuild instructions identify how the deck and analytic curves were made. The appendix defines equation conventions and retains the rhodium evidence table and experimental qualifications.
-
-Sources: H13, K21, R13, P12, E14, L16, M13, G18
-
-## 62. Questions
-
-I would start with the observable we need to trust. The method, parameter choices and checks follow from that question. A useful next experiment or calculation distinguishes plausible explanations and can change the decision. The appendix is available for equations, conventions and the numerical evidence behind the worked examples.
-
-Sources: DERIVED
-
-## B1. Equations and units
-
-Bond, angle and torsion functions depend on the chosen family, as do exclusions and scale factors for short bond paths. The written radial force is positive for increasing separation. The constants and coefficient meanings must be consistent with the unit system. The analytic plots sum explicitly defined pair interactions and do not replace a complete periodic simulation with its cutoff and electrostatic choices.
-
-Sources: H13, K21, CODATA, DERIVED
-
-## B2. The paper’s sigma is a minimum-length parameter
-
-The symbol sigma alone is ambiguous across sources. Kanhaiya Equation 1 uses it at the energy minimum, while the common lj/cut form uses it at the zero crossing. Epsilon remains the well depth for this algebraic conversion. Entering 2.757 Å as the zero-crossing sigma would define a different pair potential. Preserve the equation with the number and verify the consumed energy curve.
-
-Sources: K21, LJ, DERIVED
-
-## B3. The 9-6 and 12-6 wells are different functions
-
-The different repulsive exponents change the shape and curvature of the well. Their fitted coefficients are not interchangeable. The 12-6 conversion between zero crossing and minimum length is an exact rewriting of one function. Moving from a 12-6 function to a 9-6 function changes the model. Kanhaiya reports separate rhodium coefficients for both forms in Table 1. Host-family combination rules must also be retained.
-
-Sources: H13, K21, DERIVED
-
-## B4. Parameters and worked-number checks
-
-All four elemental-metal rows come from Kanhaiya Table 1 and are the 12-6 family. The zero-crossing sigma is derived from the minimum-length r0. The public science-checks file contains unrounded values and algebraic assertions at the minimum and for the derivative. The Coulomb and cluster examples use the deliberately restricted geometries stated on their slides. These computations verify arithmetic and convention handling, rather than new material accuracy.
-
-Sources: K21, CODATA, DERIVED
-
-## B5. Rhodium evidence and uncertainty
-
-Kanhaiya Tables 2, 3 and 5 provide these values. The lattice and surface rows were calibration targets. The elastic rows are predictions beyond those targets. Selected E and G references are listed in the main mechanical slide; Poisson ratio appears in this appendix, and other reference values remain in the paper. The Rh-water table gives an experimental upper bound, so it is excluded as a direct accuracy benchmark. L18SI's AlNi vacancy comparisons separately report raw MM energies of 5.49, 4.57 and 2.59 eV for first/second-shell charge partitions 100/0, 67/33 and 0/100. Those hypotheses are not measured formation free energies.
-
-Sources: K21, K21SI, L18SI
-
-## B6. References and visual provenance
-
-The full bibliography is in citation-license-manifest.json and this story source. Public facts were checked against the cited papers. No third-party scientific figure is reproduced. Original structures and analytic plots state their assumptions and do not claim newly simulated material results. The source files preserve the values, equation conventions and method needed to reconstruct the authoring assets.
-
-Sources: H13, K21, K21C, DERIVED
-
-# References
-
-K21. Kanhaiya, Kim, Im & Heinz (2021), Accurate simulation of surfaces and interfaces of ten FCC metals and steel using Lennard–Jones potentials
-
-https://doi.org/10.1038/s41524-020-00478-1
-
-K21C. Kanhaiya et al. (2021), Author Correction
-
-https://doi.org/10.1038/s41524-021-00576-8
-
-L18. Liu et al. (2018), Understanding Chemical Bonding in Alloys and the Representation in Atomistic Simulations
-
-https://doi.org/10.1021/acs.jpcc.8b01891
-
-L18SI. Liu et al. (2018), original Supporting Information, Tables S1–S2 and discussion S18–S19
-
-https://acs.figshare.com/articles/journal_contribution/Understanding_Chemical_Bonding_in_Alloys_and_the_Representation_in_Atomistic_Simulations/6531197
-
-LJ. LAMMPS documentation: lj/cut interaction convention
-
-https://docs.lammps.org/pair_lj.html
-
-MD. LAMMPS documentation: fix nve and minimize
-
-https://docs.lammps.org/fix_nve.html
-
-MACE. Batatia et al. (2022), MACE: Higher Order Equivariant Message Passing Neural Networks for Fast and Accurate Force Fields
-
-https://arxiv.org/abs/2206.07697
-
-AGENT. IFF Agent workflow documentation (2026)
-
-
-
-DERIVED. Original derivation / explicitly illustrative visual
-
-
-
-H13. Heinz, Lin, Mishra and Emami (2013). Thermodynamically Consistent Force Fields for the Assembly of Inorganic, Organic, and Biological Nanostructures: The INTERFACE Force Field. Langmuir 29, 1754-1765.
-
-https://doi.org/10.1021/la3038846
-
-C04. Heinz and Suter (2004). Atomic Charges for Classical Simulations of Polar Systems. J. Phys. Chem. B 108, 18341-18352.
-
-https://doi.org/10.1021/jp048142t
-
-R13. Ruan et al. (2013). Tailoring Molecular Specificity Toward a Crystal Facet: a Lesson From Biorecognition Toward Pt{111}. Nano Letters 13, 840-846.
-
-https://doi.org/10.1021/nl400022g
-
-P12. Patwardhan et al. (2012). Chemistry of Aqueous Silica Nanoparticle Surfaces and the Mechanism of Selective Peptide Adsorption. JACS 134, 6244-6256.
-
-https://doi.org/10.1021/ja211307u
-
-E14. Emami et al. (2014). Force Field and a Surface Model Database for Silica to Simulate Interfacial Properties in Atomic Resolution. Chemistry of Materials 26, 2647-2658.
-
-https://doi.org/10.1021/cm500365c
-
-E14C. Emami et al. (2016). Correction to Force Field and a Surface Model Database for Silica to Simulate Interfacial Properties in Atomic Resolution. Chemistry of Materials 28, 406-407.
-
-https://doi.org/10.1021/acs.chemmater.5b04760
-
-L16. Lin and Heinz (2016). Accurate Force Field Parameters and pH Resolved Surface Models for Hydroxyapatite to Understand Structure, Mechanics, Hydration, and Biological Interfaces. J. Phys. Chem. C 120, 4975-4992.
-
-https://doi.org/10.1021/acs.jpcc.5b12504
-
-M13. Mishra, Flatt and Heinz (2013). Force Field for Tricalcium Silicate and Insight into Nanoscale Properties: Cleavage, Initial Hydration, and Adsorption of Organic Molecules. J. Phys. Chem. C 117, 10417-10432.
-
-https://doi.org/10.1021/jp312815g
-
-G18. Geada et al. (2018). Insight into induced charges at metal surfaces and biointerfaces using a polarizable Lennard-Jones potential. Nature Communications 9, 716.
-
-https://doi.org/10.1038/s41467-018-03137-8
-
-W24. Wang et al. (2024). Ab initio characterization of protein molecular dynamics with AI2BMD. Nature.
-
-https://doi.org/10.1038/s41586-024-08127-z
-
-W24C. Wang et al. (2025). Author Correction to Ab initio characterization of protein molecular dynamics with AI2BMD. Nature.
-
-https://doi.org/10.1038/s41586-024-08556-w
-
-HK64. Hohenberg and Kohn (1964). Inhomogeneous Electron Gas. Physical Review 136, B864-B871.
-
-https://doi.org/10.1103/PhysRev.136.B864
-
-K21SI. Kanhaiya et al. (2021), original Supplementary Information
-
-https://static-content.springer.com/esm/art%3A10.1038%2Fs41524-020-00478-1/MediaObjects/41524_2020_478_MOESM1_ESM.pdf
-
-CODATA. NIST, 2022 CODATA recommended values of fundamental physical constants
-
-https://physics.nist.gov/cuu/Constants/Table/allascii.txt
+- Ruan et al. (2013). Tailoring Molecular Specificity Toward a Crystal Facet: a Lesson From Biorecognition Toward Pt{111}. Nano Letters 13, 840–846. https://doi.org/10.1021/nl400022g
