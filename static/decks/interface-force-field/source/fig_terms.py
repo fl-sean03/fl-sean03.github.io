@@ -4,13 +4,14 @@ from functools import lru_cache
 
 import numpy as np
 from matplotlib.colors import LinearSegmentedColormap
-from matplotlib.patches import Circle
+from matplotlib.patches import Circle, FancyArrowPatch
+from matplotlib.path import Path
 
 import render as rt
 import structures as st
-from draw import (FLAT, WIDE, angle_arc, arrow, ball_and_stick, canvas, dashed, marker, panel, pt, save, shot, spring,
-                  text, text_width)
-from style import ACCENT, BLUE, BLUE_SOFT, BODY, INK, MUTED, TEAL, TINT
+from draw import (FLAT, ball_and_stick, canvas, dashed, marker, mix, panel, pt, save, shot, spring, text,
+                  text_width)
+from style import ACCENT, BLUE, BLUE_SOFT, BODY, ELEMENTS, INK, LINE, MUTED, TEAL, TINT
 
 CLOUD = LinearSegmentedColormap.from_list('cloud', [TINT, BLUE_SOFT, '#9DBCE0', BLUE, '#1F4F86'])  # thin to dense
 
@@ -49,33 +50,33 @@ def cloud(ax, nuclei, origin, scale, box):
 
 def electrons():
     """Water as quantum chemistry sees it (an electron cloud) and as a force field sees it (balls, springs, charges)."""
-    fig, ax = canvas(*WIDE)
+    fig, ax = canvas()
     for x0, title, color in ((0, 'A cloud of electrons', INK), (894, 'Simple rules instead', ACCENT)):
-        panel(ax, x0, 0, 834, 714, TINT)
-        text(ax, x0 + 44, 58, title, size=32, bold=True, color=color)
+        panel(ax, x0, 0, 834, 654, TINT)
+        text(ax, x0 + 44, 52, title, size=32, bold=True, color=color)
     half = np.radians(st.WATER_ANGLE / 2)
     nuclei = np.array([(0, 0, 0), (np.sin(half), -np.cos(half), 0), (-np.sin(half), -np.cos(half), 0)]) * st.WATER_OH
-    o, h1, h2 = cloud(ax, nuclei, (417, 360), 120, (69, 132, 696, 528))
+    o, h1, h2 = cloud(ax, nuclei, (417, 322), 112, (69, 112, 696, 478))
     for q in (o, h1, h2):
         ax.add_patch(Circle(q, 7, color='white', zorder=4))
-    text(ax, o[0], o[1] - 186, 'oxygen nucleus', size=26, bold=True, ha='center')
-    text(ax, o[0], o[1] - 152, '8 protons, 8 neutrons', size=24, color=BODY, ha='center')
-    ax.plot([o[0], o[0]], [o[1] - 132, o[1] - 14], color=INK, lw=pt(2), zorder=4)
-    text(ax, h1[0] + 40, h1[1] + 150, 'hydrogen nucleus', size=26, bold=True, ha='center')
-    text(ax, h1[0] + 40, h1[1] + 184, '1 proton, no neutron', size=24, color=BODY, ha='center')
-    ax.plot([h1[0] + 12, h1[0] + 30], [h1[1] + 14, h1[1] + 126], color=INK, lw=pt(2), zorder=4)
-    text(ax, 44, 668, 'Quantum chemistry computes this cloud, accurately but slowly', size=24, color=BODY)
+    text(ax, o[0], o[1] - 170, 'oxygen nucleus', size=26, bold=True, ha='center')
+    text(ax, o[0], o[1] - 138, '8 protons, 8 neutrons', size=24, color=BODY, ha='center')
+    ax.plot([o[0], o[0]], [o[1] - 118, o[1] - 14], color=INK, lw=pt(2), zorder=4)
+    text(ax, h1[0] + 40, h1[1] + 132, 'hydrogen nucleus', size=26, bold=True, ha='center')
+    text(ax, h1[0] + 40, h1[1] + 166, '1 proton, no neutron', size=24, color=BODY, ha='center')
+    ax.plot([h1[0] + 12, h1[0] + 28], [h1[1] + 14, h1[1] + 108], color=INK, lw=pt(2), zorder=4)
+    text(ax, 44, 616, 'Quantum chemistry computes this cloud, accurately but slowly', size=24, color=BODY)
     scene = rt.Scene()
     ball_and_stick(scene, ['O', 'H', 'H'], nuclei * 1.9, pairs=[], atom=1.9)
     for hq in nuclei[1:]:
         spring(scene, nuclei[0] * 1.9, hq * 1.9, '#8A93A0', turns=5, radius=0.2, wire=0.06, inset=(0.6, 0.38))
-    p = shot(ax, scene, FLAT, (894, 100, 834, 520), 120, centre=(0, -0.55, 0))
+    p = shot(ax, scene, FLAT, (894, 92, 834, 488), 112, centre=(0, -0.55, 0))
     op, hp1, hp2 = (p(q * 1.9) for q in nuclei)
-    text(ax, op[0], op[1] - 110, 'δ−', size=40, bold=True, color='#D9483B', ha='center')
+    text(ax, op[0], op[1] - 104, 'δ−', size=40, bold=True, color=ELEMENTS['O'][0], ha='center')
     for hp, side in ((hp1, 1), (hp2, -1)):
-        text(ax, hp[0] + side * 76, hp[1] + 40, 'δ+', size=40, bold=True, color=BLUE, ha='center')
-    text(ax, 1311, 430, 'spring', size=24, color=MUTED, ha='center')
-    text(ax, 938, 668, 'Balls, springs and charges are fast enough for millions of atoms', size=24, color=BODY)
+        text(ax, hp[0] + side * 72, hp[1] + 38, 'δ+', size=40, bold=True, color=BLUE, ha='center')
+    text(ax, 1311, 404, 'spring', size=24, color=MUTED, ha='center')
+    text(ax, 938, 616, 'Balls, springs and charges are fast enough for millions of atoms', size=24, color=BODY)
     return save(fig, 'electrons')
 
 
@@ -100,54 +101,94 @@ def ethanol_and_water():
     return m, q, h, w
 
 
-def spin(ax, centre, rx, ry, color, start=-60, end=230, width=4, head=24):
-    """A curved arrow running round an ellipse, for a rotation about an axis."""
-    t = np.radians(np.linspace(start, end, 90))
-    x, y = centre[0] + rx * np.cos(t), centre[1] - ry * np.sin(t)
-    ax.plot(x[:-4], y[:-4], color=color, lw=pt(width), zorder=7, solid_capstyle='round')
-    arrow(ax, (x[-5], y[-5]), (x[-1], y[-1]), color=color, width=width, head=head, z=7)
+def along(ax, points, color, width=3.5, head=16, style='<|-|>'):
+    """An arrow following a curve of slide-px points."""
+    ax.add_patch(FancyArrowPatch(path=Path(np.asarray(points, float)), arrowstyle=style, mutation_scale=pt(head),
+                                 color=color, lw=pt(width), zorder=8, capstyle='round', joinstyle='round'))
+
+
+def circle(centre, u, v, radius, angles):
+    """Points at `angles` (radians) on the circle round `centre` spanned by the unit vectors u and v."""
+    angles = np.asarray(angles, float)[:, None]
+    return centre + radius * (np.cos(angles) * u + np.sin(angles) * v)
+
+
+TERMS = ((1, 'Bond stretch', ('A bond stretches and', 'squeezes like a spring'), ACCENT),
+         (2, 'Angle bend', ('The angle between two', 'bonds bends like a spring'), ACCENT),
+         (3, 'Twist', ('A group of atoms turns', 'around a bond'), ACCENT),
+         (4, 'Van der Waals', ('Atoms that are not bonded', 'pull weakly on each other'), TEAL),
+         (5, 'Charges', ('Opposite partial charges', 'attract each other'), BLUE))
 
 
 def terms():
-    """Ethanol and water with one example of each force-field energy term, numbered as in the sum below."""
-    fig, ax = canvas(*WIDE)
+    """The five kinds of energy term, one panel each on the same ethanol and water: only the atoms involved keep
+    their colour, and each motion is drawn on the real geometry."""
+    fig, ax = canvas()
     m, q, h, w = ethanol_and_water()
-    scene = rt.Scene()
-    ball_and_stick(scene, m.symbols, q, m.pairs, atom=1.2, bond=0.16)
-    ball_and_stick(scene, ['O', 'H', 'H'], w, atom=1.2, bond=0.16)
-    view = rt.view((0, 0.42, 0.91), (0, 1, 0))
-    p = shot(ax, scene, view, (0, 0, 1728, 590), 150)
-    c1, c2, o, ho, wo = p(q[0]), p(q[1]), p(q[2]), p(q[h]), p(w[0])
-    small, big = 0.288 * 150 + 4, 0.432 * 150 + 4  # H and O ball radii in slide px, plus a gap
-    # 1: the O-H bond, with a two-way arrow along it
-    arrow(ax, o + (0, 64), ho + (0, 64), color=ACCENT, width=3.5, head=18, style='<|-|>')
-    marker(ax, *((o + ho) / 2 + (0, 112)), 1, r=26)
-    # 2: the C-O-H angle
-    marker(ax, *(o + 160 * angle_arc(ax, o, c2, ho, 100, color=ACCENT, width=4)), 2, r=26)
-    # 3: twisting about the C-C bond
-    spin(ax, (c1 + c2) / 2, 30, 96, ACCENT)
-    marker(ax, *((c1 + c2) / 2 + (0, -140)), 3, r=26)
-    # 4: van der Waals between a CH2 hydrogen and a water hydrogen
-    ch2 = [i for i in range(len(q)) if m.symbols[i] == 'H' and np.linalg.norm(q[i] - q[1]) < 1.2]
-    upper = min(ch2, key=lambda i: p(q[i])[1])
-    hw = min((1, 2), key=lambda k: p(w[k])[1])
-    a, b = p(q[upper]), p(w[hw])
-    dashed(ax, a, b, color=TEAL, trim=(small, small))
-    marker(ax, *((a + b) / 2 + (0, -48)), 4, r=26, color=TEAL)
-    # 5: charges, the hydrogen bond from ethanol O-H to the water O
-    dashed(ax, ho, wo, color=BLUE, trim=(small, big))
-    marker(ax, *((ho + wo) / 2 + (0, 56)), 5, r=26, color=BLUE)
-    parts = ((1, 'bond stretch', ACCENT), (2, 'angle bend', ACCENT), (3, 'twist', ACCENT),
-             (4, 'van der Waals', TEAL), (5, 'charges', BLUE))
-    text(ax, 0, 664, 'Energy  =', size=34, bold=True)
-    x = 190
-    for k, (n, word, color) in enumerate(parts):
-        marker(ax, x + 26, 664, n, r=26, color=color)
-        label = text(ax, x + 64, 664, word, size=30)
-        x += 64 + text_width(fig, label) + 48
-        if k < len(parts) - 1:
-            text(ax, x - 8, 664, '+', size=34, color=MUTED, ha='center')
-            x += 26
+    symbols, pos = m.symbols + ['O', 'H', 'H'], np.vstack([q, w])
+    water = len(q)  # the water oxygen; its first hydrogen is on the carbons' side
+    pairs = m.pairs + [(water, water + 1), (water, water + 2)]
+    methyl, near = m.hydrogens(0), max(m.hydrogens(1), key=lambda i: q[i][2])  # near: the CH2 hydrogen facing us
+    lit = ({2, h}, {1, 2, h}, {0, 1, *methyl}, {near, water + 1}, {h, water})
+    view = rt.view((-0.5, 0, 0.75 ** 0.5), (-1, 0, 0))  # upright, ethanol over the water, seen 30° from above
+    radii = np.array([ELEMENTS[s][1] * 1.1 for s in symbols])
+    seen = pos @ view.T
+    lo, hi = (seen[:, :2] - radii[:, None]).min(0), (seen[:, :2] + radii[:, None]).max(0)
+    width = (1728 - 3 * 16 - 48) / 5
+    scale = min((width - 32) / (hi[0] - lo[0]), 376 / (hi[1] - lo[1]))  # the same size in every panel
+    centre = view.T @ [*(lo + hi) / 2, 0]
+    # The twist turns the methyl hydrogens round the C-C bond: an arrow round that axis in front of them
+    axis = rt.unit(pos[1] - pos[0])
+    hub = pos[0] + ((pos[methyl] - pos[0]) @ axis).mean() * axis
+    u = rt.unit(np.cross(axis, view[2]))
+    v = np.cross(axis, u)
+    front = np.arctan2(v @ view[2], u @ view[2])
+    turn = circle(hub, u, v, 1.5, front + np.radians(np.linspace(-105, 105, 80)))
+    xs = [k * (width + 16) + 32 * (k > 2) for k in range(5)]
+    ring = radii * scale + 7  # px, a ring just outside a ball
+    for x, (n, title, caption, color), atoms in zip(xs, TERMS, lit):
+        panel(ax, x, 34, width, 548)
+        marker(ax, x + 40, 76, n, r=22, color=color)
+        text(ax, x + 74, 76, title, size=26, bold=True)
+        for j, line in enumerate(caption):
+            text(ax, x + 24, 118 + 29 * j, line, size=22, color=BODY)
+        scene = rt.Scene()
+        colors = [ELEMENTS[s][0] if i in atoms else mix(ELEMENTS[s][0], amount=0.7) for i, s in enumerate(symbols)]
+        ball_and_stick(scene, symbols, pos, pairs, atom=1.1, colors=colors)
+        p = shot(ax, scene, view, (x + 8, 170, width - 16, 404), scale, centre=centre, background=TINT)
+        if n == 1:  # a two-way arrow beside the O-H bond and parallel to it, on the side away from the carbons
+            a, b = p(pos[2]), p(pos[h])
+            d = rt.unit(b - a)
+            side = np.array([-d[1], d[0]])
+            side *= -np.sign(side @ (p(pos[1]) - a))
+            along(ax, [a + 38 * side - 10 * d, b + 38 * side + 10 * d], color)
+        elif n == 2:  # an arc round the oxygen in the C-O-H plane, between the two bonds
+            c, oh = pos[1] - pos[2], pos[h] - pos[2]
+            spread = np.degrees(np.arccos(rt.unit(c) @ rt.unit(oh)))
+            arc = circle(pos[2], rt.unit(c), rt.unit(np.cross(np.cross(c, oh), c)), 0.68,
+                         np.radians(np.linspace(15, spread - 15, 40)))
+            along(ax, p(arc), color)
+        elif n == 3:
+            along(ax, p(turn), color, width=4, head=22, style='-|>')
+        else:  # a dotted line between the two ringed atoms, with their partial charges for the Coulomb pair
+            i, j = (near, water + 1) if n == 4 else (h, water)
+            a, b = p(pos[i]), p(pos[j])
+            dashed(ax, a, b, color=color, trim=(ring[i] + 2, ring[j] + 2))
+            for k in (i, j):
+                ax.add_patch(Circle(p(pos[k]), ring[k], fc='none', ec=color, lw=pt(3), zorder=7))
+            if n == 5:
+                text(ax, a[0] - ring[i] - 10, a[1], 'δ+', size=30, bold=True, color=BLUE, ha='right')
+                text(ax, b[0] - ring[j] - 10, b[1], 'δ−', size=30, bold=True, color=ELEMENTS['O'][0], ha='right')
+    for first, last, label in ((0, 2, 'ALONG THE BONDS'), (3, 4, 'BETWEEN ATOMS THAT ARE NOT BONDED')):
+        mark = text(ax, xs[first] + 4, 14, label, size=18, bold=True, color=MUTED)
+        ax.plot([xs[first] + 18 + text_width(fig, mark), xs[last] + width], [14, 14], color=LINE, lw=pt(2), zorder=1)
+    x = text_width(fig, text(ax, 0, 622, 'Energy  =', size=32, bold=True)) + 22
+    for n, *_, color in TERMS:
+        marker(ax, x + 22, 622, n, r=22, color=color)
+        if n < 5:
+            text(ax, x + 66, 622, '+', size=32, color=MUTED, ha='center')
+        x += 88
+    text(ax, x - 16, 622, 'added up over every bond, angle, twist and pair of atoms', size=24, color=BODY)
     return save(fig, 'terms')
 
 

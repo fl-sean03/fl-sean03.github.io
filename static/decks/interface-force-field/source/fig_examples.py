@@ -8,7 +8,7 @@ from scipy.spatial import cKDTree
 
 import render as rt
 import structures as st
-from draw import (LEDE, aim, angle_arc, arrow, ball_and_stick, canvas, front_view, layered, magnifier,
+from draw import (aim, angle_arc, arrow, ball_and_stick, canvas, front_view, layered, magnifier,
                   platinum_scenes, polyhedral, pt, result, save, text)
 from style import ACCENT, BLUE, BODY, ELEMENTS, LINE, MUTED, TEAL
 
@@ -16,7 +16,7 @@ from style import ACCENT, BLUE, BODY, ELEMENTS, LINE, MUTED, TEAL
 def platinum():
     """S7 in water on Pt(111) and Pt(100): its F ring lies flat on the triangular face and stands up on the square
     one (R13, CHARMM-METAL). Illustrative poses, not simulation snapshots."""
-    fig, ax = canvas(*LEDE)
+    fig, ax = canvas()
     m, flat, upright = st.s7()
     rotation = front_view(30)
     flat = flat @ st.rotation((0, 0, 1), np.pi).T  # puts the backbone behind the ring, so the ring shows
@@ -35,14 +35,14 @@ def platinum():
         text(ax, x0 + 417, 492, head, size=28, bold=True, ha='center')
         text(ax, x0 + 417, 532, line, size=24, color=BODY, ha='center')
     result(fig, ax, 'In the lab', ', every peptide version with F grew many tetrahedra, crystals with only '
-                                  'triangular faces; versions without F grew few', ACCENT)
+                                  'triangular faces, and versions without F grew few', ACCENT)
     return save(fig, 'platinum', quality=90)
 
 
 def wetting():
     """A 14 Å slice through water on hydroxylated silica (Q3, contact angle 0°) and on silica whose OH groups heating
     removed (Q4, 42°) (E14). The film and the 42° droplet are drawn to those angles, not simulated."""
-    fig, ax = canvas(*LEDE)
+    fig, ax = canvas()
     symbols, positions = st.silica((19, 9, 3), (0, 6, 6.5), (62, 30, 14))
     rotation = front_view(6)
     angle, base, depth = np.radians(42), 16.0, 7.0
@@ -145,7 +145,7 @@ def apatite(ph):
 def apatites():
     """A one-cell-thick slice of hydroxyapatite as the water around it turns acidic (L16): phosphate gains H⁺ and
     Ca²⁺ leaves. The layers below the top one are faded; dotted rings mark where Ca²⁺ left."""
-    fig, ax = canvas(*LEDE)
+    fig, ax = canvas()
     rotation = front_view(20)
     scale = 24
     labels = {14: (('phosphate', 'P', -8.0), ('calcium', 'Ca', 3.6), ('hydroxide', 'OH', 10.0)),
@@ -177,13 +177,13 @@ def apatites():
         text(ax, x0 + 274, 20, 'pH > 14' if ph == 14 else f'pH {ph}', size=32, bold=True, ha='center')
         if k < 2:
             arrow(ax, (x0 + 360, 20), (x0 + 778, 20), color=LINE, width=3, head=20)
-    for k, (head, line) in enumerate((('The bare crystal', 'PO₄³⁻ on top; stable only at very high pH'),
-                                      ('One H on each phosphate', 'HPO₄²⁻; hydroxide and some Ca²⁺ leave'),
-                                      ('Two H on each phosphate', 'H₂PO₄⁻; more Ca²⁺ leaves'))):
+    for k, (head, line) in enumerate((('The bare crystal', 'PO₄³⁻ on top, stable only at very high pH'),
+                                      ('One H on each phosphate', 'HPO₄²⁻, with hydroxide and some Ca²⁺ gone'),
+                                      ('Two H on each phosphate', 'H₂PO₄⁻, with more Ca²⁺ gone'))):
         text(ax, 590 * k + 274, 498, head, size=28, bold=True, ha='center')
         text(ax, 590 * k + 274, 538, line, size=23, color=BODY, ha='center')
     result(fig, ax, 'The simulated mineral', ' gives off 619 mJ/m² as water wets it at pH 7 (533 if all faces count '
-                                             'equally); experiments find 600–700', TEAL)
+                                             'equally), and experiments find 600–700', TEAL)
     return save(fig, 'apatites', quality=90)
 
 

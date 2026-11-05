@@ -75,6 +75,7 @@ body.reading #stage { display: none; }
 #reader figure::after { content: 'Click the picture to enlarge it'; display: block; margin-top: 6px; text-align: right; font-size: 13px; color: var(--muted); }
 @media (pointer: coarse) { #reader figure::after { content: 'Tap the picture to enlarge it'; } }
 .r-take { font-weight: 700; color: var(--ink); margin: 14px 0; }
+.r-signoff { font-size: 22px; font-weight: 700; color: var(--accent); margin: 18px 0 4px; }
 .r-body, #reader article > p:not([class]) { margin-bottom: 12px; }
 .r-sources { padding-left: 20px; font-size: 15px; line-height: 1.5; color: var(--muted); }
 .r-sources li { margin-bottom: 6px; }

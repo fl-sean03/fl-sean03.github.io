@@ -4,7 +4,7 @@
 
 How can a computer tell us which face of a crystal a molecule will stick to, and why should we believe its answer? We build the tools one at a time, from a single pair of atoms up to whole surfaces in water, and then look at three published studies where the Interface Force Field, or IFF, was compared with experiments.
 
-The picture is a peptide called S7 lying on platinum in water; it comes back in the first example and at the end.
+The picture is a peptide called S7 lying on platinum in water. It comes back in the first example and at the end.
 
 The crystal structures come from the Crystallography Open Database or from published lattice sizes, and the surfaces were built from them with ASE and the molecules with RDKit, all open software. The pictures of molecules on surfaces are illustrations, arranged to show the idea rather than taken from a simulation. Every result quoted comes from the cited papers and was not rerun here. Besides the worked arithmetic, the one calculation made for this presentation is the electron cloud of a water molecule, and it only draws a picture.
 
@@ -19,7 +19,7 @@ The crystal structures come from the Crystallography Open Database or from publi
 
 Proteins are chains of amino acids, and a peptide is a short chain. Each amino acid has a one-letter code. Here T is threonine, L is leucine and F is phenylalanine, which carries a flat ring of six carbon atoms.
 
-Ruan and colleagues grew platinum crystals in water with each peptide present. With TLT the crystals came out as cubes, whose faces all show a square pattern of atoms. With TFT most came out as tetrahedra, whose faces all show a triangular pattern. Chemists call these the {100} and {111} faces.
+Ruan and colleagues grew platinum crystals in water with each peptide present. With TLT the crystals came out as cubes, whose faces all show a square pattern of atoms. With TFT the crystals shifted toward tetrahedra, whose faces all show a triangular pattern. Chemists call these the {100} and {111} faces.
 
 A crystal grows by adding atoms to its faces. A molecule that sticks to one kind of face slows growth there, so that face ends up covering the crystal. The question is how a simulation could explain why F prefers the triangular face.
 
@@ -29,7 +29,32 @@ A crystal grows by adding atoms to its faces. A molecule that sticks to one kind
 - Wyckoff (1963). Crystal Structures 1, 7–83. Crystallography Open Database entry 9008480, platinum. https://www.crystallography.net/cod/9008480.html
 - RDKit, open-source cheminformatics software. https://www.rdkit.org
 
-## 3. Models built separately do not fit together
+## 3. Where molecules stick changes how materials grow and work
+
+The platinum question is one case of a wider one. Metal nanocrystals are used as catalysts, which speed up chemical reactions, and in medicine, for example gold nanorods for photothermal cancer therapy, in which the rods turn light into heat. Geada and colleagues point out that the growth and shape of such crystals, and how well they work as catalysts, as sensors or in the body, are affected by what happens right at the metal surface.
+
+Hydroxyapatite is the mineral in bones and teeth. Lin and Heinz note that conditions such as osteoporosis, tooth decay and calcium build-up in the arteries of the heart affect the quality of life of billions of people. Proteins and other molecules from the body steer how the mineral grows, and these contacts are hard to study in the lab at the scale of 1 to 100 nanometres. As an example, Lin and Heinz simulated SVSVGGK, a peptide known to bind the mineral strongly, on its flat basal face.
+
+Making cement means grinding hard lumps called clinker into a fine powder, a central step and a major cost. A patent on grinding additives describes how small amounts of molecules such as amino alcohols cut the grinding time and energy sharply and stop the powder clumping. Mishra, Flatt and Heinz simulated such additives, including triethanolamine, between two broken faces of tricalcium silicate, a main ingredient of cement. Their result is in the notes for the last slide.
+
+In every case the question is the one from platinum, which molecules stick to which face and how strongly. A model that answers it on a computer lets researchers try ideas before anything is made.
+
+The four pictures use real crystal structures and molecules, but their arrangements are illustrations, not simulation results.
+
+### Sources
+
+- Ruan et al. (2013). Tailoring Molecular Specificity Toward a Crystal Facet: a Lesson From Biorecognition Toward Pt{111}. Nano Letters 13, 840–846. https://doi.org/10.1021/nl400022g
+- Geada et al. (2018). Insight into induced charges at metal surfaces and biointerfaces using a polarizable Lennard-Jones potential. Nature Communications 9, 716. https://doi.org/10.1038/s41467-018-03137-8
+- Lin and Heinz (2016). Accurate Force Field Parameters and pH Resolved Surface Models for Hydroxyapatite to Understand Structure, Mechanics, Hydration, and Biological Interfaces. Journal of Physical Chemistry C 120, 4975–4992. https://doi.org/10.1021/acs.jpcc.5b12504
+- Mishra, Flatt and Heinz (2013). Force Field for Tricalcium Silicate and Insight into Nanoscale Properties: Cleavage, Initial Hydration, and Adsorption of Organic Molecules. Journal of Physical Chemistry C 117, 10417–10432. https://doi.org/10.1021/jp312815g
+- Patent EP2527307A1 (2012, in German), clinker grinding tests with amine additives. https://data.epo.org/publication-server/rest/v1.0/publication-dates/20121128/patents/EP2527307NWA1/document.pdf
+- Wyckoff (1963). Crystal Structures 1, 7–83. Crystallography Open Database entry 9008480, platinum. https://www.crystallography.net/cod/9008480.html
+- Wyckoff (1963). Crystal Structures 1, 7–83. Crystallography Open Database entry 9008463, gold. https://www.crystallography.net/cod/9008463.html
+- Sudarsanan and Young (1969). Significant precision in crystal structural details: Holly Springs hydroxyapatite. Acta Crystallographica B 25, 1534–1543. Crystallography Open Database entry 9011091. https://www.crystallography.net/cod/9011091.html
+- Mumme (1995). Crystal structure of tricalcium silicate from a Portland cement clinker and its application to quantitative XRD analysis. Neues Jahrbuch für Mineralogie, Monatshefte 4, 145–160. Crystallography Open Database entry 1540704. https://www.crystallography.net/cod/1540704.html
+- RDKit, open-source cheminformatics software. https://www.rdkit.org
+
+## 4. Models built separately do not fit together
 
 To simulate a peptide on platinum in water, the computer needs rules for three sets of interactions. Platinum atoms hold the solid together. Water molecules and the peptide interact with each other. And every platinum atom interacts with every nearby atom of water and peptide, and this third set decides which crystal face the peptide sticks to.
 
@@ -44,11 +69,13 @@ IFF describes the metal with the same simple equation the molecular models alrea
 - Kanhaiya, Kim, Im and Heinz (2021). Accurate simulation of surfaces and interfaces of ten FCC metals and steel using Lennard-Jones potentials. npj Computational Materials 7, 17. https://doi.org/10.1038/s41524-020-00478-1
 - Heinz, Lin, Mishra and Emami (2013). Thermodynamically Consistent Force Fields for the Assembly of Inorganic, Organic, and Biological Nanostructures: The INTERFACE Force Field. Langmuir 29, 1754–1765. https://doi.org/10.1021/la3038846
 
-## 4. IFF puts solids and molecules in one compatible model
+## 5. IFF puts solids and molecules in one compatible model
 
 A force-field family is a complete set of rules and numbers for one kind of chemistry, such as AMBER, CHARMM and OPLS-AA for proteins and organic molecules, or PCFF for polymers. IFF adds solids, such as metals, silica, minerals and cement, written in the same style as those families so the two can be used together.
 
 The surfaces are built to match the real ones, including the OH groups on silica and the way a mineral surface changes with acidity. One simulation can then hold a solid, water and a molecule together, and its results can be compared with experiments.
+
+IFF supplies compatible interaction equations and material parameters so a classical simulation can describe a solid together with water, polymers or biological molecules. It addresses inconsistent material/surface descriptions and the difficulty of combining separately developed models, allowing supported interface structures, binding and energies to be calculated and compared with experiments.
 
 ### Sources
 
@@ -60,7 +87,7 @@ The surfaces are built to match the real ones, including the OH groups on silica
 - Mumme (1995). Crystal structure of tricalcium silicate from a Portland cement clinker and its application to quantitative XRD analysis. Neues Jahrbuch für Mineralogie, Monatshefte 4, 145–160. Crystallography Open Database entry 1540704. https://www.crystallography.net/cod/1540704.html
 - RDKit, open-source cheminformatics software. https://www.rdkit.org
 
-## 5. A force field replaces the electron cloud with simple rules
+## 6. A force field replaces the electron cloud with simple rules
 
 Every atom has a small, heavy nucleus made of protons and, in most atoms, neutrons, surrounded by a cloud of electrons. Where atoms sit and how they hold together is decided by these electrons.
 
@@ -81,7 +108,7 @@ The cloud on the left is a real calculation of one water molecule, made with the
 - Wang et al. (2024). Ab initio characterization of protein molecular dynamics with AI²BMD. Nature 635, 1019–1027. https://doi.org/10.1038/s41586-024-08127-z
 - Wang et al. (2025). Author Correction to Ab initio characterization of protein molecular dynamics with AI²BMD. Nature. https://doi.org/10.1038/s41586-024-08556-w
 
-## 6. The energy is a sum of five kinds of terms
+## 7. The energy is a sum of five kinds of terms
 
 Molecular mechanics adds up the energy of a whole system from simple pieces. Bond stretching, angle bending and twisting act along the chemical bonds inside a molecule. Van der Waals and charge interactions act between atoms that are not bonded to each other, including atoms in different molecules, and between a molecule and a solid.
 
@@ -97,7 +124,7 @@ A simulation then moves the atoms. Molecular dynamics adds up the force on every
 
 - Heinz, Lin, Mishra and Emami (2013). Thermodynamically Consistent Force Fields for the Assembly of Inorganic, Organic, and Biological Nanostructures: The INTERFACE Force Field. Langmuir 29, 1754–1765. https://doi.org/10.1021/la3038846
 
-## 7. Two atoms attract until they get too close
+## 8. Two atoms attract until they get too close
 
 Even neutral atoms attract each other weakly, because their electron clouds flicker and pull on each other. This is the van der Waals attraction. When the atoms get too close, their electron clouds overlap and they push apart strongly.
 
@@ -123,7 +150,7 @@ The fix is σ = 2.757 / 1.1225 = 2.456 Å. A force-field file can load without e
 - LAMMPS documentation, pair style lj/cut. https://docs.lammps.org/pair_lj.html
 - Calculations and illustrations made for this presentation.
 
-## 8. Charges reach much further than van der Waals
+## 9. Charges reach much further than van der Waals
 
 Coulomb’s law says the energy of two charges falls off only as one over the distance, E = 332.064 q₁q₂ / r. The number converts the energy to kcal/mol when r is in ångströms and the charges q₁ and q₂ are in elementary charges, the charge of one proton. Two opposite unit charges in a vacuum, such as a sodium ion and a chloride ion, have −110.7 kcal/mol at 3 Å and still −33.2 at 10 Å. The rhodium van der Waals pull at 10 Å is about −0.007.
 
@@ -135,7 +162,7 @@ In water the pull between ions is about 80 times weaker, because water molecules
 - Kanhaiya, Kim, Im and Heinz (2021). Accurate simulation of surfaces and interfaces of ten FCC metals and steel using Lennard-Jones potentials. npj Computational Materials 7, 17. https://doi.org/10.1038/s41524-020-00478-1
 - Calculations and illustrations made for this presentation.
 
-## 9. IFF tunes each solid to its measured surface energy
+## 10. IFF tunes each solid to its measured surface energy
 
 Atoms at a surface have lost some of their neighbours, so a surface costs energy. Splitting a block makes two new faces, so the surface energy is the energy needed to pull the halves apart divided by twice the area of one face. It is measured in joules per square metre.
 
@@ -157,7 +184,7 @@ Force fields such as PCFF, COMPASS and CFF use a softer 9-6 curve, E = ε [2 (r�
 - Kanhaiya, Kim, Im and Heinz (2021). Supplementary Information for Accurate simulation of surfaces and interfaces of ten FCC metals and steel using Lennard-Jones potentials. https://static-content.springer.com/esm/art%3A10.1038%2Fs41524-020-00478-1/MediaObjects/41524_2020_478_MOESM1_ESM.pdf
 - Calculations and illustrations made for this presentation.
 
-## 10. The F ring lies flat on platinum’s triangular face
+## 11. Example 1: The F ring lies flat on platinum’s triangular face
 
 S7 is a seven-amino-acid peptide, SSFPQPN, found by screening many peptides for ones that bind platinum. Ruan and colleagues simulated it on both faces in water with CHARMM-METAL, IFF’s early model for metals, which combines the CHARMM protein model with metal parameters written the same way.
 
@@ -173,7 +200,7 @@ The pictures are illustrations of these poses, not snapshots from the simulation
 - Wyckoff (1963). Crystal Structures 1, 7–83. Crystallography Open Database entry 9008480, platinum. https://www.crystallography.net/cod/9008480.html
 - RDKit, open-source cheminformatics software. https://www.rdkit.org
 
-## 11. Water spreads or beads up depending on the silica surface
+## 12. Example 2: Water spreads or beads up depending on the silica surface
 
 Heating silica to between 200 and 1000 °C drives off its OH groups. On the fully covered surface water spreads flat, with a contact angle of 0°, and on the most heated surface it beads up at about 42°. The contact angle is the angle between the surface and the edge of a droplet, so a small angle means the water spreads.
 
@@ -190,7 +217,7 @@ The droplets are drawn to these angles and are not simulation snapshots.
 - Levien, Prewitt and Weidner (1980). Structure and elastic properties of quartz at pressure. American Mineralogist 65, 920–930. Crystallography Open Database entry 9000775. https://www.crystallography.net/cod/9000775.html
 - Jorgensen, Chandrasekhar, Madura, Impey and Klein (1983). Comparison of simple potential functions for simulating liquid water. Journal of Chemical Physics 79, 926–935. https://doi.org/10.1063/1.445869
 
-## 12. Bone mineral changes its surface with pH
+## 13. Example 3: Bone mineral changes its surface with pH
 
 Hydroxyapatite is made of calcium ions, phosphate groups and hydroxide ions. pH measures how acidic water is, with 7 neutral and lower numbers more acidic. Protonation means a hydrogen ion, H⁺, attaching to a group such as phosphate.
 
@@ -205,7 +232,7 @@ The slices are cut from the measured crystal structure, with hydrogens added and
 - Lin and Heinz (2016). Accurate Force Field Parameters and pH Resolved Surface Models for Hydroxyapatite to Understand Structure, Mechanics, Hydration, and Biological Interfaces. Journal of Physical Chemistry C 120, 4975–4992. https://doi.org/10.1021/acs.jpcc.5b12504
 - Sudarsanan and Young (1969). Significant precision in crystal structural details: Holly Springs hydroxyapatite. Acta Crystallographica B 25, 1534–1543. Crystallography Open Database entry 9011091. https://www.crystallography.net/cod/9011091.html
 
-## 13. The IFF Agent carries one material through eight steps
+## 14. The IFF Agent carries one material through eight steps
 
 The IFF Agent is a workflow described by the author for building and checking IFF models step by step. It sits around the force field and is not part of it. This presentation describes the workflow only and claims no implementation or results from it.
 
@@ -213,16 +240,16 @@ Its eight steps are named intake, references, model, contract, run and fit, vali
 
 Rhodium shows the steps with the published numbers. The question is rhodium faces in water. The references are the measured size, surface energy and stiffness. The model is a 12-6 pair curve. The contract tunes the size and surface energy and keeps stiffness as a test. The fit gives r₀ = 2.757 Å and ε = 7.84 kcal/mol. The test finds a stretching stiffness of 209 GPa against 379 measured. The readback checks that the exported file gives −7.84 kcal/mol at r₀, not 0, which catches the mix-up between r₀ and σ described with the Lennard-Jones curve. The review approves the model for surfaces and flags its stiffness.
 
-Every number comes from the 2021 rhodium paper; none is a new fit or result.
+Every number comes from the 2021 rhodium paper, and none is a new fit or result.
 
 ### Sources
 
 - Author’s description of the IFF Agent workflow (2026).
 - Kanhaiya, Kim, Im and Heinz (2021). Accurate simulation of surfaces and interfaces of ten FCC metals and steel using Lennard-Jones potentials. npj Computational Materials 7, 17. https://doi.org/10.1038/s41524-020-00478-1
 
-## 14. A flat ring on a triangular face explains the crystal shape
+## 15. A flat ring on a triangular face explains the crystal shape
 
-Back to the opening question. Swapping one amino acid, L for F, turned platinum cubes into tetrahedra. The simulations showed why. The F ring lies flat on the triangular face and sticks, while on the square face the ring stands up and the peptide does not stick. Crystals grow slowest on the faces that are covered, so the triangular faces end up covering the crystal, and a crystal with only triangular faces is a tetrahedron.
+Back to the opening question. Swapping one amino acid, L for F, shifted platinum crystals from cubes toward tetrahedra. The simulations showed why. The F ring lies flat on the triangular face and sticks, while on the square face the ring stands up and the peptide does not stick. Crystals grow slowest on the faces that are covered, so the triangular faces end up covering the crystal, and a crystal with only triangular faces is a tetrahedron.
 
 That answer needed all three sets of interactions in one model, which is what IFF provides. IFF supplies compatible interaction equations and material parameters so a classical simulation can describe a solid together with water, polymers or biological molecules. It addresses inconsistent material/surface descriptions and the difficulty of combining separately developed models, allowing supported interface structures, binding and energies to be calculated and compared with experiments.
 
@@ -232,7 +259,9 @@ Other published studies tested IFF in other ways. On silica, simulations with PC
 
 For cement, Mishra, Flatt and Heinz computed the energy needed to pull two broken faces of tricalcium silicate apart at 90 °C, close to the conditions in a working mill. Bare faces needed 240 to 450 mJ/m², depending on whether water had reached them, and less than one layer of grinding additive cut that to between 50 and 110. These results are in section 4.3 and Figures 10 and 11 of their paper. Mill tests reported in a patent ranked three amine additives in the same order as the simulation. That is a ranking only, and glycerine, the fourth additive, was not in those tests.
 
-For gold, a polarizable model, in which each gold atom’s electrons can shift towards or away from a nearby ion, gives −13.0 ± 0.1 kcal/mol per water molecule in a layer on gold’s triangular face, and the plain model −12.8 ± 0.1. Measurements on gold made of many small crystals give −13 and −15.5. The shift matters most for ions close to the metal; for water the plain model is nearly as good.
+For gold, a polarizable model, in which each gold atom’s electrons can shift towards or away from a nearby ion, gives −13.0 ± 0.1 kcal/mol per water molecule in a layer on gold’s triangular face, and the plain model −12.8 ± 0.1. Measurements on gold made of many small crystals give −13 and −15.5. The shift matters most for ions close to the metal, and for water the plain model is nearly as good.
+
+Thank you. The notes for each slide hold the equations, the worked numbers and the sources behind it, and the reading version shows them with every slide.
 
 ### Sources
 
@@ -243,11 +272,3 @@ For gold, a polarizable model, in which each gold atom’s electrons can shift t
 - Mishra, Flatt and Heinz (2013). Force Field for Tricalcium Silicate and Insight into Nanoscale Properties: Cleavage, Initial Hydration, and Adsorption of Organic Molecules. Journal of Physical Chemistry C 117, 10417–10432. https://doi.org/10.1021/jp312815g
 - Patent EP2527307A1 (2012, in German), clinker grinding tests with amine additives. https://data.epo.org/publication-server/rest/v1.0/publication-dates/20121128/patents/EP2527307NWA1/document.pdf
 - Geada et al. (2018). Insight into induced charges at metal surfaces and biointerfaces using a polarizable Lennard-Jones potential. Nature Communications 9, 716. https://doi.org/10.1038/s41467-018-03137-8
-
-## 15. Thank you
-
-Thank you. The notes for each slide hold the equations, the worked numbers and the sources behind it, and the reading version shows them with every slide.
-
-### Sources
-
-- Ruan et al. (2013). Tailoring Molecular Specificity Toward a Crystal Facet: a Lesson From Biorecognition Toward Pt{111}. Nano Letters 13, 840–846. https://doi.org/10.1021/nl400022g

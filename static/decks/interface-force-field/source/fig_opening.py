@@ -7,7 +7,7 @@ from matplotlib.patches import Circle
 
 import render as rt
 import structures as st
-from draw import (CRYSTAL_VIEWS, FLAT, WIDE, aim, arrow, ball_and_stick, canvas, dashed, front_view, layered,
+from draw import (CRYSTAL_VIEWS, FLAT, aim, arrow, ball_and_stick, canvas, dashed, front_view, layered,
                   magnifier, panel, platinum_scenes, polyhedral, pt, pt_crystal, save, shot, spheres, text)
 from style import ACCENT, ACCENT_SOFT, BLUE, BODY, INK, LINE, MUTED, RULE, TEAL, TINT
 
@@ -76,34 +76,87 @@ def cover():
 
 
 def hook():
-    """TLT grows Pt cubes, TFT grows Pt tetrahedra: one amino acid changes the crystal shape (R13)."""
-    fig, ax = canvas(*WIDE)
-    rows = (('TLT', 'leucine', 'cube', 27.5, BLUE, 'Cubes', 'square'),
-            ('TFT', 'phenylalanine', 'tetra', 44.0, TEAL, 'Tetrahedra', 'triangular'))
-    for n, (seq, name, shape, size, color, shapes, pattern) in enumerate(rows):
-        y0 = n * 364
+    """With TLT platinum grows as cubes, and with TFT it shifts toward tetrahedra, so one amino acid changes the crystal
+    shape (R13)."""
+    fig, ax = canvas()
+    rows = (('TLT', 'leucine', 'grows', 'cube', 27.5, BLUE, 'Cubes', 'square'),
+            ('TFT', 'phenylalanine', 'shifts toward', 'tetra', 44.0, TEAL, 'Tetrahedra', 'triangular'))
+    for n, (seq, name, verb, shape, size, color, shapes, pattern) in enumerate(rows):
+        y0 = n * 334
         m, p, side = tripeptide(seq)
         scene = rt.Scene()
         ball_and_stick(scene, m.symbols, p, m.pairs)
-        project = shot(ax, scene, FLAT, (0, y0, 560, 286), 24)
-        ax.add_patch(Circle(project(p[side].mean(0)), 74, color=ACCENT_SOFT, zorder=1))
+        project = shot(ax, scene, FLAT, (0, y0, 560, 252), 22)
+        ax.add_patch(Circle(project(p[side].mean(0)), 68, color=ACCENT_SOFT, zorder=1))
         for r, letter in enumerate(seq):
             x = project(p[[i for i in m.residue(r + 1) if m.symbols[i] != 'H']].mean(0))[0]
-            text(ax, x, y0 + 300, letter, size=32, bold=True, color=ACCENT if r == 1 else INK, ha='center')
-        text(ax, 280, y0 + 338, f'threonine · {name} · threonine', size=23, color=MUTED, ha='center')
-        text(ax, 645, y0 + 128, 'grows', size=23, color=MUTED, ha='center')
-        arrow(ax, (590, y0 + 160), (700, y0 + 160), color=LINE, width=4)
-        shot(ax, pt_crystal(shape, size), CRYSTAL_VIEWS[shape], (720, y0, 340, 340), 7.0, centre=(0, 0, 0))
-        magnifier(ax, (1172, y0 + 170), 84, '100' if shape == 'cube' else '111', color)
-        text(ax, 1296, y0 + 118, shapes, size=36, bold=True, color=color)
-        text(ax, 1296, y0 + 172, f'{pattern} pattern of', size=26, color=BODY)
-        text(ax, 1296, y0 + 208, 'atoms on every face', size=26, color=BODY)
+            text(ax, x, y0 + 266, letter, size=32, bold=True, color=ACCENT if r == 1 else INK, ha='center')
+        text(ax, 280, y0 + 302, f'threonine · {name} · threonine', size=23, color=MUTED, ha='center')
+        text(ax, 645, y0 + 118, verb, size=23, color=MUTED, ha='center')
+        arrow(ax, (590, y0 + 150), (700, y0 + 150), color=LINE, width=4)
+        shot(ax, pt_crystal(shape, size), CRYSTAL_VIEWS[shape], (720, y0, 300, 300), 6.2, centre=(0, 0, 0))
+        magnifier(ax, (1172, y0 + 150), 80, '100' if shape == 'cube' else '111', color)
+        text(ax, 1296, y0 + 100, shapes, size=36, bold=True, color=color)
+        text(ax, 1296, y0 + 152, f'{pattern} pattern of', size=26, color=BODY)
+        text(ax, 1296, y0 + 188, 'atoms on every face', size=26, color=BODY)
     return save(fig, 'hook')
+
+
+def motivation():
+    """Where what sticks to a surface matters: platinum crystals as catalysts (G18, R13), a gold rod for cancer
+    treatment (G18), the bone-mineral-binding peptide SVSVGGK on hydroxyapatite's basal face (L16), and a grinding
+    additive, triethanolamine, between two broken faces of tricalcium silicate (M13, EP2527307). Real lattices and
+    molecules in illustrative arrangements."""
+    fig, ax = canvas()
+    tiles = (('Catalysts', ('Platinum crystals speed up', 'reactions. What sits on their',
+                            'faces affects their shape and', 'how well they work.')),
+             ('Medicine', ('Gold rods that turn light into', 'heat are studied for treating',
+                           'cancer. Their coating affects', 'how they act in the body.')),
+             ('Bones and teeth', ('Proteins steer how the mineral', 'of bones and teeth grows. That',
+                                  'matters for osteoporosis and', 'tooth decay.')),
+             ('Cement', ('Grinding is a big cost in making', 'cement. Additives that stick to',
+                         'the grains stop them clumping,', 'so it takes less time and energy.')))
+    for k, (head, lines) in enumerate(tiles):
+        panel(ax, 436 * k, 0, 420, 654)
+        text(ax, 436 * k + 30, 50, head, size=30, bold=True)
+        for j, line in enumerate(lines):
+            text(ax, 436 * k + 30, 94 + 31 * j, line, size=23, color=BODY)
+    for shape, size, box in (('cube', 27.5, (24, 218, 240, 240)), ('tetra', 44.0, (176, 420, 240, 220))):
+        shot(ax, pt_crystal(shape, size), CRYSTAL_VIEWS[shape], box, 5.4, centre=(0, 0, 0), background=TINT)
+    gold = st.nanocrystal('Au', 'cube', 84).positions
+    axis = np.clip(gold[:, 0], -30, 30)
+    gold = gold[np.hypot(gold[:, 0] - axis, np.hypot(gold[:, 1], gold[:, 2])) <= 11.5]  # a rod 23 Å across
+    scene = rt.Scene()
+    spheres(scene, ['Au'] * len(gold), gold)
+    shot(ax, scene, rt.view((0.25, -1, 0.5), (0.8, 0, 0.6)), (446, 214, 400, 430), 5.2, centre=(0, 0, 0),
+         background=TINT)
+    scene = rt.Scene()
+    polyhedral(scene, *st.block(st.hydroxyapatite(), (4, 5, 1), (0, 0, 0), (28, 30, 6.8)), fade=0.3)
+    m = st.Molecule(sequence='SVSVGGK', seed=5)
+    p = m.extend()
+    heavy = [i for i, s in enumerate(m.symbols) if s != 'H']
+    centre = p[heavy].mean(0)
+    p = (p - centre) @ np.linalg.svd(p[heavy] - centre)[2].T  # along the strand, across it, out of its plane
+    ball_and_stick(scene, m.symbols, p + (14, 8, 10.6 - p[heavy, 2].min()), m.pairs, atom=1.3, bond=0.16)
+    shot(ax, scene, front_view(50), (882, 214, 400, 430), 12.5, centre=(14, 15, 4), background=TINT)
+    c3s = st.cod('1540704')
+    scene = rt.Scene()
+    for lo, hi, lift in (((0, 0, 0), (26, 18, 11), 0), ((0, 0, 14), (26, 18, 25), 8)):
+        symbols, positions = st.block(c3s, (3, 3, 4), lo, hi)
+        polyhedral(scene, symbols, positions + (0, 0, lift))
+    for n, (x, y) in enumerate(((5, 6), (13, 5), (21, 6), (9, 13), (17, 14))):
+        tea = st.Molecule('OCCN(CCO)CCO', seed=n + 1)
+        q = tea.positions
+        ball_and_stick(scene, tea.symbols, (q - q.mean(0)) @ st.rotation((1, n, 2), 1.1 * n + 0.4).T + (x, y, 16.5),
+                       tea.pairs, atom=1.3, bond=0.16)
+    shot(ax, scene, rt.view((0.2, -1, 0.15), (0, 0, 1)), (1318, 214, 400, 430), 10.0, centre=(13, 9, 16.5),
+         background=TINT)
+    return save(fig, 'motivation')
 
 
 def compat():
     """Separately built metal and molecule models against IFF's shared equation and combination rules (K21)."""
-    fig, ax = canvas(*WIDE)
+    fig, ax = canvas()
     metal_icon, molecule_icon = pt_crystal('cube', 3 * st.LATTICE['Pt']), rt.Scene()
     m, p, _ = tripeptide('TFT')
     ball_and_stick(molecule_icon, m.symbols, p, m.pairs)
@@ -113,77 +166,77 @@ def compat():
             ('Interface Force Field', ACCENT, True, ['So metal–molecule pairs', 'follow the same rules'],
              'Within 5%', ['of measured surface and', 'water-interface energies']))):
         x0 = side * 894
-        panel(ax, x0, 0, 834, 714, TINT)
-        text(ax, x0 + 44, 58, title, size=32, bold=True, color=color)
-        shot(ax, metal_icon, CRYSTAL_VIEWS['cube'], (x0 + 40, 100, 250, 220), 9.5, centre=(0, 0, 0))
-        shot(ax, molecule_icon, FLAT, (x0 + 540, 100, 260, 220), 17)
-        text(ax, x0 + 165, 350, 'Metal model', size=27, bold=True, ha='center')
-        text(ax, x0 + 165, 388, 'its own equations' if not link else 'the molecules’ equations', size=24,
+        panel(ax, x0, 0, 834, 654, TINT)
+        text(ax, x0 + 44, 52, title, size=32, bold=True, color=color)
+        shot(ax, metal_icon, CRYSTAL_VIEWS['cube'], (x0 + 40, 88, 250, 204), 8.8, centre=(0, 0, 0))
+        shot(ax, molecule_icon, FLAT, (x0 + 540, 88, 260, 204), 16)
+        text(ax, x0 + 165, 318, 'Metal model', size=27, bold=True, ha='center')
+        text(ax, x0 + 165, 354, 'its own equations' if not link else 'the molecules’ equations', size=24,
              color=BODY, ha='center')
-        text(ax, x0 + 670, 350, 'Molecular model', size=27, bold=True, ha='center')
-        text(ax, x0 + 670, 388, 'different equations' if not link else 'unchanged', size=24, color=BODY, ha='center')
+        text(ax, x0 + 670, 318, 'Molecular model', size=27, bold=True, ha='center')
+        text(ax, x0 + 670, 354, 'different equations' if not link else 'unchanged', size=24, color=BODY, ha='center')
         if link:
-            ax.plot([x0 + 300, x0 + 530], [210, 210], color=ACCENT, lw=pt(5), zorder=3)
-            ax.add_patch(Circle((x0 + 415, 210), 26, color=ACCENT, zorder=8))
+            ax.plot([x0 + 300, x0 + 530], [190, 190], color=ACCENT, lw=pt(5), zorder=3)
+            ax.add_patch(Circle((x0 + 415, 190), 26, color=ACCENT, zorder=8))
             for dy in (-6.5, 6.5):  # an equals sign, the same rules, against the other panel's question mark
-                ax.plot([x0 + 404, x0 + 426], [210 + dy, 210 + dy], color='white', lw=pt(5), zorder=9)
+                ax.plot([x0 + 404, x0 + 426], [190 + dy, 190 + dy], color='white', lw=pt(5), zorder=9)
         else:
-            dashed(ax, (x0 + 300, 210), (x0 + 380, 210), color=LINE, width=5)
-            dashed(ax, (x0 + 450, 210), (x0 + 530, 210), color=LINE, width=5)
-            ax.add_patch(Circle((x0 + 415, 210), 26, fc='white', ec=MUTED, lw=pt(3), zorder=8))
-            text(ax, x0 + 415, 212, '?', size=30, bold=True, color=MUTED, ha='center', va='center_baseline', z=9)
-        text(ax, x0 + 415, 458, rule[0], size=24, color=INK, ha='center')
-        text(ax, x0 + 415, 490, rule[1], size=24, color=INK, ha='center')
-        ax.plot([x0 + 44, x0 + 790], [548, 548], color=RULE, lw=pt(2), zorder=1)
-        text(ax, x0 + 44, 612, value, size=44, bold=True, color=color)
-        text(ax, x0 + 400, 596, claim[0], size=24, color=BODY)
-        text(ax, x0 + 400, 630, claim[1], size=24, color=BODY)
+            dashed(ax, (x0 + 300, 190), (x0 + 380, 190), color=LINE, width=5)
+            dashed(ax, (x0 + 450, 190), (x0 + 530, 190), color=LINE, width=5)
+            ax.add_patch(Circle((x0 + 415, 190), 26, fc='white', ec=MUTED, lw=pt(3), zorder=8))
+            text(ax, x0 + 415, 192, '?', size=30, bold=True, color=MUTED, ha='center', va='center_baseline', z=9)
+        text(ax, x0 + 415, 414, rule[0], size=24, color=INK, ha='center')
+        text(ax, x0 + 415, 446, rule[1], size=24, color=INK, ha='center')
+        ax.plot([x0 + 44, x0 + 790], [500, 500], color=RULE, lw=pt(2), zorder=1)
+        text(ax, x0 + 44, 566, value, size=44, bold=True, color=color)
+        text(ax, x0 + 400, 550, claim[0], size=24, color=BODY)
+        text(ax, x0 + 400, 584, claim[1], size=24, color=BODY)
     return save(fig, 'compat')
 
 
 def catalog():
     """The solids IFF parameterizes, above the molecules it is combined with."""
-    fig, ax = canvas(1728, 578)
-    text(ax, 0, 12, 'SOLIDS AND THEIR SURFACES', size=18, bold=True, color=ACCENT)
+    fig, ax = canvas()
+    text(ax, 0, 14, 'SOLIDS AND THEIR SURFACES', size=18, bold=True, color=ACCENT)
     gold = st.nanocrystal('Au', 'cube', 5 * st.LATTICE['Au']).positions
     gold = gold[np.all(gold @ np.array([[1, 1, 1], [1, 1, -1], [1, -1, 1], [-1, 1, 1], [-1, -1, -1], [-1, -1, 1],
                                         [-1, 1, -1], [1, -1, -1]]).T / np.sqrt(3) <= 11.0, axis=1)]
     scene = rt.Scene()
     spheres(scene, ['Au'] * len(gold), gold)
-    shot(ax, scene, CRYSTAL_VIEWS['cube'], (0, 34, 400, 214), 6.8, centre=(0, 0, 0))
+    shot(ax, scene, CRYSTAL_VIEWS['cube'], (0, 42, 400, 250), 7.6, centre=(0, 0, 0))
     scene = rt.Scene()
     polyhedral(scene, *st.silica((8, 8, 3), (2, 8, 2.5), (24, 22, 14)))
-    shot(ax, scene, rt.view((0.3, -1, 0.45)), (442, 34, 400, 214), 11.5)
+    shot(ax, scene, rt.view((0.3, -1, 0.45)), (442, 42, 400, 250), 12.6)
     scene = rt.Scene()
     polyhedral(scene, *st.block(st.hydroxyapatite(), (4, 4, 2), (0, 0, 0), (28, 22, 7.0)))
-    shot(ax, scene, rt.view((0.15, -0.25, 1), (0, 1, 0)), (884, 34, 400, 214), 8.6)
+    shot(ax, scene, rt.view((0.15, -0.25, 1), (0, 1, 0)), (884, 42, 400, 250), 9.6)
     scene = rt.Scene()
     polyhedral(scene, *st.block(st.cod('1540704'), (3, 2, 3), (0, 0, 0), (30, 7.5, 21)))
-    shot(ax, scene, rt.view((0.12, -1, 0.15)), (1326, 34, 400, 214), 8.4)
+    shot(ax, scene, rt.view((0.12, -1, 0.15)), (1326, 42, 400, 250), 9.4)
     for x, head, line in ((0, 'Metals', 'gold, platinum and other metals'),
                           (442, 'Silica', 'sand and glass, with OH groups'),
                           (884, 'Hydroxyapatite', 'the mineral in bone and teeth'),
                           (1326, 'Cement', 'tricalcium silicate')):
-        text(ax, x + 200, 268, head, size=28, bold=True, ha='center')
-        text(ax, x + 200, 302, line, size=23, color=MUTED, ha='center')
-    text(ax, 0, 352, 'COMBINED WITH STANDARD MOLECULE MODELS SUCH AS AMBER, CHARMM, OPLS-AA AND PCFF', size=18,
+        text(ax, x + 200, 314, head, size=28, bold=True, ha='center')
+        text(ax, x + 200, 350, line, size=23, color=MUTED, ha='center')
+    text(ax, 0, 410, 'COMBINED WITH STANDARD MOLECULE MODELS SUCH AS AMBER, CHARMM, OPLS-AA AND PCFF', size=18,
          bold=True, color=TEAL)
     sym, pos = st.water_box((-11, -5, -4), (11, 5, 4), seed=2)
     drop = np.repeat(np.sum((pos[::3] / (11, 5, 4)) ** 2, axis=1) < 1, 3)  # a rounded droplet of liquid water
     scene = rt.Scene()
     ball_and_stick(scene, [e for e, k in zip(sym, drop) if k], pos[drop])
-    shot(ax, scene, FLAT, (0, 380, 540, 140), 13)
+    shot(ax, scene, FLAT, (0, 436, 540, 160), 14.4)
     m, flat_pose, _ = st.s7()
     scene = rt.Scene()
     ball_and_stick(scene, m.symbols, flat_pose, m.pairs)
-    shot(ax, scene, FLAT, (594, 380, 540, 140), 12)
+    shot(ax, scene, FLAT, (594, 436, 540, 160), 13)
     m, chain = polyethylene()
     scene = rt.Scene()
     ball_and_stick(scene, m.symbols, chain, m.pairs)
-    shot(ax, scene, rt.view((0, -0.3, 1), (0, 1, 0)), (1188, 380, 540, 140), 20)
+    shot(ax, scene, rt.view((0, -0.3, 1), (0, 1, 0)), (1188, 436, 540, 160), 19.5)
     for x, head in ((0, 'Water'), (594, 'Peptides and proteins'), (1188, 'Polymers')):
-        text(ax, x + 270, 548, head, size=28, bold=True, ha='center')
+        text(ax, x + 270, 624, head, size=28, bold=True, ha='center')
     return save(fig, 'catalog')
 
 
-FIGURES = (cover, hook, compat, catalog)
+FIGURES = (cover, hook, motivation, compat, catalog)

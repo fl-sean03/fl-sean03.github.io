@@ -6,7 +6,7 @@ import numpy as np
 import render as rt
 import science as sc
 import structures as st
-from draw import FLAT, LEDE, arrow, at, canvas, chart, curve, dimension, dot, marker, mix, pt, save, shot, text
+from draw import FLAT, arrow, at, canvas, chart, curve, dimension, dot, marker, mix, pt, save, shot, text
 from style import ACCENT, BLUE, BODY, ELEMENTS, INK, LINE, MUTED, RULE
 
 
@@ -58,7 +58,7 @@ def pair_row(ax, y, n, distance, sign, head, line):
 
 def lj():
     """The rhodium 12-6 pair curve (K21) with its wall, well and tail, and the pair at each."""
-    fig, ax = canvas(*LEDE)
+    fig, ax = canvas()
     r0, eps = RH
     c = lj_chart(fig, ax, (2.25, 5.6), (-10, 14))
     r = np.linspace(2.25, 5.6, 800)
@@ -82,7 +82,7 @@ def lj():
 
 def coulomb():
     """Two unit charges in vacuum (Coulomb's law) beside the rhodium van der Waals curve, at the same scale."""
-    fig, ax = canvas(*LEDE)
+    fig, ax = canvas()
     c = lj_chart(fig, ax, (2.0, 10.5), (-170, 170), box=(150, 14, 1000, 520))
     r = np.linspace(2.0, 10.5, 600)
     curve(c, r, sc.coulomb(r, 1, -1), color=BLUE)
@@ -117,7 +117,7 @@ def coulomb():
 
 def cleave():
     """A rhodium (111) block, then the same block pulled apart into two halves (K21 Table 3)."""
-    fig, ax = canvas(*LEDE)
+    fig, ax = canvas()
     pos = st.fcc_slab('Rh', '111', (6, 6, 6)).get_positions()
     pos -= [*pos[:, :2].mean(0), pos[:, 2].min()]
     layer = np.round(pos[:, 2] / (st.LATTICE['Rh'] / np.sqrt(3))).astype(int)

@@ -15,8 +15,6 @@ import structures as st
 from style import ACCENT, ASSETS, BODY, ELEMENTS, INK, LINE, MUTED, SOURCE, TINT
 
 K = 1.25  # output pixels per slide pixel: figures are laid out on the 1920 × 1080 slide grid
-WIDE = (1728, 714)  # the figure box between a one-line title and the takeaway line
-LEDE = (1728, 654)  # the same box when a one-line lede sits under the title
 FLAT = rt.view((0, 0, 1), (0, 1, 0))  # the x-y plane face on, +y up the screen
 CRYSTAL_VIEWS = {'cube': rt.view((0.62, -0.78, 0.52)), 'tetra': rt.view((0.15, 1.0, 0.25), (-1, 1, 1))}
 
@@ -39,8 +37,9 @@ plt.rcParams.update({
 })
 
 
-def canvas(width, height):
-    """A figure laid out in slide pixels with the origin at the top left."""
+def canvas(width=1728, height=654):
+    """A figure laid out in slide pixels with the origin at the top left, by default the box a figure slide gives
+    its picture under the title and words."""
     fig = plt.figure(figsize=(width * K / 100, height * K / 100), dpi=100)
     ax = fig.add_axes((0, 0, 1, 1))
     ax.set_xlim(0, width)

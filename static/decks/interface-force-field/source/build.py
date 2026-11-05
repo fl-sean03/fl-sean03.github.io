@@ -27,6 +27,7 @@ BUNDLE = HERE.parent
 W, H = 1920, 1080
 LEFT, WIDTH = 96, 1728  # the content column
 LH = 1.28  # line height in font sizes
+PROSE_X = 780  # where a figure slide's words start, right of its title
 
 
 @lru_cache(maxsize=None)
@@ -52,7 +53,7 @@ def wrapped(value, width, size, bold=False):
     return lines + [line]
 
 
-def shrink(size, minimum, lines=1):
+def shrink(size, minimum, lines):
     return [(s, lines) for s in range(size, minimum - 1, -1)]
 
 
@@ -74,8 +75,8 @@ def shape(elements, x, y, width, height, color):
     elements.append(dict(kind='shape', x=x, y=y, w=width, h=height, color=color))
 
 
-def picture(elements, slide, x, y, width, height, top=False):
-    """Fit the slide's figure in the box, centred or top-aligned; returns its size."""
+def picture(elements, slide, x, y, width, height):
+    """Fit the slide's figure in the box, centred; returns its size."""
     path = (BUNDLE / slide['figure']).resolve()
     if not path.is_relative_to(BUNDLE) or not path.is_file():
         raise ValueError(f'Missing or invalid figure: {slide["figure"]}')
@@ -83,53 +84,57 @@ def picture(elements, slide, x, y, width, height, top=False):
         ratio = min(width / image.width, height / image.height)
         iw, ih = image.width * ratio, image.height * ratio
     elements.append(dict(kind='image', file=slide['figure'], alt=slide['alt'], x=x + (width - iw) / 2,
-                         y=y if top else y + (height - ih) / 2, w=iw, h=ih))
+                         y=y + (height - ih) / 2, w=iw, h=ih))
     return iw, ih
 
 
-def heading(elements, slide, width=WIDTH, lines=1):
+def heading(elements, slide, width, sizes, lh=LH):
     text(elements, slide['kicker'].upper(), LEFT, 58, WIDTH, 17, bold=True, color=ACCENT, spacing=.16)
-    return 92 + text(elements, slide['title'], LEFT, 92, width, shrink(52, 46, lines), bold=True, color=INK)
+    return 92 + text(elements, slide['title'], LEFT, 92, width, sizes, bold=True, color=INK, lh=lh)
+
+
+def column(elements, paragraphs, x, y, width, bottom):
+    """Set (text, bold, colour) paragraphs at the largest size from 26 to 24 px that ends above `bottom`."""
+    gap, lh = 12, 1.37
+    for size in (26, 25, 24):
+        lines = sum(len(wrapped(value, width, size, bold)) for value, bold, _ in paragraphs)
+        if y + lines * size * lh + gap * (len(paragraphs) - 1) <= bottom:
+            break
+    else:
+        raise ValueError(f'The prose runs below {bottom}px; shorten it')
+    for value, bold, color in paragraphs:
+        y += text(elements, value, x, y, width, [(size, 9)], bold=bold, color=color, lh=lh) + gap
 
 
 def cover(elements, slide, story):
     picture(elements, slide, 820, 0, 1100, 1080)
-    y = 300 + text(elements, slide['title'], LEFT, 300, 620, [(96, 2)], bold=True, color=INK, lh=1.08) + 40
-    y += text(elements, story['subtitle'], LEFT, y, 560, [(34, 2)]) + 56
+    y = 236 + text(elements, slide['title'], LEFT, 236, 620, [(96, 2)], bold=True, color=INK, lh=1.08) + 36
+    y += text(elements, story['subtitle'], LEFT, y, 560, [(34, 2)]) + 36
+    y += text(elements, slide['lede'], LEFT, y, 600, [(26, 6)], lh=1.37) + 52
     text(elements, story['author'], LEFT, y, 600, 27, bold=True, color=INK)
 
 
 def figure(elements, slide, story):
-    heading(elements, slide)
-    top = 194
-    if slide.get('lede'):
-        top = 186 + text(elements, slide['lede'], LEFT, 186, WIDTH, shrink(30, 28) + [(30, 4)]) + 30
-    width, _ = picture(elements, slide, LEFT, top, WIDTH, (909 if slide.get('takeaway') else 990) - top, top=True)
+    """The title on the left, the slide's words on the right, and the figure across the slide below them."""
+    heading(elements, slide, PROSE_X - 64 - LEFT, shrink(46, 42, 3), lh=1.14)
+    column(elements, [(slide['lede'], False, BODY), (slide['takeaway'], True, INK)], PROSE_X, 92,
+           LEFT + WIDTH - PROSE_X, 322)
+    width, _ = picture(elements, slide, LEFT, 336, WIDTH, 654)
     if width < .97 * WIDTH:
-        raise ValueError(f'The figure shrinks to {width:.0f}px wide; shorten the lede')
-    if slide.get('takeaway'):
-        text(elements, slide['takeaway'], LEFT, 950, WIDTH, shrink(30, 26))
+        raise ValueError(f'The figure shrinks to {width:.0f}px wide; draw it at 1728 × 654')
 
 
 def bookend(elements, slide, story):
     picture(elements, slide, 820, 0, 1100, 1080)
-    y = heading(elements, slide, width=760, lines=2) + 50
-    recap, definition = slide['body']
+    y = heading(elements, slide, 760, shrink(52, 46, 2)) + 50
+    recap, why = slide['body']
     y += text(elements, recap, LEFT, y, 720, [(30, 5)], color=INK) + 44
-    used = text(elements, definition, LEFT + 30, y, 690, [(28, 8)])
+    used = text(elements, why, LEFT + 30, y, 690, [(28, 8)])
     shape(elements, LEFT, y + 6, 5, used - 12, TEAL)
+    text(elements, slide['signoff'], LEFT, y + used + 64, 720, 48, bold=True, color=ACCENT)
 
 
-def closing(elements, slide, story):
-    picture(elements, slide, 960, 195, 864, 690)
-    text(elements, slide['title'], LEFT, 318, 820, 104, bold=True, color=INK, spacing=-.02)
-    text(elements, slide['lede'], LEFT, 456, 820, 60, bold=True, color=ACCENT)
-    y = 604 + text(elements, story['title'], LEFT, 604, 820, 30, bold=True, color=INK) + 6
-    y += text(elements, story['subtitle'], LEFT, y, 820, 26, color=MUTED) + 56
-    text(elements, story['author'], LEFT, y, 820, 27, bold=True, color=INK)
-
-
-LAYOUTS = {'cover': cover, 'figure': figure, 'bookend': bookend, 'closing': closing}
+LAYOUTS = {'cover': cover, 'figure': figure, 'bookend': bookend}
 
 
 def layout(slide, number, story):
@@ -220,6 +225,8 @@ def article_html(story, n, slide):
     if slide.get('takeaway'):
         parts.append(f'<p class="r-take">{e(slide["takeaway"])}</p>')
     parts += [f'<p class="r-body">{e(p)}</p>' for p in slide.get('body', [])]
+    if slide.get('signoff'):
+        parts.append(f'<p class="r-signoff">{e(slide["signoff"])}</p>')
     parts.append('<h3 class="r-label">Notes</h3>' + ''.join(f'<p>{e(p)}</p>' for p in slide['notes']))
     if refs := slide_refs(slide):
         parts.append(f'<h3 class="r-label">Sources</h3><ul class="r-sources">{source_items(story, refs)}</ul>')
@@ -358,7 +365,7 @@ def write_notes(story):
 def write_manifest(story):
     fields = ('kicker', 'lede', 'takeaway', 'body', 'figure', 'alt', 'refs', 'note_refs', 'notes')
     manifest = {
-        'schema': 'iff-presentation.citation-license/v3', 'prepared': '2026-11-04',
+        'schema': 'iff-presentation.citation-license/v3', 'prepared': '2026-11-05',
         'scientific_status': 'Published results are quoted from the cited papers and were not rerun. The PySCF '
                              'electron cloud of one water molecule was computed only to draw a picture and is not '
                              'evidence.',
