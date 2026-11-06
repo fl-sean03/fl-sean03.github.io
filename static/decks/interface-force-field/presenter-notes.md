@@ -6,7 +6,7 @@ How can a computer tell us which face of a crystal a molecule will stick to, and
 
 The picture is a peptide called S7 lying on platinum in water. It comes back in the first example and at the end.
 
-The crystal structures come from the Crystallography Open Database or from published lattice sizes, and the surfaces were built from them with ASE and the molecules with RDKit, all open software. The pictures of molecules on surfaces are illustrations, arranged to show the idea rather than taken from a simulation. Every result quoted comes from the cited papers and was not rerun here. Besides the worked arithmetic, the one calculation made for this presentation is the electron cloud of a water molecule, and it only draws a picture.
+The crystal structures come from the Crystallography Open Database or from published lattice sizes, and the surfaces were built from them with ASE and the molecules with RDKit, all open software. The pictures of molecules on surfaces are illustrations, arranged to show the idea rather than taken from a simulation. Every result quoted comes from the cited papers, and no published fit or simulation was rerun here. The calculations made for this presentation only prepare pictures. They are the worked arithmetic and curves, the electron cloud of a water molecule, energy minimizations with the MMFF force field that shape the molecules and settle each pose, a spring relaxation of the heated silica surface, and the growth rule behind the crystal animation on the next slide.
 
 ### Sources
 
@@ -21,13 +21,16 @@ Proteins are chains of amino acids, and a peptide is a short chain. Each amino a
 
 Ruan and colleagues grew platinum crystals in water with each peptide present. With TLT the crystals came out as cubes, whose faces all show a square pattern of atoms. With TFT the crystals shifted toward tetrahedra, whose faces all show a triangular pattern. Chemists call these the {100} and {111} faces.
 
-A crystal grows by adding atoms to its faces. A molecule that sticks to one kind of face slows growth there, so that face ends up covering the crystal. The question is how a simulation could explain why F prefers the triangular face.
+A crystal grows by adding atoms to its faces. In these syntheses, a molecule that sticks to one kind of face slows growth there, so that kind of face ends up covering the crystal, although the growth conditions also matter. The question is how a simulation could explain why F prefers the triangular face.
+
+The animation is an illustration of the idea, not a simulation from the paper. It follows a simple rule chosen for this picture. Platinum atoms join the crystal one layer at a time, and each new layer starts as a small island that spreads across its face. If every face added layers at the same rate, the crystal would keep its starting shape, a cuboctahedron with both square and triangular faces. In the rule, the triangular faces, where TFT lies, add layers four times more slowly. The faster square faces, tinted blue, then shrink until they vanish, and the crystal ends as an octahedron, which also has only triangular faces. The experiments with F found tetrahedra, another shape with only triangular faces. Why they formed rather than octahedra is beyond this simple rule.
 
 ### Sources
 
 - Ruan et al. (2013). Tailoring Molecular Specificity Toward a Crystal Facet: a Lesson From Biorecognition Toward Pt{111}. Nano Letters 13, 840–846. https://doi.org/10.1021/nl400022g
 - Wyckoff (1963). Crystal Structures 1, 7–83. Crystallography Open Database entry 9008480, platinum. https://www.crystallography.net/cod/9008480.html
 - RDKit, open-source cheminformatics software. https://www.rdkit.org
+- Calculations and illustrations made for this presentation.
 
 ## 3. Where molecules stick changes how materials grow and work
 
@@ -54,15 +57,15 @@ The four pictures use real crystal structures and molecules, but their arrangeme
 - Mumme (1995). Crystal structure of tricalcium silicate from a Portland cement clinker and its application to quantitative XRD analysis. Neues Jahrbuch für Mineralogie, Monatshefte 4, 145–160. Crystallography Open Database entry 1540704. https://www.crystallography.net/cod/1540704.html
 - RDKit, open-source cheminformatics software. https://www.rdkit.org
 
-## 4. Models built separately do not fit together
+## 4. Models built separately do not automatically fit together
 
 To simulate a peptide on platinum in water, the computer needs rules for three sets of interactions. Platinum atoms hold the solid together. Water molecules and the peptide interact with each other. And every platinum atom interacts with every nearby atom of water and peptide, and this third set decides which crystal face the peptide sticks to.
 
 Good rules for the first two sets already existed, but separately. Metal models were built to describe metals, and molecular models were built to describe water and proteins. The third set needs both sides described in the same terms.
 
-A popular metal model, the embedded-atom method, uses equations of its own, while protein models such as CHARMM and AMBER use different ones. Nothing in either says how a metal atom should feel a water molecule. Kanhaiya and colleagues also report that metal-only models of this kind give surface energies up to about 50% too low.
+A popular metal model, the embedded-atom method, uses equations of its own, while protein models such as CHARMM and AMBER use different ones. Nothing in either says how a metal atom should interact with a water molecule, so the two do not automatically fit together. Kanhaiya and colleagues also report that some of the metal-only models they compared underestimated surface energies by up to about 50%.
 
-IFF describes the metal with the same simple equation the molecular models already use between atoms that are not bonded, the Lennard-Jones curve we meet shortly. Its two numbers per metal are tuned so the simulated metal has the measured density and surface energy, and the metal–molecule pairs then follow from the same rules. For ten metals, Kanhaiya and colleagues report agreement with experiment within 0.1 to 5% for lattice size, surface energy, water interface energy and binding of organic molecules.
+IFF describes the metal with the same simple equation the molecular models already use between atoms that are not bonded, the Lennard-Jones curve we meet shortly. Its two numbers per metal are tuned so the simulated metal has the measured lattice size and surface energy, and the metal–molecule pairs then follow from the same rules. Those two properties are calibration targets, so matching them is not a test. Selected interfaces were compared separately. For metal–water interfaces some of the experimental values are known only as upper limits, so they bound the model rather than measure its error, and for organic molecules binding to metals the paper discusses agreement of about 5 to 10%, depending on the molecules’ own parameters.
 
 ### Sources
 
@@ -91,11 +94,11 @@ IFF supplies compatible interaction equations and material parameters so a class
 
 Every atom has a small, heavy nucleus made of protons and, in most atoms, neutrons, surrounded by a cloud of electrons. Where atoms sit and how they hold together is decided by these electrons.
 
-Quantum chemistry computes the electron cloud directly. The most common method is density functional theory, or DFT, which uses an approximate formula called a functional to describe how electrons affect each other. It is accurate but slow, so it is usually limited to hundreds or a few thousand atoms.
+Quantum chemistry computes the electron cloud directly. The most common method is density functional theory, or DFT, which uses an approximate formula called a functional to describe how electrons affect each other. How accurate it is depends on the functional and the property, so it too has to be checked. DFT models the electrons explicitly and is usually much more expensive than a force field, so typical simulations hold hundreds to a few thousand atoms, although specialised methods have reached far more.
 
 A force field skips the electrons. Atoms become balls, bonds become springs, and each atom carries a fixed partial charge, a fraction of an electron’s charge, written δ− or δ+. In water the oxygen pulls electrons towards itself, so it is slightly negative and the hydrogens slightly positive.
 
-Machine-learned force fields sit in between. A model such as MACE or AI²BMD is trained to reproduce quantum results on many example structures, and it is reliable only for structures like the ones it was trained on. A classical force field such as IFF uses fixed rules, so it is the fastest of these methods and reaches millions of atoms, but a standard one never breaks or forms bonds. It suits questions about surfaces, binding and water, where bonds stay intact.
+Machine-learned force fields sit in between. A model such as MACE or AI²BMD is trained to reproduce quantum results on many example structures, and it is reliable only for structures like the ones it was trained on. A classical force field such as IFF uses fixed rules, which are usually much cheaper to compute, so suitable classical models permit much larger systems, often millions of atoms, and more sampling, but a standard one never breaks or forms bonds. It suits questions about surfaces, binding and water, where bonds stay intact.
 
 The cloud on the left is a real calculation of one water molecule, made with the PySCF program and the PBE functional. The balls and springs on the right are a drawing of the same molecule.
 
@@ -114,11 +117,11 @@ Molecular mechanics adds up the energy of a whole system from simple pieces. Bon
 
 Bonds and angles act like springs. A bond has a natural length, and stretching or squeezing it costs energy that grows with the square of the change, E = k (r − r₀)², so twice the stretch costs four times the energy. An angle works the same way, E = k (θ − θ₀)². Water’s O–H bond rests at about 0.96 ångström, where one ångström is a ten-billionth of a metre, and its H–O–H angle rests at about 104.5 degrees. Each family tunes the stiffness k so that molecules vibrate at their measured frequencies. The springs never break, so a standard force field cannot describe chemical reactions, in which bonds form or break.
 
-Twisting around a bond has favourite angles. Ethane is two carbon atoms, each carrying three hydrogens. Looking along the bond between the carbons, the back hydrogens can sit between the front ones, called staggered, or behind them, called eclipsed, which costs a little more energy. The energy repeats every 120°, and a force field describes it with a smooth wave, E = k [1 + cos(nφ − δ)], where φ is the twist angle, n is the number of repeats in a full turn, three for ethane, and δ shifts where the lowest points fall. The height k is tuned to measurements or to quantum chemistry. Twisting terms like this decide how flexible molecules such as peptides and polymers fold and bend.
+Twisting around a bond has favourite angles. Ethane is two carbon atoms, each carrying three hydrogens. Looking along the bond between the carbons, the back hydrogens can sit between the front ones, called staggered, or behind them, called eclipsed, which costs a little more energy. The energy repeats every 120°, and a force field describes it with a smooth wave, E = k [1 + cos(nφ − δ)], where φ is the twist angle, n is the number of repeats in a full turn, three for ethane, and δ shifts where the lowest points fall. The coefficient k sets the size of the wave, which rises from 0 to 2k, so the barrier between favourite angles is 2k. It is tuned to measurements or to quantum chemistry. Twisting terms like this decide how flexible molecules such as peptides and polymers fold and bend.
 
 Each force-field family writes these pieces in its own way and with its own numbers. Some write the spring energy with a factor of one half and some leave it out, so stiffness numbers cannot be copied from one family into another without checking. Some, such as PCFF, add extra terms that couple stretching and bending and use a softer van der Waals curve, but all of them build the energy from these five pieces. Families also differ in how they treat atoms close together in one molecule. Pairs joined by one or two bonds are usually left out of the van der Waals and charge sums, and pairs three bonds apart are counted in full or scaled down, depending on the family.
 
-A simulation then moves the atoms. Molecular dynamics adds up the force on every atom, moves every atom a tiny step according to those forces, and repeats. Each step is typically one femtosecond, a millionth of a billionth of a second, so a million steps make one nanosecond. Averages over many steps give measurable quantities such as density, energy or binding. Energy minimization, a related method, skips the motion and moves the atoms straight downhill to the nearest low-energy arrangement.
+A simulation then moves the atoms. Molecular dynamics adds up the force on every atom, moves every atom a tiny step according to those forces, and repeats. Each step is typically one femtosecond, a millionth of a billionth of a second, so a million steps make one nanosecond. Averages over many steps give measurable quantities such as density, energy or binding. Energy minimization, a related method, skips the motion and moves the atoms step by step downhill until they settle in a nearby local low-energy arrangement, which need not be the lowest one possible.
 
 ### Sources
 
@@ -130,7 +133,7 @@ Even neutral atoms attract each other weakly, because their electron clouds flic
 
 Energies here are in kilocalories per mole, the energy of one mole of such pairs, about 6 × 10²³ of them. The rhodium curve has its lowest point at r₀ = 2.757 Å with a depth ε of 7.84 kcal/mol. These two numbers were tuned so that simulated rhodium has the measured density and surface energy.
 
-The curve is called 12-6 because its push grows as the twelfth power of one over the distance and its pull as the sixth power. Written with the lowest point, it is E = ε [(r₀/r)¹² − 2 (r₀/r)⁶].
+The curve is called 12-6 because the repulsive part of its energy grows as the twelfth power of one over the distance and the attractive part as the sixth power. The forces, which are slopes of the energy, go as the thirteenth and seventh powers. Written with the lowest point, it is E = ε [(r₀/r)¹² − 2 (r₀/r)⁶].
 
 The force on the atoms is the slope of the curve with its sign flipped. At 2.5 Å the energy is still negative, about −2.8 kcal/mol, yet the slope is steep and the atoms push apart with a force of about 54 kcal/mol per ångström. At 3.0 Å the slope is gentle and the atoms pull together with about 7.5. At 2.757 Å the curve is flat and the force is zero. A simulation moves atoms using these forces, so the shape of the curve matters as much as its depth.
 
@@ -138,7 +141,7 @@ Each metal gets its own pair of numbers. In the same study iridium has r₀ = 2.
 
 Pairs of unlike atoms come from a mixing rule. A simulation with 10 kinds of atoms has 55 different pairs, too many to fit one by one, so the rule builds every unlike pair from the two like ones. The rule used here takes the geometric mean, the square root of the product. For rhodium with calcium, r₀ = √(2.757 × 4.025) = 3.331 Å and ε = √(7.84 × 3.36) = 5.13 kcal/mol. Families such as CHARMM and AMBER use the ordinary average for r₀ instead, so the rule must match the family the numbers are used with. This is a worked example of the rule, not a claim about real rhodium–calcium alloys.
 
-The same curve is often written with σ, the distance where the energy crosses zero, which is shorter than r₀ by a factor of 1.1225. Programs such as LAMMPS expect σ. The 2021 paper calls its 2.757 Å σ but means the lowest point, which earlier IFF papers called r₀. If 2.757 Å is typed in as a zero crossing, the lowest point moves out to 3.095 Å, 12% too far. Five cells of rhodium would then measure about 21.3 Å instead of 19.0, and the surface energy would be wrong, all without any error message.
+The same curve is often written with σ, the distance where the energy crosses zero, which is shorter than r₀ by a factor of 1.1225. LAMMPS’s lj/cut style, for example, expects σ, while its lj/class2 style for the 9-6 curve takes the distance of the lowest point. The 2021 paper calls its 2.757 Å σ but means the lowest point, which earlier IFF papers called r₀. If 2.757 Å is typed into lj/cut as a zero crossing, the lowest point moves out to 3.095 Å, 12% too far. Scaling the crystal by the same factor estimates that five cells of rhodium would then measure about 21.3 Å instead of 19.0, and the surface energy would be wrong, all without any error message.
 
 The fix is σ = 2.757 / 1.1225 = 2.456 Å. A force-field file can load without errors and still describe a different material, so after converting, check the curve family and the units the program expects, then compute one pair by hand. Its energy at 2.757 Å should read −7.84 kcal/mol, not 0, and its force should be zero. A 2021 correction to the paper added missing supplementary files and changed none of its tables.
 
@@ -148,13 +151,14 @@ The fix is σ = 2.757 / 1.1225 = 2.456 Å. A force-field file can load without e
 - Kanhaiya, Kim, Im and Heinz (2021). Author Correction to Accurate simulation of surfaces and interfaces of ten FCC metals and steel using Lennard-Jones potentials. npj Computational Materials. https://doi.org/10.1038/s41524-021-00576-8
 - Kanhaiya, Kim, Im and Heinz (2021). Supplementary Information for Accurate simulation of surfaces and interfaces of ten FCC metals and steel using Lennard-Jones potentials. https://static-content.springer.com/esm/art%3A10.1038%2Fs41524-020-00478-1/MediaObjects/41524_2020_478_MOESM1_ESM.pdf
 - LAMMPS documentation, pair style lj/cut. https://docs.lammps.org/pair_lj.html
+- LAMMPS documentation, pair style lj/class2. https://docs.lammps.org/pair_class2.html
 - Calculations and illustrations made for this presentation.
 
 ## 9. Charges reach much further than van der Waals
 
-Coulomb’s law says the energy of two charges falls off only as one over the distance, E = 332.064 q₁q₂ / r. The number converts the energy to kcal/mol when r is in ångströms and the charges q₁ and q₂ are in elementary charges, the charge of one proton. Two opposite unit charges in a vacuum, such as a sodium ion and a chloride ion, have −110.7 kcal/mol at 3 Å and still −33.2 at 10 Å. The rhodium van der Waals pull at 10 Å is about −0.007.
+Coulomb’s law says the energy of two charges falls off only as one over the distance, E = 332.064 q₁q₂ / r. The number converts the energy to kcal/mol when r is in ångströms and the charges q₁ and q₂ are in elementary charges, the charge of one proton. Two opposite unit charges in a vacuum, such as a sodium ion and a chloride ion, have an interaction energy of −110.7 kcal/mol at 3 Å and still −33.2 at 10 Å. The rhodium van der Waals energy at 10 Å is about −0.007.
 
-In water the pull between ions is about 80 times weaker, because water molecules turn so that their opposite partial charge faces each ion, which screens it. A force field does not add this screening by hand. It comes out of the partial charges on the water molecules themselves.
+Water screens the interaction between ions, because water molecules turn so that their opposite partial charge faces each ion. Treating water as a smooth background near room temperature, the energy is divided by about 80, the dielectric constant of bulk water. Close to the ions, at the scale of single water molecules, the screening is not a fixed divisor, and the water itself has to be modelled. In a simulation with explicit water molecules, the force field does not add this screening by hand. It comes out of the partial charges on the water molecules themselves.
 
 ### Sources
 
@@ -162,11 +166,11 @@ In water the pull between ions is about 80 times weaker, because water molecules
 - Kanhaiya, Kim, Im and Heinz (2021). Accurate simulation of surfaces and interfaces of ten FCC metals and steel using Lennard-Jones potentials. npj Computational Materials 7, 17. https://doi.org/10.1038/s41524-020-00478-1
 - Calculations and illustrations made for this presentation.
 
-## 10. IFF tunes each solid to its measured surface energy
+## 10. IFF tunes rhodium to its measured size and surface energy
 
 Atoms at a surface have lost some of their neighbours, so a surface costs energy. Splitting a block makes two new faces, so the surface energy is the energy needed to pull the halves apart divided by twice the area of one face. It is measured in joules per square metre.
 
-The energy of the block is the sum over every pair of atoms in it. Three rhodium atoms at the lowest-energy distance make three pairs, so their total is 3 × (−7.84) = −23.52 kcal/mol. Inside the crystal each atom has 12 nearest neighbours, each 2.689 Å away. That is closer than r₀ because the farther neighbours also pull, squeezing the nearest ones a little closer than a lone pair would sit. In practice a simulation adds up pairs out to a cutoff distance, beyond which the van der Waals pull is too weak to matter.
+The energy of the block is the sum over every pair of atoms in it. Three rhodium atoms at the lowest-energy distance make three pairs, so their total is 3 × (−7.84) = −23.52 kcal/mol. Inside the crystal each atom has 12 nearest neighbours, each 2.689 Å away. That is closer than r₀ because the farther neighbours also pull, squeezing the nearest ones a little closer than a lone pair would sit. In practice a simulation adds up pairs only out to a cutoff distance. Each pair beyond it is weak, but there are many of them, so together they can shift the energy and the pressure. Programs offer corrections for this tail, and the cutoff error should be checked for the property being computed.
 
 Rhodium is a face-centred cubic, or fcc, metal. Its repeating cell is a cube 3.803 Å on a side with an atom at each corner and one in the middle of each face. Each corner atom is shared by eight cells and each face atom by two, so one cell holds 8 × ⅛ + 6 × ½ = 4 atoms. Five cells in each direction give 500 atoms, and the simulation box repeats in every direction, called periodic boundaries, so the block behaves like part of an endless crystal. The two rhodium numbers were tuned to give this block its measured size, 19.016 Å along each edge, so that agreement is a calibration rather than a test.
 
@@ -174,9 +178,9 @@ For rhodium’s triangular face the measured surface energy is 2.64 ± 0.02 J/m�
 
 Stiffness was not a tuning target, so it tests the model. It is measured in gigapascals, and one gigapascal is about ten thousand times the pressure of the atmosphere. For squeezing from all sides, the bulk modulus, the model gives 258 GPa against a measured 276, 6.5% low. For stretching, Young’s modulus, it gives 209 against 379, and for sliding one layer over another, the shear modulus, 77 against 147. Other measurements give 269 to 271 GPa for squeezing, 319 and 378 for stretching and 150 for shearing.
 
-Curves that act only between pairs of atoms force two of the crystal’s stiffness constants to be equal, and real rhodium does not follow that rule. So the model is good for surfaces and interfaces, but its stiffness is a known weakness.
+Curves that act only between pairs of atoms force two of the crystal’s stiffness constants to be equal, and real rhodium does not follow that rule. So this rhodium model matches the surface properties it was tuned and tested on, but its stiffness is a known weakness, and using it for other properties or other chemistry needs its own check.
 
-Force fields such as PCFF, COMPASS and CFF use a softer 9-6 curve, E = ε [2 (r₀/r)⁹ − 3 (r₀/r)⁶], whose push grows as the ninth power instead of the twelfth, while CHARMM, AMBER, OPLS-AA and CVFF use the 12-6 curve. Because the shapes differ, IFF publishes separate rhodium values for each. The 9-6 values are r₀ = 2.807 Å and ε = 6.38 kcal/mol. Both sets reproduce the crystal size and the surface energy, 2.643 J/m², but the 9-6 crystal is softer still, 175 GPa against 276 measured for squeezing. Using 12-6 numbers in a 9-6 force field, or the reverse, gives a different material without any error message.
+Force fields such as PCFF, COMPASS and CFF use a softer 9-6 curve, E = ε [2 (r₀/r)⁹ − 3 (r₀/r)⁶], whose repulsive energy grows as the ninth power of one over the distance instead of the twelfth, so its repulsive force goes as the tenth power instead of the thirteenth, while CHARMM, AMBER, OPLS-AA and CVFF use the 12-6 curve. Because the shapes differ, IFF publishes separate rhodium values for each. The 9-6 values are r₀ = 2.807 Å and ε = 6.38 kcal/mol. Both sets reproduce the crystal size and the surface energy, 2.643 J/m², but the 9-6 crystal is softer still, 175 GPa against 276 measured for squeezing. Using 12-6 numbers in a 9-6 force field, or the reverse, gives a different material without any error message.
 
 ### Sources
 
@@ -188,9 +192,9 @@ Force fields such as PCFF, COMPASS and CFF use a softer 9-6 curve, E = ε [2 (r�
 
 S7 is a seven-amino-acid peptide, SSFPQPN, found by screening many peptides for ones that bind platinum. Ruan and colleagues simulated it on both faces in water with CHARMM-METAL, IFF’s early model for metals, which combines the CHARMM protein model with metal parameters written the same way.
 
-On the triangular face the F ring lies flat, because its six carbons fit the triangular pattern of platinum atoms. On the square face the ring stands up instead, and the computed binding energy of +3 kcal/mol means the peptide does not stick, so water keeps that surface covered.
+On the triangular face the F ring lies flat, because its six carbons fit the triangular pattern of platinum atoms. On the square face the ring stands up instead. There the computed adsorption energy is +3 kcal/mol, which means adsorption is less favourable than staying in the water, so water competes more successfully for that surface. It does not mean the peptide never touches it.
 
-In the lab, every version of the peptide that contained F grew many tetrahedra, crystals with only triangular faces, and versions without F grew mainly cuboctahedra. One version, S7-G, with F replaced by glycine, G, still binds the triangular face strongly, at about −52 kcal/mol, but it also binds the square face, so it gives few tetrahedra. Versions with tyrosine in place of F lie flat on both faces. What matters is the contrast between the faces. The same idea explains the TLT to TFT switch from the opening.
+In the lab, every tested version of the peptide that contained F grew many tetrahedra, and versions without F grew mainly cuboctahedra, crystals with both square and triangular faces. One version, S7-G, with F replaced by glycine, G, still binds the triangular face strongly, at about −52 kcal/mol, but it also binds the square face, so it gives few tetrahedra. Versions with tyrosine in place of F lie flat on both faces. In these syntheses what mattered was the contrast between the faces. The same idea explains the TLT to TFT switch from the opening.
 
 The pictures are illustrations of these poses, not snapshots from the simulations.
 
@@ -202,19 +206,19 @@ The pictures are illustrations of these poses, not snapshots from the simulation
 
 ## 12. Example 2: Water spreads or beads up depending on the silica surface
 
-Heating silica to between 200 and 1000 °C drives off its OH groups. On the fully covered surface water spreads flat, with a contact angle of 0°, and on the most heated surface it beads up at about 42°. The contact angle is the angle between the surface and the edge of a droplet, so a small angle means the water spreads.
+The OH groups on silica are called silanols, a silicon atom bonded to an oxygen that carries a hydrogen. Heating silica to between 200 and 1000 °C joins neighbouring silanols in pairs. Two Si–OH groups become one Si–O–Si bridge and give off one water molecule, 2 Si–OH → Si–O–Si + H₂O. On the fully covered surface water spreads flat, with a contact angle of 0°, and on the most heated surface it beads up at about 42°. The contact angle is the angle between the surface and the edge of a droplet, so a small angle means the water spreads.
 
-Emami and colleagues built silica models with 4.7, 2.35, 1.2 and 0 OH groups per square nanometre to match these samples. The simulated angles came within 3° of the measured ones.
+Emami and colleagues define two end states. On a Q3 surface each surface silicon has three bridges into the solid and one OH group, and on a Q4 surface every silicon has four bridges and no OH is left. They built silica models with 4.7, 2.35, 1.2 and 0 OH groups per square nanometre to match these samples, and the simulated angles came within 3° of the measured ones.
 
 With a standard water model called TIP3P, the model also releases 160 mJ/m² of heat when dry silica with 4.7 OH groups per square nanometre is dipped in water, against 160 ± 5 measured. The paper lists both matches as features of the model, not as independent tests. A 2016 correction to the paper changed only two density plots, not these results.
 
-The droplets are drawn to these angles and are not simulation snapshots.
+The two surfaces in the picture are cut from the measured crystal structure of cristobalite, a form of silica, along a face that carries 4.7 OH groups per square nanometre, the Q3 value. For the heated surface, each surface OH group was paired with its nearest neighbour, each pair was joined into a bridge with one water molecule removed, and the atoms were then relaxed with simple springs for bond lengths and angles. The new bridges close small, strained rings of three silicon atoms, which bend the top SiO₄ groups out of their regular shape. This construction follows Emami’s definitions but is not Emami’s own model, and the droplets are drawn to the measured angles, not simulated.
 
 ### Sources
 
 - Emami et al. (2014). Force Field and a Surface Model Database for Silica to Simulate Interfacial Properties in Atomic Resolution. Chemistry of Materials 26, 2647–2658. https://doi.org/10.1021/cm500365c
 - Emami et al. (2016). Correction to Force Field and a Surface Model Database for Silica to Simulate Interfacial Properties in Atomic Resolution. Chemistry of Materials 28, 406–407. https://doi.org/10.1021/acs.chemmater.5b04760
-- Levien, Prewitt and Weidner (1980). Structure and elastic properties of quartz at pressure. American Mineralogist 65, 920–930. Crystallography Open Database entry 9000775. https://www.crystallography.net/cod/9000775.html
+- Pluth, Smith and Faber (1985). Crystal structure of low cristobalite at 10, 293, and 473 K: Variation of framework geometry with temperature. Journal of Applied Physics 57, 1045–1049. Crystallography Open Database entry 9009686. https://www.crystallography.net/cod/9009686.html
 - Jorgensen, Chandrasekhar, Madura, Impey and Klein (1983). Comparison of simple potential functions for simulating liquid water. Journal of Chemical Physics 79, 926–935. https://doi.org/10.1063/1.445869
 
 ## 13. Example 3: Bone mineral changes its surface with pH
@@ -249,17 +253,17 @@ Every number comes from the 2021 rhodium paper, and none is a new fit or result.
 
 ## 15. A flat ring on a triangular face explains the crystal shape
 
-Back to the opening question. Swapping one amino acid, L for F, shifted platinum crystals from cubes toward tetrahedra. The simulations showed why. The F ring lies flat on the triangular face and sticks, while on the square face the ring stands up and the peptide does not stick. Crystals grow slowest on the faces that are covered, so the triangular faces end up covering the crystal, and a crystal with only triangular faces is a tetrahedron.
+Back to the opening question. Swapping one amino acid, L for F, shifted platinum crystals from cubes toward tetrahedra. The simulations showed why. The F ring lies flat on the triangular face and binds strongly, while on the square face the ring stands up and adsorption is less favourable. Preferential binding slows the growth of the faces it covers, so the triangular faces end up covering the crystal. In these platinum syntheses, the change favoured tetrahedra. The octahedron in the animation at the start also has only triangular faces, so a triangular pattern of atoms on each face does not by itself fix the whole crystal’s shape.
 
 That answer needed all three sets of interactions in one model, which is what IFF provides. IFF supplies compatible interaction equations and material parameters so a classical simulation can describe a solid together with water, polymers or biological molecules. It addresses inconsistent material/surface descriptions and the difficulty of combining separately developed models, allowing supported interface structures, binding and energies to be calculated and compared with experiments.
 
 The three examples each compared a different kind of result with experiment, the face a peptide prefers on platinum, how water wets silica, and the heat given off as water meets bone mineral. In each, it matters which measurements tuned the model and which were left to test it, and a standard model still cannot describe reactions.
 
-Other published studies tested IFF in other ways. On silica, simulations with PCFF-SILICA, IFF’s silica model, compared the twelve-amino-acid peptide KSLSRHDHIHHH with two versions of it. In the experiments, swapping the histidine at position 6 for alanine made the peptide stick more, and the same swap at position 11, near the C-terminal end of the chain, made it stick less. The simulations ranked the three in the same order, but only on the surface model that matched the experiment, with about 4.7 OH groups per square nanometre. With twice as many, 9.4, the order changed.
+Other published studies tested IFF in other ways. On silica, simulations with PCFF-SILICA, an early silica model in the IFF lineage, compared the twelve-amino-acid peptide KSLSRHDHIHHH with two versions of it. In the experiments, swapping the histidine at position 6 for alanine made the peptide stick more, and the same swap at position 11, near the C-terminal end of the chain, made it stick less. The simulations ranked the three in the same order, but only on the surface model that matched the experiment, with about 4.7 OH groups per square nanometre. With twice as many, 9.4, the order changed.
 
 For cement, Mishra, Flatt and Heinz computed the energy needed to pull two broken faces of tricalcium silicate apart at 90 °C, close to the conditions in a working mill. Bare faces needed 240 to 450 mJ/m², depending on whether water had reached them, and less than one layer of grinding additive cut that to between 50 and 110. These results are in section 4.3 and Figures 10 and 11 of their paper. Mill tests reported in a patent ranked three amine additives in the same order as the simulation. That is a ranking only, and glycerine, the fourth additive, was not in those tests.
 
-For gold, a polarizable model, in which each gold atom’s electrons can shift towards or away from a nearby ion, gives −13.0 ± 0.1 kcal/mol per water molecule in a layer on gold’s triangular face, and the plain model −12.8 ± 0.1. Measurements on gold made of many small crystals give −13 and −15.5. The shift matters most for ions close to the metal, and for water the plain model is nearly as good.
+For gold, a polarizable model, in which each gold atom’s electrons can shift towards or away from a nearby ion, gives −13.0 ± 0.1 kcal/mol per water molecule for a single layer of water on gold’s triangular face, and the plain model −12.8 ± 0.1. Measurements of water adsorbed from water vapour onto gold made of many small crystals give −13 and −15.5, so the measured samples are not the same single face. The shift matters most for ions close to the metal, and for water the plain model is nearly as good.
 
 Thank you. The notes for each slide hold the equations, the worked numbers and the sources behind it, and the reading version shows them with every slide.
 

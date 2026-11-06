@@ -65,7 +65,7 @@ def electrons():
     text(ax, h1[0] + 40, h1[1] + 132, 'hydrogen nucleus', size=26, bold=True, ha='center')
     text(ax, h1[0] + 40, h1[1] + 166, '1 proton, no neutron', size=24, color=BODY, ha='center')
     ax.plot([h1[0] + 12, h1[0] + 28], [h1[1] + 14, h1[1] + 108], color=INK, lw=pt(2), zorder=4)
-    text(ax, 44, 616, 'Quantum chemistry computes this cloud, accurately but slowly', size=24, color=BODY)
+    text(ax, 44, 616, 'Quantum chemistry computes this cloud, usually at a high cost', size=24, color=BODY)
     scene = rt.Scene()
     ball_and_stick(scene, ['O', 'H', 'H'], nuclei * 1.9, pairs=[], atom=1.9)
     for hq in nuclei[1:]:
@@ -76,7 +76,7 @@ def electrons():
     for hp, side in ((hp1, 1), (hp2, -1)):
         text(ax, hp[0] + side * 72, hp[1] + 38, 'δ+', size=40, bold=True, color=BLUE, ha='center')
     text(ax, 1311, 404, 'spring', size=24, color=MUTED, ha='center')
-    text(ax, 938, 616, 'Balls, springs and charges are fast enough for millions of atoms', size=24, color=BODY)
+    text(ax, 938, 616, 'Balls, springs and charges often reach millions of atoms', size=24, color=BODY)
     return save(fig, 'electrons')
 
 

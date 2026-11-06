@@ -4,6 +4,7 @@
 `python source/verify.py` prints one line per check and exits non-zero if any fails. `main()` returns every public
 text in the bundle (data URIs stripped, this file left out), so a further scan can reuse them.
 """
+import io
 import json
 import re
 import sys
@@ -11,7 +12,9 @@ import zipfile
 from pathlib import Path
 
 import pymupdf
+from PIL import Image, ImageSequence
 from pptx import Presentation
+from pptx.enum.shapes import MSO_SHAPE_TYPE
 
 BUNDLE = Path(__file__).resolve().parent.parent
 TARGET = ('IFF supplies compatible interaction equations and material parameters so a classical simulation can '
@@ -72,6 +75,22 @@ def main(bundle=BUNDLE):
             check(f'{i} notes end with all {len(cited)} sources', '\nSources\n' in notes
                   and all(story['sources'][r]['title'] in notes for r in cited))
         check(f'{i} html title', title in html)
+        if slide.get('animation'):
+            caption = slide['animation_caption']
+            check(f'{i} animation caption in pptx and pdf',
+                  caption in joined and ' '.join(caption.split()) in pdf_text, caption[:60])
+            check(f'{i} animation in the slide and the reading view, each with its still',
+                  html.count(f'src="{slide["animation"]}"') == 2
+                  and html.count(f'srcset="{slide["animation_still"]}"') == 2)
+            gifs = [s.image.blob for s in page.shapes
+                    if s.shape_type == MSO_SHAPE_TYPE.PICTURE and s.image.content_type == 'image/gif']
+            check(f'{i} pptx carries the animation', len(gifs) == 1 and Image.open(io.BytesIO(gifs[0])).n_frames > 1)
+            gif = Image.open(bundle / slide['animation'])
+            loop = gif.info.get('loop')
+            times = [frame.info['duration'] for frame in ImageSequence.Iterator(gif)]
+            size = (bundle / slide['animation']).stat().st_size
+            check(f'{i} animation loops for 6 to 12 s in at most 3 MB', gif.n_frames > 1 and loop == 0
+                  and 6000 <= sum(times) <= 12000 and size <= 3e6, (gif.n_frames, sum(times), size))
     catalog = next(s for s in story['slides'] if s['id'] == 'catalog')
     check('target in the catalog notes', any(TARGET in p for p in catalog['notes']))
     check('target on the bookend', any(TARGET in json.dumps(s, ensure_ascii=False) for s in story['slides']

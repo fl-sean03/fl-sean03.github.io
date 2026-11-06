@@ -20,9 +20,10 @@ def platinum():
     m, flat, upright = st.s7()
     rotation = front_view(30)
     flat = flat @ st.rotation((0, 0, 1), np.pi).T  # puts the backbone behind the ring, so the ring shows
-    panels = (('111', flat, TEAL, 'Triangular face', 'Lies flat and sticks', 'its hexagon fits the triangular pattern'),
-              ('100', upright, BLUE, 'Square face', 'Stands up, does not stick',
-               'computed +3 kcal/mol, so water keeps the surface'))
+    panels = (('111', flat, TEAL, 'Triangular face', 'Lies flat and binds strongly',
+               'its hexagon fits the triangular pattern'),
+              ('100', upright, BLUE, 'Square face', 'Stands up, adsorption is less favourable',
+               'computed +3 kcal/mol, so water competes more successfully'))
     for k, (face, pep, color, title, head, line) in enumerate(panels):
         x0 = 894 * k
         water = st.waters_around((-16, -9, 2.4), (16, 9, 7), pep, rotation, seed=5 + k, margin=0.8)
@@ -34,32 +35,35 @@ def platinum():
         text(ax, x0 + 140, 66, title, size=30, bold=True, color=color)
         text(ax, x0 + 417, 492, head, size=28, bold=True, ha='center')
         text(ax, x0 + 417, 532, line, size=24, color=BODY, ha='center')
-    result(fig, ax, 'In the lab', ', every peptide version with F grew many tetrahedra, crystals with only '
-                                  'triangular faces, and versions without F grew few', ACCENT)
+    result(fig, ax, 'In the lab', ', every tested peptide version with F grew many tetrahedra, and versions without F '
+                                  'grew few', ACCENT)
     return save(fig, 'platinum', quality=90)
 
 
 def wetting():
-    """A 14 Å slice through water on hydroxylated silica (Q3, contact angle 0°) and on silica whose OH groups heating
-    removed (Q4, 42°) (E14). The film and the 42° droplet are drawn to those angles, not simulated."""
+    """A 14 Å slice through water on cristobalite's (101) face covered in OH (Q3, contact angle 0°) and on the same
+    face after heating has joined each pair of OH into a Si–O–Si bridge (Q4, 42°) (E14). The new bridge O are
+    marked, and the crystal is turned 30° so its rows of atoms don't line up with the view. The film and the 42°
+    droplet are drawn to those angles, not simulated."""
     fig, ax = canvas()
-    symbols, positions = st.silica((19, 9, 3), (0, 6, 6.5), (62, 30, 14))
     rotation = front_view(6)
     angle, base, depth = np.radians(42), 16.0, 7.0
-    for k, wet in enumerate((True, False)):
+    for k, heated in enumerate((False, True)):
         x0 = 894 * k
-        keep = [i for i, e in enumerate(symbols) if wet or e != 'H']
+        symbols, positions, bridges = st.silica_surface(heated, (60, 20), turn=30)
         solid = rt.Scene()
-        polyhedral(solid, [symbols[i] for i in keep], positions[keep])
-        floor = positions[[i for i in keep if symbols[i] == 'O'], 2].max() + 1.0  # lowest water oxygen height
-        if wet:
-            wsym, wpos = st.water_box((-26, -depth, floor), (26, depth, floor + 2.8), avoid=positions[keep],
+        polyhedral(solid, symbols, positions)
+        for p in positions[bridges]:
+            solid.sphere(p, 0.42, ELEMENTS['O'][0])
+        floor = positions[np.asarray(symbols) == 'O', 2].max() + 1.0  # lowest water oxygen height
+        if not heated:
+            wsym, wpos = st.water_box((-26, -depth, floor), (26, depth, floor + 2.8), avoid=positions,
                                       clearance=2.4, seed=8)
         else:
             height = base * np.tan(angle / 2)
             radius = base / np.sin(angle)
             centre = np.array((0, 0, floor + height - radius))
-            wsym, wpos = st.water_box((-base, -depth, floor), (base, depth, floor + height), avoid=positions[keep],
+            wsym, wpos = st.water_box((-base, -depth, floor), (base, depth, floor + height), avoid=positions,
                                       clearance=2.4, seed=8)
             inside = np.repeat(np.linalg.norm(wpos[::3] - centre, axis=1) < radius, 3)
             wsym, wpos = [e for e, i in zip(wsym, inside) if i], wpos[inside]
@@ -67,7 +71,7 @@ def wetting():
         ball_and_stick(liquid, wsym, wpos, atom=1.2)
         p = layered(ax, ((solid, {}), (liquid, {'contact': 0.5})), rotation, (x0, 0, 834, 460), 22,
                     centre=aim(rotation, (0, 0, 0), (0, 30), 22), edges={'left': 70, 'right': 70, 'bottom': 40})
-        if wet:
+        if not heated:
             y = p((0, 0, floor + 6))[1]
             for start, end in ((x0 + 130, x0 + 50), (x0 + 704, x0 + 784)):
                 arrow(ax, (start, y), (end, y), color=MUTED, width=4, head=22)
@@ -82,10 +86,11 @@ def wetting():
         ax.plot([p((base - 12, 0, floor))[0], c[0]], [a[1], c[1]], color=ACCENT, lw=pt(4), zorder=8,
                 solid_capstyle='round')
         bisector = angle_arc(ax, a, b, p((base - 12, 0, floor)), 70, color=ACCENT, width=3)
-        text(ax, *(a + 112 * bisector), '42°', size=28, bold=True, color=ACCENT, ha='center', z=9,
-             bbox=dict(boxstyle='round,pad=0.15', fc='white', ec='none'))
+        # A filled tag like the deck's numbered markers, since any spot inside the angle lies over the droplet's water.
+        text(ax, *(a + 125 * bisector), '42°', size=28, bold=True, color='white', ha='center', z=9,
+             bbox=dict(boxstyle='round,pad=0.3', fc=ACCENT, ec='none'))
     for k, (head, line) in enumerate((('OH groups on the surface', 'water spreads flat (0°)'),
-                                      ('OH groups removed by heating', 'water beads up (42°)'))):
+                                      ('Heating joins OH pairs into Si–O–Si bridges', 'water beads up (42°)'))):
         text(ax, 894 * k + 417, 492, head, size=28, bold=True, ha='center')
         text(ax, 894 * k + 417, 532, line, size=24, color=BODY, ha='center')
     result(fig, ax, 'The simulated angles', ' came within 3° of the measured ones on every surface tested, including '

@@ -1,15 +1,18 @@
 """Figures for the opening. They show the peptide S7 on platinum, one amino acid changing the shape of a crystal,
-separately built models against IFF, and the materials IFF covers."""
+an animation of the idea behind it, separately built models against IFF, and the materials IFF covers."""
 from functools import lru_cache
 
 import numpy as np
 from matplotlib.patches import Circle
+from PIL import Image
 
+import growth as gr
 import render as rt
 import structures as st
-from draw import (CRYSTAL_VIEWS, FLAT, aim, arrow, ball_and_stick, canvas, dashed, front_view, layered,
-                  magnifier, panel, platinum_scenes, polyhedral, pt, pt_crystal, save, shot, spheres, text)
-from style import ACCENT, ACCENT_SOFT, BLUE, BODY, INK, LINE, MUTED, RULE, TEAL, TINT
+from draw import (CRYSTAL_VIEWS, FLAT, aim, animate, arrow, ball_and_stick, canvas, dashed, front_view, layered,
+                  magnifier, mix, panel, platinum_scenes, polyhedral, pt, pt_crystal, save, shot, spheres, text)
+from style import (ACCENT, ACCENT_SOFT, ANIMATION, ASSETS, BLUE, BODY, ELEMENTS, GUTTER, INK, LINE, MUTED, RULE,
+                   TEAL, TINT)
 
 
 @lru_cache
@@ -77,8 +80,8 @@ def cover():
 
 def hook():
     """With TLT platinum grows as cubes, and with TFT it shifts toward tetrahedra, so one amino acid changes the crystal
-    shape (R13)."""
-    fig, ax = canvas()
+    shape (R13). It leaves the right of its row to the growth animation."""
+    fig, ax = canvas(1728 - ANIMATION - GUTTER)
     rows = (('TLT', 'leucine', 'grows', 'cube', 27.5, BLUE, 'Cubes', 'square'),
             ('TFT', 'phenylalanine', 'shifts toward', 'tetra', 44.0, TEAL, 'Tetrahedra', 'triangular'))
     for n, (seq, name, verb, shape, size, color, shapes, pattern) in enumerate(rows):
@@ -86,20 +89,54 @@ def hook():
         m, p, side = tripeptide(seq)
         scene = rt.Scene()
         ball_and_stick(scene, m.symbols, p, m.pairs)
-        project = shot(ax, scene, FLAT, (0, y0, 560, 252), 22)
+        project = shot(ax, scene, FLAT, (0, y0, 380, 252), 22)
         ax.add_patch(Circle(project(p[side].mean(0)), 68, color=ACCENT_SOFT, zorder=1))
         for r, letter in enumerate(seq):
             x = project(p[[i for i in m.residue(r + 1) if m.symbols[i] != 'H']].mean(0))[0]
             text(ax, x, y0 + 266, letter, size=32, bold=True, color=ACCENT if r == 1 else INK, ha='center')
-        text(ax, 280, y0 + 302, f'threonine · {name} · threonine', size=23, color=MUTED, ha='center')
-        text(ax, 645, y0 + 118, verb, size=23, color=MUTED, ha='center')
-        arrow(ax, (590, y0 + 150), (700, y0 + 150), color=LINE, width=4)
-        shot(ax, pt_crystal(shape, size), CRYSTAL_VIEWS[shape], (720, y0, 300, 300), 6.2, centre=(0, 0, 0))
-        magnifier(ax, (1172, y0 + 150), 80, '100' if shape == 'cube' else '111', color)
-        text(ax, 1296, y0 + 100, shapes, size=36, bold=True, color=color)
-        text(ax, 1296, y0 + 152, f'{pattern} pattern of', size=26, color=BODY)
-        text(ax, 1296, y0 + 188, 'atoms on every face', size=26, color=BODY)
+        text(ax, 190, y0 + 302, f'threonine · {name} · threonine', size=23, color=MUTED, ha='center')
+        text(ax, 446, y0 + 118, verb, size=23, color=MUTED, ha='center')
+        arrow(ax, (398, y0 + 150), (494, y0 + 150), color=LINE, width=4)
+        shot(ax, pt_crystal(shape, size), CRYSTAL_VIEWS[shape], (504, y0, 270, 300), 6.0, centre=(0, 0, 0))
+        magnifier(ax, (846, y0 + 150), 66, '100' if shape == 'cube' else '111', color, scale=12.5)
+        text(ax, 932, y0 + 104, shapes, size=34, bold=True, color=color)
+        text(ax, 932, y0 + 152, f'{pattern} pattern of', size=24, color=BODY)
+        text(ax, 932, y0 + 184, 'atoms on every face', size=24, color=BODY)
     return save(fig, 'hook')
+
+
+def growth():
+    """Slide 2's animation of the idea. A platinum cuboctahedron grows while TFT lying on its triangular faces slows
+    them, so its square faces (tinted blue) grow out and vanish and it ends as an octahedron. It follows the rule in
+    growth.py and is not a simulation from R13. Also saves the last frame as the still for print and for readers who
+    ask for reduced motion. The loop starts again from the first frame, without a fade, which keeps the GIF small."""
+    g = gr.Growth()
+    final = g.atoms(gr.END)
+    assert not g.on_square(final, gr.END).any(), 'the crystal should end as an octahedron, as slide 2 says'
+    rotation = rt.view((0.75, -0.9, 0.35))
+    size = 600  # px, a little above the 540 slide px it fills, which keeps the GIF under 3 MB
+    seen = g.sites[final] * gr.UNIT @ rotation.T
+    scale = (size / 2 - 14) / (np.abs(seen[:, :2]).max() + ELEMENTS['Pt'][1])
+    ring = set(g.m.ring())
+    colors = [ACCENT if i in ring else ELEMENTS['H'][0] if s == 'H' else BODY for i, s in enumerate(g.m.symbols)]
+    metal, square = ELEMENTS['Pt'][0], mix(ELEMENTS['Pt'][0], BLUE, 0.45)
+    frames = []
+    for t in np.linspace(0, gr.END, 81):
+        scene = rt.Scene()
+        shown, outward = g.surface(g.atoms(t))
+        front = outward @ rotation[2] > -0.3  # the far side is hidden anyway
+        for site, blue in zip(g.sites[shown[front]] * gr.UNIT, g.on_square(shown[front], t)):
+            scene.sphere(site, ELEMENTS['Pt'][1], square if blue else metal)
+        for p in g.peptides:
+            if gr.DIRECTIONS[p['face']] @ rotation[2] > -0.3 and (now := g.peptide_at(p, t)):
+                ball_and_stick(scene, g.m.symbols, now[0], g.m.pairs, atom=1.6, bond=0.22, fade=0.8 * now[1],
+                               colors=colors)
+        picture, _ = rt.render(scene, rotation, size, size, scale, centre=(0, 0, 0), fog=0)
+        frame = Image.new('RGB', picture.size, 'white')
+        frame.paste(picture, mask=picture.getchannel('A'))
+        frames.append(frame)
+    frames[-1].save(ASSETS / 'growth-end.jpg', quality=92)
+    return animate(frames, 'growth', [1000] + [80] * 79 + [1500])
 
 
 def motivation():
@@ -111,7 +148,7 @@ def motivation():
     tiles = (('Catalysts', ('Platinum crystals speed up', 'reactions. What sits on their',
                             'faces affects their shape and', 'how well they work.')),
              ('Medicine', ('Gold rods that turn light into', 'heat are studied for treating',
-                           'cancer. Their coating affects', 'how they act in the body.')),
+                           'cancer. Their surfaces interact', 'with water and biomolecules.')),
              ('Bones and teeth', ('Proteins steer how the mineral', 'of bones and teeth grows. That',
                                   'matters for osteoporosis and', 'tooth decay.')),
              ('Cement', ('Grinding is a big cost in making', 'cement. Additives that stick to',
@@ -162,9 +199,10 @@ def compat():
     ball_and_stick(molecule_icon, m.symbols, p, m.pairs)
     for side, (title, color, link, rule, value, claim) in enumerate((
             ('Built separately', MUTED, False, ['No shared rule for', 'metal with molecules'],
-             'Up to 50% low', ['surface energies from metal-only', 'models (embedded-atom method)']),
+             'Up to 50% low', ['surface energies in some of the', 'compared metal-only models']),
             ('Interface Force Field', ACCENT, True, ['So metal–molecule pairs', 'follow the same rules'],
-             'Within 5%', ['of measured surface and', 'water-interface energies']))):
+             'Calibrated', ['to measured lattice size and', 'surface energy, with selected',
+                            'interfaces tested separately']))):
         x0 = side * 894
         panel(ax, x0, 0, 834, 654, TINT)
         text(ax, x0 + 44, 52, title, size=32, bold=True, color=color)
@@ -189,8 +227,8 @@ def compat():
         text(ax, x0 + 415, 446, rule[1], size=24, color=INK, ha='center')
         ax.plot([x0 + 44, x0 + 790], [500, 500], color=RULE, lw=pt(2), zorder=1)
         text(ax, x0 + 44, 566, value, size=44, bold=True, color=color)
-        text(ax, x0 + 400, 550, claim[0], size=24, color=BODY)
-        text(ax, x0 + 400, 584, claim[1], size=24, color=BODY)
+        for j, line in enumerate(claim):
+            text(ax, x0 + 400, 567 + (j - (len(claim) - 1) / 2) * 34, line, size=24, color=BODY)
     return save(fig, 'compat')
 
 
@@ -239,4 +277,4 @@ def catalog():
     return save(fig, 'catalog')
 
 
-FIGURES = (cover, hook, motivation, compat, catalog)
+FIGURES = (cover, hook, growth, motivation, compat, catalog)

@@ -126,7 +126,7 @@
   }
   function closeZoom() { if (zoom.hidden) return; zoom.hidden = true; reader.inert = false; }
   zoom.addEventListener('click', closeZoom);
-  reader.addEventListener('click', e => { const img = e.target.closest('figure img'); if (img) openZoom(img); });
+  reader.addEventListener('click', e => { const img = e.target.closest('figure:not(.r-anim) img'); if (img) openZoom(img); });
 
   const pill = doc.createElement('button');
   pill.type = 'button'; pill.id = 'read-pill'; pill.textContent = 'Read with notes';

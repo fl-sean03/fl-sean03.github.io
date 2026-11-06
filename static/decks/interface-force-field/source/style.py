@@ -12,6 +12,9 @@ ACCENT, ACCENT_SOFT = '#B3263E', '#F8E9EC'
 BLUE, BLUE_SOFT = '#3474B8', '#E8F0F9'
 TEAL = '#1D7F79'
 
+# Slide px: the side of the square animation that shares slide 2's figure row, and the gap between them.
+ANIMATION, GUTTER = 540, 28
+
 # Element colour and ball radius (Å) for ball-and-stick pictures; metals use touching spheres.
 ELEMENTS = {
     'H': ('#F3F4F6', 0.24), 'C': ('#59616E', 0.36), 'N': ('#3474B8', 0.36), 'O': ('#D9483B', 0.36),

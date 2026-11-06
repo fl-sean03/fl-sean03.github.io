@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Check the viewer's reading and zoom controls on a laptop and a phone, saving a screenshot of each state.
+"""Check the viewer's reading and zoom controls and the slide 2 animation on a laptop and a phone, saving a screenshot
+of each state.
 
 usage: python source/interact.py index.html outdir
 """
@@ -41,9 +42,29 @@ async def state(page):
         overflow: document.documentElement.scrollWidth - innerWidth})""")
 
 
+async def plays(page, selector, name, shot):
+    """Check that the animation at `selector` has loaded and moves: three pictures of it 0.9 s apart differ."""
+    img = page.locator(selector)
+    await img.scroll_into_view_if_needed()
+    loaded = await img.evaluate('im => im.complete && im.naturalWidth > 0')
+    pictures = []
+    for _ in range(3):
+        pictures.append(await img.screenshot())
+        await page.wait_for_timeout(900)
+    (out / shot).write_bytes(pictures[-1])
+    check(f'{name} animation loads and plays', loaded and len(set(pictures)) > 1, (loaded, len(set(pictures))))
+
+
 async def main():
     async with async_playwright() as p:
         browser = await p.chromium.launch(executable_path=CHROME)
+
+        # Laptop on slide 2: the growth animation plays beside the figure.
+        page, errors = await open_page(browser, 1440, 900, '#2')
+        await plays(page, 'img.animation', 'laptop slide 2', 'laptop-2-animation.png')
+        await page.screenshot(path=str(out / 'laptop-2.png'))
+        check('laptop slide 2 errors', not errors, errors)
+        await page.close()
 
         # Laptop: #read opens the reading version; T and Esc go back to the slides; the pill opens it again.
         page, errors = await open_page(browser, 1440, 900, '#read')
@@ -91,6 +112,12 @@ async def main():
         check('phone opens reading by itself', s['reading'], s)
         check('phone reading has no sideways scroll', s['overflow'] <= 0, s['overflow'])
         await page.screenshot(path=str(out / 'phone-read-top.png'))
+        await plays(page, '#read-hook figure.r-anim img', 'phone reading', 'phone-read-animation.png')
+        await page.screenshot(path=str(out / 'phone-read-hook.png'))
+        await page.tap('#read-hook figure.r-anim img')
+        await page.wait_for_timeout(300)
+        s = await state(page)
+        check('tapping the animation leaves it in place', not s['zoom'] and s['reading'], s)
         await page.tap('#read-agent figure img')
         await page.wait_for_timeout(300)
         s = await state(page)
@@ -126,6 +153,14 @@ async def main():
         check('a touch brings it back', s['pill'] == '1', s['pill'])
         await page.screenshot(path=str(out / 'phone-landscape-5.png'))
         check('landscape errors', not errors, errors)
+        await page.close()
+
+        # A reader who asks for reduced motion sees the still instead.
+        page = await browser.new_page(viewport={'width': 1440, 'height': 900}, reduced_motion='reduce')
+        await page.goto(deck.as_uri() + '#2')
+        await page.evaluate('window.deck.ready')
+        shown = await page.evaluate("[...document.querySelectorAll('picture img')].map(im => im.currentSrc)")
+        check('reduced motion shows the still', len(shown) == 2 and all(s.endswith('.jpg') for s in shown), shown)
         await browser.close()
     print(sum(results), 'of', len(results), 'checks passed')
 

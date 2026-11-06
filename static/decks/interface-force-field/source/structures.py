@@ -13,6 +13,7 @@ from ase import Atoms
 from ase.build import fcc100, fcc111
 from ase.data import covalent_radii, atomic_numbers
 from ase.io import read
+from scipy.optimize import minimize
 from scipy.spatial import cKDTree
 
 from style import DATA
@@ -21,6 +22,8 @@ LATTICE = {'Pt': 3.9231, 'Au': 4.07825, 'Rh': 3.8032}  # COD 9008480, COD 900846
 FCC = np.array([[0, 0, 0], [0.5, 0.5, 0], [0.5, 0, 0.5], [0, 0.5, 0.5]])  # a face-centred cubic cell's 4 atoms
 WATER_OH, WATER_ANGLE = 0.9572, 104.52  # standard water geometry (also the TIP3P geometry)
 ION_RADII = {'Na': 1.02, 'Cl': 1.81}  # Å, Shannon ionic radii; together 2.83 Å, the Na-Cl spacing in salt
+SI_O, O_SI_O, SI_O_SI = 1.60, 109.47, 146.7  # cristobalite's mean Si–O bond (Å) and angles (°), COD 9009686
+STIFFNESS = (1000, 100, 3)  # relative springs on a Si–O bond (per Å²), an O–Si–O and a Si–O–Si angle (per rad²)
 
 
 def cod(code):
@@ -265,10 +268,11 @@ def settle(molecule, positions, low, high, rounds=12, step=0.6, far=25.0, slack=
 
 
 def block(bulk, repeat, lo, hi, centres=('Si', 'P'), cutoff=1.8):
-    """Atoms of a repeated crystal inside a box, keeping every SiO4/PO4 group whole and hydroxide H with its O."""
-    big = bulk.repeat(tuple(n + 2 for n in repeat))
+    """Atoms of a repeated crystal inside a box, keeping every SiO4/PO4 group whole and hydroxide H with its O. A
+    slab repeats only along its periodic directions."""
+    big = bulk.repeat(tuple(n + 2 if along else 1 for n, along in zip(repeat, bulk.pbc)))
     symbols = np.array(big.get_chemical_symbols())
-    pos = big.positions - bulk.cell.sum(axis=0)  # a spare cell on every side keeps edge groups whole
+    pos = big.positions - bulk.cell.array[bulk.pbc].sum(axis=0)  # a spare cell on every side keeps groups whole
     inside = np.all((pos >= lo) & (pos <= hi), axis=1)
     tree = cKDTree(pos)
     centre = np.isin(symbols, centres)
@@ -352,3 +356,134 @@ def silica(repeat, lo, hi):
     broken = (symbols == 'O') & np.array([len(si.query_ball_point(q, 1.8)) == 1 for q in positions])
     symbols, positions = cap(list(symbols), positions, broken, top=positions[:, 2].max() - 1.2)
     return symbols, positions - [*positions[:, :2].mean(0), positions[:, 2].max()]
+
+
+def minimum_image(d, cell):
+    """Differences `d` between atoms of a slab periodic along x and y with lengths `cell`, each to the nearest copy."""
+    d = np.array(d, float)
+    d[..., :2] -= cell * np.round(d[..., :2] / cell)
+    return d
+
+
+def angles(bonds, count):
+    """Every (i, j, k) with bonds i–j and j–k, among `count` atoms."""
+    around = [[] for _ in range(count)]
+    for i, j in bonds:
+        around[i].append(j)
+        around[j].append(i)
+    return np.array([(i, j, k) for j, ends in enumerate(around) for n, i in enumerate(ends) for k in ends[n + 1:]])
+
+
+def relax(symbols, positions, bonds, free, cell):
+    """Move the atoms `free` of a periodic slab to minimise a spring energy. Each Si–O bond pulls toward SI_O and
+    each O–Si–O and Si–O–Si angle toward O_SI_O and SI_O_SI, with the relative stiffnesses in STIFFNESS."""
+    b, a = np.array(bonds), angles(bonds, len(symbols))
+    silicon = np.asarray(symbols)[a[:, 1]] == 'Si'
+    ideal = np.radians(np.where(silicon, O_SI_O, SI_O_SI))
+    kb, ka = STIFFNESS[0], np.where(silicon, *STIFFNESS[1:])
+    x = np.array(positions, float)
+
+    def energy(flat):
+        x[free] = flat.reshape(-1, 3)
+        grad = np.zeros_like(x)
+        d = minimum_image(x[b[:, 1]] - x[b[:, 0]], cell)
+        r = np.linalg.norm(d, axis=1)
+        f = (2 * kb * (r - SI_O) / r)[:, None] * d
+        np.add.at(grad, b[:, 1], f)
+        np.add.at(grad, b[:, 0], -f)
+        u, v = minimum_image(x[a[:, 0]] - x[a[:, 1]], cell), minimum_image(x[a[:, 2]] - x[a[:, 1]], cell)
+        lu, lv = np.linalg.norm(u, axis=1)[:, None], np.linalg.norm(v, axis=1)[:, None]
+        cos = np.clip((u * v).sum(1, keepdims=True) / (lu * lv), -0.999999, 0.999999)
+        theta = np.arccos(cos[:, 0])
+        g = (-2 * ka * (theta - ideal) / np.sqrt(1 - cos[:, 0] ** 2))[:, None]
+        gu, gv = g * (v / (lu * lv) - cos * u / lu ** 2), g * (u / (lu * lv) - cos * v / lv ** 2)
+        np.add.at(grad, a[:, 0], gu)
+        np.add.at(grad, a[:, 2], gv)
+        np.add.at(grad, a[:, 1], -gu - gv)
+        return kb * ((r - SI_O) ** 2).sum() + (ka * (theta - ideal) ** 2).sum(), grad[free].ravel()
+
+    best = minimize(energy, x[free].ravel(), jac=True, method='L-BFGS-B', options={'maxiter': 5000})
+    x[free] = best.x.reshape(-1, 3)
+    return x
+
+
+@lru_cache
+def cristobalite_surface(heated=False, cells=(2, 4), depth=12.0):
+    """A slab of α-cristobalite (COD 9009686) with its (101) face up, periodic along x and y, top Si layer at z = 0.
+
+    The cut runs through the widest gap between Si layers, so each Si on either face loses one bond, and an H on
+    each O left with one Si makes a silanol, ≡Si–OH. The top face is then the Q3 surface, 4.7 OH per nm² (E14).
+    Heated, each top silanol condenses with its nearest neighbour, 2 ≡Si–OH → ≡Si–O–Si≡ + H₂O, so every top Si
+    has four bridging O. That is the Q4 surface, with no OH (E14). Each new bridge closes a strained ring of three
+    Si, and `relax` moves every atom more than 3 Å above the bottom. Returns the slab and its new bridge O."""
+    bulk = cod('9009686')
+    a, _, c = bulk.cell.lengths()
+    x, y = np.array([a, 0, -c]), np.array([0, a, 0])  # [10-1] and [010] lie in the (101) face
+    frame = np.array([x / np.linalg.norm(x), y / a, np.cross(x, y) / np.linalg.norm(np.cross(x, y))])
+    cell = np.array([cells[0] * np.linalg.norm(x), cells[1] * a])
+    big = bulk.repeat(8)
+    symbols = np.array(big.get_chemical_symbols())
+    pos = (big.positions - big.positions.mean(0)) @ frame.T
+    heights = np.sort(pos[symbols == 'Si', 2])
+    heights = heights[np.abs(heights) < 4]
+    gap = np.argmax(np.diff(heights))
+    top = (heights[gap] + heights[gap + 1]) / 2
+    inside = np.all(np.abs(pos[:, :2]) < cell / 2, axis=1) & (pos[:, 2] < top) & (pos[:, 2] > top - depth)
+    si = pos[inside & (symbols == 'Si')]
+    o = pos[symbols == 'O']
+    o = o[cKDTree(si).query(o)[0] < 1.8]  # O bonded to a kept Si, then one copy of each under the period
+    o[:, :2] = (o[:, :2] + cell / 2) % cell - cell / 2
+    o = o[np.unique(np.round(o, 3), axis=0, return_index=True)[1]]
+    symbols, positions = ['Si'] * len(si) + ['O'] * len(o), np.vstack([si, o])
+    bonds = sorted(cKDTree(np.c_[positions[:, :2] % cell, positions[:, 2]], boxsize=[*cell, 0]).query_pairs(1.8))
+    owner = {}
+    for i, j in bonds:
+        owner.setdefault(j, []).append(i)
+    silanols = [j for j, s in owner.items() if len(s) == 1]
+    for j in silanols:  # an H 0.96 Å out, with Si–O–H at 118° and the H tilted away from the slab
+        away = minimum_image(positions[j] - positions[owner[j][0]], cell)
+        away /= np.linalg.norm(away)
+        out = np.array([0, 0, np.sign(away[2])]) - away[2] * np.sign(away[2]) * away
+        h = np.cos(np.radians(62)) * away + np.sin(np.radians(62)) * out / np.linalg.norm(out)
+        bonds.append((j, len(symbols)))
+        symbols.append('H')
+        positions = np.vstack([positions, positions[j] + 0.96 * h])
+    bridges = []
+    if heated:
+        tops = {owner[j][0]: j for j in silanols if positions[j, 2] > top - 3}  # each top Si and its OH
+        t = np.array(sorted(tops))
+        gaps = np.linalg.norm(minimum_image(positions[t][:, None] - positions[t][None], cell), axis=2)
+        partner = (gaps + 1e9 * np.eye(len(t))).argmin(1)
+        assert np.all(partner[partner] == np.arange(len(t))), 'nearest top neighbours are not mutual'
+        pairs = [(t[m], t[n]) for m, n in enumerate(partner) if m < n]
+        hydrogen = {j: k for j, k in bonds if symbols[k] == 'H'}
+        gone = set()
+        for keep, give in pairs:  # Si `give` bonds to the O of Si `keep`, and its own O leaves with both H
+            gone |= {tops[give], hydrogen[tops[keep]], hydrogen[tops[give]]}
+            bonds.append((give, tops[keep]))
+        kept = [k for k in range(len(symbols)) if k not in gone]
+        index = {k: m for m, k in enumerate(kept)}
+        symbols, positions = [symbols[k] for k in kept], positions[kept]
+        bonds = sorted(tuple(sorted((index[i], index[j]))) for i, j in bonds if i in index and j in index)
+        bridges = [index[tops[keep]] for keep, _ in pairs]
+        free = np.flatnonzero(positions[:, 2] > positions[:, 2].min() + 3)
+        positions = relax(symbols, positions, [(i, j) for i, j in bonds if 'H' not in (symbols[i], symbols[j])],
+                          free, cell)
+    slab = Atoms(symbols, positions - (0, 0, heights[gap]), cell=[*cell, 0], pbc=(True, True, False))
+    return slab, tuple(bridges)
+
+
+def silica_surface(heated, size, turn=0.0):
+    """The slab of `cristobalite_surface` turned `turn` degrees about z and repeated over `size` (x, y) Å with every
+    SiO4 group whole, centred on x = y = 0. Returns symbols, positions and a mask of the O that heating made into
+    bridges."""
+    slab, bridges = cristobalite_surface(heated)
+    cell = slab.cell.lengths()[:2]
+    spin = rotation((0, 0, 1), np.radians(turn))
+    turned = Atoms(slab.symbols, slab.positions @ spin.T, cell=slab.cell.array @ spin.T, pbc=slab.pbc)
+    repeat = np.ceil((np.linalg.norm(size) + 4) / cell).astype(int) - 2  # wide enough at any turn
+    middle = (repeat - 1) / 2 @ turned.cell.array[:2]
+    half = np.array([*np.divide(size, 2), np.inf])
+    symbols, positions = block(turned, (*repeat, 1), middle - half, middle + half, centres=('Si',))
+    gaps = minimum_image(positions[:, None] @ spin - slab.positions[list(bridges)][None], cell)
+    return symbols, positions - middle, (np.linalg.norm(gaps, axis=2) < 1e-3).any(1)

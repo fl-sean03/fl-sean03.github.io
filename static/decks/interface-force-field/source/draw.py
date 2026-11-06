@@ -162,6 +162,19 @@ def at(c, x, y):
 
 # Pictures --------------------------------------------------------------------------------------------
 
+def animate(frames, name, durations):
+    """An animated GIF of RGB frames that share one palette, with no dithering so still areas stay still."""
+    ASSETS.mkdir(exist_ok=True)
+    sample = Image.new('RGB', (frames[0].width, frames[0].height * len(frames[::8])))
+    for n, frame in enumerate(frames[::8]):
+        sample.paste(frame, (0, n * frame.height))
+    palette = sample.quantize(255, method=Image.Quantize.MEDIANCUT, dither=Image.Dither.NONE)
+    images = [frame.quantize(palette=palette, dither=Image.Dither.NONE) for frame in frames]
+    path = ASSETS / f'{name}.gif'
+    images[0].save(path, save_all=True, append_images=images[1:], duration=durations, loop=0, disposal=1)
+    return path
+
+
 def front_view(elevation):
     """A camera in front of a surface (on its −y side), raised `elevation` degrees above it."""
     a = np.radians(elevation)

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the slide story as a self-contained HTML viewer, an editable PowerPoint and presenter notes."""
+"""Build the slide story as an HTML viewer, an editable PowerPoint and presenter notes."""
 import argparse
 import base64
 import html
@@ -20,7 +20,7 @@ from pptx.enum.shapes import MSO_SHAPE
 from pptx.enum.text import MSO_ANCHOR, PP_ALIGN
 from pptx.util import Inches, Pt
 
-from style import ACCENT, BODY, INK, MUTED, TEAL
+from style import ACCENT, ANIMATION, BODY, GUTTER, INK, MUTED, TEAL
 
 HERE = Path(__file__).resolve().parent
 BUNDLE = HERE.parent
@@ -75,12 +75,17 @@ def shape(elements, x, y, width, height, color):
     elements.append(dict(kind='shape', x=x, y=y, w=width, h=height, color=color))
 
 
+def bundled(name):
+    """The path of a file the slides use, which must exist inside the bundle."""
+    path = (BUNDLE / name).resolve()
+    if not path.is_relative_to(BUNDLE) or not path.is_file():
+        raise ValueError(f'Missing or invalid file: {name}')
+    return path
+
+
 def picture(elements, slide, x, y, width, height):
     """Fit the slide's figure in the box, centred; returns its size."""
-    path = (BUNDLE / slide['figure']).resolve()
-    if not path.is_relative_to(BUNDLE) or not path.is_file():
-        raise ValueError(f'Missing or invalid figure: {slide["figure"]}')
-    with Image.open(path) as image:
+    with Image.open(bundled(slide['figure'])) as image:
         ratio = min(width / image.width, height / image.height)
         iw, ih = image.width * ratio, image.height * ratio
     elements.append(dict(kind='image', file=slide['figure'], alt=slide['alt'], x=x + (width - iw) / 2,
@@ -115,13 +120,22 @@ def cover(elements, slide, story):
 
 
 def figure(elements, slide, story):
-    """The title on the left, the slide's words on the right, and the figure across the slide below them."""
+    """The title on the left, the slide's words on the right, and the figure across the slide below them. A slide's
+    animation takes the right of the figure's row, with its caption under it."""
     heading(elements, slide, PROSE_X - 64 - LEFT, shrink(46, 42, 3), lh=1.14)
     column(elements, [(slide['lede'], False, BODY), (slide['takeaway'], True, INK)], PROSE_X, 92,
            LEFT + WIDTH - PROSE_X, 322)
-    width, _ = picture(elements, slide, LEFT, 336, WIDTH, 654)
-    if width < .97 * WIDTH:
-        raise ValueError(f'The figure shrinks to {width:.0f}px wide; draw it at 1728 × 654')
+    room = WIDTH - ANIMATION - GUTTER if slide.get('animation') else WIDTH
+    width, _ = picture(elements, slide, LEFT, 336, room, 654)
+    if width < .97 * room:
+        raise ValueError(f'The figure shrinks to {width:.0f}px wide; draw it at {room} × 654')
+    if slide.get('animation'):
+        x = LEFT + WIDTH - ANIMATION
+        for name in (slide['animation'], slide['animation_still']):
+            bundled(name)
+        elements.append(dict(kind='animation', file=slide['animation'], still=slide['animation_still'],
+                             alt=slide['animation_alt'], x=x, y=336, w=ANIMATION, h=ANIMATION))
+        text(elements, slide['animation_caption'], x, 336 + ANIMATION + 14, ANIMATION, [(20, 4)], color=MUTED)
 
 
 def bookend(elements, slide, story):
@@ -174,11 +188,19 @@ def px(value):
     return f'{round(value, 2):g}px'
 
 
+def animation_html(file, still, alt, attrs):
+    """An animation, linked rather than embedded, that shows its still to readers who ask for reduced motion."""
+    return (f'<picture><source media="(prefers-reduced-motion: reduce)" srcset="{html.escape(still)}">'
+            f'<img {attrs} alt="{html.escape(alt)}" src="{html.escape(file)}"></picture>')
+
+
 def element_html(el):
     style = f"left:{px(el['x'])};top:{px(el['y'])};width:{px(el['w'])};height:{px(el['h'])};"
     if el['kind'] == 'image':
         src = data_url(BUNDLE / el['file'])
         return f'<img class="element figure" style="{style}" alt="{html.escape(el["alt"])}" src="{src}">'
+    if el['kind'] == 'animation':
+        return animation_html(el['file'], el['still'], el['alt'], f'class="element animation" style="{style}"')
     if el['kind'] == 'shape':
         return f'<div class="element" aria-hidden="true" style="{style}background:{el["color"]}"></div>'
     style += f"font-size:{el['size']}px;font-weight:{700 if el['bold'] else 400};color:{el['color']};"
@@ -224,6 +246,12 @@ def article_html(story, n, slide):
         parts.append(f'<figure><img data-slide="{n}" {size} alt="{e(slide["alt"])}"></figure>')
     if slide.get('takeaway'):
         parts.append(f'<p class="r-take">{e(slide["takeaway"])}</p>')
+    if slide.get('animation'):
+        with Image.open(BUNDLE / slide['animation']) as image:
+            size = f'width="{image.width}" height="{image.height}"'
+        animation = animation_html(slide['animation'], slide['animation_still'], slide['animation_alt'], size)
+        parts.append(f'<figure class="r-anim">{animation}<figcaption>{e(slide["animation_caption"])}</figcaption>'
+                     '</figure>')
     parts += [f'<p class="r-body">{e(p)}</p>' for p in slide.get('body', [])]
     if slide.get('signoff'):
         parts.append(f'<p class="r-signoff">{e(slide["signoff"])}</p>')
@@ -281,7 +309,7 @@ def write_pptx(story, pages):
         slide.background.fill.fore_color.rgb = RGBColor(255, 255, 255)
         for el in elements:
             x, y, w, h = (Inches(el[key] / 144) for key in ('x', 'y', 'w', 'h'))
-            if el['kind'] == 'image':
+            if el['kind'] in ('image', 'animation'):  # PowerPoint plays an animated GIF as it is
                 image = slide.shapes.add_picture(str(BUNDLE / el['file']), x, y, w, h)
                 image._element.nvPicPr.cNvPr.set('descr', el['alt'])
                 continue
@@ -363,15 +391,18 @@ def write_notes(story):
 
 
 def write_manifest(story):
-    fields = ('kicker', 'lede', 'takeaway', 'body', 'figure', 'alt', 'refs', 'note_refs', 'notes')
+    fields = ('kicker', 'lede', 'takeaway', 'body', 'figure', 'alt', 'animation', 'animation_still', 'animation_alt',
+              'animation_caption', 'refs', 'note_refs', 'notes')
     manifest = {
         'schema': 'iff-presentation.citation-license/v3', 'prepared': '2026-11-05',
         'scientific_status': 'Published results are quoted from the cited papers and were not rerun. The PySCF '
                              'electron cloud of one water molecule was computed only to draw a picture and is not '
-                             'evidence.',
-        'figure_provenance': 'Every figure was drawn for this presentation from open crystal structures, published '
-                             'parameters and molecules built with RDKit. Pictures of molecules on surfaces are '
-                             'illustrations, not simulation snapshots. No third-party figure or text is reproduced.',
+                             'evidence. The growth animation on slide 2 follows a stated rule, written out in '
+                             'source/growth.py, to illustrate an idea. It is not a simulation and not evidence.',
+        'figure_provenance': 'Every figure and the slide 2 animation were drawn for this presentation from open '
+                             'crystal structures, published parameters and molecules built with RDKit. Pictures of '
+                             'molecules on surfaces are illustrations, not simulation snapshots. No third-party '
+                             'figure or text is reproduced.',
         'sources': story['sources'],
         'slides': [{'id': s['id'], 'page': n, 'title': s['title'], **{k: s[k] for k in fields if k in s}}
                    for n, s in enumerate(story['slides'], 1)]}

@@ -1,7 +1,6 @@
 #------------------------------------------------------------------------------
 #$Date: 2016-02-13 21:28:24 +0200 (Sat, 13 Feb 2016) $
 #$Revision: 176429 $
-#$URL: file:///home/coder/svn-repositories/_RELOADED_COD/cod-reloaded/cif/1/54/07/1540704.cif $
 #------------------------------------------------------------------------------
 #
 # This file is available in the Crystallography Open Database (COD),
